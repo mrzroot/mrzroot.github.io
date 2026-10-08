@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohammadreza Zare (M-R-Z) · Python Developer · Automation &amp; Backend</title>
-  <meta name="description" content="Portfolio of Mohammadreza Zare (M-R-Z, @mrzroot): Python developer from Mashhad, Iran, building automation, backend tools and open-source software.">
+  <title>M-R-Z // mrzroot · Python Automation &amp; Backend Builder</title>
+  <meta name="description" content="M-R-Z (Mohammadreza Zare, @mrzroot): Python automation and backend builder from Mashhad, Iran. Open-source tools, browser extensions, CI pipelines and AI-agent tooling.">
   <meta name="author" content="Mohammadreza Zare">
-  <meta name="theme-color" content="#0b0d12">
+  <meta name="theme-color" content="#05070b">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://mrzroot.github.io/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="M-R-Z · mrzroot">
-  <meta property="og:title" content="Mohammadreza Zare (M-R-Z) · Python Developer">
-  <meta property="og:description" content="Python developer building automation, backend tools and open-source software. Based in Mashhad, Iran.">
+  <meta property="og:site_name" content="M-R-Z // mrzroot">
+  <meta property="og:title" content="M-R-Z // mrzroot · Python Automation & Backend Builder">
+  <meta property="og:description" content="Codename M-R-Z. Python automation, backend services and open-source tools. Based in Mashhad, Iran.">
   <meta property="og:url" content="https://mrzroot.github.io/">
   <meta property="og:image" content="https://mrzroot.github.io/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="M-R-Z: Python developer, automation and backend">
+  <meta property="og:image:alt" content="M-R-Z // mrzroot: Python automation and backend builder">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fa_IR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mohammadreza Zare (M-R-Z) · Python Developer">
-  <meta name="twitter:description" content="Python developer building automation, backend tools and open-source software.">
+  <meta name="twitter:title" content="M-R-Z // mrzroot · Python Automation & Backend Builder">
+  <meta name="twitter:description" content="Codename M-R-Z. Python automation, backend services and open-source tools.">
   <meta name="twitter:image" content="https://mrzroot.github.io/assets/og-image.png">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -33,20 +33,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.github.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Vazirmatn:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var force = /[?&]boot=1/.test(location.search);
+        var seen = localStorage.getItem('mrz-booted') === '1';
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (force || (!seen && !reduce)) d.classList.add('booting');
+        var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('mrz-lang');
+        if (l === 'fa') { d.lang = 'fa'; d.dir = 'rtl'; }
+      } catch (e) {}
+      setTimeout(function () { if (!window.__mrz) d.classList.remove('booting'); }, 4000);
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Mohammadreza Zare",
-    "alternateName": ["M-R-Z", "mrzroot"],
+    "alternateName": ["M-R-Z", "mrzroot", "محمدرضا زارع"],
     "url": "https://mrzroot.github.io/",
     "image": "https://mrzroot.github.io/assets/avatar.jpg",
     "jobTitle": "Python Developer",
-    "knowsAbout": ["Python", "Automation", "Backend development", "APIs", "Open source"],
+    "knowsAbout": ["Python", "Automation", "Backend development", "APIs", "Browser extensions", "CI/CD", "Open source"],
     "address": {"@type": "PostalAddress", "addressLocality": "Mashhad", "addressCountry": "IR"},
     "sameAs": ["https://github.com/mrzroot", "https://t.me/mrzroot", "https://linkedin.com/in/mrzroot"]
   }
@@ -57,45 +70,53 @@
     <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" d="M21.94 4.3a1.2 1.2 0 0 0-1.62-1.36L2.84 9.76c-1.06.42-1.04 1.93.03 2.32l4.3 1.56 1.66 5.34c.24.78 1.22 1.02 1.8.44l2.46-2.42 4.4 3.24c.7.52 1.7.14 1.88-.72L21.94 4.3ZM9.6 13.9l8.2-7.06-6.78 8.3-.3 3.18-1.12-4.42Z"/></symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" d="M7 17 17 7M9 7h8v8"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.83 5.73 6.32.92-4.58 4.46 1.08 6.3L12 17.24l-5.65 2.97 1.08-6.3-4.58-4.46 6.32-.92L12 2.8Z"/></symbol>
-    <symbol id="i-fork" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 3v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V3M12 12v9M6 3h0M18 3h0"/><circle cx="6" cy="3" r="1.5" fill="currentColor"/><circle cx="18" cy="3" r="1.5" fill="currentColor"/><circle cx="12" cy="21" r="1.5" fill="currentColor"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
-    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h6M11 16.5h6"/></g></symbol>
-    <symbol id="i-puzzle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M10 3.5a2 2 0 1 1 4 0V6h4a1 1 0 0 1 1 1v4h-1.5a2 2 0 1 0 0 4H19v4a1 1 0 0 1-1 1h-4v-1.5a2 2 0 1 0-4 0V20H6a1 1 0 0 1-1-1v-4h1.5a2 2 0 1 0 0-4H5V7a1 1 0 0 1 1-1h4V3.5Z"/></symbol>
-    <symbol id="i-pipeline" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.5 12h4l5-6M11.5 12l5 6"/></g></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15ZM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="4" r="2"/><circle cx="18" cy="4" r="2"/><circle cx="12" cy="20" r="2"/><path d="M6 6v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V6M12 12v6"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 7h18M3 12h12M3 17h18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 5l14 14M19 5 5 19"/></symbol>
   </svg>
+
+  <!-- BOOT SEQUENCE -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <div class="boot-brand"><span class="boot-mark">M-R-Z</span><span class="boot-sub">mrzroot // system v2</span></div>
+      <pre class="boot-log" id="boot-log"></pre>
+      <div class="boot-bar"><span id="boot-fill"></span></div>
+      <div class="boot-meta"><span id="boot-pct">000%</span><button type="button" class="boot-skip" id="boot-skip" tabindex="-1">Skip <kbd>Esc</kbd></button></div>
+    </div>
+  </div>
+
+  <div class="fx-scan" aria-hidden="true"></div>
+  <div class="fx-vignette" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header" id="top">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="M-R-Z, back to top">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="30" height="30"><rect width="32" height="32" rx="8" fill="url(#bg)"/><defs><linearGradient id="bg" x1="0" y1="0" x2="32" y2="32"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><path d="M8 22V10l4.5 6L17 10v12" fill="none" stroke="#06121a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 22h5" stroke="#06121a" stroke-width="2.6" stroke-linecap="round"/></svg>
-        </span>
-        <span class="brand-text">M-R-Z<span class="brand-dim">/mrzroot</span></span>
+    <div class="wrap nav">
+      <a class="brand" href="#root" aria-label="M-R-Z, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M4 2h20l6 6v22H8l-6-6V4z" fill="#0b1a1a" stroke="#3df5d0" stroke-width="1.5"/><path d="M9 22V10l4 5.5L17 10v12" fill="none" stroke="#3df5d0" stroke-width="2.4" stroke-linecap="square"/><path d="M20 22h5" stroke="#ff3d7f" stroke-width="2.4"/></svg>
+        <span class="brand-text">M-R-Z<span class="brand-dim">//mrzroot</span></span>
       </a>
 
       <nav class="nav-links" id="nav-links" aria-label="Primary">
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#stack" data-i18n="nav.stack">Stack</a>
-        <a href="#projects" data-i18n="nav.projects">Projects</a>
-        <a href="#services" data-i18n="nav.services">What I do</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#origins"><span class="n">02</span><span data-i18n="nav.origins">Origins</span></a>
+        <a href="#arsenal"><span class="n">03</span><span data-i18n="nav.arsenal">Arsenal</span></a>
+        <a href="#operations"><span class="n">04</span><span data-i18n="nav.ops">Operations</span></a>
+        <a href="#hud"><span class="n">05</span><span data-i18n="nav.hud">Live HUD</span></a>
+        <a href="#log"><span class="n">06</span><span data-i18n="nav.log">Field log</span></a>
+        <a href="#comms"><span class="n">07</span><span data-i18n="nav.comms">Comms</span></a>
+        <p class="nav-foot"><span>Mashhad, IR · <span data-clock="short">--:--</span> TEH</span><a href="https://t.me/mrzroot" target="_blank" rel="noopener">t.me/mrzroot</a></p>
       </nav>
 
       <div class="nav-actions">
-        <button class="lang-toggle" type="button" id="lang-toggle" aria-label="تغییر زبان به فارسی" lang="fa">
-          <span class="lang-opt" data-lang="en">EN</span><span class="lang-sep" aria-hidden="true"></span><span class="lang-opt" data-lang="fa">فا</span>
+        <span class="sys-chip" aria-hidden="true"><i class="led"></i><span>TEH</span> <span class="sys-clock" data-clock="short">--:--</span></span>
+        <button class="lang-toggle" type="button" id="lang-toggle" aria-label="تغییر زبان به فارسی">
+          <span class="lang-opt" data-lang="en">EN</span><span class="lang-opt" data-lang="fa" lang="fa">فا</span>
         </button>
-        <a class="btn btn-primary btn-sm nav-cta" href="https://t.me/mrzroot" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="nav.cta">Message me</span>
+        <a class="btn btn-neon btn-sm nav-cta" href="https://t.me/mrzroot" target="_blank" rel="noopener" aria-label="Message @mrzroot on Telegram">
+          <svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="nav.cta">Telegram</span>
         </a>
         <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
           <svg class="ico ico-open" aria-hidden="true"><use href="#i-menu"/></svg>
@@ -105,301 +126,381 @@
     </div>
   </header>
 
+  <nav class="rail" aria-label="Chapters">
+    <a href="#root" data-rail="root"><span>01</span></a>
+    <a href="#origins" data-rail="origins"><span>02</span></a>
+    <a href="#arsenal" data-rail="arsenal"><span>03</span></a>
+    <a href="#operations" data-rail="operations"><span>04</span></a>
+    <a href="#hud" data-rail="hud"><span>05</span></a>
+    <a href="#log" data-rail="log"><span>06</span></a>
+    <a href="#comms" data-rail="comms"><span>07</span></a>
+  </nav>
+
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"><div class="grid-fade"></div><div class="glow glow-a"></div><div class="glow glow-b"></div></div>
-      <div class="container hero-inner">
+    <!-- CH.01 ROOT -->
+    <section class="hero" id="root" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"><div class="grid-plane"></div><div class="orb orb-a"></div><div class="orb orb-b"></div></div>
+      <div class="wrap hero-inner">
         <div class="hero-copy">
-          <p class="status-pill reveal">
-            <span class="dot" aria-hidden="true"></span>
-            <span data-i18n="hero.status">Open to collaboration</span>
-            <span class="pill-sep" aria-hidden="true">·</span>
-            <svg class="ico ico-xs" aria-hidden="true"><use href="#i-pin"/></svg>
-            <span data-i18n="hero.location">Mashhad, Iran</span>
-          </p>
-          <h1 id="hero-title" class="hero-title reveal">
-            <span class="hero-name" data-i18n="hero.name">Mohammadreza Zare</span>
-            <span class="hero-role" data-i18n-html="hero.role">I build <em>Python automation</em> and <em>backend tools</em> that quietly do the work.</span>
+          <div class="ch-label reveal"><span class="ch-num">CH.01</span><span class="ch-line"></span><span class="ch-code">ROOT</span><span class="ch-accent" lang="fa">فصل ۰۱ · ریشه</span></div>
+          <p class="status-line reveal"><i class="led led-ok"></i><span data-i18n="hero.status">Online · open to collaboration</span><span class="sep">/</span><span data-i18n="hero.base">Mashhad, IR</span></p>
+          <h1 id="hero-title" class="reveal">
+            <span class="sr-only" data-i18n="hero.sr">M-R-Z, Mohammadreza Zare: Python automation and backend builder</span>
+            <span class="codename glitch" data-text="M-R-Z" aria-hidden="true">M-R-Z</span>
+            <span class="realname" aria-hidden="true"><span data-i18n="hero.name">Mohammadreza Zare</span> <span class="handle">@mrzroot</span></span>
           </h1>
-          <p class="hero-lead reveal" data-i18n="hero.lead">Developer behind M-R-Z / mrzroot. I write clean, readable code, ship small practical tools, and share them as open source, from browser extensions to CI pipelines and developer toolkits.</p>
+          <p class="hero-role reveal" data-i18n-html="hero.role">Python <em>automation</em> &amp; <em>backend</em> builder.</p>
+          <p class="hero-lead reveal" data-i18n="hero.lead">I write small, sharp tools that take repetitive work off people's plates: scripts, services, browser extensions and CI pipelines. Clean code, simple setup, shipped as open source.</p>
           <div class="hero-ctas reveal">
-            <a class="btn btn-primary" href="https://t.me/mrzroot" target="_blank" rel="noopener">
-              <svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="hero.cta1">Chat on Telegram</span>
-            </a>
-            <a class="btn btn-ghost" href="#projects">
-              <span data-i18n="hero.cta2">View projects</span><svg class="ico ico-dir" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </a>
+            <a class="btn btn-neon" href="https://t.me/mrzroot" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="hero.cta1">Open channel on Telegram</span></a>
+            <a class="btn btn-line" href="#operations"><span data-i18n="hero.cta2">View operations</span><svg class="ico ico-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
-          <dl class="hero-stats reveal">
-            <div><dt data-i18n="hero.stat1">Public repositories</dt><dd><span data-stat="repos" class="num">15</span></dd></div>
-            <div><dt data-i18n="hero.stat2">Primary language</dt><dd>Python</dd></div>
-            <div><dt data-i18n="hero.stat3">On GitHub since</dt><dd><span class="num">2024</span></dd></div>
+          <dl class="spec reveal">
+            <div><dt data-i18n="spec.class">Class</dt><dd data-i18n="spec.classV">Builder</dd></div>
+            <div><dt data-i18n="spec.core">Core</dt><dd>Python</dd></div>
+            <div><dt data-i18n="spec.repos">Public repos</dt><dd><span class="num" data-stat="repos">15</span></dd></div>
+            <div><dt data-i18n="spec.since">Online since</dt><dd><span class="num">2024</span></dd></div>
           </dl>
         </div>
 
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="code-card" dir="ltr">
-            <div class="code-head">
-              <span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span>
-              <span class="code-file">developer.py</span>
+        <div class="term-wrap reveal">
+          <div class="term" id="term" dir="ltr">
+            <div class="term-bar">
+              <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="term-title">mrzroot@mashhad: ~</span>
+              <span class="term-tag">zsh · 80x24</span>
             </div>
-<pre class="code-body"><code><span class="c-k">from</span> dataclasses <span class="c-k">import</span> dataclass, field
-
-
-<span class="c-d">@dataclass</span>
-<span class="c-k">class</span> <span class="c-t">Developer</span>:
-    name: <span class="c-t">str</span> = <span class="c-s">"M-R-Z"</span>
-    handle: <span class="c-t">str</span> = <span class="c-s">"mrzroot"</span>
-    base: <span class="c-t">str</span> = <span class="c-s">"Mashhad, IR"</span>
-    focus: <span class="c-t">list</span> = field(default_factory=<span class="c-k">lambda</span>: [
-        <span class="c-s">"python automation"</span>,
-        <span class="c-s">"backend &amp; APIs"</span>,
-        <span class="c-s">"open source tools"</span>,
-    ])
-
-    <span class="c-k">def</span> <span class="c-f">principle</span>(self) -&gt; <span class="c-t">str</span>:
-        <span class="c-k">return</span> <span class="c-s">"simple, fast, readable"</span>
-
-<span class="c-c"># $ python -m developer --ship</span><span class="caret"></span></code></pre>
+            <div class="term-out" id="term-out" role="log" aria-live="polite" aria-label="Terminal output"></div>
+            <form class="term-in" id="term-form" autocomplete="off">
+              <label for="term-input" class="prompt"><span class="p-user">mrzroot</span><span class="p-at">@</span><span class="p-host">mrz</span><span class="p-path">:~$</span><span class="sr-only">Terminal command</span></label>
+              <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" enterkeyhint="send" aria-describedby="term-hint">
+            </form>
           </div>
-          <div class="float-chip chip-a"><svg class="ico ico-xs"><use href="#i-bolt"/></svg>automation</div>
-          <div class="float-chip chip-b"><svg class="ico ico-xs"><use href="#i-server"/></svg>backend</div>
+          <div class="term-chips" role="group" aria-label="Quick commands">
+            <button type="button" data-cmd="help">help</button>
+            <button type="button" data-cmd="whoami">whoami</button>
+            <button type="button" data-cmd="projects">projects</button>
+            <button type="button" data-cmd="stack">stack</button>
+            <button type="button" data-cmd="hud">hud</button>
+            <button type="button" data-cmd="contact">contact</button>
+          </div>
+          <p class="term-hint" id="term-hint" data-i18n-html="hero.hint">Type <kbd>help</kbd> and press Enter. Press <kbd>/</kbd> anywhere to focus the terminal.</p>
         </div>
       </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span></span></a>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container about">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow-num">01</span><span data-i18n="about.eyebrow">About</span></p>
-          <h2 id="about-title" data-i18n="about.title">Practical software, written to be read.</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p data-i18n="about.p1">I'm Mohammadreza Zare, known online as M-R-Z (mrzroot), a Python developer based in Mashhad, Iran. Most of my work lives where automation meets the backend: scripts that remove repetitive tasks, small services and APIs, and the tooling that keeps them running.</p>
-            <p data-i18n="about.p2">I care about keeping things simple. Less code, clear names, and tools that are easy to install and easy to understand. When something I build is useful to others, I publish it, whether that's a curated resource list for Persian developers, a browser extension, or a toolkit for AI coding agents.</p>
-            <ul class="principles" role="list">
-              <li><span class="p-ico" aria-hidden="true">01</span><div><strong data-i18n="about.k1">Solve real problems</strong><span data-i18n="about.k1d">Build practical tools for everyday friction.</span></div></li>
-              <li><span class="p-ico" aria-hidden="true">02</span><div><strong data-i18n="about.k2">Less is more</strong><span data-i18n="about.k2d">Clean, readable and simple code over cleverness.</span></div></li>
-              <li><span class="p-ico" aria-hidden="true">03</span><div><strong data-i18n="about.k3">Learn in public</strong><span data-i18n="about.k3d">Keep learning, and share it with the community.</span></div></li>
-            </ul>
+    <!-- CH.02 ORIGINS -->
+    <section class="chapter" id="origins" aria-labelledby="origins-title">
+      <div class="wrap">
+        <header class="ch-head reveal">
+          <div class="ch-label"><span class="ch-num">CH.02</span><span class="ch-line"></span><span class="ch-code">ORIGINS</span><span class="ch-accent" lang="fa">فصل ۰۲ · خاستگاه</span></div>
+          <h2 id="origins-title" data-i18n="origins.title">Built to remove the boring parts.</h2>
+        </header>
+        <div class="origins-grid">
+          <div class="origins-text reveal">
+            <p class="lead-strong" data-i18n="origins.p1">I'm Mohammadreza Zare, codename M-R-Z, handle mrzroot: a Python developer working out of Mashhad, Iran.</p>
+            <p data-i18n="origins.p2">My work sits where automation meets the backend. Scripts that kill repetitive tasks, small services and APIs, and the tooling around them: browser extensions, CI pipelines, and lately, tools that keep AI coding agents in line.</p>
+            <p data-i18n="origins.p3">I keep things simple on purpose. Less code, clear names, setup in minutes. When a tool helps me, I publish it so it can help someone else too.</p>
+            <ol class="directives" role="list">
+              <li><span class="dir-id">DIR-01</span><div><strong data-i18n="origins.d1">Solve real problems</strong><span data-i18n="origins.d1d">Practical tools for everyday friction, not demos.</span></div></li>
+              <li><span class="dir-id">DIR-02</span><div><strong data-i18n="origins.d2">Less is more</strong><span data-i18n="origins.d2d">Clean, readable, simple code beats clever code.</span></div></li>
+              <li><span class="dir-id">DIR-03</span><div><strong data-i18n="origins.d3">Learn in public</strong><span data-i18n="origins.d3d">Keep learning, keep sharing with the community.</span></div></li>
+            </ol>
           </div>
-          <aside class="profile-card reveal" aria-label="Profile summary">
-            <div class="profile-top">
-              <img class="avatar" src="/assets/avatar.jpg" width="72" height="72" alt="GitHub avatar of mrzroot" loading="lazy" decoding="async">
+          <aside class="dossier reveal" aria-labelledby="dossier-title">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="dossier-head">
+              <span id="dossier-title" data-i18n="dossier.title">Operator dossier</span>
+              <span class="dossier-id">ID 155621094</span>
+            </div>
+            <div class="dossier-top">
+              <div class="avatar-frame"><img src="/assets/avatar.jpg" width="84" height="84" alt="GitHub avatar of mrzroot" loading="lazy" decoding="async"><span class="scanbar" aria-hidden="true"></span></div>
               <div>
-                <p class="profile-name" data-i18n="hero.name">Mohammadreza Zare</p>
-                <p class="profile-handle">@mrzroot</p>
+                <p class="d-codename">M-R-Z</p>
+                <p class="d-name" data-i18n="hero.name">Mohammadreza Zare</p>
+                <p class="d-handle">@mrzroot</p>
               </div>
             </div>
-            <dl class="facts">
-              <div><dt data-i18n="facts.role">Role</dt><dd data-i18n="facts.roleV">Python developer</dd></div>
-              <div><dt data-i18n="facts.focus">Focus</dt><dd data-i18n="facts.focusV">Automation · Backend · Open source</dd></div>
-              <div><dt data-i18n="facts.base">Based in</dt><dd data-i18n="hero.location">Mashhad, Iran</dd></div>
-              <div><dt data-i18n="facts.learning">Learning</dt><dd data-i18n="facts.learningV">Backend &amp; data tooling</dd></div>
-              <div><dt data-i18n="facts.contact">Best contact</dt><dd><a href="https://t.me/mrzroot" target="_blank" rel="noopener">t.me/mrzroot</a></dd></div>
+            <dl class="d-fields">
+              <div><dt data-i18n="dossier.class">Class</dt><dd data-i18n="dossier.classV">Automation &amp; backend builder</dd></div>
+              <div><dt data-i18n="dossier.primary">Primary</dt><dd>Python</dd></div>
+              <div><dt data-i18n="dossier.base">Base</dt><dd data-i18n="dossier.baseV">Mashhad, Iran · 36.3°N 59.6°E</dd></div>
+              <div><dt data-i18n="dossier.since">On the grid</dt><dd data-i18n="dossier.sinceV">GitHub since Jan 2024</dd></div>
+              <div><dt data-i18n="dossier.learning">Training</dt><dd data-i18n="dossier.learningV">Backend &amp; data tooling</dd></div>
+              <div><dt data-i18n="dossier.channel">Channel</dt><dd><a href="https://t.me/mrzroot" target="_blank" rel="noopener" dir="ltr">t.me/mrzroot</a></dd></div>
             </dl>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- STACK -->
-    <section class="section section-alt" id="stack" aria-labelledby="stack-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow-num">02</span><span data-i18n="stack.eyebrow">Skills &amp; stack</span></p>
-          <h2 id="stack-title" data-i18n="stack.title">The tools I reach for.</h2>
-          <p class="section-sub" data-i18n="stack.sub">Python first, with the web and DevOps tooling needed to take an idea from script to shipped.</p>
-        </div>
-        <div class="stack-grid">
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-bolt"/></svg></span><span data-i18n="stack.g1">Languages</span></h3>
-            <ul class="tags" role="list"><li class="tag tag-hl">Python</li><li class="tag">TypeScript</li><li class="tag">JavaScript</li><li class="tag">PHP</li><li class="tag">Groovy</li><li class="tag">SQL</li></ul>
+    <!-- CH.03 ARSENAL -->
+    <section class="chapter chapter-alt" id="arsenal" aria-labelledby="arsenal-title">
+      <div class="wrap">
+        <header class="ch-head reveal">
+          <div class="ch-label"><span class="ch-num">CH.03</span><span class="ch-line"></span><span class="ch-code">ARSENAL</span><span class="ch-accent" lang="fa">فصل ۰۳ · جعبه‌ابزار</span></div>
+          <h2 id="arsenal-title" data-i18n="arsenal.title">Loadout.</h2>
+          <p class="ch-sub" data-i18n="arsenal.sub">Python at the core, with the web and DevOps modules needed to take an idea from script to shipped.</p>
+        </header>
+        <div class="arsenal-grid">
+          <article class="module module-core reveal">
+            <div class="mod-head"><span class="mod-id">MOD-00</span><span class="mod-state" data-i18n="arsenal.core">Core</span></div>
+            <pre class="zen"><span class="ok">&gt;&gt;&gt;</span> import this
+<span class="dim">...</span>
+Simple is better than complex.
+Readability counts.</pre>
+            <h3>Python</h3>
+<p data-i18n="arsenal.coreD">Automation scripts, backend services and tooling. The language everything else plugs into.</p>
+            <ul class="chips" role="list"><li class="chip chip-hot">Django</li><li class="chip chip-hot">Flask</li><li class="chip">FastAPI</li><li class="chip">scripting</li><li class="chip">automation</li></ul>
           </article>
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-server"/></svg></span><span data-i18n="stack.g2">Backend &amp; APIs</span></h3>
-            <ul class="tags" role="list"><li class="tag tag-hl">Django</li><li class="tag tag-hl">Flask</li><li class="tag">FastAPI</li><li class="tag">Laravel</li><li class="tag">Node.js</li><li class="tag">REST</li><li class="tag">WebSocket</li></ul>
+          <article class="module reveal">
+            <div class="mod-head"><span class="mod-id">MOD-01</span><span class="mod-state" data-i18n="arsenal.m1s">Languages</span></div>
+            <h3 data-i18n="arsenal.m1">Languages</h3>
+            <ul class="chips" role="list"><li class="chip chip-hot">Python</li><li class="chip">TypeScript</li><li class="chip">JavaScript</li><li class="chip">PHP</li><li class="chip">Groovy</li><li class="chip">SQL</li></ul>
           </article>
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-book"/></svg></span><span data-i18n="stack.g3">Data</span></h3>
-            <ul class="tags" role="list"><li class="tag">MySQL</li><li class="tag">SQLite</li><li class="tag">PostgreSQL</li><li class="tag">Redis</li></ul>
+          <article class="module reveal">
+            <div class="mod-head"><span class="mod-id">MOD-02</span><span class="mod-state">API</span></div>
+            <h3 data-i18n="arsenal.m2">Backend &amp; APIs</h3>
+            <ul class="chips" role="list"><li class="chip">Laravel</li><li class="chip">Node.js</li><li class="chip">REST</li><li class="chip">WebSocket</li></ul>
           </article>
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-puzzle"/></svg></span><span data-i18n="stack.g4">Frontend &amp; browser</span></h3>
-            <ul class="tags" role="list"><li class="tag">React</li><li class="tag">Vue</li><li class="tag">HTML &amp; CSS</li><li class="tag">Chrome Extensions (MV3)</li></ul>
+          <article class="module reveal">
+            <div class="mod-head"><span class="mod-id">MOD-03</span><span class="mod-state">DATA</span></div>
+            <h3 data-i18n="arsenal.m3">Data</h3>
+            <ul class="chips" role="list"><li class="chip">MySQL</li><li class="chip">SQLite</li><li class="chip">PostgreSQL</li><li class="chip">Redis</li></ul>
           </article>
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-pipeline"/></svg></span><span data-i18n="stack.g5">DevOps &amp; workflow</span></h3>
-            <ul class="tags" role="list"><li class="tag tag-hl">Git</li><li class="tag">GitHub</li><li class="tag">Jenkins</li><li class="tag">Docker</li><li class="tag">CI/CD</li></ul>
+          <article class="module reveal">
+            <div class="mod-head"><span class="mod-id">MOD-04</span><span class="mod-state">WEB</span></div>
+            <h3 data-i18n="arsenal.m4">Frontend &amp; browser</h3>
+            <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vue</li><li class="chip">HTML/CSS</li><li class="chip">Extensions MV3</li></ul>
           </article>
-          <article class="stack-card reveal">
-            <h3><span class="stack-ico" aria-hidden="true"><svg class="ico"><use href="#i-github"/></svg></span><span data-i18n="stack.g6">AI agent tooling</span></h3>
-            <ul class="tags" role="list"><li class="tag">Cursor</li><li class="tag">Claude Code</li><li class="tag">Copilot</li><li class="tag">Agent rules &amp; skills</li><li class="tag">AST context compression</li></ul>
+          <article class="module module-wide reveal">
+            <div class="mod-head"><span class="mod-id">MOD-05</span><span class="mod-state">OPS</span></div>
+            <h3 data-i18n="arsenal.m5">DevOps &amp; workflow</h3>
+            <ul class="chips" role="list"><li class="chip chip-hot">Git</li><li class="chip">GitHub</li><li class="chip">Jenkins</li><li class="chip">Docker</li><li class="chip">CI/CD</li></ul>
+          </article>
+          <article class="module module-wide reveal">
+            <div class="mod-head"><span class="mod-id">MOD-06</span><span class="mod-state">AI</span></div>
+            <h3 data-i18n="arsenal.m6">AI agent tooling</h3>
+            <ul class="chips" role="list"><li class="chip">Cursor</li><li class="chip">Claude Code</li><li class="chip">Copilot</li><li class="chip">agent rules</li><li class="chip">AST compression</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section-head section-head-row reveal">
+    <!-- CH.04 OPERATIONS -->
+    <section class="chapter" id="operations" aria-labelledby="ops-title">
+      <div class="wrap">
+        <header class="ch-head ch-head-row reveal">
           <div>
-            <p class="eyebrow"><span class="eyebrow-num">03</span><span data-i18n="projects.eyebrow">Featured projects</span></p>
-            <h2 id="projects-title" data-i18n="projects.title">Open-source work.</h2>
-            <p class="section-sub" data-i18n="projects.sub">Selected public repositories. Stars, forks and update dates load live from GitHub.</p>
+            <div class="ch-label"><span class="ch-num">CH.04</span><span class="ch-line"></span><span class="ch-code">OPERATIONS</span><span class="ch-accent" lang="fa">فصل ۰۴ · عملیات</span></div>
+            <h2 id="ops-title" data-i18n="ops.title">Field operations.</h2>
+            <p class="ch-sub" data-i18n="ops.sub">Selected public repositories. Telemetry (stars, forks, last push) streams live from GitHub.</p>
           </div>
-          <a class="btn btn-ghost" href="https://github.com/mrzroot?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.all">All repositories</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+          <a class="btn btn-line" href="https://github.com/mrzroot?tab=repositories" target="_blank" rel="noopener"><span data-i18n="ops.all">All repositories</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+        </header>
+
+        <div class="filters reveal" role="group" aria-label="Filter operations">
+          <button type="button" class="filter" data-filter="all" aria-pressed="true"><span data-i18n="ops.f.all">All</span><b>6</b></button>
+          <button type="button" class="filter" data-filter="tools" aria-pressed="false"><span data-i18n="ops.f.tools">Tools</span><b>2</b></button>
+          <button type="button" class="filter" data-filter="ext" aria-pressed="false"><span data-i18n="ops.f.ext">Extensions</span><b>2</b></button>
+          <button type="button" class="filter" data-filter="ops" aria-pressed="false"><span data-i18n="ops.f.ops">DevOps</span><b>1</b></button>
+          <button type="button" class="filter" data-filter="intel" aria-pressed="false"><span data-i18n="ops.f.intel">Knowledge</span><b>1</b></button>
         </div>
 
-        <div class="projects-grid">
-          <article class="project-card project-wide reveal" data-repo="agentforge">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-bolt"/></svg></span>
-              <span class="pc-badge" data-i18n="projects.badgeFlag">Flagship</span>
+        <div class="ops-grid" id="ops-grid">
+          <article class="op op-wide reveal" data-repo="agentforge" data-cat="tools">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-01</span><span class="op-type" data-i18n="ops.t.toolkit">Developer toolkit</span><span class="op-status st-active" data-i18n="ops.s.active">Active</span></div>
+            <div class="op-body">
+              <div>
+                <h3><a class="op-link" href="https://github.com/mrzroot/agentforge" target="_blank" rel="noopener">AgentForge</a></h3>
+                <p data-i18n="ops.agentforge">A toolkit for AI coding agents: keep one set of rules in sync across Cursor, Claude Code, Windsurf, Copilot, Roo and Aider, compress code context with AST analysis, and lint rules for security issues and conflicts.</p>
+                <ul class="chips chips-sm" role="list"><li class="chip">TypeScript</li><li class="chip">Node.js</li><li class="chip">CLI</li><li class="chip">LLM tooling</li></ul>
+              </div>
+              <ul class="op-intel" role="list">
+                <li><strong data-i18n="ops.h1">Rule sync</strong><span data-i18n="ops.h1d">One rule source for 7 coding agents</span></li>
+                <li><strong data-i18n="ops.h2">AST compressor</strong><span data-i18n="ops.h2d">Smaller code context for LLMs</span></li>
+                <li><strong data-i18n="ops.h3">Rule linter</strong><span data-i18n="ops.h3d">Flags security issues and conflicts</span></li>
+                <li><strong data-i18n="ops.h4">Agent skills</strong><span data-i18n="ops.h4d">50+ reusable skills included</span></li>
+              </ul>
             </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/agentforge" target="_blank" rel="noopener">AgentForge</a></h3>
-            <p data-i18n="projects.agentforge">A toolkit for AI coding agents: keep one set of rules in sync across Cursor, Claude Code, Windsurf, Copilot, Roo and Aider, compress code context with AST analysis, and lint rules for security issues and conflicts.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">TypeScript</li><li class="tag">Node.js</li><li class="tag">CLI</li><li class="tag">LLM tooling</li></ul>
-            <ul class="pc-highlights" role="list">
-              <li><strong data-i18n="projects.h1">Rule sync</strong><span data-i18n="projects.h1d">One source of rules for 7 coding agents</span></li>
-              <li><strong data-i18n="projects.h2">AST compressor</strong><span data-i18n="projects.h2d">Smaller code context for LLMs</span></li>
-              <li><strong data-i18n="projects.h3">Rule linter</strong><span data-i18n="projects.h3d">Flags security issues and conflicts</span></li>
-              <li><strong data-i18n="projects.h4">Agent skills</strong><span data-i18n="projects.h4d">50+ reusable skills included</span></li>
-            </ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#3178c6"></i><span data-f="language">TypeScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">3</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+            <div class="op-tele"><span class="lang"><i style="--c:#3178c6"></i><span data-f="language">TypeScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">3</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
           </article>
 
-          <article class="project-card reveal" data-repo="awesome-persian-developer-resources">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-book"/></svg></span>
-              <span class="pc-badge" data-i18n="projects.badgeList">Curated list</span>
-            </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/awesome-persian-developer-resources" target="_blank" rel="noopener">Awesome Persian Developer Resources</a></h3>
-            <p data-i18n="projects.awesome">A curated hub for Iranian developers: anti-sanction DNS and tools, free Iranian public APIs, Persian fonts, Python and backend packages, and AI/NLP resources.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">Awesome list</li><li class="tag">Persian</li><li class="tag">CC0</li></ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#8b949e"></i><span data-f="language">Markdown</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+          <article class="op reveal" data-repo="awesome-persian-developer-resources" data-cat="intel">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-02</span><span class="op-type" data-i18n="ops.t.list">Curated list</span><span class="op-status st-active" data-i18n="ops.s.active">Active</span></div>
+            <h3><a class="op-link" href="https://github.com/mrzroot/awesome-persian-developer-resources" target="_blank" rel="noopener">Awesome Persian Developer Resources</a></h3>
+            <p data-i18n="ops.awesome">A curated hub for Iranian developers: anti-sanction DNS and tools, free Iranian public APIs, Persian fonts, Python and backend packages, and AI/NLP resources.</p>
+            <ul class="chips chips-sm" role="list"><li class="chip">Awesome list</li><li class="chip">Persian</li><li class="chip">CC0</li></ul>
+            <div class="op-tele"><span class="lang"><i style="--c:#8b949e"></i><span data-f="language">Markdown</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
           </article>
 
-          <article class="project-card reveal" data-repo="universal-video-downloader">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-puzzle"/></svg></span>
-              <span class="pc-badge" data-i18n="projects.badgeExt">Browser extension</span>
-            </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/universal-video-downloader" target="_blank" rel="noopener">Universal Video Downloader</a></h3>
-            <p data-i18n="projects.uvd">A Manifest V3 extension for Chrome and Edge that detects video streams on a page (HLS/M3U8 and MP4) and lets you save them, entirely client-side.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">Manifest V3</li><li class="tag">HLS / M3U8</li><li class="tag">Chrome · Edge</li></ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#f1e05a"></i><span data-f="language">JavaScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">0</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+          <article class="op reveal" data-repo="universal-video-downloader" data-cat="ext">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-03</span><span class="op-type" data-i18n="ops.t.ext">Browser extension</span><span class="op-status st-active" data-i18n="ops.s.active">Active</span></div>
+            <h3><a class="op-link" href="https://github.com/mrzroot/universal-video-downloader" target="_blank" rel="noopener">Universal Video Downloader</a></h3>
+            <p data-i18n="ops.uvd">A Manifest V3 extension for Chrome and Edge that detects video streams on a page (HLS/M3U8 and MP4) and lets you save them, entirely client-side.</p>
+            <ul class="chips chips-sm" role="list"><li class="chip">Manifest V3</li><li class="chip">HLS / M3U8</li><li class="chip">Chrome · Edge</li></ul>
+            <div class="op-tele"><span class="lang"><i style="--c:#f1e05a"></i><span data-f="language">JavaScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">0</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
           </article>
 
-          <article class="project-card reveal" data-repo="page-smash">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-puzzle"/></svg></span>
-              <span class="pc-badge" data-i18n="projects.badgeExt">Browser extension</span>
-            </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/page-smash" target="_blank" rel="noopener">Page Smash</a></h3>
-            <p data-i18n="projects.smash">An original, physics-driven browser extension for Chrome, Edge and Firefox: fly a jetpack character over any webpage and smash its text and images apart.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">Physics</li><li class="tag">Chrome · Edge · Firefox</li></ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#f1e05a"></i><span data-f="language">JavaScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">0</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+          <article class="op reveal" data-repo="page-smash" data-cat="ext">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-04</span><span class="op-type" data-i18n="ops.t.ext">Browser extension</span><span class="op-status st-new" data-i18n="ops.s.new">Latest</span></div>
+            <h3><a class="op-link" href="https://github.com/mrzroot/page-smash" target="_blank" rel="noopener">Page Smash</a></h3>
+            <p data-i18n="ops.smash">An original, physics-driven extension for Chrome, Edge and Firefox: fly a jetpack character over any webpage and smash its text and images apart.</p>
+            <ul class="chips chips-sm" role="list"><li class="chip">Physics</li><li class="chip">Chrome · Edge · Firefox</li></ul>
+            <div class="op-tele"><span class="lang"><i style="--c:#f1e05a"></i><span data-f="language">JavaScript</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">0</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
           </article>
 
-          <article class="project-card reveal" data-repo="jenkins">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-pipeline"/></svg></span>
-              <span class="pc-badge" data-i18n="projects.badgeCI">CI/CD</span>
-            </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/jenkins" target="_blank" rel="noopener">Jenkins Pipeline Examples</a></h3>
-            <p data-i18n="projects.jenkins">A compact set of declarative Jenkins pipelines in Groovy, with staged builds and an SCM-polling variant. A clean starting point for pipeline-as-code.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">Groovy</li><li class="tag">Jenkinsfile</li><li class="tag">SCM polling</li></ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#4298b8"></i><span data-f="language">Groovy</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+          <article class="op reveal" data-repo="jenkins" data-cat="ops">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-05</span><span class="op-type">CI/CD</span><span class="op-status st-archive" data-i18n="ops.s.ref">Reference</span></div>
+            <h3><a class="op-link" href="https://github.com/mrzroot/jenkins" target="_blank" rel="noopener">Jenkins Pipeline Examples</a></h3>
+            <p data-i18n="ops.jenkins">A compact set of declarative Jenkins pipelines in Groovy, with staged builds and an SCM-polling variant. A clean starting point for pipeline-as-code.</p>
+            <ul class="chips chips-sm" role="list"><li class="chip">Groovy</li><li class="chip">Jenkinsfile</li><li class="chip">SCM polling</li></ul>
+            <div class="op-tele"><span class="lang"><i style="--c:#4298b8"></i><span data-f="language">Groovy</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
           </article>
 
-          <article class="project-card reveal" data-repo="printbridge">
-            <div class="pc-top">
-              <span class="pc-ico" aria-hidden="true"><svg class="ico"><use href="#i-server"/></svg></span>
-              <span class="pc-badge pc-badge-muted" data-i18n="projects.badgeFork">Fork</span>
+          <article class="op reveal" data-repo="printbridge" data-cat="tools">
+            <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="op-head"><span class="op-id">OP-06</span><span class="op-type" data-i18n="ops.t.agent">Local agent</span><span class="op-status st-fork" data-i18n="ops.s.fork">Fork</span></div>
+            <h3><a class="op-link" href="https://github.com/mrzroot/printbridge" target="_blank" rel="noopener">PrintBridge</a></h3>
+            <p data-i18n-html="ops.printbridge">A silent local printing agent that lets web apps send PDFs and thermal labels straight to printers, with no browser dialog. Forked from <a href="https://github.com/AnouarSbia/printbridge" target="_blank" rel="noopener">AnouarSbia/printbridge</a>; full credit to the original author.</p>
+            <ul class="chips chips-sm" role="list"><li class="chip">Python</li><li class="chip">WebSocket</li><li class="chip">POS printing</li></ul>
+            <div class="op-tele"><span class="lang"><i style="--c:#3572a5"></i><span data-f="language">Python</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="op-push" data-f="updated"></span></div>
+          </article>
+        </div>
+        <p class="ops-empty" id="ops-empty" hidden data-i18n="ops.empty">No operations in this category.</p>
+      </div>
+    </section>
+
+    <!-- CH.05 LIVE HUD -->
+    <section class="chapter chapter-alt" id="hud" aria-labelledby="hud-title">
+      <div class="wrap">
+        <header class="ch-head ch-head-row reveal">
+          <div>
+            <div class="ch-label"><span class="ch-num">CH.05</span><span class="ch-line"></span><span class="ch-code">LIVE HUD</span><span class="ch-accent" lang="fa">فصل ۰۵ · پایش زنده</span></div>
+            <h2 id="hud-title" data-i18n="hud.title">Live telemetry.</h2>
+            <p class="ch-sub" data-i18n="hud.sub">Real data from the public GitHub API, refreshed every visit (cached for 10 minutes), plus local time at base.</p>
+          </div>
+          <p class="hud-src"><i class="led" id="hud-led"></i><span id="hud-src-text" data-i18n="hud.connecting">Connecting to api.github.com…</span></p>
+        </header>
+
+        <div class="hud-grid">
+          <article class="panel p-clock reveal">
+            <div class="panel-head"><span data-i18n="hud.clock">Base clock</span><span class="panel-id">TZ Asia/Tehran</span></div>
+            <p class="clock-big" dir="ltr"><span data-clock="long">--:--:--</span></p>
+            <p class="clock-date" data-clock="date">&nbsp;</p>
+            <dl class="mini">
+              <div><dt data-i18n="hud.loc">Location</dt><dd data-i18n="hero.base">Mashhad, IR</dd></div>
+              <div><dt>UTC</dt><dd dir="ltr">+03:30</dd></div>
+              <div><dt data-i18n="hud.uptime">Session uptime</dt><dd dir="ltr" id="uptime">00:00:00</dd></div>
+            </dl>
+          </article>
+
+          <article class="panel p-radar reveal" aria-hidden="true">
+            <div class="panel-head"><span data-i18n="hud.radar">Operations radar</span><span class="panel-id">6 TRK</span></div>
+            <div class="radar">
+              <svg viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="92" /><circle cx="100" cy="100" r="64" /><circle cx="100" cy="100" r="36" />
+                <path d="M100 4v192M4 100h192" />
+              </svg>
+              <div class="sweep"></div>
+              <i class="blip" style="--x:70%;--y:28%"></i><i class="blip" style="--x:30%;--y:36%"></i><i class="blip" style="--x:78%;--y:66%"></i>
+              <i class="blip" style="--x:40%;--y:74%"></i><i class="blip" style="--x:58%;--y:46%"></i><i class="blip b-hot" style="--x:22%;--y:58%"></i>
             </div>
-            <h3><a class="pc-link" href="https://github.com/mrzroot/printbridge" target="_blank" rel="noopener">PrintBridge</a></h3>
-            <p data-i18n-html="projects.printbridge">A silent local printing agent that lets web apps send PDFs and thermal labels straight to printers, with no browser dialog. Forked from <a href="https://github.com/AnouarSbia/printbridge" target="_blank" rel="noopener">AnouarSbia/printbridge</a>; full credit to the original author.</p>
-            <ul class="tags tags-sm" role="list"><li class="tag">Python</li><li class="tag">WebSocket</li><li class="tag">POS printing</li></ul>
-            <div class="pc-meta"><span class="lang"><i style="--c:#3572a5"></i><span data-f="language">Python</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-star"/></svg><span data-f="stars">2</span></span><span><svg class="ico ico-xs" aria-hidden="true"><use href="#i-fork"/></svg><span data-f="forks">0</span></span><span class="pc-updated" data-f="updated"></span></div>
+          </article>
+
+          <article class="panel p-stats reveal">
+            <div class="panel-head"><span data-i18n="hud.repo">Repository telemetry</span><span class="panel-id">GH/mrzroot</span></div>
+            <div class="stat-grid">
+              <div><span class="stat-v num" data-hud="repos">15</span><span class="stat-k" data-i18n="hud.repos">Public repos</span></div>
+              <div><span class="stat-v num" data-hud="stars">25</span><span class="stat-k" data-i18n="hud.stars">Total stars</span></div>
+              <div><span class="stat-v num" data-hud="langs">3</span><span class="stat-k" data-i18n="hud.langs">Languages</span></div>
+              <div><span class="stat-v num" data-hud="followers">0</span><span class="stat-k" data-i18n="hud.followers">Followers</span></div>
+            </div>
+            <div class="lastpush"><span class="k" data-i18n="hud.lastpush">Last push</span><span class="v" dir="ltr" data-hud="lastpush">mrzroot.github.io</span><span class="t" data-hud="lastpushT"></span></div>
+          </article>
+
+          <article class="panel p-langs reveal">
+            <div class="panel-head"><span data-i18n="hud.mix">Language mix</span><span class="panel-id" data-i18n="hud.mixNote">by repo · public, non-fork</span></div>
+            <div class="langbar" id="langbar" role="img" aria-label="Language mix"></div>
+            <ul class="langlist" id="langlist" role="list"></ul>
+          </article>
+
+          <article class="panel p-activity reveal">
+            <div class="panel-head"><span data-i18n="hud.signal">Activity signal</span><span class="panel-id" data-i18n="hud.signalNote">public events · last 30 days</span></div>
+            <div class="spark" id="spark" role="img" aria-label="Public GitHub events per day over the last 30 days"></div>
+            <div class="spark-axis" dir="ltr"><span>-30d</span><span>-15d</span><span data-i18n="hud.today">today</span></div>
+          </article>
+
+          <article class="panel p-feed reveal">
+            <div class="panel-head"><span data-i18n="hud.feed">Event stream</span><span class="panel-id">LIVE</span></div>
+            <ol class="feed" id="feed" role="list" dir="ltr">
+              <li class="feed-empty">awaiting signal…</li>
+            </ol>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section section-alt" id="services" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow-num">04</span><span data-i18n="services.eyebrow">What I do</span></p>
-          <h2 id="services-title" data-i18n="services.title">Where I can help.</h2>
-          <p class="section-sub" data-i18n="services.sub">The kinds of work I take on and enjoy, each backed by projects you can read on GitHub.</p>
+    <!-- CH.06 FIELD LOG -->
+    <section class="chapter" id="log" aria-labelledby="log-title">
+      <div class="wrap">
+        <header class="ch-head reveal">
+          <div class="ch-label"><span class="ch-num">CH.06</span><span class="ch-line"></span><span class="ch-code">FIELD LOG</span><span class="ch-accent" lang="fa">فصل ۰۶ · گزارش میدانی</span></div>
+          <h2 id="log-title" data-i18n="log.title">Mission log &amp; protocol.</h2>
+          <p class="ch-sub" data-i18n="log.sub">A timeline taken straight from repository creation dates, and the protocol I run on every job.</p>
+        </header>
+        <div class="log-grid">
+          <ol class="timeline reveal" role="list">
+            <li><time datetime="2024-01">2024.01</time><div><strong data-i18n="log.e1">Joined GitHub</strong><span data-i18n="log.e1d">First repository: Jenkins pipeline examples.</span></div></li>
+            <li><time datetime="2026-08">2026.08</time><div><strong data-i18n="log.e2">Profile &amp; knowledge base</strong><span data-i18n="log.e2d">Profile README goes live; Awesome Persian Developer Resources launched; PrintBridge forked.</span></div></li>
+            <li><time datetime="2026-08">2026.08</time><div><strong data-i18n="log.e3">Tools deployed</strong><span data-i18n="log.e3d">Universal Video Downloader and AgentForge released.</span></div></li>
+            <li><time datetime="2026-10">2026.10</time><div><strong data-i18n="log.e4">Page Smash &amp; this site</strong><span data-i18n="log.e4d">A physics browser extension, and mrzroot.github.io v2.</span></div></li>
+            <li class="tl-next"><time data-i18n="log.next">NEXT</time><div><strong data-i18n="log.e5">In training</strong><span data-i18n="log.e5d">Deeper backend and data tooling.</span></div></li>
+          </ol>
+          <div class="protocol reveal">
+            <p class="protocol-title" data-i18n="log.protocol">Operating protocol</p>
+            <ol role="list">
+              <li><span class="step">01</span><div><strong data-i18n="log.p1">Recon</strong><span data-i18n="log.p1d">Pin down the real problem and the smallest useful result.</span></div></li>
+              <li><span class="step">02</span><div><strong data-i18n="log.p2">Build small</strong><span data-i18n="log.p2d">Ship a working version early, in clean and readable code.</span></div></li>
+              <li><span class="step">03</span><div><strong data-i18n="log.p3">Document</strong><span data-i18n="log.p3d">Clear READMEs and setup steps so anyone can run it.</span></div></li>
+              <li><span class="step">04</span><div><strong data-i18n="log.p4">Iterate</strong><span data-i18n="log.p4d">Refine from feedback and keep it maintainable.</span></div></li>
+            </ol>
+          </div>
         </div>
-        <div class="services-grid">
-          <article class="service reveal">
-            <span class="service-ico" aria-hidden="true"><svg class="ico"><use href="#i-bolt"/></svg></span>
-            <h3 data-i18n="services.s1">Python automation</h3>
-            <p data-i18n="services.s1d">Scripts and small tools that take over repetitive work: file and data processing, scheduled jobs, integrations between services.</p>
-          </article>
-          <article class="service reveal">
-            <span class="service-ico" aria-hidden="true"><svg class="ico"><use href="#i-server"/></svg></span>
-            <h3 data-i18n="services.s2">Backend &amp; APIs</h3>
-            <p data-i18n="services.s2d">Lightweight services and REST APIs with Django, Flask or FastAPI, backed by MySQL, SQLite or PostgreSQL.</p>
-          </article>
-          <article class="service reveal">
-            <span class="service-ico" aria-hidden="true"><svg class="ico"><use href="#i-puzzle"/></svg></span>
-            <h3 data-i18n="services.s3">Browser extensions</h3>
-            <p data-i18n="services.s3d">Manifest V3 extensions for Chrome, Edge and Firefox, from media utilities to playful interactive tools.</p>
-          </article>
-          <article class="service reveal">
-            <span class="service-ico" aria-hidden="true"><svg class="ico"><use href="#i-pipeline"/></svg></span>
-            <h3 data-i18n="services.s4">CI/CD &amp; developer tooling</h3>
-            <p data-i18n="services.s4d">Jenkins pipelines, Git workflows and CLI toolkits, including tooling for AI coding agents, so code ships reliably.</p>
-          </article>
-        </div>
-
-        <ol class="process reveal" role="list" aria-label="How I work">
-          <li><span class="step-num">01</span><div><strong data-i18n="process.p1">Understand</strong><span data-i18n="process.p1d">Pin down the real problem and the smallest useful result.</span></div></li>
-          <li><span class="step-num">02</span><div><strong data-i18n="process.p2">Build small</strong><span data-i18n="process.p2d">Ship a working version early, in clean and readable code.</span></div></li>
-          <li><span class="step-num">03</span><div><strong data-i18n="process.p3">Document</strong><span data-i18n="process.p3d">Clear READMEs and setup steps, so anyone can run it.</span></div></li>
-          <li><span class="step-num">04</span><div><strong data-i18n="process.p4">Iterate</strong><span data-i18n="process.p4d">Refine from feedback and keep it maintainable.</span></div></li>
-        </ol>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="contact-card reveal">
-          <div class="contact-glow" aria-hidden="true"></div>
-          <div class="contact-copy">
-            <p class="eyebrow"><span class="eyebrow-num">05</span><span data-i18n="contact.eyebrow">Contact</span></p>
-            <h2 id="contact-title" data-i18n="contact.title">Have a project or an idea? Let's talk.</h2>
-            <p class="section-sub" data-i18n="contact.sub">The fastest way to reach me is Telegram. For code, issues and pull requests, find me on GitHub.</p>
-            <a class="btn btn-primary btn-lg" href="https://t.me/mrzroot" target="_blank" rel="noopener">
-              <svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="contact.cta">Message @mrzroot on Telegram</span><svg class="ico ico-dir" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </a>
+    <!-- CH.07 COMMS -->
+    <section class="chapter" id="comms" aria-labelledby="comms-title">
+      <div class="wrap">
+        <div class="comms reveal">
+          <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="comms-copy">
+            <div class="ch-label"><span class="ch-num">CH.07</span><span class="ch-line"></span><span class="ch-code">COMMS</span><span class="ch-accent" lang="fa">فصل ۰۷ · ارتباط</span></div>
+            <h2 id="comms-title" data-i18n="comms.title">Open a channel.</h2>
+            <p class="ch-sub" data-i18n="comms.sub">Got a project, an automation idea or a question about one of my repos? Telegram is the fastest way to reach me. For code, issues and pull requests, use GitHub.</p>
+            <a class="btn btn-neon btn-lg" href="https://t.me/mrzroot" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="comms.cta">Message @mrzroot on Telegram</span><svg class="ico ico-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
-          <ul class="contact-links" role="list">
-            <li><a class="contact-link contact-primary" href="https://t.me/mrzroot" target="_blank" rel="noopener">
-              <span class="cl-ico" aria-hidden="true"><svg class="ico"><use href="#i-telegram"/></svg></span>
-              <span class="cl-text"><strong>Telegram</strong><span dir="ltr">t.me/mrzroot</span></span>
-              <span class="cl-tag" data-i18n="contact.primary">Primary</span>
+          <ul class="channels" role="list">
+            <li><a class="channel ch-primary" href="https://t.me/mrzroot" target="_blank" rel="noopener">
+              <span class="ch-ico" aria-hidden="true"><svg class="ico"><use href="#i-telegram"/></svg></span>
+              <span class="ch-text"><strong>Telegram</strong><span dir="ltr">t.me/mrzroot</span></span>
+              <span class="ch-pri" data-i18n="comms.primary">Primary</span>
             </a></li>
-            <li><a class="contact-link" href="https://github.com/mrzroot" target="_blank" rel="noopener">
-              <span class="cl-ico" aria-hidden="true"><svg class="ico"><use href="#i-github"/></svg></span>
-              <span class="cl-text"><strong>GitHub</strong><span dir="ltr">github.com/mrzroot</span></span>
-              <svg class="ico ico-xs cl-arrow" aria-hidden="true"><use href="#i-external"/></svg>
+            <li><a class="channel" href="https://github.com/mrzroot" target="_blank" rel="noopener">
+              <span class="ch-ico" aria-hidden="true"><svg class="ico"><use href="#i-github"/></svg></span>
+              <span class="ch-text"><strong>GitHub</strong><span dir="ltr">github.com/mrzroot</span></span>
+              <svg class="ico ico-xs ch-arrow" aria-hidden="true"><use href="#i-external"/></svg>
             </a></li>
-            <li><a class="contact-link" href="https://linkedin.com/in/mrzroot" target="_blank" rel="noopener">
-              <span class="cl-ico" aria-hidden="true"><svg class="ico"><use href="#i-linkedin"/></svg></span>
-              <span class="cl-text"><strong>LinkedIn</strong><span dir="ltr">linkedin.com/in/mrzroot</span></span>
-              <svg class="ico ico-xs cl-arrow" aria-hidden="true"><use href="#i-external"/></svg>
+            <li><a class="channel" href="https://linkedin.com/in/mrzroot" target="_blank" rel="noopener">
+              <span class="ch-ico" aria-hidden="true"><svg class="ico"><use href="#i-linkedin"/></svg></span>
+              <span class="ch-text"><strong>LinkedIn</strong><span dir="ltr">linkedin.com/in/mrzroot</span></span>
+              <svg class="ico ico-xs ch-arrow" aria-hidden="true"><use href="#i-external"/></svg>
             </a></li>
           </ul>
         </div>
@@ -408,9 +509,10 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> <span data-i18n="hero.name">Mohammadreza Zare</span> · M-R-Z</p>
-      <p class="footer-dim"><span data-i18n="footer.built">Hand-built with HTML, CSS &amp; vanilla JS.</span> <a href="https://github.com/mrzroot/mrzroot.github.io" target="_blank" rel="noopener" data-i18n="footer.source">View source</a></p>
+    <div class="wrap footer-inner">
+      <p dir="ltr" class="eot">// end of transmission <span class="blink" aria-hidden="true">_</span></p>
+      <p>© <span id="year">2026</span> M-R-Z · <span data-i18n="hero.name">Mohammadreza Zare</span></p>
+      <p class="footer-dim"><span data-i18n="footer.built">Hand-built with HTML, CSS &amp; vanilla JS.</span> <a href="https://github.com/mrzroot/mrzroot.github.io" target="_blank" rel="noopener" data-i18n="footer.source">Source</a></p>
     </div>
   </footer>
 
