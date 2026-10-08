@@ -264,7 +264,11 @@
   function slimEv(evs) { return evs.map(function (e) { return { type: e.type, repo: e.repo && e.repo.name, created_at: e.created_at, action: e.payload && e.payload.action, ref_type: e.payload && e.payload.ref_type }; }); }
 
   function getJSON(url) {
-    return fetch(url, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); });
+    // Never let a slow or filtered api.github.com hang the HUD: abort after 8s.
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+    return fetch(url, { headers: { Accept: 'application/vnd.github+json' }, signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { clearTimeout(timer); return r.ok ? r.json() : Promise.reject(r.status); }, function (e) { clearTimeout(timer); return Promise.reject(e); });
   }
   function loadData() {
     var cached = null;
@@ -276,11 +280,14 @@
     if (!window.fetch) { render(); return; }
     var api = 'https://api.github.com';
     var t1 = performance.now();
-    Promise.all([
-      getJSON(api + '/users/' + USER),
-      getJSON(api + '/users/' + USER + '/repos?per_page=100&type=owner&sort=pushed'),
-      getJSON(api + '/users/' + USER + '/events/public?per_page=100').catch(function () { return []; })
-    ]).then(function (res) {
+    // Probe with one request first: if the API is blocked/filtered we stop after a single failure.
+    getJSON(api + '/users/' + USER).then(function (user) {
+      return Promise.all([
+        user,
+        getJSON(api + '/users/' + USER + '/repos?per_page=100&type=owner&sort=pushed'),
+        getJSON(api + '/users/' + USER + '/events/public?per_page=100').catch(function () { return []; })
+      ]);
+    }).then(function (res) {
       data.latency = Math.round(performance.now() - t1);
       data.user = { public_repos: res[0].public_repos, followers: res[0].followers };
       data.repos = slim(res[1].filter(function (r) { return !r.private; }));
@@ -289,8 +296,9 @@
       store.set(CACHE_KEY, JSON.stringify({ t: Date.now(), user: data.user, repos: data.repos, events: data.events }));
       render();
     }).catch(function () {
+      apiTried = true;
       if (cached) { data.user = cached.user; data.repos = cached.repos; data.events = cached.events; data.state = 'cached'; data.full = true; }
-      render();
+      render(); setStatus();
     });
   }
 
@@ -542,6 +550,7 @@
   var booted = false;
   function runBoot(force) {
     if (!force && !root.classList.contains('booting')) { afterBoot(); return; }
+    if (force) window.__mrzReplay = true;
     root.classList.add('booting');
     bootEl.classList.remove('done');
     bootEl.setAttribute('aria-hidden', 'false');
@@ -570,6 +579,7 @@
       bootEl.classList.add('done');
       setTimeout(function () {
         root.classList.remove('booting');
+        window.__mrzReplay = false;
         bootEl.setAttribute('aria-hidden', 'true');
         skip.tabIndex = -1;
         if (mainEl) mainEl.removeAttribute('inert');
@@ -579,6 +589,7 @@
     function onKey(e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); finish(); } }
     document.addEventListener('keydown', onKey);
     bootEl.addEventListener('click', finish);
+    setTimeout(finish, 3200); // hard cap, independent of the line timer
     var timer = setInterval(function () {
       if (i < LINES.length) {
         var l = LINES[i];
