@@ -5,46 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 · Signal lost · M-R-Z</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#05070b">
-  <link rel="icon" href="/favicon.svg?v=56537ccc36" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/styles.css?v=94ea06bcf7">
+  <meta name="theme-color" content="#07080a">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg?v=703500f17e" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css?v=b18a73b662">
   <style>
-    .nf { min-height: 100svh; display: grid; place-items: center; padding: 48px 20px; position: relative; overflow: hidden; isolation: isolate; }
-    .nf-box { position: relative; width: min(640px, 100%); padding: clamp(24px, 5vw, 44px); background: var(--panel); border: 1px solid var(--line-2); }
-    .nf .ch-label { margin-bottom: 20px; }
-    .nf-code { font-family: var(--f-display); font-size: clamp(84px, 18vw, 150px); font-weight: 700; line-height: .9; margin: 0 0 12px; color: var(--text); position: relative; display: inline-block; }
-    .nf-code::before, .nf-code::after { content: "404"; position: absolute; inset: 0; opacity: .85; }
-    .nf-code::before { color: var(--neon); transform: translate(-3px, 0); clip-path: inset(15% 0 60% 0); }
-    .nf-code::after { color: var(--hot); transform: translate(3px, 0); clip-path: inset(62% 0 12% 0); }
-    .nf h1 { font-family: var(--f-display); font-size: clamp(22px, 3.6vw, 30px); text-transform: uppercase; margin-bottom: 10px; }
-    .nf p { color: var(--text-2); }
-    .nf pre { margin: 18px 0 26px; padding: 14px 16px; background: rgba(0,0,0,.35); border: 1px solid var(--line); font-family: var(--f-mono); font-size: 12.5px; color: var(--text-2); white-space: pre-wrap; }
-    .nf pre .ok { color: var(--neon); } .nf pre .hot { color: var(--hot); }
+    .nf { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 48px var(--gutter); position: relative; isolation: isolate; overflow: hidden; }
+    .nf::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 24px 24px; mask-image: radial-gradient(50% 50% at 50% 50%, #000, transparent); -webkit-mask-image: radial-gradient(50% 50% at 50% 50%, #000, transparent); }
+    .nf-box { width: min(560px, 100%); padding: clamp(24px, 5vw, 40px); }
+    .nf-code { font-size: clamp(5rem, 16vw, 8rem); font-weight: 650; letter-spacing: -.06em; line-height: 1; background: linear-gradient(180deg, #fff 20%, rgba(255,255,255,.25)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nf h1 { margin-top: 16px; font-size: 1.5rem; font-weight: 600; letter-spacing: -.02em; }
+    .nf-box > p { margin-top: 8px; color: var(--text-2); }
+    .nf pre { margin: 24px 0; padding: 16px; border-radius: var(--r-ctl); background: rgba(0,0,0,.3); box-shadow: inset 0 0 0 1px var(--line); font-family: var(--mono); font-size: .8125rem; color: var(--text-2); white-space: pre-wrap; word-break: break-all; }
+    .nf pre b { font-weight: 400; color: var(--accent); }
+    .nf pre i { font-style: normal; color: #f08a8a; }
     .nf-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .nf .fa { font-family: var(--f-fa); margin: 24px 0 0; font-size: 15px; }
-    .nf .fa a { color: var(--neon); }
+    .nf .fa { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-family: 'Vazirmatn', sans-serif; font-size: .9375rem; color: var(--text-2); }
+    .nf .fa a { color: var(--accent); }
   </style>
 </head>
 <body>
-  <div class="fx-scan" aria-hidden="true"></div>
   <main class="nf">
-    <div class="hero-bg" aria-hidden="true"><div class="grid-plane"></div><div class="orb orb-a"></div><div class="orb orb-b"></div></div>
-    <div class="nf-box">
-      <div class="frame-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div class="ch-label"><span class="ch-num">ERR</span><span class="ch-line"></span><span class="ch-code">SIGNAL LOST</span><span class="ch-accent" lang="fa">سیگنال قطع شد</span></div>
+    <div class="nf-box card">
+      <p class="label"><span class="num">ERR</span><span>Signal lost</span></p>
       <p class="nf-code" aria-hidden="true">404</p>
       <h1>This route doesn't exist.</h1>
-      <p>The link may be broken, or the page has moved. Return to base and try again.</p>
-<pre aria-hidden="true"><span class="ok">mrzroot@mrz:~$</span> cd <span id="nf-path">/unknown</span>
-<span class="hot">cd: no such file or directory</span>
-<span class="ok">mrzroot@mrz:~$</span> cd ~ <span class="blink">_</span></pre>
+      <p>The link may be broken, or the page has moved.</p>
+<pre aria-hidden="true"><b>mrz:~$</b> cd <span id="nf-path">/unknown</span>
+<i>cd: no such file or directory</i>
+<b>mrz:~$</b> cd ~</pre>
       <div class="nf-actions">
-        <a class="btn btn-neon" href="/">Return to base</a>
-        <a class="btn btn-line" href="https://t.me/mrzroot" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-ghost" href="https://t.me/mrzroot" target="_blank" rel="noopener">Telegram</a>
       </div>
-      <p class="fa" lang="fa" dir="rtl">صفحه‌ای که دنبالش هستید پیدا نشد. <a href="/">بازگشت به خانه</a></p>
+      <p class="fa" lang="fa" dir="rtl">صفحه‌ای که دنبالش بودید پیدا نشد. <a href="/">بازگشت به خانه</a></p>
     </div>
   </main>
-  <script>(function(){var e=document.getElementById('nf-path');if(e)e.textContent=decodeURI(location.pathname).slice(0,60);})();</script>
+  <script>(function () { var e = document.getElementById('nf-path'); if (!e) return; var p = location.pathname; try { p = decodeURI(p); } catch (x) {} e.textContent = p.slice(0, 60); })();</script>
 </body>
 </html>
