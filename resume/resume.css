@@ -135,6 +135,7 @@ ul.links a { color: var(--accent); }
 @page { size: A4; margin: 10mm 12mm; }
 @media print {
   :root, [data-theme] { --bg: #fff; --paper: #fff; --paper-2: #fff; --line: #d9dde6; --text: #1f2637; --muted: #4f5870; --head: #0b1224; --accent: #0a7671; --accent-soft: transparent; --chip: #f4f6f8; color-scheme: light; }
+  html { color-scheme: light !important; }
   html, body { background: #fff; font-size: 12px; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .bar, .skip, .foot { display: none !important; }
   main { padding: 0; }
@@ -160,3 +161,7 @@ ul.links a { color: var(--accent); }
   a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/*mrz-theme-badge*/[data-theme-toggle]{position:relative}
+html[data-theme-mode=system] [data-theme-toggle]::after{content:"A";position:absolute;inset-inline-end:-3px;bottom:-3px;min-width:13px;height:13px;padding:0 2px;box-sizing:border-box;border-radius:7px;font:700 8px/13px system-ui,sans-serif;letter-spacing:0;text-align:center;background:#14181f;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.55);pointer-events:none}
+html[data-theme=dark][data-theme-mode=system] [data-theme-toggle]::after{background:#f3f4f6;color:#14181f;box-shadow:0 0 0 1px rgba(0,0,0,.5)}

@@ -129,3 +129,7 @@ details.raw .term pre{max-height:520px;overflow:auto}
 footer{border-block-start:1px solid var(--line);padding:30px 0 40px;color:var(--text3);font-size:.9rem}footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
 footer a{color:var(--text2)}
 .pp-vis{margin-block-start:10px}
+
+/*mrz-theme-badge*/[data-theme-toggle]{position:relative}
+html[data-theme-mode=system] [data-theme-toggle]::after{content:"A";position:absolute;inset-inline-end:-3px;bottom:-3px;min-width:13px;height:13px;padding:0 2px;box-sizing:border-box;border-radius:7px;font:700 8px/13px system-ui,sans-serif;letter-spacing:0;text-align:center;background:#14181f;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.55);pointer-events:none}
+html[data-theme=dark][data-theme-mode=system] [data-theme-toggle]::after{background:#f3f4f6;color:#14181f;box-shadow:0 0 0 1px rgba(0,0,0,.5)}
