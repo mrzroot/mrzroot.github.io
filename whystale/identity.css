@@ -1,0 +1,112 @@
+/* whystale identity: "archive". Parchment and brass (night archive in dark), Fraunces + DM Mono, centred editorial chapters, an hourglass ledger with rubber stamps, a brass age ruler that sepia-tints the page as you scroll. */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-italic.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dm-mono.woff2) format('woff2')}
+html[data-theme=light] body.p-whystale{--bg:#f3e9d2;--bg-old:#dcc79b;--bg2:#ecdfc1;--surface:#faf3e2;--surface2:#f6ecd4;--text:#2a1f12;--text2:#4d3d27;--text3:#6c5a40;--line:rgba(90,62,20,.22);--line2:rgba(90,62,20,.5);--brass:#9a6a1a;--brass2:#7a5210;--wax:#a1281a;--verd:#2b6f55;--accent:#7a5210;--accent-fg:#7a5210;--accent-ink:#fff7e3;--glow:transparent;--term:#1d160d;--term-line:rgba(217,164,65,.28);--sand:#c28a2c;--grain:.07}
+html[data-theme=dark] body.p-whystale{--bg:#15100a;--bg-old:#241a0d;--bg2:#1b140c;--surface:#1f1710;--surface2:#251b12;--text:#efe3c8;--text2:#cdbd9c;--text3:#a09074;--line:rgba(217,164,65,.2);--line2:rgba(217,164,65,.45);--brass:#e0ae4c;--brass2:#e0ae4c;--wax:#e0604a;--verd:#6fcfa3;--accent:#e0ae4c;--accent-fg:#e0ae4c;--accent-ink:#1a1206;--glow:transparent;--term:#0d0905;--term-line:rgba(217,164,65,.25);--sand:#e0ae4c;--grain:.09}
+body.p-whystale{--age:0;font-family:'Vazirmatn',Georgia,serif;background:color-mix(in srgb,var(--bg) calc((1 - var(--age)) * 100%),var(--bg-old));background-image:radial-gradient(120% 80% at 50% 0,transparent 55%,rgba(60,35,5,.16))}
+body.p-whystale::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:50;opacity:var(--grain);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+html[data-theme=dark] body.p-whystale::after{mix-blend-mode:screen;opacity:.05}
+.p-whystale h1,.p-whystale h2,.p-whystale h3,.p-whystale .brand,.p-whystale .kpis b{font-family:'Fraunces',Georgia,'Vazirmatn',serif;font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;font-weight:560;letter-spacing:-.02em}
+html[lang=fa] .p-whystale h1,html[lang=fa] .p-whystale h2,html[lang=fa] .p-whystale h3,html[lang=fa] .p-whystale .brand,html[lang=fa] .p-whystale .kpis b{font-family:'Vazirmatn',serif;font-variation-settings:normal;font-weight:800;letter-spacing:0}
+.p-whystale code,.p-whystale .mono,.p-whystale pre,.p-whystale .term,.p-whystale .tab,.p-whystale .badges li,.p-whystale .tbl td:first-child{font-family:'DM Mono',ui-monospace,monospace}
+.p-whystale .brand{font-size:1.4rem;font-style:italic}html[lang=fa] .p-whystale .brand{font-size:1.05rem;font-style:normal}
+.p-whystale .top{background:color-mix(in srgb,var(--bg) 90%,transparent);border-block-end:3px double var(--line2);backdrop-filter:blur(8px)}
+.p-whystale .nav a{border-radius:0;font:italic 500 1.02rem 'Fraunces',serif;color:var(--text2);position:relative}
+html[lang=fa] .p-whystale .nav a{font:600 .9rem 'Vazirmatn'}
+.p-whystale .nav{background:transparent;box-shadow:none;border:0}
+.p-whystale .nav a:hover,.p-whystale .nav a.on{background:transparent;color:var(--text)}
+.p-whystale .nav a::after{content:'';position:absolute;inset:auto 12px 2px;height:1px;background:var(--brass);transform:scaleX(0);transition:transform .3s}
+.p-whystale .nav a:hover::after,.p-whystale .nav a.on::after{transform:scaleX(1)}
+.p-whystale .btn{border-radius:2px;font:italic 600 1rem 'Fraunces',serif;background:transparent;box-shadow:inset 0 0 0 1px var(--line2);color:var(--text)}
+html[lang=fa] .p-whystale .btn{font:700 .9rem 'Vazirmatn'}
+.p-whystale .btn:hover{background:color-mix(in srgb,var(--brass) 14%,transparent);box-shadow:inset 0 0 0 1px var(--brass);transform:none}
+.p-whystale .btn.pri{background:var(--brass);color:var(--accent-ink);box-shadow:inset 0 -3px 0 rgba(0,0,0,.22);border:0}
+.p-whystale .btn.pri:hover{background:var(--wax);color:#fff}
+/* hero */
+.p-whystale .hero{padding-block:clamp(36px,6vw,84px) clamp(40px,5vw,70px);overflow-x:clip}
+.p-whystale .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,64px);align-items:center}
+.p-whystale h1{font-size:clamp(2.4rem,1rem + 4.4vw,4.9rem);line-height:1.02;margin:.3em 0 .4em}
+html[lang=fa] .p-whystale h1{font-size:clamp(2rem,1rem + 3.2vw,3.5rem);line-height:1.4}
+.p-whystale h1 em{font-style:italic;color:var(--brass);position:relative;display:inline;background:linear-gradient(var(--wax),var(--wax)) 0 62%/0 3px no-repeat;animation:strike 1.4s .8s cubic-bezier(.6,0,.2,1) forwards}
+html[lang=fa] .p-whystale h1 em{font-style:normal;background-position:0 55%}
+html[dir=rtl] .p-whystale h1 em{background-position:100% 55%}
+@keyframes strike{to{background-size:100% 3px}}
+.p-whystale .kicker{font:500 .74rem 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--brass2);background:none;border:0;border-block:1px solid var(--line2);padding:5px 0;border-radius:0}
+html[lang=fa] .p-whystale .kicker{font-family:'Vazirmatn';text-transform:none;letter-spacing:0;font-size:.85rem}
+.p-whystale .kicker i{background:var(--wax);border-radius:50%;box-shadow:0 0 0 4px color-mix(in srgb,var(--wax) 25%,transparent);animation:ink 2.4s ease-in-out infinite}
+@keyframes ink{50%{box-shadow:0 0 0 8px transparent}}
+.p-whystale .lede{color:var(--text2);font-size:1.06rem}
+.p-whystale .lede::first-letter{font:italic 560 3.4em/.8 'Fraunces',serif;float:inline-start;margin:.06em .1em 0 0;color:var(--brass)}
+html[lang=fa] .p-whystale .lede::first-letter{font:inherit;float:none;margin:0;color:inherit}
+.p-whystale .badges li{border-radius:0;border:1px dashed var(--line2);background:transparent;font-size:.7rem}
+/* folio stage: a sheet of ledger paper, slightly turned */
+.stage{perspective:1200px}
+.folio{direction:ltr;text-align:left;background:var(--surface);color:var(--text);border:1px solid var(--line2);box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--line2),0 30px 60px -30px rgba(40,22,2,.55),0 2px 0 var(--line);padding:14px 20px 12px;transform:rotate(-1deg);transition:transform .5s}
+.folio:hover{transform:rotate(0)}
+.folio-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 6px 10px;border-block-end:3px double var(--line2);font:500 .72rem 'DM Mono',monospace;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+.folio-head b{font:italic 560 1.05rem 'Fraunces',serif;color:var(--brass2);text-transform:none;letter-spacing:0}
+html[lang=fa] .folio-head b{font:800 .95rem 'Vazirmatn'}
+.folio-body{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding-block:12px}
+#glass{width:100%;height:420px;display:block}
+.ledger{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.ledger li{position:relative;padding:12px 4px 12px 2px;border-block-end:1px dashed var(--line2);cursor:pointer;display:grid;gap:3px;outline:none;transition:background .2s}
+.ledger li:hover,.ledger li:focus-visible{background:color-mix(in srgb,var(--brass) 9%,transparent)}
+.ledger .k{font:500 .66rem 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--brass2)}
+.ledger p{margin:0;font:560 .96rem/1.25 'Fraunces',serif;padding-inline-end:96px;color:var(--text)}
+.ledger small{font:.7rem/1.3 'DM Mono',monospace;color:var(--text3);padding-inline-end:70px;word-break:break-word}
+.ledger code{font:.74rem/1.3 'DM Mono',monospace;color:var(--verd);background:none;padding:0;word-break:break-all;opacity:.0;max-height:0;transition:opacity .4s,max-height .4s}
+.ledger li.fresh code,.ledger li:hover code,.ledger li:focus-visible code{opacity:1;max-height:3em}
+.stamp{position:absolute;inset-inline-end:2px;top:14px;font-style:normal;pointer-events:none}
+.stamp .x{display:none;font:800 1rem/1 'Fraunces',serif;letter-spacing:.14em;border:3px solid currentColor;padding:4px 8px;border-radius:3px;transform:rotate(-9deg);mix-blend-mode:multiply;text-transform:uppercase;opacity:.9;}
+html[lang=fa] .stamp .x{font:800 .95rem 'Vazirmatn';letter-spacing:0}
+html[data-theme=dark] .stamp .x{mix-blend-mode:normal}
+.ledger li.stale .x.s{display:block;color:var(--wax);animation:thud .45s cubic-bezier(.2,1.6,.4,1) both}
+.ledger li.fresh .x.f{display:block;color:var(--verd);animation:thud .45s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes thud{from{opacity:0;transform:rotate(-9deg) scale(2.4)}60%{opacity:1}to{transform:rotate(-9deg) scale(1)}}
+.ledger li.stale.hit{animation:shake .25s}
+@keyframes shake{25%{transform:translateY(2px)}60%{transform:translateY(-1px)}}
+.folio-note{margin:0;padding:8px 6px 2px;font:italic 400 .86rem 'Fraunces',serif;color:var(--text3)}
+html[lang=fa] .folio-note{font:400 .8rem 'Vazirmatn'}
+/* chapters */
+main{counter-reset:sec}
+.p-whystale section:not(.hero){position:relative;border-block-start:0;text-align:start}
+.p-whystale section:not(.hero)>.wrap>.label,.p-whystale section:not(.hero)>.wrap>h2,.p-whystale section:not(.hero)>.wrap>.sec-sub{text-align:center;margin-inline:auto}
+.p-whystale .label{counter-increment:sec;display:block;font:500 .74rem 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.28em;color:var(--brass2);background:none;margin:0 0 6px;padding:0}
+.p-whystale .label::before{content:'Chapter ' counter(sec,upper-roman);display:block;font:italic 400 .95rem 'Fraunces',serif;letter-spacing:.05em;text-transform:none;color:var(--text3);margin-bottom:4px}
+html[lang=fa] .p-whystale .label::before{content:'فصل ' counter(sec,persian)}
+html[lang=fa] .p-whystale .label{font-family:'Vazirmatn';text-transform:none;letter-spacing:0;font-size:.9rem}
+.p-whystale h2{font-size:clamp(1.8rem,1rem + 2.8vw,3.2rem);line-height:1.12;max-width:860px;margin-bottom:.9em;font-weight:520}
+html[lang=fa] .p-whystale h2{line-height:1.5;font-size:clamp(1.4rem,1rem + 1.8vw,2.3rem)}
+.p-whystale h2::after{content:'';display:block;margin:18px auto 0;width:140px;height:7px;border-block:1px solid var(--brass);background:linear-gradient(var(--brass),var(--brass)) center/10px 10px no-repeat;opacity:.9;clip-path:none}
+.p-whystale section:not(.hero)+section:not(.hero)::before{content:'';position:absolute;top:0;left:50%;width:1px;height:46px;background:linear-gradient(var(--brass),transparent);opacity:.5}
+/* cards: double-framed paper */
+.p-whystale .card,.p-whystale .claim,.p-whystale .problem>div,.p-whystale .limits li,.p-whystale .kpis li,.p-whystale .faq details,.p-whystale .tbl,.p-whystale .code,.p-whystale .links a{border-radius:1px;background:var(--surface);box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px var(--line2);backdrop-filter:none;transition:transform .3s,box-shadow .3s}
+.p-whystale .card{padding:26px 26px}
+.p-whystale .grid>.card:hover,.p-whystale .how>.card:hover{transform:translateY(-4px) rotate(-.3deg);box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px var(--brass),0 22px 36px -22px rgba(60,35,5,.5)}
+.p-whystale .problem>div{padding:26px 28px}
+.p-whystale .kpis li{padding:22px 24px;text-align:center}.p-whystale .kpis b{font-size:3.2rem;color:var(--brass);font-style:italic}
+.p-whystale .feat .n{font:italic 400 2.4rem 'Fraunces',serif;color:var(--brass);opacity:.5}
+.p-whystale .how{counter-reset:hw}.p-whystale .how>.card{counter-increment:hw;position:relative;padding-top:58px}
+.p-whystale .how>.card::before{content:counter(hw,upper-roman);position:absolute;top:14px;inset-inline-start:26px;font:italic 500 1.5rem 'Fraunces',serif;color:var(--brass)}
+.p-whystale .limits li{border-inline-start:0;padding:18px 24px;box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px var(--line2)}
+.p-whystale .limits li::marker{color:var(--wax)}
+.p-whystale .tab{border-radius:0;font-size:.74rem}
+.p-whystale .tab[aria-selected=true]{background:var(--brass);color:var(--accent-ink)}
+.p-whystale .term{border-radius:2px;box-shadow:0 0 0 1px var(--term-line),0 30px 50px -32px #000}
+.p-whystale .steps h3::before{border-radius:50%;background:var(--brass);color:var(--accent-ink)}
+.p-whystale footer{border-block-start:3px double var(--line2)}
+/* age ruler */
+#age{position:fixed;inset-inline-end:14px;top:18vh;height:64vh;width:46px;z-index:20;pointer-events:none;direction:ltr;font:500 .62rem 'DM Mono',monospace;color:var(--text3)}
+#age::before{content:'';position:absolute;right:20px;top:0;bottom:0;width:1px;background:var(--line2)}
+#age i{position:absolute;right:14px;width:13px;height:1px;background:var(--line2)}#age i.m{width:20px;right:20px;background:var(--brass)}
+#age .nd{position:absolute;right:6px;width:28px;height:14px;margin-top:-7px;background:var(--brass);clip-path:polygon(0 50%,40% 0,100% 0,100% 100%,40% 100%);transition:none}
+#age .tx{position:absolute;right:38px;margin-top:-8px;white-space:nowrap;color:var(--brass2);background:var(--bg);padding:0 4px}
+html[dir=rtl] #age{inset-inline-end:auto;inset-inline-start:auto;right:14px}
+/* reveal */
+html.js .p-whystale .rv{opacity:0;transform:translateY(18px);filter:blur(3px);transition:opacity .8s,transform .9s cubic-bezier(.2,.8,.2,1),filter .8s}
+html.js .p-whystale .rv.in{opacity:1;transform:none;filter:none}
+@media(max-width:1180px){#age{display:none}}
+@media(max-width:900px){.p-whystale .hero-grid{grid-template-columns:minmax(0,1fr)}.p-whystale .nav{background:var(--bg);border-block-end:3px double var(--line2);border-radius:0}.p-whystale .nav a{border-radius:0}.folio{transform:none}}
+@media(max-width:520px){.p-whystale .brand .fa-name{display:none}.folio{padding:10px 10px 8px}.folio-body{grid-template-columns:54px minmax(0,1fr);gap:8px}#glass{height:430px}.ledger p{padding-inline-end:62px;font-size:.88rem}.ledger small{padding-inline-end:0;font-size:.66rem}.stamp .x{font-size:.78rem;padding:3px 5px}}
+@media(prefers-reduced-motion:reduce){.p-whystale h1 em{animation:none;background-size:100% 3px}.p-whystale .kicker i{animation:none}.stamp .x{animation:none!important}html.js .p-whystale .rv{opacity:1;transform:none;filter:none;transition:none}}

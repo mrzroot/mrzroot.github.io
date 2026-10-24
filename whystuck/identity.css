@@ -1,0 +1,95 @@
+/* whystuck identity: "poster". Warm paper, ink, signal red + yellow, Archivo Black + Space Mono, hard offset shadows, colour bands, tangle that untangles. */
+@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/archivo-black.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/space-mono.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/space-mono-bold.woff2) format('woff2')}
+html[data-theme=light] body.p-whystuck{--bg:#f4efe3;--bg2:#ece5d4;--surface:#fffaf0;--surface2:#fffaf0;--text:#141210;--text2:#3a342b;--text3:#5e564a;--ink:#141210;--line:rgba(20,18,16,.22);--line2:#141210;--accent:#ff3b1f;--accent-fg:#d42a10;--accent-ink:#fff;--glow:transparent;--red:#ff3b1f;--yel:#ffc933;--dots:rgba(20,18,16,.12)}
+html[data-theme=dark] body.p-whystuck{--bg:#141210;--bg2:#1b1814;--surface:#201c17;--surface2:#201c17;--text:#f4efe3;--text2:#cfc7b6;--text3:#a8a08e;--ink:#f4efe3;--line:rgba(244,239,227,.2);--line2:#f4efe3;--accent:#ff5a3d;--accent-fg:#ff7a60;--accent-ink:#141210;--glow:transparent;--red:#ff4a2b;--yel:#ffc933;--dots:rgba(244,239,227,.09)}
+body.p-whystuck{background-color:var(--bg);background-image:radial-gradient(var(--dots) 1.2px,transparent 1.4px);background-size:16px 16px;font-family:'Vazirmatn',system-ui,sans-serif}
+.p-whystuck h1,.p-whystuck h2,.p-whystuck .brand,.p-whystuck .kpis b{font-family:'Archivo Black','Vazirmatn',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em}
+html[lang=fa] .p-whystuck h1,html[lang=fa] .p-whystuck h2,html[lang=fa] .p-whystuck .brand,html[lang=fa] .p-whystuck .kpis b{font-family:'Vazirmatn',sans-serif;font-weight:800;text-transform:none;letter-spacing:0}
+.p-whystuck .brand{font-size:1.25rem}html[lang=fa] .p-whystuck .brand{font-size:1.05rem}
+.p-whystuck .top{background:var(--bg);border-block-end:3px solid var(--ink);backdrop-filter:none}
+.p-whystuck .nav{background:none;box-shadow:none;border-radius:0;gap:0}
+.p-whystuck .nav a{border-radius:0;font:700 .76rem 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--text);padding:8px 14px;border-inline-start:2px solid transparent}
+html[lang=fa] .p-whystuck .nav a{font-family:'Vazirmatn';text-transform:none;font-size:.9rem;letter-spacing:0}
+.p-whystuck .nav a:hover,.p-whystuck .nav a.on{background:var(--ink);color:var(--bg)}
+.p-whystuck .btn{border-radius:0;border:3px solid var(--ink);background:var(--surface);color:var(--text);font:700 .82rem 'Space Mono',monospace;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+html[lang=fa] .p-whystuck .btn{font-family:'Vazirmatn'}
+.p-whystuck .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.p-whystuck .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.p-whystuck .btn.pri{background:var(--red);color:#fff}
+.p-whystuck .btn.icon,.p-whystuck .hd-gh{box-shadow:3px 3px 0 var(--ink)}
+@media(max-width:520px){.p-whystuck .brand .fa-name{display:none}}
+@media(max-width:900px){.p-whystuck .nav{background:var(--bg);border-block-end:3px solid var(--ink)}.p-whystuck .nav a{border-radius:0}}
+/* hero */
+.p-whystuck .hero{overflow-x:clip;padding-block:clamp(36px,5vw,70px) clamp(30px,5vw,50px)}
+.p-whystuck .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.p-whystuck h1{font-size:clamp(2.5rem,.9rem + 5.4vw,5.8rem);line-height:.93;margin:.3em 0 .35em}
+html[lang=fa] .p-whystuck h1{font-size:clamp(2rem,1rem + 3.6vw,3.9rem);line-height:1.3}
+.p-whystuck h1 em{font-style:normal;display:inline-block;background:var(--red);color:#fff;padding:.02em .16em .06em;transform:rotate(-2.2deg);box-shadow:6px 6px 0 var(--ink);margin-top:.12em}
+.p-whystuck .kicker{display:inline-flex;font:700 .74rem 'Space Mono',monospace;text-transform:uppercase;background:var(--yel);color:#141210;padding:5px 12px;border:2px solid var(--ink);transform:rotate(-1.5deg);box-shadow:3px 3px 0 var(--ink)}
+html[lang=fa] .p-whystuck .kicker{font-family:'Vazirmatn';text-transform:none;font-size:.82rem}
+.p-whystuck .kicker i{background:var(--red);border-radius:0;box-shadow:none;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.p-whystuck .lede{font-size:1.05rem;max-width:560px;color:var(--text2);border-inline-start:6px solid var(--yel);padding-inline-start:14px}
+.p-whystuck .badges li{border-radius:0;border:2px solid var(--ink);font:700 .7rem 'Space Mono',monospace;background:var(--surface)}
+.tangle{position:relative;border:3px solid var(--ink);background:var(--surface);box-shadow:10px 10px 0 var(--ink);padding:0;overflow:hidden}
+.tangle canvas{display:block;width:100%;height:clamp(300px,34vw,420px);touch-action:pan-y;cursor:ew-resize}
+.tangle-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-block-start:3px solid var(--ink);background:var(--yel);color:#141210}
+.tangle-bar label{font:700 .74rem 'Space Mono',monospace;text-transform:uppercase;white-space:nowrap}
+html[lang=fa] .tangle-bar label{font-family:'Vazirmatn';text-transform:none;font-size:.88rem}
+.tangle-bar input{flex:1;min-width:0;accent-color:#141210;height:26px}
+.tangle-bar output{font:700 .78rem 'Space Mono',monospace;min-width:6ch;text-align:end;direction:ltr}
+.tangle-tag{position:absolute;top:12px;inset-inline-start:12px;background:var(--ink);color:var(--bg);font:700 .7rem 'Space Mono',monospace;padding:4px 9px;text-transform:uppercase}
+.ticker{overflow:hidden;border-block:3px solid var(--ink);background:var(--red);color:#fff;white-space:nowrap;transform:rotate(-.8deg);margin:6px -2vw 0;box-shadow:0 6px 0 var(--ink)}
+.ticker div{display:inline-flex;gap:0;animation:tick 28s linear infinite;padding-block:9px}
+.ticker span{font:700 1.05rem 'Space Mono',monospace;text-transform:uppercase;padding-inline:22px}
+.ticker span::after{content:'✱';margin-inline-start:44px;color:var(--yel)}
+html[lang=fa] .ticker span{font-family:'Vazirmatn';text-transform:none;font-weight:800}
+@keyframes tick{to{transform:translateX(-50%)}}
+html[dir=rtl] .ticker div{animation-name:tickr}@keyframes tickr{to{transform:translateX(50%)}}
+@media(max-width:900px){.p-whystuck .hero-grid{grid-template-columns:minmax(0,1fr)}}
+/* bands */
+.p-whystuck section{border:0}
+.p-whystuck section:not(.hero){border-block-start:3px solid var(--ink)}
+.p-whystuck section.hero{border:0}
+#demo,#how{background:#141210;--bg:#141210;--surface:#211d19;--surface2:#211d19;--text:#f4efe3;--text2:#d3cbba;--text3:#a8a08e;--ink:#f4efe3;--line:rgba(244,239,227,.22);--line2:#f4efe3;--accent-fg:#ff7a60}
+#features,#compare{background:var(--yel);--bg:#ffc933;--surface:#fff3c9;--surface2:#fff3c9;--text:#141210;--text2:#2e2820;--text3:#4a4234;--ink:#141210;--line:rgba(20,18,16,.3);--line2:#141210;--accent-fg:#b91c05}
+.p-whystuck .label{display:inline-block;font:700 .74rem 'Space Mono',monospace;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:4px 10px;margin:0 0 14px;letter-spacing:.06em;transform:rotate(-1.2deg)}
+html[lang=fa] .p-whystuck .label{font-family:'Vazirmatn';text-transform:none;font-size:.85rem}
+.p-whystuck h2{font-size:clamp(1.7rem,1rem + 2.8vw,3.1rem);line-height:1;max-width:900px;position:relative;padding-block-end:16px;margin-bottom:.9em}
+html[lang=fa] .p-whystuck h2{font-size:clamp(1.4rem,1rem + 1.8vw,2.3rem);line-height:1.45}
+.p-whystuck h2::after{content:'';position:absolute;inset-inline-start:0;bottom:0;height:8px;width:min(160px,40%);background:var(--red);transform-origin:left;transform:scaleX(0);transition:transform .8s cubic-bezier(.2,.8,.2,1) .2s}
+html[dir=rtl] .p-whystuck h2::after{transform-origin:right}
+.p-whystuck h2.in::after{transform:scaleX(1)}
+.p-whystuck .card,.p-whystuck .claim,.p-whystuck .problem>div,.p-whystuck .limits li,.p-whystuck .kpis li,.p-whystuck .faq details,.p-whystuck .code,.p-whystuck .tbl{background:var(--surface);border:3px solid var(--ink);border-radius:0;box-shadow:6px 6px 0 var(--ink);backdrop-filter:none}
+.p-whystuck .card{transition:transform .15s,box-shadow .15s}
+.p-whystuck .card:hover{transform:translate(-3px,-3px) rotate(-.4deg);box-shadow:10px 10px 0 var(--red)}
+.p-whystuck .problem{gap:22px}
+.p-whystuck .problem>div:first-child{transform:rotate(-.6deg)}.p-whystuck .problem>div:last-child{transform:rotate(.5deg);background:var(--yel);--text:#141210;--text2:#2e2820;color:#141210}
+.p-whystuck .problem h3{font:400 1.25rem 'Archivo Black','Vazirmatn';text-transform:uppercase}html[lang=fa] .p-whystuck .problem h3{font:800 1.1rem 'Vazirmatn';text-transform:none}
+.p-whystuck .kpis{gap:18px}
+.p-whystuck .kpis li{padding:18px 20px;position:relative}
+.p-whystuck .kpis b{font-size:4.2rem;line-height:.95;color:var(--red);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;display:block}
+html[lang=fa] .p-whystuck .kpis b{-webkit-text-stroke:0}
+.p-whystuck .feat .n{font:400 2.6rem/1 'Archivo Black';color:transparent;-webkit-text-stroke:2px var(--ink);position:absolute;inset-inline-end:16px;top:8px}
+.p-whystuck .feat{position:relative;padding-top:30px}
+.p-whystuck .term{border-radius:0;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--red);overflow:hidden}
+.p-whystuck .term-bar i{border-radius:0}
+.p-whystuck .tab{border-radius:0;border:2px solid var(--ink);font:700 .76rem 'Space Mono',monospace;background:var(--surface);color:var(--text)}
+.p-whystuck .tab[aria-selected=true]{background:var(--red);color:#fff;box-shadow:3px 3px 0 var(--ink)}
+.p-whystuck .steps h3::before{border-radius:0;background:var(--red);color:#fff;border:2px solid var(--ink)}
+.p-whystuck .how{counter-reset:hw}
+.p-whystuck .how .card{counter-increment:hw;position:relative;padding-top:56px;transition:transform .15s,box-shadow .15s}
+.p-whystuck .how .card::before{content:counter(hw);position:absolute;top:-3px;inset-inline-start:-3px;width:44px;height:44px;display:grid;place-items:center;background:var(--red);color:#fff;font:400 1.4rem 'Archivo Black';border:3px solid var(--ink)}
+.p-whystuck .how .card:nth-child(odd){transform:rotate(-.7deg)}.p-whystuck .how .card:nth-child(even){transform:rotate(.7deg)}
+.p-whystuck .limits li{border-inline-start:12px solid var(--red)}
+.p-whystuck .faq summary{font-weight:800}
+.p-whystuck footer{border-block-start:3px solid var(--ink)}
+html.js .p-whystuck .rv{opacity:0;transform:translateY(30px) rotate(1.4deg);transition:opacity .45s,transform .55s cubic-bezier(.3,1.4,.5,1)}
+html.js .p-whystuck .rv.in{opacity:1;transform:none}
+html.js .p-whystuck .how .card.rv.in:nth-child(odd){transform:rotate(-.7deg)}html.js .p-whystuck .how .card.rv.in:nth-child(even){transform:rotate(.7deg)}
+html.js .p-whystuck .card.rv.in:hover{transform:translate(-3px,-3px) rotate(-.4deg)}
+.p-whystuck main{overflow-x:clip}
+#demo,#how,#features,#compare{color:var(--text)}
+.p-whystuck .tags,.p-whystuck .feat+.tags{margin-top:28px}
