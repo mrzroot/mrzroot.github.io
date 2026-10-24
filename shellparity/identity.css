@@ -101,7 +101,7 @@ html[dir=rtl] .p-shellparity .problem>div:first-child{box-shadow:inset -3px 0 0 
 .p-shellparity .kpis b{font-size:2.8rem;color:var(--cy)}.p-shellparity .kpis li:nth-child(2) b{color:var(--am)}
 .p-shellparity .limits li{border-inline-start:3px solid var(--am);box-shadow:inset 0 0 0 1px var(--line)}
 .p-shellparity .tab{border-radius:0;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
-.p-shellparity .tab[aria-selected=true]{background:var(--cy);color:var(--accent-ink);box-shadow:none}
+.p-shellparity .tab[aria-selected=true],.p-shellparity .tab[aria-pressed=true]{background:var(--cy);color:var(--accent-ink);box-shadow:none}
 .p-shellparity .term{border-radius:0;box-shadow:0 0 0 1px var(--term-line),0 30px 60px -34px #000;font-family:'IBM Plex Mono',monospace}
 .p-shellparity .term pre{font-family:'IBM Plex Mono',monospace}
 .p-shellparity .steps h3::before{border-radius:0;background:var(--cy);color:var(--accent-ink)}

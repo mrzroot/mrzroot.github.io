@@ -105,7 +105,7 @@ if(window.MutationObserver)new MutationObserver(sync).observe(d,{attributes:true
     $$('.fl-filter').forEach(function (b) {
       b.addEventListener('click', function () {
         var v = b.getAttribute('data-f');
-        $$('.fl-filter').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+        $$('.fl-filter').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
         $$('.finding', fl).forEach(function (d) { d.style.display = (v === 'all' || d.getAttribute('data-sev') === v) ? '' : 'none'; });
       });
     });

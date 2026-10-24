@@ -2,8 +2,8 @@
 @font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/archivo-black.woff2) format('woff2')}
 @font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/space-mono.woff2) format('woff2')}
 @font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/space-mono-bold.woff2) format('woff2')}
-html[data-theme=light] body.p-whystuck{--bg:#f4efe3;--bg2:#ece5d4;--surface:#fffaf0;--surface2:#fffaf0;--text:#141210;--text2:#3a342b;--text3:#5e564a;--ink:#141210;--line:rgba(20,18,16,.22);--line2:#141210;--accent:#ff3b1f;--accent-fg:#d42a10;--accent-ink:#fff;--glow:transparent;--red:#ff3b1f;--yel:#ffc933;--dots:rgba(20,18,16,.12)}
-html[data-theme=dark] body.p-whystuck{--bg:#141210;--bg2:#1b1814;--surface:#201c17;--surface2:#201c17;--text:#f4efe3;--text2:#cfc7b6;--text3:#a8a08e;--ink:#f4efe3;--line:rgba(244,239,227,.2);--line2:#f4efe3;--accent:#ff5a3d;--accent-fg:#ff7a60;--accent-ink:#141210;--glow:transparent;--red:#ff4a2b;--yel:#ffc933;--dots:rgba(244,239,227,.09)}
+html[data-theme=light] body.p-whystuck{--bg:#f4efe3;--bg2:#ece5d4;--surface:#fffaf0;--surface2:#fffaf0;--text:#141210;--text2:#3a342b;--text3:#5e564a;--ink:#141210;--line:rgba(20,18,16,.22);--line2:#141210;--accent:#ff3b1f;--accent-fg:#d42a10;--accent-ink:#fff;--glow:transparent;--red:#ff3b1f;--on-red:#141210;--yel:#ffc933;--dots:rgba(20,18,16,.12)}
+html[data-theme=dark] body.p-whystuck{--bg:#141210;--bg2:#1b1814;--surface:#201c17;--surface2:#201c17;--text:#f4efe3;--text2:#cfc7b6;--text3:#a8a08e;--ink:#f4efe3;--line:rgba(244,239,227,.2);--line2:#f4efe3;--accent:#ff5a3d;--accent-fg:#ff7a60;--accent-ink:#141210;--glow:transparent;--red:#ff4a2b;--on-red:#141210;--yel:#ffc933;--dots:rgba(244,239,227,.09)}
 body.p-whystuck{background-color:var(--bg);background-image:radial-gradient(var(--dots) 1.2px,transparent 1.4px);background-size:16px 16px;font-family:'Vazirmatn',system-ui,sans-serif}
 .p-whystuck h1,.p-whystuck h2,.p-whystuck .brand,.p-whystuck .kpis b{font-family:'Archivo Black','Vazirmatn',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em}
 html[lang=fa] .p-whystuck h1,html[lang=fa] .p-whystuck h2,html[lang=fa] .p-whystuck .brand,html[lang=fa] .p-whystuck .kpis b{font-family:'Vazirmatn',sans-serif;font-weight:800;text-transform:none;letter-spacing:0}
@@ -17,7 +17,7 @@ html[lang=fa] .p-whystuck .nav a{font-family:'Vazirmatn';text-transform:none;fon
 html[lang=fa] .p-whystuck .btn{font-family:'Vazirmatn'}
 .p-whystuck .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
 .p-whystuck .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
-.p-whystuck .btn.pri{background:var(--red);color:#fff}
+.p-whystuck .btn.pri{background:var(--red);color:var(--on-red)}
 .p-whystuck .btn.icon,.p-whystuck .hd-gh{box-shadow:3px 3px 0 var(--ink)}
 @media(max-width:520px){.p-whystuck .brand .fa-name{display:none}}
 @media(max-width:900px){.p-whystuck .nav{background:var(--bg);border-block-end:3px solid var(--ink)}.p-whystuck .nav a{border-radius:0}}
@@ -41,7 +41,7 @@ html[lang=fa] .tangle-bar label{font-family:'Vazirmatn';text-transform:none;font
 .tangle-bar input{flex:1;min-width:0;accent-color:#141210;height:26px}
 .tangle-bar output{font:700 .78rem 'Space Mono',monospace;min-width:6ch;text-align:end;direction:ltr}
 .tangle-tag{position:absolute;top:12px;inset-inline-start:12px;background:var(--ink);color:var(--bg);font:700 .7rem 'Space Mono',monospace;padding:4px 9px;text-transform:uppercase}
-.ticker{overflow:hidden;border-block:3px solid var(--ink);background:var(--red);color:#fff;white-space:nowrap;transform:rotate(-.8deg);margin:6px -2vw 0;box-shadow:0 6px 0 var(--ink)}
+.ticker{overflow:hidden;border-block:3px solid var(--ink);background:var(--red);color:var(--on-red);white-space:nowrap;transform:rotate(-.8deg);margin:6px -2vw 0;box-shadow:0 6px 0 var(--ink)}
 .ticker div{display:inline-flex;gap:0;animation:tick 28s linear infinite;padding-block:9px}
 .ticker span{font:700 1.05rem 'Space Mono',monospace;text-transform:uppercase;padding-inline:22px}
 .ticker span::after{content:'✱';margin-inline-start:44px;color:var(--yel)}
@@ -77,11 +77,11 @@ html[lang=fa] .p-whystuck .kpis b{-webkit-text-stroke:0}
 .p-whystuck .term{border-radius:0;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--red);overflow:hidden}
 .p-whystuck .term-bar i{border-radius:0}
 .p-whystuck .tab{border-radius:0;border:2px solid var(--ink);font:700 .76rem 'Space Mono',monospace;background:var(--surface);color:var(--text)}
-.p-whystuck .tab[aria-selected=true]{background:var(--red);color:#fff;box-shadow:3px 3px 0 var(--ink)}
-.p-whystuck .steps h3::before{border-radius:0;background:var(--red);color:#fff;border:2px solid var(--ink)}
+.p-whystuck .tab[aria-selected=true]{background:var(--red);color:var(--on-red);box-shadow:3px 3px 0 var(--ink)}
+.p-whystuck .steps h3::before{border-radius:0;background:var(--red);color:var(--on-red);border:2px solid var(--ink)}
 .p-whystuck .how{counter-reset:hw}
 .p-whystuck .how .card{counter-increment:hw;position:relative;padding-top:56px;transition:transform .15s,box-shadow .15s}
-.p-whystuck .how .card::before{content:counter(hw);position:absolute;top:-3px;inset-inline-start:-3px;width:44px;height:44px;display:grid;place-items:center;background:var(--red);color:#fff;font:400 1.4rem 'Archivo Black';border:3px solid var(--ink)}
+.p-whystuck .how .card::before{content:counter(hw);position:absolute;top:-3px;inset-inline-start:-3px;width:44px;height:44px;display:grid;place-items:center;background:var(--red);color:var(--on-red);font:400 1.4rem 'Archivo Black';border:3px solid var(--ink)}
 .p-whystuck .how .card:nth-child(odd){transform:rotate(-.7deg)}.p-whystuck .how .card:nth-child(even){transform:rotate(.7deg)}
 .p-whystuck .limits li{border-inline-start:12px solid var(--red)}
 .p-whystuck .faq summary{font-weight:800}

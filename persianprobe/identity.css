@@ -93,3 +93,6 @@ html[dir=rtl] .p-persianprobe .problem>div:first-child{box-shadow:inset -3px 0 0
 html[data-theme=light] .p-persianprobe .xray textarea,html[data-theme=light] .p-persianprobe .chip{background:var(--surface2)}
 html[data-theme=light] .p-persianprobe .chip.bad{background:color-mix(in srgb,var(--hot) 10%,var(--surface))}
 html[data-theme=light] .p-persianprobe .chip.inv b{color:#a86500}
+
+/* a11y: AA contrast for the always-dark terminal bar */
+html[data-theme=light] .term-bar b{color:#a8e04a}

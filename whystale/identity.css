@@ -110,3 +110,6 @@ html.js .p-whystale .rv.in{opacity:1;transform:none;filter:none}
 @media(max-width:900px){.p-whystale .hero-grid{grid-template-columns:minmax(0,1fr)}.p-whystale .nav{background:var(--bg);border-block-end:3px double var(--line2);border-radius:0}.p-whystale .nav a{border-radius:0}.folio{transform:none}}
 @media(max-width:520px){.p-whystale .brand .fa-name{display:none}.folio{padding:10px 10px 8px}.folio-body{grid-template-columns:54px minmax(0,1fr);gap:8px}#glass{height:430px}.ledger p{padding-inline-end:62px;font-size:.88rem}.ledger small{padding-inline-end:0;font-size:.66rem}.stamp .x{font-size:.78rem;padding:3px 5px}}
 @media(prefers-reduced-motion:reduce){.p-whystale h1 em{animation:none;background-size:100% 3px}.p-whystale .kicker i{animation:none}.stamp .x{animation:none!important}html.js .p-whystale .rv{opacity:1;transform:none;filter:none;transition:none}}
+
+/* a11y: AA contrast */
+html[data-theme=light] .p-whystale .btn.pri{background:#8f6216}html[data-theme=light] .p-whystale .feat .n{opacity:.82}html[data-theme=dark] .ledger li.stale .x.s{color:#ee7a64}
