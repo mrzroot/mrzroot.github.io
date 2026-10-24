@@ -1,0 +1,3 @@
+Fonts in this folder are self-hosted copies from Google Fonts, licensed under the SIL Open Font License 1.1:
+Bricolage Grotesque (Mathieu Triay), Red Hat Mono (Red Hat), Vazirmatn (Saber Rastikerdar).
+https://openfontlicense.org
