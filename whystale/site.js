@@ -37,7 +37,15 @@ document.querySelectorAll('picture source[media*="prefers-color-scheme"]').forEa
 function apply(m,save){var t=res(m);if(save){try{if(m==='system')localStorage.removeItem(K);else localStorage.setItem(K,m)}catch(e){}}
 d.setAttribute('data-theme',t);d.setAttribute('data-theme-mode',m);d.style.colorScheme=t;tc(t,m);sync();try{document.dispatchEvent(new CustomEvent('mrz-theme',{detail:t,mode:m}))}catch(e){}}
 var NX={system:'light',light:'dark',dark:'system'};
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-theme-toggle]');if(!b)return;apply(NX[get()],true)});
+/* soft theme change: radial reveal from the toggle (View Transitions API), colour cross-fade fallback, instant under reduced motion */
+function vt(n,b){var cur=d.getAttribute('data-theme'),nx=res(n),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm||document.hidden||nx===cur||!b.getBoundingClientRect){apply(n,true);return}
+if(!document.getElementById('mrz-vt-css')){var s=document.createElement('style');s.id='mrz-vt-css';s.textContent='html.vt-theme::view-transition-old(root),html.vt-theme::view-transition-new(root){animation:none;mix-blend-mode:normal}html.vt-theme::view-transition-old(root){z-index:1}html.vt-theme::view-transition-new(root){z-index:2}html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:background-color .5s ease,color .5s ease,border-color .5s ease,fill .5s ease,stroke .5s ease,box-shadow .5s ease!important}@media (prefers-reduced-motion:reduce){html.vt-theme::view-transition-group(*),html.vt-theme::view-transition-old(*),html.vt-theme::view-transition-new(*){animation-duration:.01ms!important}}';document.head.appendChild(s)}
+var r0=b.getBoundingClientRect(),x=r0.left+r0.width/2,y=r0.top+r0.height/2,R=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+if(document.startViewTransition&&!d.classList.contains('vt-theme')){d.classList.add('vt-theme');var done=function(){d.classList.remove('vt-theme')};
+try{var tr=document.startViewTransition(function(){apply(n,true)});tr.ready.then(function(){d.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+R+'px at '+x+'px '+y+'px)']},{duration:650,easing:'cubic-bezier(.65,0,.35,1)',pseudoElement:'::view-transition-new(root)'})}).catch(function(){});tr.finished.then(done,done)}catch(er){done();apply(n,true)}return}
+d.classList.add('theme-anim');setTimeout(function(){d.classList.remove('theme-anim')},650);apply(n,true)}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-theme-toggle]');if(!b)return;vt(NX[get()],b)});
 function onq(){if(get()==='system')apply('system',false)}
 if(q){if(q.addEventListener)q.addEventListener('change',onq);else if(q.addListener)q.addListener(onq)}
 window.addEventListener('storage',function(e){if(e.key===K||e.key===null)apply(get(),false)});
@@ -186,7 +194,7 @@ if(window.MutationObserver)new MutationObserver(sync).observe(d,{attributes:true
   function paintEmblem(t) {
     raf = 0; if (!pts || !ctx) return;
     var light = root.getAttribute('data-theme') === 'light', cs = getComputedStyle(document.body);
-    var main = cs.getPropertyValue(light ? '--p-light' : '--p-dark').trim() || '#3fd0c9', hot = light ? '#9a5f08' : '#f0be5e';
+    var main = cs.getPropertyValue(light ? '--p-light' : '--p-dark').trim() || '#d0a03f', hot = light ? '#9a5f08' : '#f0be5e';
     ctx.clearRect(0, 0, eW, eH); var ins = .12, bw = eW * (1 - 2 * ins), bh = eH * (1 - 2 * ins), n = ph.length;
     for (var pass = 0; pass < 2; pass++) { ctx.fillStyle = pass ? hot : main;
       for (var i = 0; i < n; i++) { var sp = pts[i * 3 + 2] > .93; if (sp !== !!pass) continue; var tw = reduce ? 1 : .7 + .3 * Math.sin(t * .0021 + ph[i]); ctx.globalAlpha = Math.min(1, (.62 + pts[i * 3 + 2] * .25) * tw); ctx.beginPath(); ctx.arc(eW * ins + pts[i * 3] * bw, eH * ins + pts[i * 3 + 1] * bh + (reduce ? 0 : Math.sin(t * .0011 + ph[i]) * .8), 1.2 + pts[i * 3 + 2] * 1.1, 0, 6.28); ctx.fill(); } }
