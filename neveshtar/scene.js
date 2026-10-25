@@ -107,4 +107,47 @@ if(inp){
  if('IntersectionObserver'in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){load();o.disconnect()}},{rootMargin:'600px'}).observe($('#demo'))}else load();
  new MutationObserver(function(){render()}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 }
+
+/* ---- naturalness demo (nat_nev.js: R101-R104, R201, R401, R501) ---- */
+var nin=$('#natin');
+if(nin){
+ var NS=null,nOut=$('#natout'),nChips=$('#natchips'),nList=$('#natlist'),nRh=$('#natrh'),nN=$('#natn'),nHint=$('#natmodehint');
+ var NSAMPLE='در دنیای پرشتاب امروز، کتابخانه‌های دانشگاهی نقش بسزایی ایفا می‌کنند. همچنین فناوری‌های نوین گام مهمی در دسترسی به منابع هستند. علاوه بر این، پرسشنامه بسیار بسیار مفصل بود و در رابطه با رضایت دانشجویان مورد بررسی قرار گرفت. بنابراین نتایج بسیار حیاتی است. در نهایت ما می‌توانیم نتیجه بگیریم که بر روی این موضوع باید بیشتر کار کرد.\n۱۲ مصاحبه با کتابدار انجام شد و در جدول ۲ آمده است: ۹ نفر ساعت کار را کافی ندانستند.';
+ var TN={high:['high','بالا'],medium:['medium','متوسط'],low:['low','پایین']};
+ var nmode=function(){var r=$('input[name=natmode]:checked');return r?r.value:'safe'};
+ var nrender=function(){
+  if(!NS)return;var t=nin.value,res=NS.analyse(t),f=res.findings,tiers=nmode()==='safe'?['high']:['high','medium'],html='',pos=0,list='',ap=0,sg=0;
+  f.forEach(function(x,i){x.on=x.chg&&tiers.indexOf(x.conf)>=0;
+   var c=NS.data.cats[x.code],why='<b>'+x.code+' · '+TN[x.conf][0]+'</b><span class="l-en">'+esc(c.n)+'</span><span class="l-fa" lang="fa">'+esc(c.nf)+'</span>';
+   html+=esc(t.slice(pos,x.s));pos=x.e;
+   if(x.on){ap++;html+='<span class="chg" tabindex="0" role="button" data-i="'+i+'" aria-label="'+esc(x.o+' → '+x.sug)+'"><del>'+esc(x.o)+'</del>'+(x.sug?'<ins>'+esc(x.sug)+'</ins>':'')+'<span class="tip">'+why+'</span></span>'}
+   else{sg++;html+='<span class="sug" tabindex="0" role="button" data-i="'+i+'" data-c="'+TN[x.conf][0]+'" aria-label="'+esc(x.o)+'">'+esc(x.o)+'<span class="tip">'+why+'</span></span>'}
+   var a=NS.data.ask[x.code];
+   list+='<li id="nf'+i+'" data-c="'+TN[x.conf][0]+'"><span class="cd mono">'+x.code+'</span><div><p class="cw"><q lang="fa" dir="rtl">'+esc(x.o.trim())+'</q>'+(x.sug?' <span aria-hidden="true">→</span> <q lang="fa" dir="rtl">'+esc(x.sug.trim())+'</q>':'')+
+    ' <span class="tr mono">'+TN[x.conf][0]+' · '+(x.on?'<span class="l-en">applied</span><span class="l-fa" lang="fa">اعمال شد</span>':'<span class="l-en">suggestion</span><span class="l-fa" lang="fa">پیشنهاد</span>')+'</span></p>'+
+    '<p class="ww"><span class="l-en">'+esc(NS.data.cats[x.code].w+(x.note?' '+x.note:''))+'</span><span class="l-fa" lang="fa">'+esc(NS.data.cats[x.code].wf)+'</span></p>'+
+    (x.ask?'<p class="qq"><b class="mono"><span class="l-en">ask yourself</span><span class="l-fa" lang="fa">از خودتان بپرسید</span></b> <span class="l-en">'+esc(a[0])+'</span><span class="l-fa" lang="fa">'+esc(a[1])+'</span></p>':'')+'</div></li>'});
+  html+=esc(t.slice(pos));nOut.innerHTML=t.trim()?html:'<span style="color:var(--muted)">'+(isFa()?'اینجا نتیجه می‌آید.':'The result appears here.')+'</span>';
+  nList.innerHTML=list||'<li class="none">'+(isFa()?'چیزی پیدا نشد.':'Nothing found. That is a fine result.')+'</li>';
+  nChips.innerHTML='<span class="h">'+ap+' '+(isFa()?'اعمال':'applied')+'</span><span>'+sg+' '+(isFa()?'پیشنهاد':'suggested')+'</span><span>'+f.length+' '+(isFa()?'یافته':'findings')+'</span>';
+  nN.textContent=f.length?' · '+f.length:'';
+  nHint.textContent=nmode()==='safe'?(isFa()?'safe: فقط حذف‌های بی‌ابهام':'safe: unambiguous trims only'):(isFa()?'balanced: سطح medium هم اعمال می‌شود':'balanced: medium tier applied too');
+  var r=res.rhythm,L=function(en,fa){return isFa()?fa:en};
+  if(!r.sentences){nRh.innerHTML=''}else{var mx=Math.max.apply(0,r.hist)||1,bars=r.hist.map(function(v,i){return '<i style="height:'+Math.round(6+44*v/mx)+'px" title="'+(i<8?i*5+'–'+(i*5+4):'40+')+': '+v+'"></i>'}).join('');
+   var cell=function(k,v){return '<div><b class="mono">'+v+'</b><span>'+k+'</span></div>'};
+   nRh.innerHTML=cell(L('sentences','جمله'),r.sentences)+cell(L('words per sentence, mean · median','واژه در جمله، میانگین · میانه'),r.mean.toFixed(1)+' · '+r.median)+cell(L('shortest–longest','کوتاه‌ترین–بلندترین'),r.min+'–'+r.max)+cell(L('variation (stdev ÷ mean)','پراکندگی (انحراف ÷ میانگین)'),r.variation.toFixed(2))+cell(L('opener diversity (1.0 = all differ)','تنوع آغازگر (۱٫۰ = همه متفاوت)'),r.openers.toFixed(2))+cell(L('connector openers','آغاز با حرف‌ربط'),r.conn+'%')+cell(L('passive sentences','جملهٔ مجهول'),r.passive+'%')+
+    '<div class="hist" role="img" aria-label="'+L('Sentence-length histogram','نمودار طول جمله')+'"><span class="bars">'+bars+'</span><span>'+L('length histogram, 0–4 … 40+ words','نمودار طول، ۰–۴ تا +۴۰ واژه')+'</span></div>'}
+ };
+ var nfocus=function(el){var s=el.closest('.chg,.sug');if(!s)return;var li=$('#nf'+s.dataset.i);if(li){li.scrollIntoView({block:'nearest',behavior:RM?'auto':'smooth'});li.classList.add('flash');setTimeout(function(){li.classList.remove('flash')},1200)}};
+ nOut.addEventListener('click',function(e){nfocus(e.target)});
+ nOut.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();nfocus(e.target)}});
+ nin.addEventListener('input',nrender);
+ $$('input[name=natmode]').forEach(function(r){r.addEventListener('change',nrender)});
+ $('#natsample').addEventListener('click',function(){nin.value=NSAMPLE;nrender();nin.focus()});
+ $('#natclear').addEventListener('click',function(){nin.value='';nrender();nin.focus()});
+ nin.value=NSAMPLE;
+ var nload=function(){if(NS||nload.d)return;nload.d=1;var s=document.createElement('script');s.src='nat_nev.js';s.onload=function(){NS=window.NEV_NAT;nrender()};document.head.appendChild(s)};
+ if('IntersectionObserver'in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){nload();o.disconnect()}},{rootMargin:'600px'}).observe($('#natural'))}else nload();
+ new MutationObserver(function(){nrender()}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+}
 })();
