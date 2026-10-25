@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light" data-title-en="gonjineh · Every AI chat, filed for the whole team." data-title-fa="گنجینه · هر گفتگوی هوش‌مصنوعی، بایگانی برای کل تیم">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gonjineh · Every AI chat, filed for the whole team.</title>
+<meta name="description" content="gonjineh (گنجینه) is git-native shared memory for a team's AI coding agents: hooks capture Claude Code and Codex sessions, a rule-based digest and a mandatory secret scrubber turn them into markdown notes, and a plain git repo syncs them so the next teammate's agent can search them first. No server, no LLM calls. Python, stdlib only.">
+<meta name="author" content="Mohammadreza Zare">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1a1210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6efe6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://mrzroot.github.io/gonjineh/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="M-R-Z · mrzroot"><meta property="og:title" content="gonjineh · Every AI chat, filed for the whole team."><meta property="og:description" content="Git-native shared memory for a team's AI coding agents. Rule-based digest, mandatory secret scrubber, plain markdown in git, local BM25 search. No server, no LLM calls."><meta property="og:url" content="https://mrzroot.github.io/gonjineh/"><meta property="og:image" content="https://mrzroot.github.io/gonjineh/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="gonjineh: an archive cabinet where two teammates' AI sessions are filed as index cards">
+<meta property="og:locale" content="fa_IR"><meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="gonjineh · Every AI chat, filed for the whole team."><meta name="twitter:description" content="Git-native shared memory for a team's AI coding agents. No server, no LLM calls."><meta name="twitter:image" content="https://mrzroot.github.io/gonjineh/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/ZillaSlab-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/vazirmatn-400-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="identity.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"gonjineh","alternateName":"گنجینه","description":"Git-native shared memory for a team's AI coding agents: hook capture, rule-based digest, mandatory secret scrubber, plain markdown in git, local BM25 search. Python, standard library only.","codeRepository":"https://github.com/mrzroot/gonjineh","programmingLanguage":"Python","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Mohammadreza Zare","url":"https://github.com/mrzroot"},"url":"https://mrzroot.github.io/gonjineh/","inLanguage":["fa","en"]}</script>
+</head>
+<body class="p-gonjineh">
+<script>(function(){var d=document.documentElement,m='system',l=null,q=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;try{m=localStorage.getItem('mrz-theme')||'system'}catch(e){}if(m!=='light'&&m!=='dark')m='system';var th=m==='system'?(q&&q.matches?'dark':'light'):m;d.setAttribute('data-theme',th);d.setAttribute('data-theme-mode',m);d.style.colorScheme=th;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')}catch(e){}if(!l)l=(navigator.language||'fa').slice(0,2)==='en'?'en':'fa';if(l==='en'){d.lang='en';d.dir='ltr'}})();</script>
+<a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top" id="top" aria-label="gonjineh"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="1.5"/><path d="M4 9.2h16M4 14.8h16"/><path d="M10 6.4h4M10 12h4M10 17.6h4"/></svg><span>gonjineh</span><span class="fa-name" lang="fa">گنجینه</span></a>
+  <nav class="nav" id="nav" aria-label="Sections"><a href="#demo"><span class="l-en">Try it</span><span class="l-fa" lang="fa">امتحان</span></a><a href="#how"><span class="l-en">How</span><span class="l-fa" lang="fa">روش</span></a><a href="#tools"><span class="l-en">Tools</span><span class="l-fa" lang="fa">ابزارها</span></a><a href="#privacy"><span class="l-en">Privacy</span><span class="l-fa" lang="fa">حریم</span></a><a href="#limits"><span class="l-en">Limits</span><span class="l-fa" lang="fa">محدودیت</span></a><a href="#install"><span class="l-en">Install</span><span class="l-fa" lang="fa">نصب</span></a></nav>
+  <div class="tools">
+    <a class="btn hd-gh" href="https://github.com/mrzroot/gonjineh" target="_blank" rel="noopener" aria-label="GitHub: mrzroot/gonjineh"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>GitHub</span></a>
+    <button class="btn icon tog" id="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light and dark theme"><svg class="t-sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg><svg class="t-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+    <button class="btn" id="lang-toggle" type="button"><span class="l-en" aria-hidden="true">فا</span><span class="l-fa" aria-hidden="true">EN</span><span class="sr-only" id="lang-sr">تغییر زبان به فارسی</span></button>
+    <button class="btn icon menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</div></header>
+<main id="main">
+<section class="hero gjh" id="top2" style="border:0"><div class="wrap">
+  <div class="gj-copy">
+    <p class="kicker"><i></i><span class="l-en">shared memory for your team's AI agents</span><span class="l-fa" lang="fa">حافظهٔ مشترک برای عامل‌های هوش‌مصنوعی تیم</span> · <span class="mono">v0.1.0</span></p>
+    <h1><span class="l-en">Every AI chat, <em>filed</em> for the whole team.</span><span class="l-fa" lang="fa">هر گفتگوی هوش‌مصنوعی، <em>بایگانی</em> برای کل تیم.</span></h1>
+    <p class="lede"><span class="l-en">Your frontend person and your backend person each talk to their own agent. gonjineh turns every finished session into a short, secret-scrubbed note, syncs it through a plain git repo, and lets the next agent look it up before it builds something that already exists. No server, no accounts, no LLM calls.</span><span class="l-fa" lang="fa">نفرِ فرانت و نفرِ بک‌اند هرکدام با عامل خودشان حرف می‌زنند. گنجینه هر جلسهٔ تمام‌شده را به یادداشتی کوتاه و بدون رمز و کلید تبدیل می‌کند، با یک مخزن ساده‌ٔ گیت همگام می‌کند و اجازه می‌دهد عامل بعدی پیش از ساختنِ چیزی که از قبل هست، آن را پیدا کند. بدون سرور، بدون حساب کاربری، بدون فراخوانی مدل.</span></p>
+    <div class="cta"><a class="btn pri" href="#demo"><span class="l-en">Run the pipeline</span><span class="l-fa" lang="fa">خط لولهٔ واقعی را اجرا کنید</span></a><a class="btn" href="#install"><span class="l-en">Install</span><span class="l-fa" lang="fa">نصب</span></a><a class="btn" href="https://github.com/mrzroot/gonjineh" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>GitHub</span></a></div>
+    <ul class="badges" aria-label="Facts"><li>Python 3.9+</li><li>0 deps</li><li>no server</li><li>no LLM calls</li><li>99 tests</li><li>MIT</li></ul>
+  </div>
+  <figure class="stage cab" id="cab" data-step="0" aria-label="Animated example: Reza's Codex session is turned into a note, the key in it is masked, the card is filed in the backend drawer; later Maryam's Claude Code prompt about a refund button pulls that card out and her agent reuses the existing endpoint.">
+    <div class="cab-grid" aria-hidden="true">
+      <div class="desk dk-r" id="dkr">
+        <div class="dk-h"><span class="av a-r" aria-hidden="true"></span><b>reza</b><span class="tl">codex · backend</span></div>
+        <div class="chat">
+          <p class="cl u" id="r1"><span class="who">you</span><span class="l-en">Add a refund endpoint. Partial refunds allowed.</span><span class="l-fa" lang="fa">یک endpoint بازپرداخت اضافه کن. بازپرداخت جزئی مجاز است.</span></p>
+          <p class="cl a" id="r2"><span class="who">ai</span><span class="l-en">Added POST /api/orders/{id}/refund. Decided on a separate refunds table because finance needs an audit trail.</span><span class="l-fa" lang="fa">POST /api/orders/{id}/refund اضافه شد. جدول refunds جدا گذاشتم چون مالی ردپای حسابرسی می‌خواهد.</span></p>
+          <p class="cl k" id="r3"><span class="who">env</span><code class="ky"><span class="ky-a">STRIPE_KEY=sk_live_51Hx…</span><span class="ky-b">STRIPE_KEY=[REDACTED:stripe-key]</span></code></p>
+        </div>
+        <div class="nt slot" id="rslot"><i class="hole"></i><p class="nt-t"><span class="l-en">Add a refund endpoint for orders</span><span class="l-fa" lang="fa">endpoint بازپرداخت سفارش‌ها</span></p><p class="nt-m">reza · codex · backend</p><p class="nt-m">POST /api/orders/{id}/refund</p><span class="stamp"><span class="l-en">scrubbed ×1</span><span class="l-fa" lang="fa">پاک‌سازی ×۱</span></span></div>
+      </div>
+      <div class="cb" id="cb">
+        <p class="cb-t mono">team-brain.git</p>
+        <div class="dr" data-a="frontend"><span class="lab">frontend</span><i class="in"></i><i class="hd"></i></div>
+        <div class="dr" data-a="backend" id="drb"><span class="lab">backend</span><i class="in"></i><i class="hd"></i></div>
+        <div class="dr" data-a="infra"><span class="lab">infra</span><i class="in"></i><i class="hd"></i></div>
+        <p class="cb-n mono"><span id="cbn">7</span> <span class="l-en">notes</span><span class="l-fa" lang="fa">یادداشت</span></p>
+      </div>
+      <div class="desk dk-m" id="dkm">
+        <div class="dk-h"><span class="av a-m" aria-hidden="true"></span><b>maryam</b><span class="tl">claude code · frontend</span></div>
+        <div class="chat">
+          <p class="cl u" id="m1"><span class="who">you</span><span class="l-en">Add a refund button to the order page.</span><span class="l-fa" lang="fa">در صفحهٔ سفارش یک دکمهٔ بازپرداخت اضافه کن.</span></p>
+          <div class="nt ctx" id="mctx"><i class="hole"></i><p class="nt-k mono">Team brain</p><p class="nt-t"><span class="l-en">reza · backend · Oct 19</span><span class="l-fa" lang="fa">reza · backend · ۱۹ اکتبر</span></p><p class="nt-m">POST /api/orders/{id}/refund</p></div>
+          <p class="cl a" id="m2"><span class="who">ai</span><span class="l-en">Reza already built POST /api/orders/{id}/refund (integer cents). I'll call it; no backend work needed.</span><span class="l-fa" lang="fa">رضا قبلاً POST /api/orders/{id}/refund را ساخته (مبلغ به‌صورت عدد صحیح). همان را صدا می‌زنم؛ کار بک‌اند لازم نیست.</span></p>
+        </div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l-en">Illustration. The names, notes and the key are made up; the pipeline below is the real code.</span><span class="l-fa" lang="fa">تصویرسازی. نام‌ها، یادداشت‌ها و کلید ساختگی‌اند؛ خط لولهٔ پایین کد واقعی است.</span></figcaption>
+  </figure>
+</div></section>
+
+<section id="demo" class="band" aria-labelledby="demo-h"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">Live · the real rules</span><span class="l-fa" lang="fa">زنده · قواعد واقعی</span></p><h2 id="demo-h"><span class="l-en">Paste a chat. Watch it become a note. Ask the brain.</span><span class="l-fa" lang="fa">یک گفتگو بچسبانید. تبدیل‌شدنش به یادداشت را ببینید. از حافظه بپرسید.</span></h2>
+  <p class="prose"><span class="l-en">This runs a JavaScript port of the real scrubber, digest and BM25 search in your browser; nothing you type leaves the page. The port is checked against the Python code on 77 comparisons (same inputs, same outputs). Caveat: real Claude Code and Codex files are parsed by the Python tool; here a simplified <code>You:</code> / <code>AI:</code> / <code>[edit] path</code> format stands in for them.</span><span class="l-fa" lang="fa">این بخش نسخهٔ جاوااسکریپتیِ همان پاک‌ساز، خلاصه‌ساز و جست‌وجوی BM25 واقعی را در مرورگر شما اجرا می‌کند؛ چیزی از صفحه بیرون نمی‌رود. این نسخه با کد پایتون روی ۷۷ مقایسه (ورودیِ یکسان، خروجیِ یکسان) سنجیده شده. توجه: فایل‌های واقعی Claude Code و Codex را ابزار پایتونی می‌خواند؛ اینجا قالب ساده‌شدهٔ <code>You:</code> / <code>AI:</code> / <code>[edit] path</code> جای آن‌هاست.</span></p></div>
+
+  <div class="dm" id="dm">
+    <div class="dm-in">
+      <h3 class="dm-h"><b>1</b><span class="l-en">Capture: a finished session</span><span class="l-fa" lang="fa">ثبت: یک جلسهٔ تمام‌شده</span></h3>
+      <div class="chips" role="group" aria-label="Samples">
+        <button type="button" class="chip on" data-s="en"><span class="l-en">Refund button (has secrets)</span><span class="l-fa" lang="fa">دکمهٔ بازپرداخت (دارای رمز)</span></button>
+        <button type="button" class="chip" data-s="fa"><span class="l-en">Coupon field (Persian)</span><span class="l-fa" lang="fa">فیلد کد تخفیف (فارسی)</span></button>
+        <button type="button" class="chip" data-s="priv"><span class="l-en">Marked #private</span><span class="l-fa" lang="fa">علامت #private</span></button>
+      </div>
+      <label class="sr-only" for="dm-text">Session text</label>
+      <textarea id="dm-text" class="dm-ta" rows="13" spellcheck="false" dir="auto"></textarea>
+      <div class="dm-row">
+        <label><span class="l-en">author</span><span class="l-fa" lang="fa">نویسنده</span> <select id="dm-author"><option>maryam</option><option>reza</option><option>sara</option><option>ali</option></select></label>
+        <label><span class="l-en">tool</span><span class="l-fa" lang="fa">ابزار</span> <select id="dm-tool"><option>claude-code</option><option>codex</option><option>gemini</option></select></label>
+      </div>
+    </div>
+    <div class="dm-out">
+      <h3 class="dm-h"><b>2</b><span class="l-en">Scrub: before anything is written</span><span class="l-fa" lang="fa">پاک‌سازی: پیش از نوشتن هر چیزی</span></h3>
+      <div class="scr" id="dm-scr" aria-live="polite"></div>
+      <p class="chipline" id="dm-kinds"></p>
+      <h3 class="dm-h"><b>3</b><span class="l-en">Digest: the note that is committed</span><span class="l-fa" lang="fa">خلاصه: یادداشتی که کامیت می‌شود</span></h3>
+      <div class="term"><div class="term-bar"><b id="dm-fname">entries/…</b></div><pre id="dm-md" tabindex="0"></pre></div>
+      <div class="dm-row"><button class="btn pri" id="dm-file" type="button"><span class="l-en">File it in the brain</span><span class="l-fa" lang="fa">در حافظه بایگانی کن</span></button><span class="note" id="dm-msg" role="status"></span></div>
+    </div>
+  </div>
+
+  <div class="dm dm2">
+    <div class="dm-in">
+      <h3 class="dm-h"><b>4</b><span class="l-en">Ask: what a teammate's agent sees</span><span class="l-fa" lang="fa">پرسش: آنچه عامل هم‌تیمی می‌بیند</span></h3>
+      <div class="dm-row"><label><span class="l-en">I am</span><span class="l-fa" lang="fa">من</span> <select id="dm-me"><option>maryam</option><option>reza</option><option>sara</option><option>ali</option></select></label></div>
+      <label class="sr-only" for="dm-q">Prompt</label>
+      <input id="dm-q" class="dm-q" type="text" dir="auto" autocomplete="off" spellcheck="false" value="Refund button on the order details screen">
+      <div class="chips" role="group" aria-label="Example prompts">
+        <button type="button" class="chip" data-q="Refund button on the order details screen">refund button</button>
+        <button type="button" class="chip" data-q="Add a refund button to the order details page"><span class="l-en">a noisy one: &ldquo;Add&hellip;&rdquo;</span><span class="l-fa" lang="fa">نمونهٔ پرنویز: «Add…»</span></button>
+        <button type="button" class="chip" data-q="login screen cooldown after OTP attempts">login cooldown</button>
+        <button type="button" class="chip" data-q="کد ورود پیامک چطور ارسال می‌شود">کد ورود پیامک</button>
+        <button type="button" class="chip" data-q="سبد خرید تخفیف">سبد خرید تخفیف</button>
+        <button type="button" class="chip" data-q="quarterly sales dashboard colors"><span class="l-en">unrelated prompt</span><span class="l-fa" lang="fa">پرسش بی‌ربط</span></button>
+      </div>
+      <h4 class="dm-h2"><span class="l-en">Injected into the prompt (the real hook text)</span><span class="l-fa" lang="fa">افزوده‌شده به پرسش (متن واقعی هوک)</span></h4>
+      <div class="term"><div class="term-bar"><b>UserPromptSubmit</b></div><pre id="dm-hook" tabindex="0"></pre></div>
+      <div class="dm-row who"><label><span class="l-en">who knows</span><span class="l-fa" lang="fa">چه کسی می‌داند</span> <input id="dm-who" class="dm-w" type="text" value="auth" dir="ltr" autocomplete="off" spellcheck="false"></label><span class="note" id="dm-whor"></span></div>
+    </div>
+    <div class="dm-out">
+      <h3 class="dm-h"><b>5</b><span class="l-en">Ranked notes and the gate</span><span class="l-fa" lang="fa">یادداشت‌های رتبه‌بندی‌شده و دروازه</span></h3>
+      <ol class="hits" id="dm-hits" aria-live="polite"></ol>
+      <p class="note"><span class="l-en">BM25 with field weights, prefix expansion and Persian normalization. The gate lets a note into the prompt only if its score is at least 2.5 or two distinct query words match it, and never your own notes. Search is lexical: a Persian query will not find an English-only note.</span><span class="l-fa" lang="fa">BM25 با وزن فیلدها، گسترش پیشوندی و نرمال‌سازی فارسی. دروازه فقط وقتی یادداشت را وارد پرسش می‌کند که امتیازش دست‌کم ۲٫۵ باشد یا دو واژهٔ متمایزِ پرسش در آن باشد، و هرگز یادداشت‌های خودتان را نه. جست‌وجو واژه‌محور است: پرسش فارسی یادداشتِ فقط‌انگلیسی را پیدا نمی‌کند.</span></p>
+      <details class="more"><summary><span class="l-en">The brain right now</span><span class="l-fa" lang="fa">حافظه در این لحظه</span> · <span id="dm-count">7</span></summary><ul class="cat" id="dm-cat"></ul></details>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">How it works</span><span class="l-fa" lang="fa">روش کار</span></p><h2><span class="l-en">Five stations, no server.</span><span class="l-fa" lang="fa">پنج ایستگاه، بدون سرور.</span></h2></div>
+  <div class="sec-body">
+  <ol class="rail">
+    <li class="card"><span class="n">01</span><h3><span class="l-en">Capture</span><span class="l-fa" lang="fa">ثبت</span></h3><p><span class="l-en">Hooks fire when a Claude Code session stops, ends or compacts, and when Codex notifies. The transcript file is read; nobody writes notes by hand.</span><span class="l-fa" lang="fa">وقتی جلسهٔ Claude Code متوقف می‌شود، تمام می‌شود یا فشرده می‌شود، و وقتی Codex اعلان می‌دهد، هوک اجرا می‌شود. فایل گفتگو خوانده می‌شود؛ کسی یادداشت دستی نمی‌نویسد.</span></p></li>
+    <li class="card"><span class="n">02</span><h3><span class="l-en">Digest</span><span class="l-fa" lang="fa">خلاصه</span></h3><p><span class="l-en">Rules, not a model: what was asked, the outcome, sentences with decision, gotcha or TODO markers (English and Persian), files touched, endpoints, commands.</span><span class="l-fa" lang="fa">با قاعده، نه با مدل: چه خواسته شد، نتیجه، جمله‌هایی با نشانهٔ تصمیم، نکته یا کار باقی‌مانده (فارسی و انگلیسی)، فایل‌های تغییرکرده، endpointها و دستورها.</span></p></li>
+    <li class="card"><span class="n">03</span><h3><span class="l-en">Scrub</span><span class="l-fa" lang="fa">پاک‌سازی</span></h3><p><span class="l-en">Keys, tokens, card numbers and Iranian mobile numbers are masked in every field before the note touches disk, so they never reach git history.</span><span class="l-fa" lang="fa">کلیدها، توکن‌ها، شمارهٔ کارت و موبایل ایرانی در همهٔ فیلدها پیش از رسیدن یادداشت به دیسک پوشانده می‌شوند، پس هرگز وارد تاریخچهٔ گیت نمی‌شوند.</span></p></li>
+    <li class="card"><span class="n">04</span><h3><span class="l-en">File</span><span class="l-fa" lang="fa">بایگانی</span></h3><p><span class="l-en">One markdown file per session, written only by its author: <code>entries/&lt;project&gt;/&lt;area&gt;/…md</code>. Commit, fetch, rebase, push, with retries. Different sessions are different files, so pushes rarely conflict.</span><span class="l-fa" lang="fa">برای هر جلسه یک فایل مارک‌داون که فقط نویسنده‌اش می‌نویسد: <code>entries/&lt;project&gt;/&lt;area&gt;/…md</code>. کامیت، fetch، rebase، push با تلاش مجدد. جلسه‌های مختلف فایل‌های مختلف‌اند، پس پوش‌ها به‌ندرت تداخل می‌کنند.</span></p></li>
+    <li class="card"><span class="n">05</span><h3><span class="l-en">Recall</span><span class="l-fa" lang="fa">یادآوری</span></h3><p><span class="l-en">A briefing at session start, up to three matching notes per prompt (never your own), an MCP server, and a CLI: <code>search</code>, <code>who</code>, <code>show</code>.</span><span class="l-fa" lang="fa">خلاصهٔ آغاز جلسه، حداکثر سه یادداشتِ مرتبط برای هر پرسش (هرگز از خودتان)، یک سرور MCP و یک CLI: <code>search</code>، <code>who</code>، <code>show</code>.</span></p></li>
+  </ol>
+  <p class="note"><span class="l-en">Why this shape: your team already has git access, so there is nothing new to host or pay for; plain markdown can be reviewed in a pull request; and a rule-based digest means no extra API spend and no chat text sent to a third party.</span><span class="l-fa" lang="fa">چرا این شکل: تیم شما از قبل به گیت دسترسی دارد، پس چیز تازه‌ای برای میزبانی یا پرداخت نیست؛ مارک‌داونِ ساده را می‌شود در pull request بازبینی کرد؛ و خلاصه‌سازیِ قاعده‌مند یعنی هزینهٔ API اضافه و ارسال متن گفتگو به شخص ثالث ندارد.</span></p>
+  </div>
+</div></section>
+
+<section id="tools" class="band"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">Per-tool honesty</span><span class="l-fa" lang="fa">صداقت درباره هر ابزار</span></p><h2><span class="l-en">What each AI gets, and how far it was checked.</span><span class="l-fa" lang="fa">هر هوش‌مصنوعی چه می‌گیرد و تا کجا آزموده شده.</span></h2></div>
+  <div class="sec-body">
+  <div class="claim"><p><span class="l-en"><b>No live model session with a real API key was run.</b> The real CLIs were driven against mock API servers. That proves the plumbing (hooks fire, files are written, text lands in the request), not how well a real model uses the context.</span><span class="l-fa" lang="fa"><b>هیچ جلسهٔ زندهٔ مدل با کلید API واقعی اجرا نشده.</b> CLIهای واقعی روی سرورهای API ساختگی راه افتادند. این لوله‌کشی را ثابت می‌کند (هوک اجرا می‌شود، فایل نوشته می‌شود، متن در درخواست می‌نشیند)، نه اینکه مدل واقعی چقدر از متن استفاده می‌کند.</span></p><p><span class="l-en">Details: <a href="https://github.com/mrzroot/gonjineh/blob/main/docs/VERIFICATION.md" target="_blank" rel="noopener">docs/VERIFICATION.md</a></span><span class="l-fa" lang="fa">جزئیات: <a href="https://github.com/mrzroot/gonjineh/blob/main/docs/VERIFICATION.md" target="_blank" rel="noopener">docs/VERIFICATION.md</a></span></p></div>
+  <div class="tblw"><table class="tbl"><thead><tr><th><span class="l-en">Tool</span><span class="l-fa" lang="fa">ابزار</span></th><th><span class="l-en">Capture</span><span class="l-fa" lang="fa">ثبت</span></th><th><span class="l-en">Recall</span><span class="l-fa" lang="fa">یادآوری</span></th><th><span class="l-en">Verified how</span><span class="l-fa" lang="fa">تا کجا آزموده شده</span></th></tr></thead><tbody>
+  <tr><td>Claude Code</td><td><span class="l-en">5 hooks in <code>.claude/settings.json</code></span><span class="l-fa" lang="fa">۵ هوک در <code>.claude/settings.json</code></span></td><td><span class="l-en">briefing, per-prompt injection, MCP</span><span class="l-fa" lang="fa">خلاصه، افزودن به هر پرسش، MCP</span></td><td><span class="lv real"><span class="l-en">real CLI + mock API</span><span class="l-fa" lang="fa">CLI واقعی + API ساختگی</span></span> <span class="vv">2.1.197</span></td></tr>
+  <tr><td>Codex</td><td><span class="l-en"><code>notify</code> hook, rollout read from <code>~/.codex/sessions</code></span><span class="l-fa" lang="fa">هوک <code>notify</code>، خواندن rollout از <code>~/.codex/sessions</code></span></td><td><span class="l-en">MCP server + <code>AGENTS.md</code></span><span class="l-fa" lang="fa">سرور MCP + <code>AGENTS.md</code></span></td><td><span class="lv real"><span class="l-en">real CLI + mock API</span><span class="l-fa" lang="fa">CLI واقعی + API ساختگی</span></span> <span class="vv">0.164.0</span></td></tr>
+  <tr><td>Gemini CLI</td><td><span class="l-en"><code>capture --format gemini</code> (no hooks, best-effort parser)</span><span class="l-fa" lang="fa"><code>capture --format gemini</code> (بدون هوک، تحلیل‌گرِ تقریبی)</span></td><td><span class="l-en">MCP + <code>GEMINI.md</code></span><span class="l-fa" lang="fa">MCP + <code>GEMINI.md</code></span></td><td><span class="lv part"><span class="l-en">MCP connects on real CLI; chat parser unverified</span><span class="l-fa" lang="fa">MCP روی CLI واقعی وصل می‌شود؛ تحلیل‌گر گفتگو آزموده نشده</span></span> <span class="vv">0.65.0</span></td></tr>
+  <tr><td>Cursor</td><td><span class="l-en"><code>note</code> / MCP <code>add_note</code></span><span class="l-fa" lang="fa"><code>note</code> / ابزار MCP به نام <code>add_note</code></span></td><td><span class="l-en"><code>.cursor/mcp.json</code> + rules</span><span class="l-fa" lang="fa"><code>.cursor/mcp.json</code> + rules</span></td><td><span class="lv cfg"><span class="l-en">config files only, never launched</span><span class="l-fa" lang="fa">فقط فایل پیکربندی، هرگز اجرا نشده</span></span></td></tr>
+  <tr><td>Copilot (VS Code)</td><td><span class="l-en"><code>note</code></span><span class="l-fa" lang="fa"><code>note</code></span></td><td><span class="l-en"><code>.vscode/mcp.json</code> + instructions</span><span class="l-fa" lang="fa"><code>.vscode/mcp.json</code> + دستورالعمل</span></td><td><span class="lv cfg"><span class="l-en">config files only, never launched</span><span class="l-fa" lang="fa">فقط فایل پیکربندی، هرگز اجرا نشده</span></span></td></tr>
+  <tr><td><span class="l-en">Any MCP client</span><span class="l-fa" lang="fa">هر کلاینت MCP</span></td><td><span class="l-en"><code>add_note</code></span><span class="l-fa" lang="fa"><code>add_note</code></span></td><td><span class="l-en"><code>search_memory</code>, <code>read_entry</code>, <code>who_knows_about</code>, <code>recent</code></span><span class="l-fa" lang="fa"><code>search_memory</code>، <code>read_entry</code>، <code>who_knows_about</code>، <code>recent</code></span></td><td><span class="lv unit"><span class="l-en">unit tests over stdio</span><span class="l-fa" lang="fa">تست واحد روی stdio</span></span></td></tr>
+  </tbody></table></div>
+  <p class="note"><span class="l-en">Also: 99 unit and integration tests, and a 9-check end-to-end script that drives the real CLIs against mocks. Last run: all passed (Linux only).</span><span class="l-fa" lang="fa">همچنین: ۹۹ تست واحد و یکپارچگی و یک اسکریپت e2e با ۹ بررسی که CLIهای واقعی را روی APIهای ساختگی می‌راند. آخرین اجرا: همه موفق (فقط لینوکس).</span></p>
+  </div>
+</div></section>
+
+<section id="privacy"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">Privacy</span><span class="l-fa" lang="fa">حریم خصوصی</span></p><h2><span class="l-en">Scrubbed first. Opt out per session.</span><span class="l-fa" lang="fa">اول پاک‌سازی. کنارگذاشتن برای هر جلسه.</span></h2></div>
+  <div class="sec-body"><div class="grid">
+    <div class="card"><h3><span class="l-en">Always masked</span><span class="l-fa" lang="fa">همیشه پوشانده می‌شود</span></h3><p><span class="l-en">AWS, GitHub, GitLab, Slack, Stripe, Anthropic, OpenAI, Google, npm, SendGrid, Twilio and Telegram tokens; JWTs; private-key blocks; <code>user:pass@</code> URLs; <code>Bearer …</code>; <code>password=</code>-style assignments; long high-entropy blobs; Luhn-valid card numbers in Latin or Persian digits. There is no switch to turn this off.</span><span class="l-fa" lang="fa">توکن‌های AWS، GitHub، GitLab، Slack، Stripe، Anthropic، OpenAI، Google، npm، SendGrid، Twilio و Telegram؛ JWT؛ بلوک کلید خصوصی؛ نشانی‌های <code>user:pass@</code>؛ <code>Bearer …</code>؛ انتساب‌هایی مثل <code>password=</code>؛ رشته‌های بلندِ پرانتروپی؛ شمارهٔ کارتِ معتبر (لان) با رقم لاتین یا فارسی. کلید خاموش‌کردن ندارد.</span></p></div>
+    <div class="card"><h3><span class="l-en">On by default, configurable</span><span class="l-fa" lang="fa">پیش‌فرض روشن، قابل تنظیم</span></h3><p><span class="l-en">Iranian mobile numbers (<code>"pii": false</code> relaxes it). Emails are <b>not</b> masked unless you set <code>"mask_email": true</code>.</span><span class="l-fa" lang="fa">شمارهٔ موبایل ایرانی (با <code>"pii": false</code> شل می‌شود). ایمیل‌ها <b>پوشانده نمی‌شوند</b> مگر <code>"mask_email": true</code> بگذارید.</span></p></div>
+    <div class="card"><h3><span class="l-en">Opt-outs</span><span class="l-fa" lang="fa">کنارگذاشتن</span></h3><p><span class="l-en">Write <code>#private</code>, <code>gonjineh:off</code> or <code>#نهان</code> in a prompt and that session is skipped entirely. <code>.brainignore</code> removes matching file paths. Use a private brain repo: read access to it is read access to your decisions.</span><span class="l-fa" lang="fa">در یک پرسش <code>#private</code>، <code>gonjineh:off</code> یا <code>#نهان</code> بنویسید تا کل جلسه نادیده گرفته شود. <code>.brainignore</code> مسیرهای مطابق را حذف می‌کند. مخزن حافظه را خصوصی بگیرید: دسترسی به آن یعنی دسترسی به تصمیم‌های شما.</span></p></div>
+  </div>
+  <p class="note"><span class="l-en">The scrubber is pattern-based and will miss secrets with unusual shapes. Do not treat it as your only control. Try it in the demo above, then try to fool it.</span><span class="l-fa" lang="fa">پاک‌ساز الگو‌محور است و رمزهای با شکل غیرمعمول را از دست می‌دهد. آن را تنها سد دفاعی خود ندانید. در نمونهٔ بالا امتحانش کنید و بعد سعی کنید فریبش بدهید.</span></p></div>
+</div></section>
+
+<section id="limits" class="band"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">Limits and honesty</span><span class="l-fa" lang="fa">محدودیت‌ها و صداقت</span></p><h2><span class="l-en">What it does not do.</span><span class="l-fa" lang="fa">کارهایی که نمی‌کند.</span></h2></div>
+  <div class="sec-body"><ul class="limits">
+    <li><span class="l-en"><b>The digest extracts and quotes; it does not understand.</b> Some notes will be noisy. Read one with <code>gonjineh show &lt;id&gt;</code> before trusting it.</span><span class="l-fa" lang="fa"><b>خلاصه‌ساز استخراج و نقل می‌کند؛ نمی‌فهمد.</b> بعضی یادداشت‌ها شلوغ خواهند بود. پیش از اعتماد، با <code>gonjineh show &lt;id&gt;</code> یکی را بخوانید.</span></li>
+    <li><span class="l-en"><b>Search is lexical.</b> Synonyms that share no words do not match, and a Persian query will not find an English-only note.</span><span class="l-fa" lang="fa"><b>جست‌وجو واژه‌محور است.</b> مترادف‌هایی که واژهٔ مشترک ندارند پیدا نمی‌شوند و پرسش فارسی یادداشتِ فقط‌انگلیسی را پیدا نمی‌کند.</span></li>
+    <li><span class="l-en"><b>The gate can let noise through on a small brain.</b> Common verbs such as &ldquo;add&rdquo; score highly when only a few notes exist. Try the &ldquo;noisy one&rdquo; chip in the demo above: it pulls in an unrelated staging note.</span><span class="l-fa" lang="fa"><b>دروازه روی حافظهٔ کوچک ممکن است نویز را رد کند.</b> وقتی فقط چند یادداشت هست، فعل‌های رایجی مثل «add» امتیاز بالا می‌گیرند. چیپ «نمونهٔ پرنویز» در نمونهٔ بالا را امتحان کنید: یک یادداشتِ نامرتبط دربارهٔ staging را وارد می‌کند.</span></li>
+    <li><span class="l-en"><b>Whatever a teammate types is visible to the team.</b> Scrubbing is best-effort.</span><span class="l-fa" lang="fa"><b>هر چه هم‌تیمی تایپ کند برای تیم دیدنی است.</b> پاک‌سازی تلاشِ حداکثری است، نه تضمین.</span></li>
+    <li><span class="l-en"><b>Not tested at all:</b> live models with real keys, Windows, macOS, a real GitHub remote (a local bare repo was used), large teams, Gemini's real chat files, Cursor and Copilot behavior.</span><span class="l-fa" lang="fa"><b>اصلاً آزموده نشده:</b> مدل زنده با کلید واقعی، ویندوز، مک، ریموت واقعی گیت‌هاب (از مخزن bare محلی استفاده شد)، تیم‌های بزرگ، فایل‌های واقعی گفتگوی Gemini، رفتار Cursor و Copilot.</span></li>
+    <li><span class="l-en"><b>No CI yet:</b> the token used to publish the repo had no GitHub Actions scope, so there is no workflow file. Run <code>PYTHONPATH=src pytest tests</code> locally.</span><span class="l-fa" lang="fa"><b>هنوز CI نیست:</b> توکنِ انتشار مخزن دسترسی GitHub Actions نداشت، پس فایل workflow وجود ندارد. تست‌ها را محلی اجرا کنید: <code>PYTHONPATH=src pytest tests</code>.</span></li>
+    <li><span class="l-en"><b>Young project (v0.1.0)</b>, not on PyPI. Expect rough edges and format changes before 1.0.</span><span class="l-fa" lang="fa"><b>پروژهٔ تازه (v0.1.0)</b> و روی PyPI نیست. تا پیش از ۱٫۰ انتظار لبه‌های خشن و تغییر قالب داشته باشید.</span></li>
+  </ul>
+  <h3 class="alt-h"><span class="l-en">Where it sits among similar projects</span><span class="l-fa" lang="fa">جایگاه در میان پروژه‌های مشابه</span></h3>
+  <p class="prose"><span class="l-en">This is a crowded space and several projects are good. A search in 2026 found, among others, <b>gitmem</b> (the closest: git-synced team memory), team-memory, ai-memory, TeamBrain, Krimto, Knowit, CrewMemory, Commonwealth, claude-mem-sync, iHow Memory and mex. If one fits you better, use it. What gonjineh bets on is the combination: passive hook capture, an LLM-free digest, a mandatory scrubber, plain markdown in git, local BM25 search, stdlib-only Python, and Persian as a first-class case. It deliberately has no embeddings, web UI, hosted sync or LLM-written summaries. <a href="https://github.com/mrzroot/gonjineh/blob/main/NOVELTY.md" target="_blank" rel="noopener">NOVELTY.md</a> has the details and caveats.</span><span class="l-fa" lang="fa">این حوزه شلوغ است و چند پروژه‌ٔ خوب دارد. جست‌وجو در ۱۴۰۵ میان بقیه، <b>gitmem</b> (نزدیک‌ترین: حافظهٔ تیمی همگام با گیت)، team-memory، ai-memory، TeamBrain، Krimto، Knowit، CrewMemory، Commonwealth، claude-mem-sync، iHow Memory و mex را نشان داد. اگر یکی برایتان بهتر است، همان را بردارید. شرطِ گنجینه بر ترکیب است: ثبت منفعل با هوک، خلاصه‌ساز بدون مدل، پاک‌ساز اجباری، مارک‌داونِ ساده در گیت، جست‌وجوی BM25 محلی، پایتونِ فقط‌با‌کتابخانهٔ استاندارد و فارسی به‌عنوان حالت درجه‌یک. عمداً embedding، رابط وب، همگام‌سازی میزبانی‌شده یا خلاصهٔ نوشته‌شده با مدل ندارد. جزئیات و ملاحظات در <a href="https://github.com/mrzroot/gonjineh/blob/main/NOVELTY.md" target="_blank" rel="noopener">NOVELTY.md</a>.</span></p>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <div class="sec-head"><p class="label"><span class="l-en">Install</span><span class="l-fa" lang="fa">نصب</span></p><h2><span class="l-en">Two commands per teammate.</span><span class="l-fa" lang="fa">دو دستور برای هر هم‌تیمی.</span></h2></div>
+  <div class="sec-body">
+  <p class="prose"><span class="l-en">Python 3.9+, standard library only. Not on PyPI yet.</span><span class="l-fa" lang="fa">پایتون ۳٫۹ به بالا، فقط کتابخانهٔ استاندارد. هنوز روی PyPI نیست.</span></p>
+  <div class="code"><button class="cp" type="button" aria-label="Copy"><svg class="cpi" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></g></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><pre><code>pipx install git+https://github.com/mrzroot/gonjineh
+gonjineh --help</code></pre></div>
+  <p class="prose"><b><span class="l-en">First teammate</span><span class="l-fa" lang="fa">نفر اول</span></b>: <span class="l-en">create an empty private repo for the team brain (any git host), then in the project checkout:</span><span class="l-fa" lang="fa">یک مخزن خصوصی خالی برای حافظهٔ تیم بسازد (هر میزبان گیت) و در پوشهٔ پروژه:</span></p>
+  <div class="code"><button class="cp" type="button" aria-label="Copy"><svg class="cpi" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></g></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><pre><code>gonjineh init --brain git@github.com:your-team/team-brain.git --area backend
+git add .gonjineh.json CLAUDE.md AGENTS.md GEMINI.md .github .cursor .mcp.json .gemini .vscode .claude/settings.json
+git commit -m "Add gonjineh" &amp;&amp; git push</code></pre></div>
+  <p class="prose"><b><span class="l-en">Everyone else</span><span class="l-fa" lang="fa">بقیه</span></b>: <span class="l-en">pull that commit and run one command with your own area (add <code>--codex</code> to wire Codex, which is user-level):</span><span class="l-fa" lang="fa">آن کامیت را بکشند و با حوزهٔ خودشان یک دستور بزنند (برای Codex، که در سطح کاربر است، <code>--codex</code> را اضافه کنند):</span></p>
+  <div class="code"><button class="cp" type="button" aria-label="Copy"><svg class="cpi" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></g></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><pre><code>gonjineh init --area frontend
+gonjineh search "refund screen"
+gonjineh who server/routes/auth.py</code></pre></div>
+  <div class="links"><a class="btn pri" href="https://github.com/mrzroot/gonjineh" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span class="l-en">Repository</span><span class="l-fa" lang="fa">مخزن</span></a><a class="btn" href="https://github.com/mrzroot/gonjineh/releases/tag/v0.1.0" target="_blank" rel="noopener"><span class="l-en">Release v0.1.0</span><span class="l-fa" lang="fa">انتشار v0.1.0</span></a><a class="btn" href="https://github.com/mrzroot/gonjineh/blob/main/docs/VERIFICATION.md" target="_blank" rel="noopener"><span class="l-en">What was verified</span><span class="l-fa" lang="fa">چه چیزی آزموده شد</span></a></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 <span class="l-en">Built by Mohammadreza Zare</span><span class="l-fa" lang="fa">ساخته‌شده توسط محمدرضا زارع</span> · <span class="l-en">MIT license</span><span class="l-fa" lang="fa">پروانهٔ MIT</span></span><span><a href="/#work">mrzroot.github.io</a> · <a href="https://github.com/mrzroot" target="_blank" rel="noopener"><span class="l-en">GitHub profile</span><span class="l-fa" lang="fa">پروفایل گیت‌هاب</span></a></span></div></footer>
+<script src="theme-toggle.js"></script>
+<script src="base.js"></script>
+<script src="seed.js"></script>
+<script src="gj.js"></script>
+<script src="scene.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
