@@ -1,4 +1,4 @@
-/* gonjineh page glue: language, menu, copy, reveal, hero vault + particles, setup wizard, Persian playground, privacy bench.
+/* ganjineh page glue: language, menu, copy, reveal, hero vault + particles, setup wizard, Persian playground, privacy bench.
    Everything here is local; no network. Simulations are labelled as such on the page. */
 (function () {
 'use strict';
@@ -65,27 +65,27 @@ if (!GJ) return;
     var area = (val('area') || 'backend').replace(/[^\w.-]/g, '') || 'backend', size = val('size') || 'team', claude = chk('claude'), codex = chk('codex'), mcp = chk('mcp'), recall = chk('recall'), local = chk('local');
     var flags = []; if (size !== 'solo') flags.push('--brain git@github.com:your-team/team-brain.git'); flags.push('--area ' + area);
     if (!claude) flags.push('--no-claude'); if (!mcp) flags.push('--no-mcp'); if (claude && !recall) flags.push('--no-prompt-recall'); if (claude && local) flags.push('--local-hooks');
-    var me = ['gonjineh init'].concat(flags.filter(function (x) { return x.indexOf('--brain') !== 0; }));
-    var first = 'gonjineh init ' + flags.join(' ') + (codex ? ' --codex' : '');
-    var add = ['.gonjineh.json']; var inst = ['CLAUDE.md', 'AGENTS.md', 'GEMINI.md', '.github/copilot-instructions.md', '.cursor/rules/gonjineh.mdc']; add = add.concat(inst);
+    var me = ['ganjineh init'].concat(flags.filter(function (x) { return x.indexOf('--brain') !== 0; }));
+    var first = 'ganjineh init ' + flags.join(' ') + (codex ? ' --codex' : '');
+    var add = ['.ganjineh.json']; var inst = ['CLAUDE.md', 'AGENTS.md', 'GEMINI.md', '.github/copilot-instructions.md', '.cursor/rules/ganjineh.mdc']; add = add.concat(inst);
     if (mcp) add.push('.mcp.json', '.cursor/mcp.json', '.gemini/settings.json', '.vscode/mcp.json'); if (claude && !local) add.push('.claude/settings.json');
     var t1;
-    if (size === 'solo') t1 = [first, '# solo: no remote, the brain is a local git repo; add one later with  gonjineh init --brain <url>'].join('\n');
-    else t1 = [first, 'git add ' + add.join(' '), 'git commit -m "Add gonjineh" && git push'].join('\n');
-    var t2 = size === 'solo' ? 'gonjineh search "login endpoint"\ngonjineh who-knows auth' : ['git pull', 'gonjineh init --area <your-area>' + (codex ? ' --codex' : '') + (claude && !recall ? ' --no-prompt-recall' : '') + (claude && local ? ' --local-hooks' : ''), 'gonjineh search "login endpoint"'].join('\n');
+    if (size === 'solo') t1 = [first, '# solo: no remote, the brain is a local git repo; add one later with  ganjineh init --brain <url>'].join('\n');
+    else t1 = [first, 'git add ' + add.join(' '), 'git commit -m "Add ganjineh" && git push'].join('\n');
+    var t2 = size === 'solo' ? 'ganjineh search "login endpoint"\nganjineh who-knows auth' : ['git pull', 'ganjineh init --area <your-area>' + (codex ? ' --codex' : '') + (claude && !recall ? ' --no-prompt-recall' : '') + (claude && local ? ' --local-hooks' : ''), 'ganjineh search "login endpoint"'].join('\n');
     $('code', o1).textContent = t1; $('code', o2).textContent = t2;
-    var L = [['.gonjineh.json', T('project config (brain URL, areas)', 'پیکربندی پروژه (نشانی brain، حوزه‌ها)')], ['~ user config', T('your author name and brain clone path (not committed)', 'نام نویسنده و مسیر کلون brain (کامیت نمی‌شود)')]];
-    inst.forEach(function (x) { L.push([x, T('instruction block: "search before you assume"', 'بلوک دستورالعمل: «پیش از فرض، جست‌وجو کن»')]); });
-    if (mcp) ['.mcp.json', '.cursor/mcp.json', '.gemini/settings.json', '.vscode/mcp.json'].forEach(function (x) { L.push([x, T('MCP server entry (5 tools)', 'ورودی سرور MCP (۵ ابزار)')]); });
-    if (claude) L.push([local ? '.claude/settings.local.json' : '.claude/settings.json', T('5 hooks: SessionStart, UserPromptSubmit' + (recall ? '' : ' (off)') + ', Stop, SessionEnd, PreCompact', '۵ هوک: SessionStart، UserPromptSubmit' + (recall ? '' : ' (خاموش)') + '، Stop، SessionEnd، PreCompact')]);
-    if (codex) L.push(['~/.codex/config.toml', T('notify hook + MCP server (user-level, between markers)', 'هوک notify + سرور MCP (سطح کاربر، میان نشانه‌ها)')]);
+    var L = [['.ganjineh.json', T('project settings (notebook address, roles)', 'تنظیمات پروژه (نشانی دفترچه، نقش‌ها)')], ['~ user config', T('your name and where your notebook copy lives (stays on your computer)', 'نام شما و جای نسخهٔ دفترچه (روی کامپیوتر شما می‌ماند)')]];
+    inst.forEach(function (x) { L.push([x, T('a short rule for the AI: "search the notebook before you guess"', 'یک قاعدهٔ کوتاه برای AI: «پیش از حدس‌زدن، در دفترچه جست‌وجو کن»')]); });
+    if (mcp) ['.mcp.json', '.cursor/mcp.json', '.gemini/settings.json', '.vscode/mcp.json'].forEach(function (x) { L.push([x, T('lets the AI search the notebook itself (MCP, 5 tools)', 'به AI اجازه می‌دهد خودش در دفترچه جست‌وجو کند (MCP، ۵ ابزار)')]); });
+    if (claude) L.push([local ? '.claude/settings.local.json' : '.claude/settings.json', T('5 automatic steps (hooks): at start, at each question' + (recall ? '' : ' (off)') + ', and when you stop, end or compact the chat', '۵ گام خودکار (هوک): در شروع، در هر پرسش' + (recall ? '' : ' (خاموش)') + '، و هنگام توقف، پایان یا فشرده‌شدن گفتگو')]);
+    if (codex) L.push(['~/.codex/config.toml', T('an automatic "I am done" step plus the search tool (set for you, not shared)', 'یک گام خودکار «تمام شد» به‌علاوهٔ ابزار جست‌وجو (برای خود شما، نه مشترک)')]);
     files.textContent = ''; L.forEach(function (r) { var li = d.createElement('li'), c = d.createElement('code'); c.textContent = r[0]; var s = d.createElement('span'); s.textContent = r[1]; li.appendChild(c); li.appendChild(s); files.appendChild(li); });
     var picks = ['claude', 'codex', 'gemini', 'cursor', 'copilot'].filter(chk), msgs = [];
-    if (chk('codex')) msgs.push(T('Codex: no session-start hook exists, so it gets the AGENTS.md block plus the MCP tool search_memory; capture happens through its notify hook.', 'Codex: هوک شروع نشست ندارد؛ بلوک AGENTS.md و ابزار MCP به نام search_memory را می‌گیرد و ثبت با هوک notify انجام می‌شود.'));
-    if (chk('gemini')) msgs.push(T('Gemini CLI: MCP + GEMINI.md only; capture is manual (gonjineh capture --format gemini, best-effort parser).', 'Gemini CLI: فقط MCP و GEMINI.md؛ ثبت دستی است (تحلیل‌گر تقریبی).'));
-    if (chk('cursor') || chk('copilot')) msgs.push(T('Cursor / Copilot: config files are written but were never launched in my tests; use gonjineh note or MCP add_note to record.', 'Cursor / Copilot: فایل‌های پیکربندی نوشته می‌شود اما هرگز اجرا نشده؛ برای ثبت از gonjineh note یا add_note استفاده کنید.'));
-    if (size === 'many') msgs.push(T('Bigger teams: every person picks their own --area. Entries are one file per author and session, so rebases do not conflict; sync is debounced 45 s and retried 4 times.', 'تیم بزرگ‌تر: هر نفر --area خودش را برمی‌دارد. هر ورودی یک فایلِ جدا برای هر نویسنده و نشست است، پس rebase تداخل ندارد؛ همگام‌سازی ۴۵ ثانیه تأخیر دارد و ۴ بار تلاش می‌شود.'));
-    msgs.push(T('init always writes all five instruction files and (unless unticked) all four MCP files, so a mixed-tool team shares one commit. Ticking tools here only changes the flags.', 'init همیشه هر پنج فایل دستورالعمل و (مگر خاموش شود) هر چهار فایل MCP را می‌نویسد، پس تیمِ چند‌ابزاره یک کامیت مشترک دارد. تیک ابزارها فقط پرچم‌ها را عوض می‌کند.'));
+    if (chk('codex')) msgs.push(T('Codex: it has no "session start" step, so it gets a rules file (AGENTS.md) plus the search tool (search_memory) instead of a start-up summary. Saving notes happens automatically when Codex finishes.', 'Codex: گام «شروع نشست» ندارد، پس به‌جای خلاصهٔ شروع، یک فایل قواعد (AGENTS.md) و ابزار جست‌وجو (search_memory) می‌گیرد. ذخیرهٔ یادداشت هنگام پایان کار Codex خودکار انجام می‌شود.'));
+    if (chk('gemini')) msgs.push(T('Gemini CLI: only the search tool and GEMINI.md. Saving notes is by hand (ganjineh capture --format gemini), and that part was not tested.', 'Gemini CLI: فقط ابزار جست‌وجو و GEMINI.md. ذخیرهٔ یادداشت دستی است (ganjineh capture --format gemini) و این بخش آزموده نشده.'));
+    if (chk('cursor') || chk('copilot')) msgs.push(T('Cursor / Copilot: the config files are written, but I never launched these apps. To save a note, use ganjineh note or the add_note tool.', 'Cursor / Copilot: فایل‌های تنظیم نوشته می‌شوند، اما این برنامه‌ها را هرگز اجرا نکرده‌ام. برای ذخیرهٔ یادداشت از ganjineh note یا ابزار add_note استفاده کنید.'));
+    if (size === 'many') msgs.push(T('Bigger teams: everyone picks their own role (--area). Each session is its own small file, so two people saving at once do not clash. Sharing waits 45 seconds and retries up to 4 times.', 'تیم بزرگ‌تر: هر نفر نقش خودش را (--area) انتخاب می‌کند. هر جلسه یک فایل کوچک جدا است، پس دو نفری که هم‌زمان ذخیره می‌کنند تداخل ندارند. اشتراک ۴۵ ثانیه صبر می‌کند و تا ۴ بار دوباره تلاش می‌کند.'));
+    msgs.push(T('init always creates all five rule files and (unless unticked) all four search-tool files, so a team using different AI tools shares one commit. Ticking tools here only changes the options in the command.', 'init همیشه هر پنج فایل قواعد و (مگر خاموش شود) هر چهار فایل ابزار جست‌وجو را می‌سازد، پس تیمی که ابزارهای AI متفاوت دارد یک کامیت مشترک دارد. تیک‌زدن ابزارها فقط گزینه‌های دستور را عوض می‌کند.'));
     note.textContent = ''; msgs.forEach(function (m) { var p = d.createElement('p'); p.textContent = m; note.appendChild(p); });
     f.setAttribute('data-picks', picks.join(','));
   }
@@ -103,7 +103,7 @@ if (!GJ) return;
     var box = $('#fa-tok'); box.textContent = ''; tk.forEach(function (t) { var s = d.createElement('span'); s.textContent = t; box.appendChild(s); }); if (!tk.length) box.textContent = '—';
     var hit = GJ.search(target, v, {}), sc = hit.length ? hit[0].score : 0;
     var doc = new Set(naive((target[0].title + ' ' + target[0].outcome + ' ' + target[0].files.join(' ') + ' ' + target[0].endpoints.join(' ')))), nv = naive(v).filter(function (w) { return doc.has(w); });
-    $('#fa-cmp').textContent = T('gonjineh score against the Persian note "' + target[0].title.slice(0, 22) + '…": ' + sc.toFixed(2) + '  ·  naive split-and-lowercase would match ' + nv.length + ' word(s)', 'امتیاز گنجینه در برابر یادداشت فارسی «' + target[0].title.slice(0, 22) + '…»: ' + sc.toFixed(2) + '  ·  تقسیم و حروف‌کوچک‌سازی ساده ' + nv.length + ' واژه را تطبیق می‌داد');
+    $('#fa-cmp').textContent = T('ganjineh match score for the Persian note "' + target[0].title.slice(0, 22) + '…": ' + sc.toFixed(2) + '  ·  a plain word-split would find ' + nv.length + ' matching word(s)', 'امتیاز تطبیق گنجینه با یادداشت فارسی «' + target[0].title.slice(0, 22) + '…»: ' + sc.toFixed(2) + '  ·  جداکردن ساده‌ی واژه‌ها ' + nv.length + ' واژهٔ مشترک پیدا می‌کرد');
     $('#fa-cmp').className = 'cmp-line ' + (sc > 0 && !nv.length ? 'win' : '');
   }
   inp.addEventListener('input', run); $$('#fa-presets button').forEach(function (b) { b.addEventListener('click', function () { inp.value = b.getAttribute('data-v').replace(/\\u200c/g, '\u200c'); run(); inp.focus(); }); }); d.addEventListener('mrz-lang', run); run();
@@ -116,16 +116,16 @@ if (!GJ) return;
   function sess(priv) { return { tool: 'claude-code', sessionId: 'alice-priv', cwd: '/home/alice/shop-app', branch: 'feat/login-button', ended: '2026-10-25T21:30:00', messages: [['user', 'Add a login button to the header: phone number + OTP.' + (priv ? ' #private' : '') + '\nMy sandbox SMS key is ' + KEY + ', put it in .env.local.'], ['assistant', 'The button calls POST /api/auth/login with {phone, otp}. I decided to write the contract in api/contracts/auth.yaml. Careful: normalize the phone to 09xxxxxxxxx.']], toolCalls: FILES.map(function (p) { return ['Write', { file_path: p }]; }) }; }
   function run() {
     var ig = []; if (f.elements.env.checked) ig.push('.env*'); if (f.elements.mocks.checked) ig.push('web/mocks/**');
-    $('#bi-file').textContent = ig.length ? ig.join('\n') : T('(empty)', '(خالی)');
+    $('#bi-file').textContent = ig.length ? ig.join('\n') : T('(empty: nothing is ignored)', '(خالی: چیزی نادیده گرفته نمی‌شود)');
     var r = GJ.digest(sess(f.elements.priv.checked), { author: 'alice', project: 'shop-app', defaultArea: 'frontend', ignore: ig }), ul = $('#priv-files'); ul.textContent = '';
     FILES.forEach(function (p) { var gone = ig.some(function (g) { return GJ.fnmatch(p, g) || GJ.fnmatch(p.split('/').pop(), g); }) || !r; var li = d.createElement('li'); li.className = gone ? 'gone' : ''; li.textContent = p; ul.appendChild(li); });
-    var o = $('#priv-note'); if (!r) { o.textContent = T('No note written. The whole session was marked #private, nothing leaves this machine.', 'هیچ یادداشتی نوشته نشد. کل نشست #private علامت خورده و چیزی از این دستگاه بیرون نمی‌رود.'); o.className = 'note-out empty'; }
+    var o = $('#priv-note'); if (!r) { o.textContent = T('No note is saved. The whole session was marked #private, so nothing leaves this computer.', 'هیچ یادداشتی ذخیره نمی‌شود. کل نشست #private علامت خورده، پس چیزی از این کامپیوتر بیرون نمی‌رود.'); o.className = 'note-out empty'; }
     else { o.className = 'note-out'; o.innerHTML = ''; var pre = d.createElement('pre'), txt = GJ.render(r.entry), parts = txt.split(/(\[REDACTED:[a-z-]+\])/); parts.forEach(function (s) { if (/^\[REDACTED/.test(s)) { var m = d.createElement('mark'); m.className = 'redacted'; m.textContent = s; pre.appendChild(m); } else pre.appendChild(d.createTextNode(s)); }); o.appendChild(pre); }
   }
   f.addEventListener('change', run); d.addEventListener('mrz-lang', run); run();
   /* scrub bench */
   var si = $('#sb-in'), so = $('#sb-out'), sn = $('#sb-n');
-  function bench() { var rp = { c: {}, hit: function (k) { rp.c[k] = (rp.c[k] || 0) + 1; } }, out = GJ.scrub(si.value, { report: rp }), ks = Object.keys(rp.c); so.textContent = ''; out.split(/(\[REDACTED:[a-z-]+\])/).forEach(function (s) { if (/^\[REDACTED/.test(s)) { var m = d.createElement('mark'); m.className = 'redacted'; m.textContent = s; so.appendChild(m); } else so.appendChild(d.createTextNode(s)); }); sn.textContent = ks.length ? ks.map(function (k) { return k + ' ×' + rp.c[k]; }).join(' · ') : T('nothing to mask', 'چیزی برای پوشاندن نیست'); }
+  function bench() { var rp = { c: {}, hit: function (k) { rp.c[k] = (rp.c[k] || 0) + 1; } }, out = GJ.scrub(si.value, { report: rp }), ks = Object.keys(rp.c); so.textContent = ''; out.split(/(\[REDACTED:[a-z-]+\])/).forEach(function (s) { if (/^\[REDACTED/.test(s)) { var m = d.createElement('mark'); m.className = 'redacted'; m.textContent = s; so.appendChild(m); } else so.appendChild(d.createTextNode(s)); }); sn.textContent = ks.length ? ks.map(function (k) { return k + ' ×' + rp.c[k]; }).join(' · ') : T('nothing to hide', 'چیزی برای پنهان‌کردن نیست'); }
   if (si) { si.addEventListener('input', bench); $$('#sb-presets button').forEach(function (b) { b.addEventListener('click', function () { si.value = b.getAttribute('data-v').replace('{KEY}', KEY); bench(); si.focus(); }); }); si.value = 'export STRIPE_KEY=' + KEY + '\nmail me at alice@example.com or call +98 912 345 6789'; bench(); }
 })();
   document.querySelectorAll('.code pre,.note-out,.nfile,.mclog,.sb-out,.tm-out,.glog,.gtree,.tblw').forEach(function (e) { e.setAttribute('tabindex', '0'); });

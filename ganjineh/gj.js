@@ -1,5 +1,5 @@
-/* gonjineh: JavaScript port of the real rules (textnorm.py, scrub.py, digest.py, store.py search) for the in-browser demo.
-   Parity with the Python source is checked by parity/gonjineh/run.sh (same inputs, same outputs). Nothing here touches the network. */
+/* ganjineh: JavaScript port of the real rules (textnorm.py, scrub.py, digest.py, store.py search) for the in-browser demo.
+   Parity with the Python source is checked by parity/ganjineh/run.sh (same inputs, same outputs). Nothing here touches the network. */
 (function (root, factory) { var G = factory(); if (typeof module === 'object' && module.exports) module.exports = G; else root.GJ = G; })(typeof self !== 'undefined' ? self : this, function () {
 'use strict';
 var B = '(?<![\\p{L}\\p{N}_])', E = '(?![\\p{L}\\p{N}_])'; // Python's Unicode-aware \b at a word edge
@@ -155,7 +155,7 @@ function digest(s, o) {
   var users = s.messages.filter(function (m) { return m[0] === 'user'; }).map(function (m) { return m[1]; });
   var assistants = s.messages.filter(function (m) { return m[0] === 'assistant'; }).map(function (m) { return m[1]; });
   if (!users.length) return null;
-  if (/(#private\b|gonjineh:off|#نهان(?![\p{L}\p{N}_]))/u.test(users.join('\n'))) return null;
+  if (/(#private\b|ganjineh:off|gonjineh:off|#نهان(?![\p{L}\p{N}_]))/u.test(users.join('\n'))) return null;
   var files = [], seen = {};
   s.toolCalls.forEach(function (tc) { var inp = tc[1] || {}, fp = inp.file_path || inp.path || inp.notebook_path;
     if (FILE_TOOLS[tc[0]] && fp) { fp = rel(String(fp), s.cwd); if (!seen[fp]) { seen[fp] = 1; files.push(fp); } } });

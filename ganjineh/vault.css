@@ -1,4 +1,4 @@
-/* gonjineh · "the vault": jewel-tone vault, glowing gold + ruby. Fonts: Gloock (latin display), Azeret Mono, Vazirmatn (all OFL, self-hosted). */
+/* ganjineh · "the vault": jewel-tone vault, glowing gold + ruby. Fonts: Gloock (latin display), Azeret Mono, Vazirmatn (all OFL, self-hosted). */
 @font-face{font-family:Gloock;src:url(fonts/Gloock-400.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Azeret Mono";src:url(fonts/AzeretMono-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:Vazirmatn;src:url(fonts/vazirmatn-400-800-arabic.woff2) format("woff2");font-weight:400 800;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}
@@ -176,3 +176,14 @@ fieldset label.txt{gap:.6rem}input[type=text],textarea{width:100%;background:var
 footer{border-top:3px solid var(--gold);background:var(--bg2);padding:1.4rem 0;color:var(--muted);font-size:.9rem}html[data-theme=light] footer{border-top-color:var(--ruby)}footer .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between}
 @media(max-width:700px){body{font-size:1rem}.tm-out{height:320px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rvl{opacity:1;transform:none}.vault .nc{translate:none}}
+/* plain-language additions */
+.analogy{font-style:normal;color:var(--muted);border-inline-start:3px solid var(--gold);padding-inline-start:.9rem;max-width:62ch}
+.gloss{border:1px solid var(--line2);background:var(--card);border-radius:var(--r);padding:1.1rem 1.3rem;margin-top:1.6rem}
+.gloss h3{margin:0 0 .7rem;font:700 1.05rem var(--f-b);color:var(--gold-i)}
+.gloss dl{display:grid;grid-template-columns:max-content 1fr;gap:.55rem 1.1rem;margin:0}
+.gloss dt{font-weight:800;color:var(--acc-ink);margin:0}
+.gloss dd{margin:0;color:var(--fg);line-height:1.6;min-width:0;overflow-wrap:anywhere}
+@media(max-width:620px){.gloss dl{grid-template-columns:1fr;gap:.15rem}.gloss dd{margin-bottom:.55rem}}
+.mcp-help,.cmdhelp{color:var(--muted);font-size:.92rem;line-height:1.6;max-width:70ch;margin:.5rem 0}
+.sw small{display:block;color:var(--muted);font-size:.8rem;font-weight:500}
+.glog-h small,.br-c h4 small{color:var(--muted);font-weight:500}
