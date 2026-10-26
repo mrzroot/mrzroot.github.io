@@ -155,7 +155,7 @@ function digest(s, o) {
   var users = s.messages.filter(function (m) { return m[0] === 'user'; }).map(function (m) { return m[1]; });
   var assistants = s.messages.filter(function (m) { return m[0] === 'assistant'; }).map(function (m) { return m[1]; });
   if (!users.length) return null;
-  if (/(#private\b|ganjineh:off|gonjineh:off|#نهان(?![\p{L}\p{N}_]))/u.test(users.join('\n'))) return null;
+  if (/(#private\b|ganjineh:off|#نهان(?![\p{L}\p{N}_]))/u.test(users.join('\n'))) return null;
   var files = [], seen = {};
   s.toolCalls.forEach(function (tc) { var inp = tc[1] || {}, fp = inp.file_path || inp.path || inp.notebook_path;
     if (FILE_TOOLS[tc[0]] && fp) { fp = rel(String(fp), s.cwd); if (!seen[fp]) { seen[fp] = 1; files.push(fp); } } });
