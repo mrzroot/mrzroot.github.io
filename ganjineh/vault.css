@@ -187,3 +187,15 @@ footer{border-top:3px solid var(--gold);background:var(--bg2);padding:1.4rem 0;c
 .mcp-help,.cmdhelp{color:var(--muted);font-size:.92rem;line-height:1.6;max-width:70ch;margin:.5rem 0}
 .sw small{display:block;color:var(--muted);font-size:.8rem;font-weight:500}
 .glog-h small,.br-c h4 small{color:var(--muted);font-weight:500}
+
+/* FAQ: small vault drawers; the gold key-mark turns when a drawer opens */
+.faq{display:grid;gap:.75rem;max-width:62rem}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0 1.15rem;transition:border-color .3s,box-shadow .3s}
+.faq details[open]{border-color:var(--line2);box-shadow:0 0 0 1px var(--line2),0 10px 30px -18px var(--glow)}
+.faq summary{cursor:pointer;list-style:none;display:flex;gap:.75rem;align-items:baseline;padding:1rem 0;font-weight:650;color:var(--fg)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"";flex:none;width:.6rem;height:.6rem;border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 0 3px transparent;transition:transform .3s,background .3s}
+.faq details[open] summary::before{background:var(--gold);transform:scale(1.15)}
+.faq summary:focus-visible{outline:2px solid var(--acc);outline-offset:4px;border-radius:8px}
+.faq details p{margin:0 0 1rem;color:var(--muted);line-height:1.85;max-width:72ch}
+@media(prefers-reduced-motion:reduce){.faq details,.faq summary::before{transition:none}}

@@ -13,6 +13,25 @@
     if (save) { try { localStorage.setItem('mrz-lang', l); } catch (e) {} }
     $$('[data-g]').forEach(function (a) { a.setAttribute('aria-label', a.getAttribute('data-g-' + l) || ''); });
   }
+  /* copy buttons for the browser addresses in the install steps (they cannot be clicked as links) */
+  var live = d.createElement('span'); live.className = 'sr-only'; live.setAttribute('aria-live', 'polite'); d.body.appendChild(live);
+  var IC = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M5 15V6a2 2 0 0 1 2-2h8" fill="none" stroke="currentColor" stroke-width="2.2"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function copyText(t) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+    return new Promise(function (ok, no) { var ta = d.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0'; d.body.appendChild(ta); ta.select(); try { d.execCommand('copy') ? ok() : no(); } catch (e) { no(e); } d.body.removeChild(ta); });
+  }
+  $$('.panel li code').forEach(function (c) {
+    var t = c.textContent.trim(); if (!/^[a-z-]+:/.test(t)) return;
+    var b = d.createElement('button'); b.type = 'button'; b.className = 'cpy'; b.innerHTML = IC;
+    b.setAttribute('data-g', ''); b.setAttribute('data-g-en', 'Copy ' + t); b.setAttribute('data-g-fa', 'کپی ' + t);
+    b.addEventListener('click', function () {
+      copyText(t).then(function () {
+        b.classList.add('done'); live.textContent = R.lang === 'fa' ? 'کپی شد: ' + t : 'Copied: ' + t;
+        setTimeout(function () { b.classList.remove('done'); }, 1600);
+      }, function () { live.textContent = R.lang === 'fa' ? 'کپی نشد؛ متن را دستی انتخاب کن.' : 'Could not copy; select the text by hand.'; });
+    });
+    c.insertAdjacentElement('afterend', b);
+  });
   setLang(R.lang, false);
   if (LB) LB.addEventListener('click', function () { setLang(R.lang === 'fa' ? 'en' : 'fa', true); });
 

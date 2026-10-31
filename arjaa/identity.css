@@ -132,3 +132,13 @@ main{counter-reset:arsec}
 .card{border:1.5px solid var(--line-2);border-radius:10px;background:var(--card)}
 .top{border-bottom:2px solid var(--fg)}
 @media(prefers-reduced-motion:reduce){.mi,.fd,.stamp,.mp-s path,.mp-s text{animation:none!important}.mp-s path.d{stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}}
+
+/* plain one-sentence summary under the hero title */
+.one{display:block;width:fit-content;max-width:min(62ch,100%);margin:.6rem 0 1.1rem;padding:.6rem .95rem;border-inline-start:3px solid var(--acc);border-radius:10px;background:color-mix(in srgb,var(--acc) 9%,transparent);color:var(--fg);font-size:1.06rem;line-height:1.75}
+.one b{color:var(--acc-ink,var(--acc));margin-inline-end:.35em}
+
+/* how it works: the four cards arrive one after another */
+.how.rv .card{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.how.rv.in .card{opacity:1;transform:none}
+.how .card:nth-child(2){transition-delay:.12s}.how .card:nth-child(3){transition-delay:.24s}.how .card:nth-child(4){transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){.how.rv .card{opacity:1;transform:none;transition:none}}

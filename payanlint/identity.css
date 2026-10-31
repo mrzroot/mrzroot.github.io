@@ -131,3 +131,28 @@ html[dir=rtl] .cat::before{transform-origin:right}
 @media(max-width:700px){.cat{grid-template-columns:1fr;gap:.4rem}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.plh h1 em::after{animation:none}.xr-track{height:auto}.xr-stick{position:static}.pr{opacity:1;transform:none}.beam{display:none}}
+
+/* plain one-sentence summary under the hero title */
+.one{display:block;width:fit-content;max-width:min(62ch,100%);margin:.6rem 0 1.1rem;padding:.6rem .95rem;border-inline-start:3px solid var(--acc);border-radius:10px;background:color-mix(in srgb,var(--acc) 9%,transparent);color:var(--fg);font-size:1.06rem;line-height:1.75}
+.one b{color:var(--acc-ink,var(--acc));margin-inline-end:.35em}
+.plh .one{margin-inline:auto;text-align:start}
+
+/* how it works: steps light up one after another, a leaf line grows between them */
+.pl-how{position:relative}
+.pl-how .card{position:relative;transition:opacity .6s,transform .6s,border-color .6s}
+.pl-how .card::after{content:"";position:absolute;inset-inline-start:1.1rem;inset-inline-end:1.1rem;bottom:.7rem;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:var(--tx,left);transition:transform .7s ease .2s;border-radius:2px}
+[dir="rtl"] .pl-how .card::after{--tx:right}
+.pl-how.rv .card{opacity:0;transform:translateY(14px)}
+.pl-how.rv.in .card{opacity:1;transform:none}
+.pl-how.in .card::after{transform:scaleX(1)}
+.pl-how .card:nth-child(2){transition-delay:.15s}.pl-how .card:nth-child(2)::after{transition-delay:.35s}
+.pl-how .card:nth-child(3){transition-delay:.3s}.pl-how .card:nth-child(3)::after{transition-delay:.5s}
+.pl-how .card:nth-child(4){transition-delay:.45s}.pl-how .card:nth-child(4)::after{transition-delay:.65s}
+@media(prefers-reduced-motion:reduce){.pl-how .card,.pl-how.rv .card{opacity:1;transform:none;transition:none}.pl-how .card::after{transform:none;transition:none}}
+
+/* the hero editor is always dark: give its problem chips the bright set and a readable hint colour in both themes */
+.ide .c-arabic-letters{--sq:#ff8a7a}.ide .c-punct{--sq:#8fb0ff}.ide .c-quotes{--sq:#d6a0ff}
+.ide .pt{color:#8fae99}
+.fixbtn{display:inline-block}
+/* demo problem chips: lighter fills so the dark code text stays readable (WCAG AA) */
+.pr.c-arabic-letters>.pc{background:#ff8a7a}.pr.c-punct>.pc{background:#8fb0ff}.pr.c-quotes>.pc{background:#d6a0ff}

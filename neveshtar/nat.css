@@ -170,3 +170,18 @@ footer{border-top:1px solid var(--line);padding-block:1.6rem;color:var(--muted);
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}h1 em{background-size:100% 100%}.flourish path{stroke-dashoffset:0}}
 .isteps{grid-template-columns:minmax(0,1fr)}.isteps li,.demo>*,.hgrid>*,.steps>*{min-width:0}
 @media(max-width:520px){.hd-gh,.fa-name{display:none}.top .wrap{flex-wrap:nowrap}.nav.open{position:absolute;top:100%;inset-inline:0;background:var(--bg);padding:.6rem 1rem;border-bottom:1px solid var(--line)}.top .wrap{position:relative}}
+
+/* plain one-sentence summary under the hero title */
+.one{display:block;width:fit-content;max-width:min(62ch,100%);margin:.6rem 0 1.1rem;padding:.6rem .95rem;border-inline-start:3px solid var(--acc);border-radius:10px;background:color-mix(in srgb,var(--acc) 9%,transparent);color:var(--fg);font-size:1.06rem;line-height:1.75}
+.one b{color:var(--acc-ink,var(--acc));margin-inline-end:.35em}
+
+/* FAQ: ruled index cards with a gold nib marker */
+.faq{display:grid;gap:.7rem;max-width:62rem}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 1.1rem}
+.faq summary{cursor:pointer;list-style:none;display:flex;gap:.7rem;align-items:baseline;padding:1rem 0;font-weight:650;color:var(--fg)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"";flex:none;width:.55rem;height:.55rem;transform:rotate(45deg);background:var(--gold);transition:transform .25s}
+.faq details[open] summary::before{transform:rotate(135deg) scale(1.15)}
+.faq summary:focus-visible{outline:2px solid var(--acc);outline-offset:4px;border-radius:6px}
+.faq details p{margin:0 0 1rem;color:var(--muted);line-height:1.85;max-width:70ch}
+@media(prefers-reduced-motion:reduce){.faq summary::before{transition:none}}

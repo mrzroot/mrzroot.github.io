@@ -238,3 +238,23 @@ footer a{color:var(--sun)}
   #demo-hint span{transform:none}
 }
 @media print{.top,.bits{display:none}}
+
+/* FAQ: paper tabs with a hard offset shadow; the tab lifts when opened */
+.faq{display:grid;gap:14px;max-width:52em}
+.faq details{background:var(--card);color:var(--ink);border:2.5px solid var(--hard);border-radius:16px;padding:0 20px;box-shadow:4px 4px 0 var(--hard);transition:transform .16s,box-shadow .16s}
+.faq details[open]{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--hard)}
+.faq summary{cursor:pointer;list-style:none;display:flex;gap:12px;align-items:baseline;padding:16px 0;font:800 18px/1.5 var(--body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+";flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border:2px solid var(--hard);border-radius:50%;background:var(--sun);color:#16110e;font:800 16px/1 var(--mono);transition:transform .2s}
+.faq details[open] summary::before{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:3px solid var(--hard);outline-offset:4px;border-radius:8px}
+.faq details p{margin:0 0 18px;font-size:16.5px;line-height:1.8;color:var(--muted)}
+.faq code{font:600 .88em var(--mono);background:rgba(22,17,14,.09);padding:1px 6px;border-radius:6px;direction:ltr;unicode-bidi:isolate}
+html[data-theme=dark] .faq code{background:rgba(255,255,255,.1)}
+/* copy buttons next to browser addresses in the install steps (those addresses cannot be opened as links) */
+.cpy{display:inline-grid;place-items:center;vertical-align:middle;width:30px;height:30px;margin-inline-start:6px;padding:0;border:2px solid var(--hard);border-radius:9px;background:var(--sun);color:#16110e;cursor:pointer;box-shadow:2px 2px 0 var(--hard);transition:transform .12s,box-shadow .12s}
+.cpy:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--hard)}
+.cpy:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--hard)}
+.cpy:focus-visible{outline:3px solid var(--hard);outline-offset:2px}
+.cpy svg{width:15px;height:15px}.cpy .ok{display:none}.cpy.done{background:var(--grass)}.cpy.done .ok{display:block}.cpy.done .ic{display:none}
+@media(prefers-reduced-motion:reduce){.faq details,.faq summary::before,.cpy{transition:none}.faq details[open]{transform:none}}
