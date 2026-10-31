@@ -133,3 +133,18 @@ footer a{color:var(--text2)}
 /*mrz-theme-badge*/[data-theme-toggle]{position:relative}
 html[data-theme-mode=system] [data-theme-toggle]::after{content:"A";position:absolute;inset-inline-end:-3px;bottom:-3px;min-width:13px;height:13px;padding:0 2px;box-sizing:border-box;border-radius:7px;font:700 8px/13px system-ui,sans-serif;letter-spacing:0;text-align:center;background:#14181f;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.55);pointer-events:none}
 html[data-theme=dark][data-theme-mode=system] [data-theme-toggle]::after{background:#f3f4f6;color:#14181f;box-shadow:0 0 0 1px rgba(0,0,0,.5)}
+
+/* how-it-works: steps rise in one after another, then a highlight walks through them (off under reduced motion) */
+html.how-js .how>.card{opacity:0;translate:0 22px;transition:opacity .6s ease,translate .7s cubic-bezier(.2,.75,.2,1),outline-color .4s;transition-delay:calc(var(--hi,0)*150ms),calc(var(--hi,0)*150ms),0s}
+html.how-js .how.in>.card{opacity:1;translate:0 0}
+.how>.card{outline:2px solid transparent;outline-offset:4px}
+.how>.card.on{outline-color:var(--accent)}
+.how-bar{display:flex;gap:6px;margin:0 0 18px}
+.how-bar i{flex:1;height:4px;border-radius:4px;background:color-mix(in srgb,var(--accent) 22%,transparent);overflow:hidden;position:relative}
+.how-bar i b{position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:var(--o,left)}
+html[dir=rtl] .how-bar i b{--o:right}
+.how-bar i.done b{transform:scaleX(1)}
+.how-bar i.on b{animation:howfill var(--howt,2600ms) linear forwards}
+@keyframes howfill{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){html.how-js .how>.card{opacity:1;translate:none;transition:none}.how-bar{display:none}}
+html[lang=fa] .how>.card::after{content:'۰' counter(hw,persian)}

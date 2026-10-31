@@ -106,7 +106,7 @@ if(window.MutationObserver)new MutationObserver(sync).observe(d,{attributes:true
       var d = document.createElement('div'); d.className = 'finding'; d.setAttribute('data-open', i === 0 ? 'true' : 'false'); d.setAttribute('data-sev', f.sev);
       var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
       b.innerHTML = '<span class="sev ' + f.sev + '">' + ({ e: 'ERROR', w: 'WARN', n: 'NOTE' })[f.sev] + '</span><span>#' + f.n + ' ' + esc(f.title) + '</span>';
-      var p = document.createElement('pre'); p.innerHTML = colourBlock(f.body);
+      var p = document.createElement('pre'); p.tabIndex = 0; p.innerHTML = colourBlock(f.body);
       b.addEventListener('click', function () { var o = d.getAttribute('data-open') !== 'true'; d.setAttribute('data-open', o ? 'true' : 'false'); b.setAttribute('aria-expanded', o ? 'true' : 'false'); });
       d.appendChild(b); d.appendChild(p); fl.appendChild(d);
     });
@@ -202,4 +202,35 @@ if(window.MutationObserver)new MutationObserver(sync).observe(d,{attributes:true
   }
   function drawEmblem() { buildEmblem(); if (!raf) raf = requestAnimationFrame(paintEmblem); }
   if (em) { drawEmblem(); window.addEventListener('resize', function () { drawEmblem(); }); document.addEventListener('visibilitychange', function () { if (!document.hidden && !raf) raf = requestAnimationFrame(paintEmblem); }); }
+})();
+
+/* how-it-works steps: staggered reveal on scroll, then a highlight walks through the steps with a progress bar. Nothing runs under reduced motion. */
+(function () {
+  var how = document.querySelector('.how'); if (!how) return;
+  var cards = [].slice.call(how.children).filter(function (c) { return c.classList.contains('card'); });
+  if (!cards.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('how-js');
+  cards.forEach(function (c, i) { c.style.setProperty('--hi', i); });
+  var bar = document.createElement('div'); bar.className = 'how-bar'; bar.setAttribute('aria-hidden', 'true');
+  cards.forEach(function () { var i = document.createElement('i'); i.appendChild(document.createElement('b')); bar.appendChild(i); });
+  how.parentNode.insertBefore(bar, how);
+  var segs = [].slice.call(bar.children), k = -1, timer = null, T = 2600, paused = false, vis = false;
+  function step() {
+    if (paused) return;
+    k = (k + 1) % cards.length;
+    cards.forEach(function (c, i) { c.classList.toggle('on', i === k); });
+    segs.forEach(function (s, i) { s.classList.remove('on'); s.classList.toggle('done', i < k); });
+    void bar.offsetWidth; segs[k].classList.add('on');
+  }
+  function start() { if (vis && !timer) { step(); timer = setInterval(step, T); } }
+  function stop() { clearInterval(timer); timer = null; }
+  how.addEventListener('mouseenter', function () { paused = true; });
+  how.addEventListener('mouseleave', function () { paused = false; });
+  how.addEventListener('focusin', function () { paused = true; });
+  how.addEventListener('focusout', function () { paused = false; });
+  new IntersectionObserver(function (en) {
+    vis = en[0].isIntersecting;
+    if (vis) { how.classList.add('in'); setTimeout(start, 150 * cards.length + 400); } else stop();
+  }, { threshold: 0.25 }).observe(how);
 })();
