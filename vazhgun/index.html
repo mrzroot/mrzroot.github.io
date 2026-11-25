@@ -16,13 +16,13 @@
 <meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="fa_IR">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="vazhgun · Why does «شکل ۲-۳» turn into «شکل ۳-۲» in Word?"><meta name="twitter:description" content="vazhgun audits a Persian or Arabic .docx for text direction and number order: paragraphs and tables set left-to-right, page ranges, dates and caption numbers drawn in two orders, a minus sign that jumps behind its number. Offline, Python, no dependencies."><meta name="twitter:image" content="https://mrzroot.github.io/vazhgun/og.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/DMSerifDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/vazirmatn-400-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="identity.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "vazhgun", "description": "vazhgun audits a Persian or Arabic .docx for text direction and number order: paragraphs and tables set left-to-right, page ranges, dates and caption numbers drawn in two orders, a minus sign that jumps behind its number. Offline, Python, no dependencies.", "codeRepository": "https://github.com/mrzroot/vazhgun", "url": "https://mrzroot.github.io/vazhgun/", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "version": "0.1.0", "author": {"@type": "Person", "name": "Mohammadreza Zare", "url": "https://github.com/mrzroot"}}</script>
+<link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="editorial.css">
 </head>
-<body class="p-vazhgun">
+<body class="p-vazhgun rd rd-prism">
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="wrap">
   <a class="brand" href="#top" id="top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h8v14H3"/><path d="M21 5h-8v14h8" stroke-dasharray="2.2 2"/><path d="M7 12h10m-3-3 3 3-3 3" /></svg><span>vazhgun</span><span class="fa-name" lang="fa">واژگون</span></a>
@@ -35,14 +35,13 @@
   </div>
 </div></header>
 <main id="main">
-<section class="hero vzh" style="border:0"><div class="wrap">
-  <div class="vzh-top">
-    <div><p class="kicker"><i></i><span class="l-en">for Persian theses in Word</span><span class="l-fa" lang="fa">برای پایان‌نامهٔ فارسی در ورد</span> · <span class="mono">v0.1.0</span></p><h1><span class="l-en">Typed <em>۲-۳.</em><br>Drawn <em>۳-۲?</em></span><span class="l-fa" lang="fa">تایپ‌شده <em>۲-۳.</em><br>دیده‌شده <em>۳-۲؟</em></span></h1></div>
-    <div class="vzh-side"><p class="one"><b><span class="l-en">In one sentence:</span><span class="l-fa" lang="fa">به زبان ساده:</span></b> <span class="l-en">Sometimes the “۲-۳” you typed shows up as “۳-۲” on the page; vazhgun finds those spots in your thesis and tells you how to fix them in Word.</span><span class="l-fa" lang="fa">گاهی «۲-۳»ای که تایپ کرده‌اید در صفحه «۳-۲» دیده می‌شود؛ واژگون این جاها را در پایان‌نامه‌تان پیدا می‌کند و می‌گوید در ورد چطور درستشان کنید.</span></p>
-  <p class="lede"><span class="l-en">In a right-to-left page a hyphen between digits is a weak character: which number lands on the right depends on what surrounds it and on the program that draws it. vazhgun opens your .docx, runs the Unicode Bidirectional Algorithm on every paragraph, and lists where what you typed and what the reader sees differ, with the Word-side fix. --fix writes an explicit corrected copy.</span><span class="l-fa" lang="fa">در صفحهٔ راست‌به‌چپ خط‌تیره بین دو رقم نویسهٔ «ضعیف» است: اینکه کدام عدد سمت راست بیفتد به همسایه‌هایش و به برنامه‌ای که متن را رسم می‌کند بستگی دارد. واژگون فایل <bdi dir="ltr">.docx</bdi> را باز می‌کند، الگوریتم دوطرفهٔ یونیکد را روی هر پاراگراف اجرا می‌کند و جاهایی را که تایپ‌شده با دیده‌شده فرق دارد، با راه‌حل سمت ورد، فهرست می‌کند. <bdi dir="ltr">--fix</bdi> یک نسخهٔ اصلاح‌شدهٔ صریح می‌نویسد.</span></p>
-      <div class="cta"><a class="btn pri" href="#lab"><span class="l-en">Try it on your line</span><span class="l-fa" lang="fa">روی خط خودتان امتحان کنید</span></a><a class="btn" href="#install"><span class="l-en">Install</span><span class="l-fa" lang="fa">نصب</span></a><a class="btn" href="https://github.com/mrzroot/vazhgun" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>GitHub</span></a></div></div>
-  </div>
-  <div class="stage" id="stage" aria-label="Animated example of the real bidi algorithm: the typed characters fly into the order a reader sees">
+<section class="hero rd-hero" aria-labelledby="rd-title"><div class="wrap rd-wrap">
+ <div class="rd-copy"><p class="rd-kicker"><span class="l-en">Bidirectional type lab</span><span class="l-fa" lang="fa">آزمایشگاه جهت متن</span></p>
+ <h1 id="rd-title"><span class="l-en">Same characters. Different order.</span><span class="l-fa" lang="fa">حروف همان‌اند؛ ترتیب نه.</span></h1><p class="rd-lede"><span class="l-en">A Persian number range or minus sign can look wrong in Word even when it was typed correctly. Compare the stored text with its visual order, and fix a copy only if you choose.</span><span class="l-fa" lang="fa">بازهٔ اعداد یا علامت منفی ممکن است در ورد جابه‌جا دیده شود، حتی اگر درست تایپ شده باشد. متن فایل و ترتیب نمایش را کنار هم ببینید؛ اصلاح فقط به‌درخواست شما روی کپی انجام می‌شود.</span></p>
+ <div class="cta rd-cta"><a class="btn pri" href="#lab"><span class="l-en">Compare a line</span><span class="l-fa" lang="fa">یک خط را مقایسه کنید</span></a>
+ <a class="btn" href="#install"><span class="l-en">Install</span><span class="l-fa" lang="fa">نصب</span></a><a class="btn" href="https://github.com/mrzroot/vazhgun">GitHub</a></div>
+ <p class="rd-caption"><span class="l-en">Unicode Bidi · DOCX</span><span class="l-fa" lang="fa">جهت‌نمای یونیکد · DOCX</span></p></div>
+ <div class="rd-visual">  <div class="stage" id="stage" aria-label="Animated example of the real bidi algorithm: the typed characters fly into the order a reader sees">
     <div class="stg-bar"><span class="mono">UAX #9 · <span class="l-en">right-to-left page</span><span class="l-fa" lang="fa">صفحهٔ راست‌به‌چپ</span></span><div class="ctxs" id="ctxs" role="group" aria-label="Context"><button type="button" aria-pressed="true"><span class="l-en">after Persian letters</span><span class="l-fa" lang="fa">پس از حرف فارسی</span></button><button type="button" aria-pressed="false"><span class="l-en">after Latin letters</span><span class="l-fa" lang="fa">پس از حرف لاتین</span></button><button type="button" aria-pressed="false"><span class="l-en">on its own, in brackets</span><span class="l-fa" lang="fa">تنها، در پرانتز</span></button><button type="button" aria-pressed="false"><span class="l-en">a page range</span><span class="l-fa" lang="fa">بازهٔ صفحه</span></button></div></div>
     <div class="stg-rows" dir="ltr">
       <div class="rowl mono"><span class="l-en">typed (what is in the file, character by character)</span><span class="l-fa" lang="fa">تایپ‌شده (آنچه در فایل است)</span></div><div class="row typed" id="stgT"></div>
@@ -51,7 +50,7 @@
     <div class="stg-foot"><p class="stg-v" id="stgV" aria-live="polite"></p><button class="btn sm" type="button" id="stgReplay"><span class="l-en">Replay</span><span class="l-fa" lang="fa">دوباره</span></button></div>
   </div>
   <ul class="badges" aria-label="Facts"><li>Python 3.9+</li><li>MIT</li><li>0 deps</li><li>offline</li><li>27 tests</li></ul>
-</div></section>
+</div></div></section>
 <section id="lab" class="vz-lab" aria-labelledby="lab-h"><div class="wrap">
   <div class="sec-head"><p class="label"><span class="l-en">Live · the real algorithm</span><span class="l-fa" lang="fa">زنده · الگوریتم واقعی</span></p><h2 id="lab-h"><span class="l-en">Paste a line. See the order it is drawn in.</span><span class="l-fa" lang="fa">یک خط بگذارید. ترتیب دیده‌شدنش را ببینید.</span></h2></div>
   <p class="prose"><span class="l-en">This runs a JavaScript port of vazhgun's UAX #9 and its chain and minus checks in your browser, offline. It reproduced the levels and drawn order of the Python engine on 3,000 random strings. The marks the page writes are the ones <code>--fix</code> writes. It is the standard's answer: Word can differ.</span><span class="l-fa" lang="fa">این صفحه نسخهٔ جاوااسکریپت UAX #9 واژگون و بررسی‌های زنجیره و منفی را در مرورگرتان اجرا می‌کند، بدون اینترنت. روی ۳٬۰۰۰ رشتهٔ تصادفی همان سطح و ترتیب نمایش موتور پایتون را داد. نشانه‌هایی که صفحه می‌نویسد همان‌هایی است که <code>--fix</code> می‌نویسد. این پاسخ استاندارد است؛ ورد ممکن است فرق کند.</span></p>

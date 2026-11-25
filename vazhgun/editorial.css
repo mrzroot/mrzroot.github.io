@@ -1,0 +1,23 @@
+/* Editorial redesign; existing demos and routes use their original scripts. */
+@font-face{font-family:Vazirmatn;src:url(/assets/fonts/Vazirmatn-Variable.woff2) format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+html,body,body *{font-family:Vazirmatn,system-ui,sans-serif!important}
+.rd{--rd-accent:#653ea4;--rd-bg:#f3edfa;--rd-ink:#20252b;--rd-panel:#ffffff;--rd-line:color-mix(in srgb,var(--rd-accent) 26%,transparent)}
+html[data-theme=dark] .rd{--rd-accent:#d4b5ff;--rd-bg:#1a2228;--rd-ink:#f3f7fa;--rd-panel:#202b32}
+@media(prefers-color-scheme:dark){html:not([data-theme]) .rd{--rd-accent:#d4b5ff;--rd-bg:#1a2228;--rd-ink:#f3f7fa;--rd-panel:#202b32}}
+.rd .rd-hero{background:var(--rd-bg);color:var(--rd-ink);padding-block:clamp(2rem,7vw,6.5rem);border-block-end:1px solid var(--rd-line)}
+.rd .rd-wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);gap:clamp(1.5rem,5vw,5rem);align-items:center}
+.rd-copy,.rd-visual{min-inline-size:0}.rd-visual>*{margin-block-start:0!important;max-inline-size:100%}
+.rd .rd-kicker,.rd .rd-caption{color:var(--rd-accent);font-size:.92rem;font-weight:750;margin:0 0 1rem;letter-spacing:0}
+.rd .rd-caption{margin:1.4rem 0 0;padding-block-start:.75rem;border-block-start:1px solid var(--rd-line)}
+.rd .rd-copy h1{color:var(--rd-ink);font-size:clamp(2.45rem,5.9vw,5.65rem);line-height:1.14;letter-spacing:-.035em;text-wrap:balance;margin:0;max-inline-size:15ch;font-weight:850}
+html[dir=rtl] .rd .rd-copy h1{letter-spacing:0;line-height:1.28;max-inline-size:17ch}
+.rd .rd-lede{color:var(--rd-ink);opacity:.86;font-size:clamp(1.03rem,2vw,1.25rem);line-height:1.85;margin:1.2rem 0;max-inline-size:48ch}
+.rd .rd-cta{display:flex;flex-wrap:wrap;gap:.45rem;margin-block-start:1rem}
+.rd .rd-cta .pri{background:var(--rd-accent);color:var(--rd-bg);border-color:var(--rd-accent)}
+.rd .rd-cta a:focus-visible{outline:3px solid var(--rd-accent);outline-offset:4px}
+.rd main>section:not(.rd-hero){scroll-margin-block-start:4.75rem}
+.rd main>section:not(.rd-hero) h2{letter-spacing:normal;text-wrap:balance}
+.rd .rd-visual .badges{margin-inline:0}
+@media(max-width:880px){.rd .rd-wrap{grid-template-columns:1fr}.rd .rd-copy h1{max-inline-size:unset}.rd .rd-visual{max-inline-size:100%}}
+@media(prefers-reduced-motion:reduce){.rd .rd-hero *{scroll-behavior:auto!important}}
+.rd-prism .rd-hero{background-image:repeating-linear-gradient(125deg,transparent 0 25px,var(--rd-line) 25.5px,transparent 26px)}.rd-prism .rd-visual{padding:.35rem;border:1px solid var(--rd-accent);border-radius:1.45rem;background:var(--rd-panel)}.rd-prism .badges{padding-inline:.75rem}
