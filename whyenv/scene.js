@@ -24,7 +24,7 @@
     if (s[1] === 'stack') vEl.textContent = 'http://localhost:4000';
   }
   function tick() {
-    clearTimeout(timer); if (paused || !vis) return;
+    clearTimeout(timer); if (paused || !vis || reduce) return;
     var s = steps[idx]; apply(s); idx = (idx + 1) % steps.length; if (idx === 0) idx = 1; timer = setTimeout(tick, s[3]);
   }
   if (reduce) { apply(steps[3]); } else { idx = 0; tick(); }
@@ -33,11 +33,19 @@
   box.addEventListener('pointermove', function (e) { if (reduce) return; var r = box.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; stage.style.setProperty('--ry', (x * 10).toFixed(2)); stage.style.setProperty('--rx', (-y * 6).toFixed(2)); });
   box.addEventListener('pointerleave', function () { stage.style.setProperty('--ry', 0); stage.style.setProperty('--rx', 0); paused = false; tick(); });
   box.addEventListener('pointerenter', function () { paused = true; clearTimeout(timer); });
-  /* click or focus a sheet to read it */
+  /* Keyboard-friendly source selectors mirror the layered scene. */
+  var sourceButtons = $$('[data-dr-env]');
+  function selectSource(key) {
+    var t = $('template[data-k=' + key + ']');
+    if (!t) return;
+    info.replaceChildren(t.content.cloneNode(true));
+    sourceButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.drEnv === key)); });
+  }
   sheets.forEach(function (sh) {
-    function pick() { var t = $('template[data-k=' + sh.dataset.k + ']'); info.innerHTML = ''; info.appendChild(t.content.cloneNode(true)); }
-    sh.addEventListener('click', pick); sh.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+    sh.addEventListener('click', function () { selectSource(sh.dataset.k); });
+    sh.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSource(sh.dataset.k); } });
   });
+  sourceButtons.forEach(function (b) { b.addEventListener('click', function () { selectSource(b.dataset.drEnv); }); });
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting; if (vis) tick(); else clearTimeout(timer); }).observe(box);
   d.addEventListener('visibilitychange', function () { vis = !d.hidden; if (vis) tick(); else clearTimeout(timer); });
 })();

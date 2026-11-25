@@ -1,5 +1,5 @@
 /* whycached identity: "cache onion". Violet/rose night, Unbounded display, left depth rail, strata sections. */
-@font-face{font-family:'Unbounded';font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/unbounded.woff2) format('woff2')}
+
 html[data-theme=dark] body.p-whycached{--bg:#0b0820;--bg2:#100b2c;--surface:#15103a;--surface2:#1b1546;--line:rgba(176,107,255,.16);--line2:rgba(176,107,255,.32);--text:#f0ebff;--text2:#b8afdc;--text3:#9a90c6;--accent:#b06bff;--accent-fg:#c996ff;--accent-ink:#14062c;--glow:rgba(176,107,255,.2);--term:#0a0720;--term-line:rgba(176,107,255,.22);--l1:#ff5fa8;--l2:#b06bff;--l3:#4fd8ff;--l4:#ffd36b}
 html[data-theme=light] body.p-whycached{--bg:#f8f4ff;--bg2:#efe8ff;--surface:#fff;--surface2:#faf6ff;--line:rgba(90,40,180,.14);--line2:rgba(90,40,180,.3);--text:#1d1240;--text2:#4a3f78;--text3:#62558c;--accent:#6a2fd6;--accent-fg:#5b22c0;--accent-ink:#fff;--glow:rgba(106,47,214,.14);--term:#150d33;--l1:#d6246e;--l2:#6a2fd6;--l3:#0a7fa8;--l4:#a86b00}
 body.p-whycached{font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);background-image:radial-gradient(900px 600px at 85% -10%,var(--glow),transparent 70%),radial-gradient(700px 700px at 0% 60%,color-mix(in srgb,var(--l1) 9%,transparent),transparent 70%)}

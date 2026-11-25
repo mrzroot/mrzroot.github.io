@@ -1,8 +1,8 @@
 /* shellparity identity: "split screen". Graphite, cyan (your terminal) vs amber (the agent's shell), Chakra Petch + IBM Plex Mono, a seam down the page, a cursor spotlight that changes colour with the side of the screen. */
-@font-face{font-family:'Chakra Petch';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/chakra-petch-500.woff2) format('woff2')}
-@font-face{font-family:'Chakra Petch';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/chakra-petch-700.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plex-mono.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plex-mono-500.woff2) format('woff2')}
+
+
+
+
 html[data-theme=dark] body.p-shellparity{--bg:#0a0c10;--bg2:#0e1117;--surface:#11151c;--surface2:#151a23;--text:#e7eef3;--text2:#a7b4bf;--text3:#7f8d99;--line:rgba(130,200,230,.14);--line2:rgba(130,200,230,.28);--cy:#36e2ff;--am:#ffb02e;--cy-dim:rgba(54,226,255,.10);--am-dim:rgba(255,176,46,.10);--accent:#36e2ff;--accent-fg:#36e2ff;--accent-ink:#031017;--glow:transparent;--term:#06080b;--term-line:rgba(130,200,230,.18)}
 html[data-theme=light] body.p-shellparity{--bg:#eef2f5;--bg2:#e4eaef;--surface:#ffffff;--surface2:#f6f9fb;--text:#0b1319;--text2:#33434f;--text3:#52626e;--line:rgba(10,40,60,.14);--line2:rgba(10,40,60,.3);--cy:#007d96;--am:#b86500;--cy-dim:rgba(0,125,150,.09);--am-dim:rgba(184,101,0,.09);--accent:#007d96;--accent-fg:#006278;--accent-ink:#fff;--glow:transparent;--term:#0b1016;--term-line:rgba(130,200,230,.2)}
 body.p-shellparity{font-family:'Vazirmatn','IBM Plex Mono',system-ui,sans-serif;background-color:var(--bg);background-image:linear-gradient(90deg,var(--cy-dim) 0,transparent 50%,var(--am-dim) 100%),linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:100% 100%,56px 56px,56px 56px;background-attachment:fixed;overflow-x:clip}

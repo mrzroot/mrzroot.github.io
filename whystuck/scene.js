@@ -37,7 +37,7 @@
       }
       ctx.strokeStyle = ink; ctx.lineWidth = lw + 5; ctx.stroke();
       ctx.strokeStyle = i === 1 ? COL[1] : (i % 3 === 2 ? COL[2] : (hi ? COL[1] : (ink === '#141210' ? '#fffaf0' : '#201c17'))); ctx.lineWidth = lw; ctx.stroke();
-      if (k > .98) { ctx.font = '700 ' + (W < 420 ? 11 : 13) + 'px ' + (fa ? 'Vazirmatn' : '"Space Mono"') + ', monospace'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = ink; ctx.direction = fa ? 'rtl' : 'ltr'; ctx.fillText((fa ? '' : '') + V[i][fa ? 1 : 0], x1 + 14, 34 + gap * (i + 1)); }
+      if (k > .98) { ctx.font = '700 ' + (W < 420 ? 11 : 13) + 'px ' + (fa ? 'Vazirmatn' : 'Vazirmatn') + ', monospace'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = ink; ctx.direction = fa ? 'rtl' : 'ltr'; ctx.fillText((fa ? '' : '') + V[i][fa ? 1 : 0], x1 + 14, 34 + gap * (i + 1)); }
     }
     if (out) out.textContent = Math.round(u * 100) + '%';
   }

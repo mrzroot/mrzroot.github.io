@@ -1,5 +1,5 @@
 /* persianprobe identity: "spec sheet + inspector". Near-black, acid lime and hot pink, Martian Mono, square corners, sticky spec gutter, bidi glyph storm. */
-@font-face{font-family:'Martian Mono';font-style:normal;font-weight:100 800;font-stretch:75% 112.5%;font-display:swap;src:url(fonts/martian-mono.woff2) format('woff2')}
+
 html[data-theme=dark] body.p-persianprobe{--bg:#07090a;--bg2:#0b0f10;--surface:#0e1315;--surface2:#12191b;--line:rgba(200,255,46,.13);--line2:rgba(200,255,46,.3);--text:#eaf0e4;--text2:#aab5a2;--text3:#8a9683;--accent:#c8ff2e;--accent-fg:#c8ff2e;--accent-ink:#0a1100;--glow:rgba(200,255,46,.12);--term:#050707;--term-line:rgba(200,255,46,.2);--hot:#ff3b6b;--lime:#c8ff2e}
 html[data-theme=light] body.p-persianprobe{--bg:#f2f5ea;--bg2:#e9eedc;--surface:#fbfdf6;--surface2:#f6f9ee;--line:rgba(30,50,0,.14);--line2:rgba(30,50,0,.3);--text:#10170a;--text2:#3a4a26;--text3:#55663e;--accent:#4b7800;--accent-fg:#3b6000;--accent-ink:#fff;--glow:rgba(120,180,0,.14);--term:#0b0f08;--hot:#d4154a;--lime:#4b7800}
 body.p-persianprobe{font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;background-position:-1px -1px}

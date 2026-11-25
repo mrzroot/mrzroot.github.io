@@ -1,7 +1,7 @@
 /* whyenv identity: "frosted sheets". Aurora mesh, glass cards, Instrument Serif, cobalt + mint, centered editorial column, sticky card stack. */
-@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif.woff2) format('woff2')}
-@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-italic.woff2) format('woff2')}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/geist-mono.woff2) format('woff2')}
+
+
+
 html[data-theme=dark] body.p-whyenv{--bg:#060a1c;--bg2:#0a1030;--surface:rgba(20,28,66,.55);--surface2:rgba(26,36,84,.6);--line:rgba(160,180,255,.12);--line2:rgba(170,190,255,.24);--text:#edf0ff;--text2:#b3bbe0;--text3:#8f99c6;--accent:#8ea4ff;--accent-fg:#9db0ff;--accent-ink:#06103a;--glow:transparent;--cob:#4a6bff;--mint:#3ff0c0;--warn:#ff7a8a;--sheet:rgba(24,34,80,.62);--sheet-b:rgba(170,190,255,.28)}
 html[data-theme=light] body.p-whyenv{--bg:#eef1fb;--bg2:#e6ebfa;--surface:rgba(255,255,255,.6);--surface2:rgba(255,255,255,.75);--line:rgba(30,50,140,.12);--line2:rgba(30,50,140,.22);--text:#0c1230;--text2:#39426b;--text3:#525c8a;--accent:#2b50ff;--accent-fg:#2342d6;--accent-ink:#fff;--glow:transparent;--cob:#2b50ff;--mint:#0aa87f;--warn:#d93a52;--sheet:rgba(255,255,255,.62);--sheet-b:rgba(43,80,255,.28)}
 body.p-whyenv{background:var(--bg);background-image:none;font-family:'Vazirmatn',system-ui,sans-serif;position:relative}

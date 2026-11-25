@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl" data-theme="dark" data-title-en="ganjineh · A shared notebook for your team's AI helpers" data-title-fa="گنجینه · یک دفترچهٔ مشترک برای دستیارهای هوش مصنوعیِ تیم">
+<html data-portfolio-design="ganjineh" lang="fa" dir="rtl" data-theme="dark" data-title-en="ganjineh · A shared notebook for your team's AI helpers" data-title-fa="گنجینه · یک دفترچهٔ مشترک برای دستیارهای هوش مصنوعیِ تیم">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,10 +14,9 @@
 <meta property="og:locale" content="fa_IR"><meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ganjineh · A shared notebook for your team's AI helpers"><meta name="twitter:description" content="A shared notebook your team's AI helpers write and read by themselves. No server, no account."><meta name="twitter:image" content="https://mrzroot.github.io/ganjineh/og.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/Gloock-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/vazirmatn-400-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="vault.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"ganjineh","alternateName":"گنجینه","description":"A shared notebook for a team's AI coding helpers: finished sessions become short notes with secrets blacked out, kept as plain files in a git repo, and searched by the next teammate's AI. Python, standard library only.","codeRepository":"https://github.com/mrzroot/ganjineh","programmingLanguage":"Python","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Mohammadreza Zare","url":"https://github.com/mrzroot"},"url":"https://mrzroot.github.io/ganjineh/","inLanguage":["fa","en"]}</script>
+<link rel="stylesheet" href="portfolio-reframe.css">
 </head>
 <body class="p-ganjineh">
 <script>(function(){var d=document.documentElement,m='system',l=null,q=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;try{m=localStorage.getItem('mrz-theme')||'system'}catch(e){}if(m!=='light'&&m!=='dark')m='system';var th=m==='system'?(q&&q.matches?'dark':'light'):m;d.setAttribute('data-theme',th);d.setAttribute('data-theme-mode',m);d.style.colorScheme=th;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')}catch(e){}if(l!=='en')l='fa';if(l==='en'){d.lang='en';d.dir='ltr'}})();</script>
@@ -33,6 +32,20 @@
   </div>
 </div></header>
 <main id="main">
+
+<!-- Portfolio design: localized overview; original project sections remain below. -->
+<aside class="rr-signal">
+  <div class="rr-annotation"><p class="rr-product"><bdi>ganjineh</bdi><span><span class="rr-en" lang="en">Team knowledge vault</span><span class="rr-fa" lang="fa">گنجینهٔ دانش تیم</span></span></p>
+    <p class="rr-promise"><span class="rr-en" lang="en">Leave a note the next teammate can find</span><span class="rr-fa" lang="fa">یادداشتی بگذارید که هم‌تیمی بعدی پیدا کند</span></p>
+    <a class="rr-start" href="#lab"><span class="rr-en" lang="en">Open the notebook lab</span><span class="rr-fa" lang="fa">باز کردن آزمایشگاه یادداشت</span> <span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="rr-visual" aria-hidden="true">
+    <svg viewBox="0 0 360 100" width="360" height="100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M68 22c51-16 75-16 111 5 36-21 60-21 111-5v57c-48-12-73-9-111 10-37-20-62-22-111-10z"/><path d="M179 27v62M91 37c25-5 47-3 66 4m-66 11c26-5 49-3 66 4m-66 11c26-5 44-3 66 4m44-30c19-7 41-9 66-4m-66 19c17-7 40-9 66-4m-66 19c17-7 40-9 66-4"/>
+    </svg>
+    <div class="rr-steps"><span><span class="rr-en" lang="en">Record</span><span class="rr-fa" lang="fa">ثبت</span></span><span><span class="rr-en" lang="en">Search</span><span class="rr-fa" lang="fa">جست‌وجو</span></span><span><span class="rr-en" lang="en">Recall</span><span class="rr-fa" lang="fa">یادآوری</span></span></div>
+  </div>
+</aside>
 <section class="hero" id="top"><div class="hero-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="grain"></i></div><div class="wrap hero-in">
   <div class="hero-copy">
     <p class="kicker"><i></i><span class="l-en">a shared notebook for your team's AI helpers</span><span class="l-fa" lang="fa">یک دفترچهٔ مشترک برای دستیارهای هوش مصنوعیِ تیم</span> · <span class="mono">v0.1.2</span></p>

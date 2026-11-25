@@ -59,7 +59,7 @@
     }
     draw(0);
   }
-  var FONT = '500 24px Vazirmatn, "Martian Mono", monospace', TAG = '600 8px "Martian Mono", monospace';
+  var FONT = '500 24px Vazirmatn, Vazirmatn, monospace', TAG = '600 8px Vazirmatn, monospace';
   function draw(t) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     var R2 = lens.r * lens.r;

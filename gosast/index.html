@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl" data-theme="light" data-title-en="Gosast · Tear any web page, calmly" data-title-fa="گسست · هر صفحهٔ وب را آرام پاره کن">
+<html data-portfolio-design="gosast" lang="fa" dir="rtl" data-theme="light" data-title-en="Gosast · Tear any web page, calmly" data-title-fa="گسست · هر صفحهٔ وب را آرام پاره کن">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +14,9 @@
 <meta property="og:locale" content="fa_IR"><meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Gosast · Tear any web page, calmly"><meta name="twitter:description" content="Tear a page into paper strips, press Esc, and it is all back. Try it live."><meta name="twitter:image" content="https://mrzroot.github.io/gosast/og.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/vazirmatn-400-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="gosast.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Gosast","alternateName":"گسست","applicationCategory":"BrowserApplication","operatingSystem":"Chrome, Edge, Firefox","description":"A tiny, calm browser extension that turns the page you are looking at into paper you can tear, then puts it back with Esc. No network access, no account.","softwareVersion":"0.1.1","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","downloadUrl":"https://github.com/mrzroot/gosast/releases/download/v0.1.1/gosast-0.1.1-chrome.zip","codeRepository":"https://github.com/mrzroot/gosast","author":{"@type":"Person","name":"Mohammadreza Zare","url":"https://github.com/mrzroot"},"url":"https://mrzroot.github.io/gosast/","inLanguage":["fa","en"]}</script>
+<link rel="stylesheet" href="portfolio-reframe.css">
 </head>
 <body class="p-gosast">
 <script>(function(){var d=document.documentElement,m='system',l=null,q=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;try{m=localStorage.getItem('mrz-theme')||'system'}catch(e){}if(m!=='light'&&m!=='dark')m='system';var th=m==='system'?(q&&q.matches?'dark':'light'):m;d.setAttribute('data-theme',th);d.setAttribute('data-theme-mode',m);d.style.colorScheme=th;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')}catch(e){}if(l!=='en')l='fa';if(l==='en'){d.lang='en';d.dir='ltr'}})();</script>
@@ -34,6 +34,20 @@
   </div>
 </div></header>
 <main id="main">
+
+<!-- Portfolio design: localized overview; original project sections remain below. -->
+<aside class="rr-signal">
+  <div class="rr-annotation"><p class="rr-product"><bdi>gosast</bdi><span><span class="rr-en" lang="en">Interactive paper desk</span><span class="rr-fa" lang="fa">میز کاغذی تعاملی</span></span></p>
+    <p class="rr-promise"><span class="rr-en" lang="en">Play with a picture of the page, not the page itself</span><span class="rr-fa" lang="fa">با تصویر صفحه بازی کنید، نه خود صفحه</span></p>
+    <a class="rr-start" href="#try"><span class="rr-en" lang="en">Try the paper desk</span><span class="rr-fa" lang="fa">میز کاغذی را امتحان کنید</span> <span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="rr-visual" aria-hidden="true">
+    <svg viewBox="0 0 360 100" width="360" height="100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M91 20h105l-11 8 15 10-13 10 11 9-11 10 11 13H91z"/><path d="M112 39h56m-56 10h47m-47 10h29" opacity=".7"/><path d="m217 22 29 4 8 25-26 8-13-15zm21 46 28-7 20 14-9 12-30-2z" fill="currentColor" fill-opacity=".16"/><path d="m267 22 6 3 14-10m-64 70-12 5"/>
+    </svg>
+    <div class="rr-steps"><span><span class="rr-en" lang="en">Tear</span><span class="rr-fa" lang="fa">پاره‌کردن</span></span><span><span class="rr-en" lang="en">Sweep</span><span class="rr-fa" lang="fa">جارو</span></span><span><span class="rr-en" lang="en">Undo</span><span class="rr-fa" lang="fa">بازگردانی</span></span></div>
+  </div>
+</aside>
 <section class="hero" id="top">
   <div class="bits" aria-hidden="true"><i class="bit a"></i><i class="bit b"></i><i class="bit c"></i><i class="bit d"></i><i class="bit e"></i></div>
   <div class="wrap">

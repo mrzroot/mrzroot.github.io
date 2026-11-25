@@ -1,7 +1,7 @@
 /* whystale identity: "archive". Parchment and brass (night archive in dark), Fraunces + DM Mono, centred editorial chapters, an hourglass ledger with rubber stamps, a brass age ruler that sepia-tints the page as you scroll. */
-@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces.woff2) format('woff2')}
-@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-italic.woff2) format('woff2')}
-@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dm-mono.woff2) format('woff2')}
+
+
+
 html[data-theme=light] body.p-whystale{--bg:#f3e9d2;--bg-old:#dcc79b;--bg2:#ecdfc1;--surface:#faf3e2;--surface2:#f6ecd4;--text:#2a1f12;--text2:#4d3d27;--text3:#6c5a40;--line:rgba(90,62,20,.22);--line2:rgba(90,62,20,.5);--brass:#9a6a1a;--brass2:#7a5210;--wax:#a1281a;--verd:#2b6f55;--accent:#7a5210;--accent-fg:#7a5210;--accent-ink:#fff7e3;--glow:transparent;--term:#1d160d;--term-line:rgba(217,164,65,.28);--sand:#c28a2c;--grain:.07}
 html[data-theme=dark] body.p-whystale{--bg:#15100a;--bg-old:#241a0d;--bg2:#1b140c;--surface:#1f1710;--surface2:#251b12;--text:#efe3c8;--text2:#cdbd9c;--text3:#a09074;--line:rgba(217,164,65,.2);--line2:rgba(217,164,65,.45);--brass:#e0ae4c;--brass2:#e0ae4c;--wax:#e0604a;--verd:#6fcfa3;--accent:#e0ae4c;--accent-fg:#e0ae4c;--accent-ink:#1a1206;--glow:transparent;--term:#0d0905;--term-line:rgba(217,164,65,.25);--sand:#e0ae4c;--grain:.09}
 body.p-whystale{--age:0;font-family:'Vazirmatn',Georgia,serif;background:color-mix(in srgb,var(--bg) calc((1 - var(--age)) * 100%),var(--bg-old));background-image:radial-gradient(120% 80% at 50% 0,transparent 55%,rgba(60,35,5,.16))}
