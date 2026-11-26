@@ -95,19 +95,70 @@ html[data-action-site=agentcontract] {--labbg:#f7fcf3;--labresult:#e9f4e9;--labs
 [data-action-site=routefall] .action-copy {display:block}.action-copy .action-jump {display:none}.action-copy .pills{display:none}.action-copy .lead {font-size:.9rem}.action-copy h1{font-size:clamp(1.6rem,6.2vw,2.2rem)}
 .tape {gap:.1rem}.tape i {font-size:.59rem;padding:.2rem 0}}
 @media(prefers-reduced-motion:reduce){.action-lab *, .action-lab *::before,.action-lab *::after{animation:none!important;transition:none!important}}
-</style></head>
+</style><style>.motion-stage{isolation:isolate;overflow:hidden;position:relative;border-radius:.66rem;margin:.55rem 0 .6rem;border:1px solid var(--labline);background:var(--labsheet);min-width:0;line-height:1.3}
+.motion-stage svg{display:block;width:100%;height:auto;color:var(--labaccent)}
+[data-action-site=ragxray] .motion-stage{background:repeating-linear-gradient(90deg,#73edd017 0 1px,transparent 1px 10%),linear-gradient(155deg,#0d303b,#082029)}
+.scan-shell{padding:.50rem .62rem .63rem;position:relative;min-height:4.3rem}.scan-track{height:1.12rem;display:flex;overflow:hidden;border-radius:3px;background:#19414a;position:relative}
+.scan-block{background:#2c5e67;border:1px solid #498b8d;position:relative;overflow:hidden;min-width:0}.scan-block:nth-child(2n){background:#1b4b54}.scan-block i{display:block;background:#a9f5d6;box-shadow:0 0 8px #9ef5d5;position:absolute;inset-block:20%;border-radius:3px;z-index:1}
+.scan-ruler{font-size:.62rem;margin-bottom:.27rem;display:flex;justify-content:space-between;color:#b3e6e4;gap:.5rem;white-space:normal}
+.scan-shell [data-beam]{position:absolute;top:0;bottom:0;width:2px;background:#a5ffdf;box-shadow:0 0 14px 5px #94f9da8a;transform:translateX(-12px);opacity:0;pointer-events:none;z-index:2}
+.scan-shell [data-seam]{display:inline-block;min-width:.4rem;margin-top:.33rem;color:#b4ebd1;font-size:.69rem}
+[data-action-site=routefall] .motion-stage{background:radial-gradient(ellipse at 30% 25%,#324574,#171f42 70%)}
+.route-wire{fill:none;stroke:#849ccd;stroke-dasharray:4 5;stroke-width:1.7;opacity:.55}.route-wire[data-active=true]{stroke:#c2efff;stroke-dasharray:none;opacity:1;stroke-width:2.3}
+.route-lamp{fill:#23305a;stroke:#8b9fca;stroke-width:1.4}.route-lamp[data-active=true]{fill:#c2efff;stroke:#c2efff}.route-node-label{font:700 9px Vazirmatn,sans-serif;fill:#e4eaff}.route-packet{fill:#efffff;filter:drop-shadow(0 0 6px #b9efff)}
+[data-action-site=promptbisect] .motion-stage{background:#211c30;color:#f2dcb9}.probe-pad{padding:.55rem .73rem .72rem}.probe-caption{color:#ebc28c;font-size:.65rem;display:flex;gap:.5rem;justify-content:space-between}
+.probe-window{position:relative;height:1.35rem;margin-top:.35rem;border:1px solid #8d6579;border-radius:4px;background:repeating-linear-gradient(90deg,#7a5473 0 1px,transparent 1px 6.25%);overflow:hidden}
+.probe-band{position:absolute;left:0;width:100%;top:.16rem;bottom:.16rem;border:1px solid #ffe2a9;border-radius:2px;background:#ffe1a34a}
+.probe-pin{position:absolute;left:0;top:0;bottom:0;background:#fce2aa;width:3px;opacity:0}
+[data-action-site=agentcontract] .motion-stage{background:#e2efe4}.schema-rows{padding:.45rem .65rem;font-size:.72rem}.schema-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.42rem;padding:.26rem 0;border-bottom:1px solid #afc6b9;color:#224438}.schema-row:last-child{border-bottom:0}.schema-row b{font-size:.67rem;border-radius:100px;padding:.12rem .43rem;white-space:nowrap;color:white;background:#2b624c}.schema-row[data-pass=false] b{background:#8a334c}.schema-row i{font-style:normal;font-weight:750;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.motion-stage *, .motion-stage *::before,.motion-stage *::after{animation:none!important;transition:none!important}}
+</style><style>.field-notes{margin-block:clamp(2rem,5vw,4rem);max-width:74rem}
+.field-nav{display:flex;gap:.4rem .7rem;flex-wrap:wrap;padding:.75rem 0;border-block:1px solid var(--line);margin-block-end:1rem;justify-content:flex-start;min-height:0}
+.field-nav a,.field-source{border-radius:.5rem;padding:.32rem .65rem;text-decoration:none;font-weight:750;border:1px solid var(--line);background:#fff}
+.field-chapter{scroll-margin-top:1.2rem;padding:clamp(1rem,2.8vw,2.45rem);margin-block:clamp(1rem,2vw,1.5rem);border:1px solid var(--line);border-radius:1rem;background:#fff;min-width:0}
+.field-chapter h2{font-size:clamp(1.35rem,3vw,2.2rem);margin-block-end:1rem}
+.field-chapter p{max-width:68ch}
+.field-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:1rem;align-items:start}
+.field-split p:first-child{margin-top:0}
+.field-chapter pre{margin:.35rem 0 1rem;overflow:auto;white-space:pre;padding:.85rem 1rem;color:white;background:var(--brand);border-radius:.55rem;font-size:.87rem}
+.field-flow{padding-inline-start:1.35rem;margin-block:0}
+.field-flow li{padding:.62rem .4rem;border-block-end:1px solid var(--line)}
+.field-flow li:last-child{border-bottom:none}.field-flow p{margin:.35rem 0 0}
+.field-chapter table{border-collapse:collapse;width:100%;font-size:.88rem;table-layout:fixed}
+.field-chapter td,.field-chapter th{text-align:start;vertical-align:top;overflow-wrap:anywhere;padding:.55rem .6rem;border:1px solid var(--line)}
+.field-chapter thead th{color:#fff;background:var(--brand)}
+.field-chapter tbody th{background:var(--light)}
+.field-faq details{border-block-end:1px solid var(--line);padding:.55rem}
+.field-faq summary{cursor:pointer;font-weight:800;min-height:40px}
+.field-faq details:last-child{border:0}
+[data-action-site=ragxray] .field-chapter{border-inline-start:5px solid #147365}
+[data-action-site=ragxray] #field-case pre{background:#0b353b;color:#b4ffd8}
+[data-action-site=routefall] #field-case{background:#1f2d52;color:#e8f3ff;border-radius:.65rem}
+[data-action-site=routefall] .field-nav a{border-radius:99px}
+[data-action-site=promptbisect] .field-chapter{background:#fff8f0;border-inline-start:4px double #88556d}
+[data-action-site=promptbisect] .field-flow li{margin-inline-start:1em;padding-inline-start:1em;border-inline-start:2px solid #c28c83}
+[data-action-site=agentcontract] #field-flow{border-radius:.3rem;border-block-start:5px solid #347351}
+[data-action-site=agentcontract] #field-case pre{background:#234b3c;color:#e0ffd8}
+@media(max-width:48rem){.field-split{grid-template-columns:minmax(0,1fr)}
+.field-chapter td,.field-chapter th{padding:.37rem .3rem;font-size:.8rem}}
+</style><style>.showcase-photo{width:min(900px,calc(100% - 2.2rem));margin:clamp(1.5rem,5vw,3.8rem) auto}.showcase-photo p{letter-spacing:.04em;font-weight:800;font-size:.8rem}.showcase-photo p [lang=fa]{letter-spacing:normal}.showcase-photo img{display:block;width:100%;height:auto;border:1px solid currentColor;border-radius:.38rem}.showcase-photo figcaption{margin-top:.55rem;font-size:.94rem;opacity:.84}</style></head>
 <body><a class="skip" href="#main"><span class="" data-en="Skip to main" data-fa="رفتن به محتوای اصلی" >رفتن به محتوای اصلی</span></a>
 <header class="top"><nav class="wrap" aria-label="Project navigation"><a href="/projects/"><bdi>MRZROOT</bdi> / <span class="" data-en="Projects" data-fa="پروژه‌ها" >پروژه‌ها</span></a><div><a href="https://github.com/mrzroot/routefall">GitHub</a><button type="button" id="lang" lang="en" aria-label="Switch to English">EN</button></div></nav></header>
 <main id="main"><section class="hero action-hero"><div class="wrap hero-grid"><div class="action-copy">
 <p class="kicker"><bdi>routefall</bdi> / <span class="" data-en="Gateway resilience" data-fa="پایداری درگاه" >پایداری درگاه</span></p><h1 class="" data-en="Know where the next request goes." data-fa="بدانید درخواست بعدی کجا می‌رود." >بدانید درخواست بعدی کجا می‌رود.</h1><p class="lead" data-en="A local OpenAI-compatible router with circuit breakers, a TTL cache, a budget cap and shadow evaluation." data-fa="روتر محلی سازگار با OpenAI با قطع‌کنندهٔ مدار، کش زمان‌دار، سقف هزینه و ارزیابی سایه‌ای." >روتر محلی سازگار با OpenAI با قطع‌کنندهٔ مدار، کش زمان‌دار، سقف هزینه و ارزیابی سایه‌ای.</p>
 <div class="actions"><a class="button primary action-jump" href="#lab"><span class="" data-en="Try the sample" data-fa="آزمایش نمونه" >آزمایش نمونه</span> <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://mrzroot.github.io/routefall/"><span class="" data-en="Full project demo" data-fa="دموی اصلی پروژه" >دموی اصلی پروژه</span> <span aria-hidden="true">↗</span></a></div>
-<div class="pills" dir="ltr"><span>Node.js 18+</span><span>MIT</span><span>Antigravity</span></div></div><section id="lab" class="action-lab" aria-labelledby="lab-title"><div class="lab-sheet"><header><span class="dotstack" aria-hidden="true"><i></i><i></i><i></i></span><span data-en="GATEWAY · CONTROL DESK" data-fa="درگاه · اتاق کنترل">درگاه · اتاق کنترل</span><b dir="ltr">02</b></header></div><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Routing control desk" data-fa="پنل کنترل مسیریابی" id="lab-title">پنل کنترل مسیریابی</h2><p class="instruction" data-en="Flip a fictional provider between ready and unavailable, then change the budget. Requests in this illustration never leave your browser." data-fa="وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود." >وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود.</p><div class="scenario" role="group" aria-labelledby="scenario-label"><p id="scenario-label"><span data-en="Try a scenario" data-fa="یک سناریو را امتحان کنید">یک سناریو را امتحان کنید</span></p><div><button type="button" class="preset" data-preset="ready" aria-pressed="false"><span data-en="Normal operation" data-fa="حالت عادی">حالت عادی</span></button><button type="button" class="preset" data-preset="fail" aria-pressed="false"><span data-en="Simulate outage" data-fa="شبیه‌سازی قطعی">شبیه‌سازی قطعی</span></button><button type="button" class="preset" data-preset="cap" aria-pressed="false"><span data-en="Exhaust budget" data-fa="اتمام بودجه">اتمام بودجه</span></button></div></div><div class="route-map" id="route-map" dir="ltr" aria-hidden="true"><b>IN</b><i></i><b>PRIMARY</b><i></i><b>LOCAL</b><i></i><b>BUDGET</b></div><div class="inputs"><label for="primary"><span class="" data-en="Primary provider" data-fa="ارائه‌دهندهٔ اصلی" >ارائه‌دهندهٔ اصلی</span></label><select id="primary"><option value="0" data-en="Ready" data-fa="در دسترس">در دسترس</option><option value="1" data-en="Unavailable" data-fa="خارج از دسترس">خارج از دسترس</option></select><label for="budget"><span class="" data-en="Budget remaining" data-fa="بودجهٔ باقی‌مانده" >بودجهٔ باقی‌مانده</span></label><select id="budget"><option value="0" data-en="2 credits" data-fa="۲ اعتبار">۲ اعتبار</option><option value="1" data-en="1 credit" data-fa="۱ اعتبار">۱ اعتبار</option><option value="2" data-en="0 credits" data-fa="بدون اعتبار">بدون اعتبار</option></select></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="activity" data-state="idle" class="activity" aria-hidden="true"><i></i><span><span data-en="Runner ready" data-fa="آزمایشگاه آماده">آزمایشگاه آماده</span></span><b id="metric">00</b></div><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section></div></section>
+<div class="pills" dir="ltr"><span>Node.js 18+</span><span>MIT</span><span>Antigravity</span></div></div><section id="lab" class="action-lab" aria-labelledby="lab-title"><div class="lab-sheet"><header><span class="dotstack" aria-hidden="true"><i></i><i></i><i></i></span><span data-en="GATEWAY · CONTROL DESK" data-fa="درگاه · اتاق کنترل">درگاه · اتاق کنترل</span><b dir="ltr">02</b></header></div><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Routing control desk" data-fa="پنل کنترل مسیریابی" id="lab-title">پنل کنترل مسیریابی</h2><p class="instruction" data-en="Flip a fictional provider between ready and unavailable, then change the budget. Requests in this illustration never leave your browser." data-fa="وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود." >وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود.</p><div class="scenario" role="group" aria-labelledby="scenario-label"><p id="scenario-label"><span data-en="Try a scenario" data-fa="یک سناریو را امتحان کنید">یک سناریو را امتحان کنید</span></p><div><button type="button" class="preset" data-preset="ready" aria-pressed="false"><span data-en="Normal operation" data-fa="حالت عادی">حالت عادی</span></button><button type="button" class="preset" data-preset="fail" aria-pressed="false"><span data-en="Simulate outage" data-fa="شبیه‌سازی قطعی">شبیه‌سازی قطعی</span></button><button type="button" class="preset" data-preset="cap" aria-pressed="false"><span data-en="Exhaust budget" data-fa="اتمام بودجه">اتمام بودجه</span></button></div></div><div class="route-map" id="route-map" dir="ltr" aria-hidden="true"><b>IN</b><i></i><b>PRIMARY</b><i></i><b>LOCAL</b><i></i><b>BUDGET</b></div><div class="inputs"><label for="primary"><span class="" data-en="Primary provider" data-fa="ارائه‌دهندهٔ اصلی" >ارائه‌دهندهٔ اصلی</span></label><select id="primary"><option value="0" data-en="Ready" data-fa="در دسترس">در دسترس</option><option value="1" data-en="Unavailable" data-fa="خارج از دسترس">خارج از دسترس</option></select><label for="budget"><span class="" data-en="Budget remaining" data-fa="بودجهٔ باقی‌مانده" >بودجهٔ باقی‌مانده</span></label><select id="budget"><option value="0" data-en="2 credits" data-fa="۲ اعتبار">۲ اعتبار</option><option value="1" data-en="1 credit" data-fa="۱ اعتبار">۱ اعتبار</option><option value="2" data-en="0 credits" data-fa="بدون اعتبار">بدون اعتبار</option></select></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="activity" data-state="idle" class="activity" aria-hidden="true"><i></i><span><span data-en="Runner ready" data-fa="آزمایشگاه آماده">آزمایشگاه آماده</span></span><b id="metric">00</b></div><div id="motion-stage" class="motion-stage" dir="ltr" aria-hidden="true"></div><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section></div></section>
 <section class="wrap story" aria-labelledby="workflow-title"><p class="label"><span class="" data-en="WORKFLOW" data-fa="فرایند" >فرایند</span></p><h2 class="" data-en="How to use it" data-fa="مسیر استفاده" id="workflow-title">مسیر استفاده</h2>
 <div class="cards"><article><p class="index" dir="ltr">01</p><h3 class="" data-en="Validate configuration" data-fa="تنظیمات را اعتبارسنجی کنید" >تنظیمات را اعتبارسنجی کنید</h3><p class="" data-en="Check the routing configuration before starting the local gateway." data-fa="پیش از راه‌اندازی درگاه محلی، پیکربندی مسیریابی را بررسی کنید." >پیش از راه‌اندازی درگاه محلی، پیکربندی مسیریابی را بررسی کنید.</p></article><article><p class="index" dir="ltr">02</p><h3 class="" data-en="Review failover" data-fa="جابه‌جایی مسیر را ببینید" >جابه‌جایی مسیر را ببینید</h3><p class="" data-en="Understand how a temporary failure opens a circuit and sends eligible traffic to the fallback." data-fa="ببینید خطای موقت چگونه مدار را باز می‌کند و درخواست واجد شرایط را به مسیر پشتیبان می‌فرستد." >ببینید خطای موقت چگونه مدار را باز می‌کند و درخواست واجد شرایط را به مسیر پشتیبان می‌فرستد.</p></article><article><p class="index" dir="ltr">03</p><h3 class="" data-en="Watch spend and quality" data-fa="هزینه و کیفیت را بسنجید" >هزینه و کیفیت را بسنجید</h3><p class="" data-en="Budget limits and shadow summaries answer different questions: cost exposure and comparative output." data-fa="سقف بودجه و گزارش ارزیابی سایه‌ای به دو سؤال جدا پاسخ می‌دهند: هزینه و مقایسهٔ خروجی." >سقف بودجه و گزارش ارزیابی سایه‌ای به دو سؤال جدا پاسخ می‌دهند: هزینه و مقایسهٔ خروجی.</p></article></div></section>
 
 <section class="wrap story" aria-labelledby="start"><div class="quick"><div><p class="label"><span class="" data-en="QUICK START" data-fa="شروع سریع" >شروع سریع</span></p><h2 class="" data-en="Try it locally" data-fa="اجرا روی سیستم خودتان" id="start">اجرا روی سیستم خودتان</h2><a href="https://github.com/mrzroot/routefall#readme"><span class="" data-en="Open setup and source docs" data-fa="راهنمای نصب و مستندات مخزن" >راهنمای نصب و مستندات مخزن</span></a></div>
 <pre tabindex="0" dir="ltr"><code>routefall check --config routefall.json
-routefall stats shadow.jsonl --json</code></pre></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a href="/projects/guide/routefall/" data-en="First Steps" data-fa="قدم اول">قدم اول</a><a data-original-link href="/routefall/" data-en="Original site" data-fa="سایت قبلی">سایت قبلی</a></nav></main>
+routefall stats shadow.jsonl --json</code></pre></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a href="/projects/guide/routefall/" data-en="First Steps" data-fa="قدم اول">قدم اول</a><a data-original-link href="/routefall/" data-en="Original site" data-fa="سایت قبلی">سایت قبلی</a></nav><!-- extended-content --><div class="wrap field-notes"><nav class="field-nav" aria-label="Sections"><a href="#field-case"><span data-en="Case" data-fa="نمونه">نمونه</span></a><a href="#field-flow"><span data-en="Workflow" data-fa="فرایند">فرایند</span></a><a href="#field-install"><span data-en="Install" data-fa="نصب">نصب</span></a><a href="#field-faq"><span data-en="FAQ" data-fa="پرسش‌ها">پرسش‌ها</span></a></nav><section class="field-chapter" id="field-case"><h2 data-en="Incident room: primary unavailable" data-fa="اتاق رخداد: مسیر اصلی در دسترس نیست">اتاق رخداد: مسیر اصلی در دسترس نیست</h2><div class="field-split"><div><p data-en="In the fictional incident, the preferred provider becomes unavailable and the local fallback can still serve the request. When the lab budget cannot cover the next request, the router illustration stops instead." data-fa="در رخداد ساختگی، مسیر اول خارج از دسترس می‌شود و مسیر محلی می‌تواند پاسخ دهد. وقتی بودجهٔ آزمایش کافی نیست، مسیر متوقف می‌شود.">در رخداد ساختگی، مسیر اول خارج از دسترس می‌شود و مسیر محلی می‌تواند پاسخ دهد. وقتی بودجهٔ آزمایش کافی نیست، مسیر متوقف می‌شود.</p><p data-en="Recreate the two outcomes using the outage and exhausted-budget controls above. No network or provider account is used in this showcase." data-fa="با دکمه‌های قطعی و اتمام بودجه هر دو نتیجه را بازسازی کنید. این صفحه هیچ تماس شبکه‌ای با ارائه‌دهندگان ندارد.">با دکمه‌های قطعی و اتمام بودجه هر دو نتیجه را بازسازی کنید. این صفحه هیچ تماس شبکه‌ای با ارائه‌دهندگان ندارد.</p></div><pre tabindex="0" dir="ltr">IN → PRIMARY          ready
+IN → LOCAL            outage; budget available
+IN → STOP             insufficient budget</pre></div></section><section class="field-chapter" id="field-flow"><h2 data-en="Read the routing dashboard" data-fa="داشبورد مسیریابی را بخوانید">داشبورد مسیریابی را بخوانید</h2><table><thead><tr><th scope="col"><span data-en="Mechanism" data-fa="سازوکار">سازوکار</span></th><th scope="col"><span data-en="What it is for" data-fa="کاربرد">کاربرد</span></th><th scope="col"><span data-en="What it cannot prove" data-fa="چه چیزی را ثابت نمی‌کند">چه چیزی را ثابت نمی‌کند</span></th></tr></thead><tbody><tr><th scope="row"><span data-en="Circuit breaker" data-fa="قطع‌کنندهٔ مدار">قطع‌کنندهٔ مدار</span></th><td><span data-en="Avoid retrying the same failing route repeatedly." data-fa="درخواست پیاپی به همان مسیر خراب نفرستید.">درخواست پیاپی به همان مسیر خراب نفرستید.</span></td><td><span data-en="It does not guarantee the fallback is healthy." data-fa="سلامت مسیر پشتیبان را تضمین نمی‌کند.">سلامت مسیر پشتیبان را تضمین نمی‌کند.</span></td></tr><tr><th scope="row"><span data-en="TTL cache" data-fa="کش زمان‌دار">کش زمان‌دار</span></th><td><span data-en="Reuse eligible results for a defined lifetime." data-fa="نتایج واجد شرایط را برای مدت مشخص بازاستفاده کنید.">نتایج واجد شرایط را برای مدت مشخص بازاستفاده کنید.</span></td><td><span data-en="Older results are not fresh merely because they are fast." data-fa="پاسخ سریعِ ذخیره‌شده لزوماً تازه نیست.">پاسخ سریعِ ذخیره‌شده لزوماً تازه نیست.</span></td></tr><tr><th scope="row"><span data-en="Budget cap" data-fa="سقف بودجه">سقف بودجه</span></th><td><span data-en="Limit allowable spend inside the router." data-fa="هزینهٔ مجاز را در روتر محدود کنید.">هزینهٔ مجاز را در روتر محدود کنید.</span></td><td><span data-en="It is not a substitute for provider-side billing alerts." data-fa="جای هشدارهای صورتحساب ارائه‌دهنده را نمی‌گیرد.">جای هشدارهای صورتحساب ارائه‌دهنده را نمی‌گیرد.</span></td></tr><tr><th scope="row"><span data-en="Shadow evaluation" data-fa="ارزیابی سایه‌ای">ارزیابی سایه‌ای</span></th><td><span data-en="Compare another configured route and read its report separately." data-fa="مسیر پیکربندی‌شدهٔ دیگری را جداگانه مقایسه و گزارش را بخوانید.">مسیر پیکربندی‌شدهٔ دیگری را جداگانه مقایسه و گزارش را بخوانید.</span></td><td><span data-en="A score is not proof of answer quality or safety." data-fa="امتیاز به‌تنهایی کیفیت یا ایمنی پاسخ را ثابت نمی‌کند.">امتیاز به‌تنهایی کیفیت یا ایمنی پاسخ را ثابت نمی‌کند.</span></td></tr></tbody></table></section><section class="field-chapter" id="field-install"><h2 data-en="Operator runbook" data-fa="راهنمای اپراتور">راهنمای اپراتور</h2><pre tabindex="0" dir="ltr">npm install -g github:mrzroot/routefall
+routefall check --config routefall.json
+routefall start --config routefall.json --port 8788 --max-cost-usd 2.0
+routefall stats shadow.jsonl --json</pre><p data-en="Start with an approved local configuration. The final command reads an existing shadow log; it does not produce an evaluation by itself." data-fa="با پیکربندی محلی تأییدشده شروع کنید. فرمان آخر یک فایل ارزیابی موجود را می‌خواند و خودش ارزیابی تولید نمی‌کند.">با پیکربندی محلی تأییدشده شروع کنید. فرمان آخر یک فایل ارزیابی موجود را می‌خواند و خودش ارزیابی تولید نمی‌کند.</p><a class="field-source" href="https://github.com/mrzroot/routefall#readme"><span data-en="Read the source documentation ↗" data-fa="مستندات مخزن ↗">مستندات مخزن ↗</span></a></section><section class="field-chapter" id="field-limits"><h2 data-en="Before turning it on" data-fa="پیش از روشن‌کردن سرویس">پیش از روشن‌کردن سرویس</h2><ul class="field-flow"><li><h3 data-en="Protect recordings" data-fa="حفاظت از گزارش‌ها">حفاظت از گزارش‌ها</h3><p data-en="Treat any logs containing requests or outputs as data that needs access controls and retention rules." data-fa="اگر گزارش‌ها ورودی یا خروجی دارند، برای دسترسی و نگه‌داری آن‌ها قواعد مشخص بگذارید.">اگر گزارش‌ها ورودی یا خروجی دارند، برای دسترسی و نگه‌داری آن‌ها قواعد مشخص بگذارید.</p></li><li><h3 data-en="Track provider policy" data-fa="سیاست ارائه‌دهنده">سیاست ارائه‌دهنده</h3><p data-en="Use only providers and models permitted for your deployment. A router does not change provider eligibility or terms." data-fa="فقط از ارائه‌دهنده و مدل مجاز در محیط استقرار استفاده کنید. روتر ضوابط یا صلاحیت دسترسی را تغییر نمی‌دهد.">فقط از ارائه‌دهنده و مدل مجاز در محیط استقرار استفاده کنید. روتر ضوابط یا صلاحیت دسترسی را تغییر نمی‌دهد.</p></li></ul></section><section class="field-chapter" id="field-faq"><h2 data-en="Operator questions" data-fa="پرسش‌های اپراتور">پرسش‌های اپراتور</h2><div class="field-faq"><details><summary><span data-en="Does the showcase make real calls?" data-fa="آیا این صفحه واقعاً درخواست می‌فرستد؟">آیا این صفحه واقعاً درخواست می‌فرستد؟</span></summary><p data-en="No. It is an offline simulator using fictional credit values." data-fa="نه. شبیه‌ساز آفلاین است و مقدار اعتبار آن ساختگی است.">نه. شبیه‌ساز آفلاین است و مقدار اعتبار آن ساختگی است.</p></details><details><summary><span data-en="Is “OpenAI-compatible” a hosting service?" data-fa="آیا «سازگار با OpenAI» یعنی سرویس میزبانی؟">آیا «سازگار با OpenAI» یعنی سرویس میزبانی؟</span></summary><p data-en="No. It describes the router interface, not who hosts a configured model or grants API access." data-fa="نه. این عبارت رابط روتر را توصیف می‌کند، نه میزبان مدل یا صاحب دسترسی API.">نه. این عبارت رابط روتر را توصیف می‌کند، نه میزبان مدل یا صاحب دسترسی API.</p></details></div></section></div><figure class="showcase-photo"><p data-en="FROM THE DEMO" data-fa="از خود دمو">از خود دمو</p><img src="/assets/thumbs/showcase-routefall.webp?v=e1b3c1b6c1" width="800" height="500" alt="" loading="lazy" decoding="async"><figcaption data-en="Example primary and fallback routes in the live demo" data-fa="مسیر اصلی و مسیر پشتیبان در دموی نمونه">مسیر اصلی و مسیر پشتیبان در دموی نمونه</figcaption></figure></main>
 <footer><div class="wrap"><a href="/projects/"><span class="" data-en="All projects" data-fa="همهٔ پروژه‌ها" >همهٔ پروژه‌ها</span></a><a href="https://github.com/mrzroot/routefall">GitHub ↗</a></div></footer>
 <script>'use strict';
 (() => {
@@ -226,5 +277,121 @@ routefall stats shadow.jsonl --json</code></pre></div></section><nav aria-label=
  }
  new MutationObserver(refresh).observe(fixture,{childList:true});
  refresh();
+})();
+</script><script>(() => {
+ const slug='routefall', d=document, stage=d.getElementById('motion-stage'), fixture=d.getElementById('fixture');
+ if(!stage||!fixture) return;
+ const by=x=>d.getElementById(x), t=(en,fa)=>d.documentElement.lang==='fa'?fa:en;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const motion=new Set();
+ function cancel(){for(const a of motion)a.cancel();motion.clear();}
+ function play(el,keyframes,opts){
+  if(reduced.matches||!el.animate)return;
+  const a=el.animate(keyframes,opts);motion.add(a);
+  a.addEventListener('finish',()=>motion.delete(a),{once:true});
+ }
+ function make(tag,cls,text){
+  const el=d.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;
+ }
+ function rag(){
+  const text='Read the local guide. Retry tokens expire. Read the retry token from the test fixture.';
+  const size=+by('length').value,overlap=+by('overlap').value;
+  const term='retry token',idx=text.lastIndexOf(term),stop=idx+term.length;
+  const shell=make('div','scan-shell'),ruler=make('div','scan-ruler'),track=make('div','scan-track'),beam=make('div');
+  ruler.append(make('span','',t('TEXT SCAN','اسکن متن')),make('span','',String(size)+' / '+String(overlap)));
+  beam.dataset.beam='';
+  const cells=[];let fit=false;
+  for(let start=0;start<text.length;start+=size-overlap){
+   const end=Math.min(text.length,start+size),len=end-start;
+   const lo=Math.max(start,idx),hi=Math.min(end,stop);
+   const cell=make('div','scan-block');cell.style.flexGrow=String(len);cell.style.flexBasis='0px';
+   if(hi>lo){
+    const mark=make('i');mark.style.left=(lo-start)/len*100+'%';mark.style.width=(hi-lo)/len*100+'%';cell.append(mark);
+    if(lo===idx&&hi===stop)fit=true;
+   }
+   cells.push(cell);
+   if(end===text.length)break;
+  }
+  track.append(...cells);
+  const label=make('b','',fit?t('PHRASE INTACT','عبارت سالم'):t('FRACTURE FOUND','شکست پیدا شد'));label.dataset.seam='';
+  shell.append(ruler,track,beam,label);stage.replaceChildren(shell);
+  shell.dataset.phrase=fit?'intact':'fracture';
+  const width=Math.max(90,shell.getBoundingClientRect().width);
+  play(beam,[{transform:'translateX(0px)',opacity:0},{transform:'translateX(10px)',opacity:1,offset:.08},{transform:'translateX('+width+'px)',opacity:1,offset:.9},{transform:'translateX('+width+'px)',opacity:0}],{duration:780,easing:'cubic-bezier(.25,.65,.35,1)'});
+  cells.forEach((x,i)=>play(x,[{opacity:.4,transform:'scaleY(.55)'},{opacity:1,transform:'scaleY(1)'}],{duration:280,delay:Math.min(i*40,450),easing:'ease-out',fill:'backwards'}));
+ }
+ const svgNS='http://www.w3.org/2000/svg';
+ function svg(tag,attrs,cls){
+  const el=d.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(cls)el.setAttribute('class',cls);return el;
+ }
+ function route(){
+  const unavailable=by('primary').value==='1',credits=2-(+by('budget').value),id=credits<(unavailable?1:2)?'cap':unavailable?'fail':'ready';
+  const pic=svg('svg',{viewBox:'0 0 320 112'});
+  const ys={ready:22,fail:56,cap:90};
+  const names={ready:t('PRIMARY','اصلی'),fail:t('FALLBACK','پشتیبان'),cap:t('BUDGET STOP','توقف بودجه')};
+  let selected;
+  for(const name of Object.keys(ys)){
+   const y=ys[name], active=id===name;
+   const exact='M20,56 H105 C130,56 134,'+y+' 162,'+y+' H230';
+   const path=svg('path',{d:exact,'data-active':active},'route-wire'); if(active)selected=path;
+   const lamp=svg('circle',{cx:230,cy:y,r:5,'data-active':active},'route-lamp');
+   const label=svg('text',{x:242,y:y+3},'route-node-label');label.textContent=names[name];
+   pic.append(path,lamp,label);
+  }
+  pic.append(svg('circle',{cx:20,cy:56,r:5,'data-active':'true'},'route-lamp'));
+  const packet=svg('circle',{cx:0,cy:0,r:4,opacity:0},'route-packet');pic.append(packet);
+  stage.replaceChildren(pic);stage.dataset.route=id;
+  const total=selected.getTotalLength(),frames=[];
+  for(let x=0;x<=24;x++){const p=selected.getPointAtLength(total*x/24);frames.push({transform:'translate('+p.x+'px,'+p.y+'px)',opacity:x===0||x===24?0:1,offset:x/24});}
+  play(packet,frames,{duration:850,easing:'ease-in-out'});
+ }
+ function bisect(){
+  const panel=make('div','probe-pad'),caption=make('div','probe-caption'),windowEl=make('div','probe-window'),band=make('div','probe-band'),pin=make('div','probe-pin');
+  const revisions=[...fixture.children].map(x=>+x.textContent.match(/\d+/)?.[0]).filter(Number.isFinite), threshold=+by('first-bad').value;
+  let lo=0,hi=16;
+  const bands=[{left:'0%',width:'100%'}], pins=[{left:'0%',opacity:0}];
+  for(const mid of revisions){
+   if(mid>=threshold)hi=mid;else lo=mid;
+   bands.push({left:(100*lo/16)+'%',width:(100*(hi-lo)/16)+'%'});
+   pins.push({left:(100*mid/16)+'%',opacity:1});
+  }
+  const final=bands[bands.length-1];Object.assign(band.style,final);
+  if(revisions.length){pin.style.left=(100*threshold/16)+'%';pin.style.opacity='1';}
+  caption.append(make('span','',t('PROBE WINDOW','پنجرهٔ آزمون')),make('span','',revisions.length?t(revisions.length+' PROBES',revisions.length+' آزمون'):t('16 REVISIONS','۱۶ نسخه')));
+  windowEl.append(band,pin);panel.append(caption,windowEl);stage.replaceChildren(panel);
+  stage.dataset.probes=String(revisions.length);
+  if(revisions.length){
+   for(const f of bands)f.easing='steps(1,end)';
+   for(const f of pins)f.easing='steps(1,end)';
+   pins.push({left:(100*threshold/16)+'%',opacity:1});
+   play(band,bands,{duration:950});play(pin,pins,{duration:950});
+  }else{play(band,[{opacity:.35},{opacity:1}],{duration:450});}
+ }
+ function contract(){
+  const change=+by('change').value, panel=make('div','schema-rows');
+  const CLIENTS=[
+   [t('Draft only','فقط متن'),{body:'Demo'}],
+   [t('Draft + title','متن و عنوان'),{body:'Demo',title:'Example'}],
+   [t('Long draft','پیش‌نویس بلند'),{body:'Long fictional example'}]
+  ];
+  let passes=0;
+  for(const [idx,[name,payload]] of CLIENTS.entries()){
+   const pass=(change===1?typeof payload.title==='string':true) && (change===2?typeof payload.body==='number':typeof payload.body==='string');
+   if(pass)passes++;
+   const row=make('div','schema-row'),badge=make('b','',pass?t('PASS','معتبر'):t('BLOCK','ناسازگار'));
+   row.dataset.pass=String(pass);row.append(make('i','',name),badge);panel.append(row);
+   play(badge,[{opacity:.15,transform:'translateX(7px) scale(.94)'},{opacity:1,transform:'translateX(0) scale(1)'}],{duration:320,delay:90*idx,easing:'ease-out',fill:'backwards'});
+  }
+  stage.replaceChildren(panel);stage.dataset.passes=String(passes);
+  play(panel,[{background:'color-mix(in srgb,var(--labaccent) 25%,transparent)'},{background:'transparent'}],{duration:530});
+ }
+ const f={ragxray:rag,routefall:route,promptbisect:bisect,agentcontract:contract}[slug];
+ const draw=()=>{cancel();f();};
+ let scheduled=false;
+ function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;draw();});}
+ new MutationObserver(schedule).observe(fixture,{childList:true});
+ new MutationObserver(schedule).observe(d.documentElement,{attributes:true,attributeFilter:['lang']});
+ reduced.addEventListener?.('change',schedule);
+ draw();
 })();
 </script></body></html>

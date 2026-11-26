@@ -118,16 +118,110 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
 @media(prefers-reduced-motion:reduce){.ab-art i{transition:none}}
 
 .ab-scrub{display:block;font-weight:750;font-size:.81rem;color:var(--stageSub);margin-block:.2rem .06rem}.action-board input[type=range]{width:100%;height:24px;accent-color:var(--signal);margin:0;cursor:ew-resize;direction:ltr}
-</style></head>
+</style><style id="signature-motion">/* Source diagrams: all artwork self-contained, no data collection or external requests. */
+.action-board .ab-art{height:clamp(87px,11vw,139px);padding:0;display:block;overflow:hidden;border:1px solid var(--edge);border-radius:12px;background:color-mix(in srgb,var(--stage) 76%,var(--stage2));isolation:isolate}
+.motion-svg{width:100%;height:100%;display:block;color:var(--signal)}
+.m-grid,.m-soft-line{stroke:var(--edge);stroke-width:1.2;fill:none}.m-grid-fill{fill:var(--edge);opacity:.7}
+.m-hot{fill:var(--signal)}.m-dark-line{stroke:var(--stage);stroke-width:2.4;stroke-linecap:round}
+.tape-loop{stroke:var(--edge);stroke-width:3;fill:color-mix(in srgb,var(--stage2) 75%,var(--stage));stroke-linejoin:round}
+.reel-disc{fill:var(--stage2);stroke:var(--edge);stroke-width:2.5}.reel-track{fill:none;stroke:var(--signal);stroke-width:2;opacity:.55}
+.reel-spoke{fill:none;stroke:var(--signal);stroke-width:5.2;stroke-linecap:round;opacity:.87}
+.tape-reel{transform-box:fill-box;transform-origin:center;animation:tape-turn 950ms linear infinite;animation-play-state:paused}
+.tape-stream{fill:none;stroke:var(--signal);stroke-width:2.5;stroke-dasharray:7 9;animation:thread-flow 385ms linear infinite;animation-play-state:paused}
+.tape-packet{transform:translateX(var(--m-head,0px));transition:transform 540ms cubic-bezier(.2,.85,.27,1);filter:drop-shadow(0 0 4px var(--signal))}
+.tape-lamp{opacity:.55}
+.mcptape [data-intro=true] :is(.tape-reel,.tape-stream),.mcptape [data-playing=true] :is(.tape-reel,.tape-stream){animation-play-state:running}
+.mcptape [data-playing=true] .tape-lamp{animation:lamp-signal .65s ease-in-out alternate infinite}
+.mcptape [data-intro=true] .tape-packet{animation:tape-in 780ms cubic-bezier(.2,.85,.27,1) both}
+@keyframes tape-turn{to{transform:rotate(1turn)}}
+@keyframes thread-flow{to{stroke-dashoffset:-32}}
+@keyframes lamp-signal{to{opacity:1}}
+@keyframes tape-in{from{transform:translateX(-95px);opacity:0}to{transform:translateX(var(--m-head,0px));opacity:1}}
+
+.token-track{fill:var(--stage2);stroke:var(--edge);stroke-width:1.5}
+.token-base,.token-added,.token-last{fill:var(--signal);transform-box:fill-box;transform-origin:left center}
+.token-base{opacity:.9}.token-added{opacity:.62;transform:scaleX(var(--m-add,0));transition:transform 610ms cubic-bezier(.24,.74,.24,1)}
+.token-last{opacity:.42;transform:translateX(var(--m-last-shift,0px)) scaleX(var(--m-last,0));transition:transform 610ms cubic-bezier(.24,.74,.24,1)}
+.token-threshold{fill:none;stroke:var(--signal);stroke-width:2;stroke-dasharray:4 3}
+.token-beacon{fill:var(--stage);stroke:var(--signal);stroke-width:2;transform-box:fill-box;transform-origin:center}
+.token-wave{fill:none;stroke:var(--signal);stroke-width:2;opacity:.65;stroke-dasharray:145;stroke-dashoffset:0}
+.tokenxray [data-intro=true] .token-base{animation:budget-start 800ms cubic-bezier(.2,.69,.35,1) both}
+.tokenxray [data-intro=true] .token-wave{animation:draw-line 1.1s ease-out both}
+.tokenxray [data-over=true] .token-beacon{fill:var(--signal);filter:drop-shadow(0 0 4px var(--signal));animation:threshold-ring 700ms cubic-bezier(.22,.7,.25,1) 1}
+@keyframes budget-start{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes draw-line{from{stroke-dashoffset:145}to{stroke-dashoffset:0}}
+@keyframes threshold-ring{0%{transform:scale(.8)}40%{transform:scale(1.8)}100%{transform:scale(1)}}
+.motion-meter-legend{display:flex;gap:8px;flex-wrap:wrap;font-size:.7rem;color:var(--stageSub);margin-block:-.13rem .52rem}
+.motion-meter-legend span.key{display:inline-flex;align-items:center;gap:5px}
+.motion-meter-legend b{display:inline-block;width:.7rem;height:.7rem;border:1px dashed var(--signal);border-radius:50%}
+
+.evidence rect{fill:var(--stage2);stroke:var(--edge);stroke-width:1.5}.evidence path{stroke:var(--stageSub);stroke-width:3;fill:none;stroke-linecap:round;opacity:.85}
+.evidence circle{fill:var(--edge)}
+.evidence{opacity:.59;transition:opacity 440ms ease,transform 420ms cubic-bezier(.2,.85,.27,1);transform:translateY(0)}
+[data-step="0"] .card-one,[data-step="1"] .card-two,[data-step="2"] .card-three{opacity:1;transform:translateY(-4px)}
+[data-step="0"] .card-one circle,[data-step="1"] .card-two circle,[data-step="2"] .card-three circle{fill:var(--signal)}
+.scan-light{stroke:var(--signal);stroke-width:2.7;filter:drop-shadow(0 0 4px var(--signal))}
+.scan-beam{transform:translateX(var(--m-scan,80px));transition:transform 730ms cubic-bezier(.21,.57,.32,1)}
+.slopguard [data-intro=true] .scan-beam{animation:scan-start 1.15s cubic-bezier(.3,.52,.22,1) both}
+@keyframes scan-start{from{transform:translateX(-25px);opacity:.35}to{transform:translateX(var(--m-scan,80px));opacity:1}}
+
+.gate-path,.gate-trail{fill:none;stroke-width:3;stroke-linecap:round}
+.gate-path{stroke:var(--edge);stroke-dasharray:5 8}.gate-trail{stroke:var(--signal);stroke-width:3.4;opacity:.55}
+.gate-rim{fill:var(--stage);stroke:var(--edge);stroke-width:2.2}
+.gate-lock{fill:var(--stage2);stroke:var(--signal);stroke-width:2.4;stroke-linejoin:round}
+.gate-port{fill:var(--stage2);stroke:var(--edge);stroke-width:2}
+.gate-signal{transform:translateX(var(--m-gate,60px));transition:transform 680ms cubic-bezier(.16,.7,.27,1)}
+.signal-halo{fill:none;stroke:var(--signal);stroke-width:2;opacity:.53;transform-box:fill-box;transform-origin:center}
+.gate-stop{opacity:0;transition:opacity .3s ease;stroke:var(--signal);stroke-width:2.4;stroke-linecap:round;fill:var(--stage)}
+.fence [data-blocked=true] .gate-stop{opacity:1}.fence [data-blocked=true] .gate-lock{stroke-dasharray:4 3}
+.fence [data-blocked=true] .gate-signal .m-hot{opacity:.46}
+.agentfence [data-intro=true] .gate-signal{animation:enter-gate 860ms cubic-bezier(.2,.75,.27,1) both}
+.agentfence [data-playing=true] .signal-halo{animation:gate-halo 560ms ease-in-out infinite alternate}
+@keyframes enter-gate{from{transform:translateX(0);opacity:.17}to{transform:translateX(var(--m-gate,60px));opacity:1}}
+@keyframes gate-halo{to{transform:scale(1.28);opacity:.85}}
+@media(max-width:450px){.action-board .ab-art{height:83px}.motion-meter-legend{margin-block:-.08rem .45rem}}
+@media(prefers-reduced-motion:reduce){.action-board .motion-svg *, .action-board .motion-svg{animation:none!important;transition:none!important}}
+</style><style id="deep-introduction">
+.deep-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:12px;border:1px solid var(--rule);border-radius:12px;margin-block:1.5rem 0;background:var(--paper)}
+.deep-nav a{padding:.38rem .65rem;min-height:42px;display:inline-flex;align-items:center;border:1px solid var(--rule);border-radius:8px;font-weight:730;text-decoration:none;font-size:.87rem}.deep-nav a:hover{border-color:var(--accent);color:var(--accent)}
+.deep-panel{margin-block:clamp(24px,5vw,54px);padding:clamp(16px,4vw,39px);background:var(--paper);border:1px solid var(--rule);border-radius:14px;scroll-margin-top:26px;display:grid;gap:1rem}
+.deep-panel h2{margin-block:.31rem .2rem}.deep-panel p{max-width:76ch;color:var(--sub)}
+.deep-panel .brow{color:var(--accent)}
+.deep-rows{display:grid;gap:.7rem;list-style:none;padding:0;margin:0}.deep-rows>*{padding:.82rem;border:1px solid var(--rule);background:var(--bg);min-width:0}.deep-rows h3{margin-block-end:.3rem}
+.mcptape .deep-rows,.agentfence .deep-rows{border-inline-start:3px solid var(--accent);padding-inline-start:.9rem}
+.mcptape .deep-rows li{position:relative}.mcptape .deep-rows li::before{content:"";position:absolute;inset-inline-start:-1.25rem;top:1.2rem;border:2px solid var(--paper);background:var(--accent);width:.55rem;height:.55rem;border-radius:50%}
+.tokenxray .deep-rows,.slopguard .deep-rows{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tokenxray .deep-rows li{border-block-start:5px solid var(--accent)}
+.slopguard .deep-rows li{border-inline-start:4px solid var(--accent);border-radius:4px}
+.agentfence .deep-rows{display:table;width:100%;border-collapse:collapse}.agentfence .deep-rows tr{background:var(--bg)}.agentfence .deep-rows :is(th,td){padding:.78rem;border:1px solid var(--rule);text-align:start;vertical-align:top}.agentfence .deep-rows th[scope="row"]{width:33%;color:var(--accent)}
+.deep-panel pre{padding:.85rem;background:var(--bg);border:1px solid var(--rule);border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left;color:var(--ink)}
+.deep-faq{display:grid;gap:.68rem}.deep-faq details{padding:.79rem .92rem;border:1px solid var(--rule);background:var(--bg);border-radius:9px}.deep-faq summary{cursor:pointer;font-weight:760;color:var(--ink)}.deep-faq p{margin-block-start:.54rem}
+@media(max-width:720px){.tokenxray .deep-rows,.slopguard .deep-rows{grid-template-columns:minmax(0,1fr)}.agentfence .deep-rows th[scope="row"]{width:38%}}
+</style><style>.showcase-photo{width:min(900px,calc(100% - 2.2rem));margin:clamp(1.5rem,5vw,3.8rem) auto}.showcase-photo p{letter-spacing:.04em;font-weight:800;font-size:.8rem}.showcase-photo p [lang=fa]{letter-spacing:normal}.showcase-photo img{display:block;width:100%;height:auto;border:1px solid currentColor;border-radius:.38rem}.showcase-photo figcaption{margin-top:.55rem;font-size:.94rem;opacity:.84}</style></head>
 <body class="tokenxray action-lab">
 <a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="frame top-inner"><a class="brand" data-locale-link href="/projects/"><span aria-hidden="true">◈</span> <bdi>mrzroot</bdi> <span class="brand-projects"><span lang="en">All projects</span><span lang="fa">همهٔ پروژه‌ها</span></span></a><nav aria-label="Project / پروژه"><button type="button" id="lang" aria-label="Change language"><span lang="en">فارسی</span><span lang="fa">EN</span></button><button type="button" id="theme"><span lang="en">Theme</span><span lang="fa">پوسته</span></button></nav></div></header>
 <main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">CONTEXT / PROFILING</span><span lang="fa">پروفایل مصرف زمینه</span></p><p class="wordmark" dir="ltr">tokenxray</p><h1 id="title"><span lang="en">Find the turns that spent your context.</span><span lang="fa">نوبت‌هایی را پیدا کن که زمینه را مصرف کرده‌اند.</span></h1><p class="lead"><span lang="en">Profile local coding-agent transcripts. Separate reported usage from estimates and spot duplicate reads, retry loops, and oversized outputs.</span><span lang="fa">رونوشت محلی عامل کدنویسی را بررسی کن؛ مصرف گزارش‌شده را از برآورد جدا کن و خواندن تکراری، تلاش‌های ناموفق و خروجی‌های حجیم را پیدا کن.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/tokenxray"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Python 3.9+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title" class="action-board bars" tabindex="-1"><div class="ab-top"><span class="ab-badge"><i></i>XRAY · 02</span><span class="ab-context"><span lang="en">LOCAL SIMULATION</span><span lang="fa">شبیه‌سازی محلی</span></span></div>
  <h2 id="lab-title"><span lang="en">Context budget in motion</span><span lang="fa">بودجهٔ زمینه در حرکت</span></h2><div class="ab-cases" role="group" aria-label="Fictional scenarios / سناریوهای ساختگی"><button type="button" data-case="0" aria-pressed="true"><span lang="en">Lean</span><span lang="fa">کم‌مصرف</span></button><button type="button" data-case="1" aria-pressed="false"><span lang="en">Waste-heavy</span><span lang="fa">پُراتلاف</span></button></div>
- <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><i></i><i></i><i></i></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Read</span><span lang="fa">خواندن</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Check</span><span lang="fa">بررسی</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Report</span><span lang="fa">گزارش</span></button></div>
+ <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><svg class="motion-svg token-diagram" viewBox="0 0 640 150" focusable="false" aria-hidden="true">
+ <defs><pattern id="token-grid" width="54" height="25" patternUnits="userSpaceOnUse"><path d="M54 0H0V25" fill="none" class="m-grid"/></pattern><clipPath id="token-clip"><rect x="52" y="67" width="536" height="35" rx="10"/></clipPath></defs>
+ <rect width="640" height="150" rx="17" fill="url(#token-grid)"/>
+ <path d="M52 117H588M52 121V110m134 11v-11m134 11v-11m134 11v-11m134 11v-11" class="m-soft-line"/>
+ <rect x="52" y="67" width="536" height="35" rx="10" class="token-track"/>
+ <g clip-path="url(#token-clip)" class="token-gauges">
+  <rect x="52" y="67" width="128.6" height="35" class="token-base"/>
+  <rect x="180.6" y="67" width="150" height="35" class="token-added"/>
+  <rect x="331" y="67" width="75" height="35" class="token-last"/>
+ </g>
+ <path d="M373.6 42v64m-8-64h16" class="token-threshold"/>
+ <circle cx="373.6" cy="42" r="5" class="token-beacon"/>
+ <path d="M54 44h38l11-8 11 9 13-16 9 15 8-7h36" class="token-wave"/>
+ </svg></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Read</span><span lang="fa">خواندن</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Check</span><span lang="fa">بررسی</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Report</span><span lang="fa">گزارش</span></button></div>
  <div class="ab-readout" id="result" aria-live="polite" aria-atomic="true"><span class="ab-state"><span lang="en">24K / 100K</span><span lang="fa">۲۴ هزار از ۱۰۰ هزار</span></span><p><span lang="en">Turn 03: read only the two files relevant to the change.</span><span lang="fa">نوبت ۰۳: فقط دو فایل مرتبط با تغییر را بخوان.</span></p></div><label class="ab-scrub" for="budget-scrub"><span lang="en">Scrub through turns</span><span lang="fa">روی نوبت‌ها حرکت کن</span></label><input type="range" min="0" max="2" value="0" step="1" id="budget-scrub"></div>
  <div class="ab-transport" role="group" aria-label="Playback / پخش"><button type="button" class="ab-play" data-run><span lang="en">Play session</span><span lang="fa">پخش نشست</span></button><button type="button" data-prev><span lang="en">Back</span><span lang="fa">قبل</span></button><button type="button" data-next><span lang="en">Step</span><span lang="fa">بعد</span></button><button type="button" data-reset><span lang="en">Reset</span><span lang="fa">از اول</span></button></div>
- <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Read transcripts locally</span><span lang="fa">خواندن محلی رونوشت</span></h3><p><span lang="en">Supports Claude Code, Codex/OpenAI, Gemini CLI, and generic JSONL inputs.</span><span lang="fa">از رونوشت‌های Claude Code، Codex/OpenAI، Gemini CLI و JSONL عمومی پشتیبانی می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Know which counts are estimated</span><span lang="fa">تفکیک شمارش برآوردی</span></h3><p><span lang="en">Uses reported usage when available and a script-aware heuristic when it is missing.</span><span lang="fa">اگر مصرف گزارش شده باشد از همان عدد استفاده می‌کند؛ در غیر این صورت بر اساس خط و زبان متن برآورد می‌کند.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Share the right artifact</span><span lang="fa">انتخاب خروجی مناسب</span></h3><p><span lang="en">Export an HTML report or JSON, or generate compaction rule suggestions. Review transcripts for secrets before sharing.</span><span lang="fa">گزارش HTML یا JSON بگیر یا پیشنهاد کم‌حجم‌سازی بساز. قبل از اشتراک، رونوشت را از نظر اطلاعات محرمانه بررسی کن.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>python -m tokenxray.cli --help</code></pre></div><div><p><span lang="en">Repository tests cover Latin and Persian estimation, duplicate reads, retry loops, and multiple transcript formats.</span><span lang="fa">تست‌های مخزن برآورد متن فارسی و لاتین، خواندن تکراری، تلاش مجدد و چند قالب رونوشت را پوشش می‌دهند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/tokenxray/blob/HEAD/tests/test_tokenxray.py"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/tokenxray/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/tokenxray/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
+ <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><nav class="deep-nav" aria-label="On this page / در این صفحه"><a href="#demo"><span lang="en">Live lab</span><span lang="fa">آزمایش تعاملی</span></a><a href="#case-study"><span lang="en">Worked example</span><span lang="fa">نمونهٔ گام‌به‌گام</span></a><a href="#engine"><span lang="en">How it works</span><span lang="fa">سازوکار</span></a><a href="#quick-start"><span lang="en">Quick start</span><span lang="fa">شروع سریع</span></a><a href="#faq"><span lang="en">FAQ</span><span lang="fa">پرسش‌ها</span></a></nav><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Read transcripts locally</span><span lang="fa">خواندن محلی رونوشت</span></h3><p><span lang="en">Supports Claude Code, Codex/OpenAI, Gemini CLI, and generic JSONL inputs.</span><span lang="fa">از رونوشت‌های Claude Code، Codex/OpenAI، Gemini CLI و JSONL عمومی پشتیبانی می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Know which counts are estimated</span><span lang="fa">تفکیک شمارش برآوردی</span></h3><p><span lang="en">Uses reported usage when available and a script-aware heuristic when it is missing.</span><span lang="fa">اگر مصرف گزارش شده باشد از همان عدد استفاده می‌کند؛ در غیر این صورت بر اساس خط و زبان متن برآورد می‌کند.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Share the right artifact</span><span lang="fa">انتخاب خروجی مناسب</span></h3><p><span lang="en">Export an HTML report or JSON, or generate compaction rule suggestions. Review transcripts for secrets before sharing.</span><span lang="fa">گزارش HTML یا JSON بگیر یا پیشنهاد کم‌حجم‌سازی بساز. قبل از اشتراک، رونوشت را از نظر اطلاعات محرمانه بررسی کن.</span></p></article></div></section><section id="case-study" class="deep-panel" aria-labelledby="case-study-h"><div><p class="brow"><span lang="en">Reading a budget</span><span lang="fa">خواندن بودجهٔ زمینه</span></p><h2 id="case-study-h"><span lang="en">Compare two fictional sessions</span><span lang="fa">دو نشست فرضی را مقایسه کن</span></h2></div><ol class="deep-rows"><li><h3><span lang="en">24K · Common baseline</span><span lang="fa">۲۴ هزار · نقطهٔ مشترک</span></h3><p><span lang="en">Both samples start with the same 24,000-token reading pass on a 100,000-token example window.</span><span lang="fa">هر دو نمونه با خواندن اولیهٔ ۲۴ هزار توکن در پنجرهٔ فرضی صد هزار توکن شروع می‌شوند.</span></p></li><li><h3><span lang="en">42K · Lean finish</span><span lang="fa">۴۲ هزار · پایان کم‌مصرف</span></h3><p><span lang="en">The lean run keeps tool output focused and reaches 42K. There is no repeated-read or repeated-failure finding in the sample.</span><span lang="fa">نشست کم‌مصرف، خروجی ابزار را محدود نگه می‌دارد و به ۴۲ هزار می‌رسد؛ در نمونه هشدار بازخوانی یا شکست تکراری نیست.</span></p></li><li><h3><span lang="en">66K · Waste-heavy finish</span><span lang="fa">۶۶ هزار · پایان پُراتلاف</span></h3><p><span lang="en">The waste-heavy run grows to 66K. The sample attributes growth to a repeated read and three failed retries; compare turn 07 and turn 11 before deciding what to change.</span><span lang="fa">نشست پُراتلاف به ۶۶ هزار می‌رسد. در نمونه علت افزایش بازخوانی و سه تلاش ناموفق است؛ قبل از تغییر، نوبت ۰۷ و ۱۱ را مقایسه کن.</span></p></li></ol></section><section id="engine" class="deep-panel" aria-labelledby="engine-h"><div><p class="brow"><span lang="en">THE ACTUAL TOOL</span><span lang="fa">ابزار واقعی</span></p><h2 id="engine-h"><span lang="en">What happens outside the browser?</span><span lang="fa">بیرون از مرورگر چه اتفاقی می‌افتد؟</span></h2></div><p><span lang="en">The parser supports local Claude Code, Codex/OpenAI, Gemini CLI and generic transcripts. It uses usage fields when present, otherwise estimates by script and distinguishes reported from estimated events. Findings point to places to inspect, not proof of model quality. The 60% hero marker is illustrative only.</span><span lang="fa">خوانشگر رونوشت محلی Claude Code، Codex/OpenAI، Gemini CLI و قالب عمومی را پشتیبانی می‌کند. عدد گزارش‌شده را در اولویت می‌گذارد، در غیر این صورت بر اساس خط و زبان برآورد می‌کند و رخداد برآوردی را جدا نشان می‌دهد. هشدار فقط جای بررسی را نشان می‌دهد؛ نشانگر ۶۰ درصد در نمایش صرفاً نمونه است.</span></p></section><section id="quick-start" class="deep-panel" aria-labelledby="quick-start-h"><div><p class="brow"><span lang="en">LOCAL USE</span><span lang="fa">استفادهٔ محلی</span></p><h2 id="quick-start-h"><span lang="en">Install and try it</span><span lang="fa">نصب و اجرای اولیه</span></h2></div><p><span lang="en">Python 3.9+ · local transcript file</span><span lang="fa">پایتون ۳٫۹ به بالا · فایل رونوشت محلی</span></p><pre dir="ltr" tabindex="0"><code>pip install .
+tokenxray analyze session.jsonl --window 200000 --html report.html
+tokenxray compact-rules session.jsonl</code></pre><p><span lang="en">Run from the project checkout with your local file. The CLI can also emit JSON (use --json with analyze). Review any proposed ignore rules before using them; you may still need a file even if it appeared once as a large output.</span><span lang="fa">از پوشهٔ پروژه با فایل محلی خودت اجرا کن. دستور analyze گزینهٔ ‎--json‎ هم دارد. پیشنهادهای نادیده‌گرفتن را بازبینی کن؛ شاید فایلی که یک بار خروجی حجیم داشته هنوز لازم باشد.</span></p></section><section id="faq" class="deep-panel" aria-labelledby="faq-h"><div><p class="brow"><span lang="en">FIELD NOTES</span><span lang="fa">نکته‌های کاربردی</span></p><h2 id="faq-h"><span lang="en">Questions and limits</span><span lang="fa">پرسش‌ها و محدودیت‌ها</span></h2></div><div class="deep-faq"><details><summary><span lang="en">Why are counts different from billing?</span><span lang="fa">چرا عدد مصرف با هزینه فرق دارد؟</span></summary><p><span lang="en">The CLI labels estimated events separately. Estimates and local transcript coverage need not match a provider’s billing report.</span><span lang="fa">ابزار رخداد برآوردی را جدا برچسب می‌زند. برآورد و پوشش رونوشت محلی لزوماً با صورتحساب سرویس یکی نیست.</span></p></details><details><summary><span lang="en">Should I always hide logs or lockfiles?</span><span lang="fa">همیشه لاگ و فایل قفل را پنهان کنم؟</span></summary><p><span lang="en">No. Narrow the session to the relevant portion first. Keep access to a required file when a task actually depends on it.</span><span lang="fa">نه. اول بخش مرتبط را محدود کن. اگر کار واقعاً به فایلی وابسته است، دسترسی همان فایل را نگه دار.</span></p></details><details><summary><span lang="en">What should I redact before sharing?</span><span lang="fa">پیش از اشتراک چه چیزهایی حذف شوند؟</span></summary><p><span lang="en">Remove credentials, sensitive text and internal paths from the transcript and from the generated report if they appear there.</span><span lang="fa">توکن‌ها، متن حساس و مسیر داخلی را از رونوشت و، اگر در گزارش آمده‌اند، از گزارش خروجی هم بردار.</span></p></details></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>python -m tokenxray.cli --help</code></pre></div><div><p><span lang="en">Repository tests cover Latin and Persian estimation, duplicate reads, retry loops, and multiple transcript formats.</span><span lang="fa">تست‌های مخزن برآورد متن فارسی و لاتین، خواندن تکراری، تلاش مجدد و چند قالب رونوشت را پوشش می‌دهند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/tokenxray/blob/HEAD/tests/test_tokenxray.py"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/tokenxray/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/tokenxray/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav><figure class="showcase-photo"><p><span lang="en">FROM THE DEMO</span><span lang="fa">از خود دمو</span></p><img src="/assets/thumbs/showcase-tokenxray.webp?v=6b753b0142" width="800" height="500" alt="" loading="lazy" decoding="async"><figcaption><span lang="en">Token budget chart showing the sample transcript at its threshold</span><span lang="fa">نمودار بودجهٔ توکنِ گفت‌وگوی نمونه در آستانهٔ هشدار</span></figcaption></figure></main>
 <footer class="frame foot"><bdi>tokenxray</bdi><span><span lang="en">Open-source project · MIT</span><span lang="fa">پروژهٔ متن‌باز · MIT</span></span><a href="/assets/fonts/OFL-Vazirmatn.txt" class="foot-font"><span lang="en">Vazirmatn license</span><span lang="fa">مجوز وزیرمتن</span></a></footer>
 <script id="action-data" type="application/json">{"id":"XRAY · 02","verb":["Play session","پخش نشست"],"motif":"bars","title":["Context budget in motion","بودجهٔ زمینه در حرکت"],"steps":[["Read","خواندن"],["Check","بررسی"],["Report","گزارش"]],"runs":[[["Lean","کم‌مصرف"],["A session that reads only what it needs","نشستی که فقط موارد لازم را می‌خواند"],[[["24K / 100K","۲۴ هزار از ۱۰۰ هزار"],["Turn 03: read only the two files relevant to the change.","نوبت ۰۳: فقط دو فایل مرتبط با تغییر را بخوان."],24],[["37K / 100K","۳۷ هزار از ۱۰۰ هزار"],["Turn 07: keep the tool output focused on the failing test.","نوبت ۰۷: خروجی ابزار را به همان تست ناموفق محدود کن."],37],[["42K / 100K","۴۲ هزار از ۱۰۰ هزار"],["Turn 11: finish with a short summary; no repeat or retry signals in this sample.","نوبت ۱۱: با خلاصه‌ای کوتاه تمام کن؛ در این نمونه نشانه‌ای از تکرار نیست."],42]]],[["Waste-heavy","پُراتلاف"],["A session that keeps re-reading and retrying","نشستی با بازخوانی و تلاش مکرر"],[[["24K / 100K","۲۴ هزار از ۱۰۰ هزار"],["Turn 03: initial work uses the same 24K as the lean example.","نوبت ۰۳: کار اولیه مثل نمونهٔ کم‌مصرف ۲۴ هزار توکن می‌گیرد."],24],[["52K / 100K","۵۲ هزار از ۱۰۰ هزار"],["Turn 07: duplicate reads added 28K without an intervening edit.","نوبت ۰۷: بازخوانی بدون تغییر میانی ۲۸ هزار توکن اضافه کرد."],52],[["66K / 100K","۶۶ هزار از ۱۰۰ هزار"],["Turn 11: a three-attempt retry loop adds another 14K. These are fictional estimates.","نوبت ۱۱: سه تلاش ناموفق ۱۴ هزار توکن دیگر اضافه کرد. این اعداد برآورد ساختگی‌اند."],66]]]]}</script><script>(() => {
   'use strict';
@@ -140,8 +234,10 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
   const pick=arr=>arr[root.lang==='fa'?1:0];
   let sample=0, step=0, timer=0;
   function paint(){
+    board.dataset.playing=timer?'true':'false';
     const row=data.runs[sample][2][step];
     scene.dataset.step=step; scene.dataset.sample=sample;
+    board.dispatchEvent(new CustomEvent('motion:paint',{detail:{sample,step,playing:Boolean(timer),spend:row[2]||0}}));
     scene.style.setProperty('--phase',step);
     scene.style.setProperty('--wire',(((step+1)/3)*100)+'%');
     if(row[2])scene.style.setProperty('--spend',row[2]+'%');
@@ -162,7 +258,7 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
       step++;
       if(step>=phases.length-1){step=phases.length-1;halt();}
       paint();
-    },900);
+    },1200);
     paint();
   }
   function sync(){
@@ -192,6 +288,35 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
     try{localStorage.setItem('mrz-theme',root.dataset.theme);}catch(_){}
     sync();
   });
+  /* Local illustrative diagram: transport controls and keyboard stay the source of truth. */
+  const artReduced=matchMedia('(prefers-reduced-motion: reduce)');
+  if(!artReduced.matches){
+    board.dataset.intro='true';
+    const stopIntro=()=>{board.dataset.intro='false';};
+    board.addEventListener('click',stopIntro,{once:true,capture:true});
+    setTimeout(stopIntro,1230);
+  }
+  if(document.body.classList.contains('tokenxray')){
+    const legend=document.createElement('p'), key=document.createElement('span'), dot=document.createElement('b'), label=document.createElement('span');
+    legend.className='motion-meter-legend';key.className='key';dot.setAttribute('aria-hidden','true');
+    label.innerHTML='<span lang="en">60% example marker</span><span lang="fa">نشانگر نمونهٔ ۶۰٪</span>';
+    key.append(dot,label);legend.append(key);q('.ab-art').after(legend);
+  }
+  board.addEventListener('motion:paint',ev=>{
+    const {sample,step,spend}=ev.detail;
+    scene.style.setProperty('--m-head',([0,91,192][step])+'px');
+    scene.style.setProperty('--m-scan',([75,263,454][step])+'px');
+    const isBlocked=sample===2&&document.body.classList.contains('agentfence');
+    scene.dataset.blocked=isBlocked?'true':'false';
+    scene.style.setProperty('--m-gate',(isBlocked?126:[62,246,496][step])+'px');
+    scene.dataset.over=spend>60?'true':'false';
+    const second=step===0?0:sample===0?13:28;
+    const third=step<2?0:sample===0?5:14;
+    scene.style.setProperty('--m-add',String(second*5.36/150));
+    scene.style.setProperty('--m-last',String(third*5.36/75));
+    scene.style.setProperty('--m-last-shift',(180.6+second*5.36-331)+'px');
+  });
+
   sync();paint();
 })();
 </script></body>

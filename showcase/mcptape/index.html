@@ -118,16 +118,107 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
 @media(prefers-reduced-motion:reduce){.ab-art i{transition:none}}
 
 .ab-scrub{display:block;font-weight:750;font-size:.81rem;color:var(--stageSub);margin-block:.2rem .06rem}.action-board input[type=range]{width:100%;height:24px;accent-color:var(--signal);margin:0;cursor:ew-resize;direction:ltr}
-</style></head>
+</style><style id="signature-motion">/* Source diagrams: all artwork self-contained, no data collection or external requests. */
+.action-board .ab-art{height:clamp(87px,11vw,139px);padding:0;display:block;overflow:hidden;border:1px solid var(--edge);border-radius:12px;background:color-mix(in srgb,var(--stage) 76%,var(--stage2));isolation:isolate}
+.motion-svg{width:100%;height:100%;display:block;color:var(--signal)}
+.m-grid,.m-soft-line{stroke:var(--edge);stroke-width:1.2;fill:none}.m-grid-fill{fill:var(--edge);opacity:.7}
+.m-hot{fill:var(--signal)}.m-dark-line{stroke:var(--stage);stroke-width:2.4;stroke-linecap:round}
+.tape-loop{stroke:var(--edge);stroke-width:3;fill:color-mix(in srgb,var(--stage2) 75%,var(--stage));stroke-linejoin:round}
+.reel-disc{fill:var(--stage2);stroke:var(--edge);stroke-width:2.5}.reel-track{fill:none;stroke:var(--signal);stroke-width:2;opacity:.55}
+.reel-spoke{fill:none;stroke:var(--signal);stroke-width:5.2;stroke-linecap:round;opacity:.87}
+.tape-reel{transform-box:fill-box;transform-origin:center;animation:tape-turn 950ms linear infinite;animation-play-state:paused}
+.tape-stream{fill:none;stroke:var(--signal);stroke-width:2.5;stroke-dasharray:7 9;animation:thread-flow 385ms linear infinite;animation-play-state:paused}
+.tape-packet{transform:translateX(var(--m-head,0px));transition:transform 540ms cubic-bezier(.2,.85,.27,1);filter:drop-shadow(0 0 4px var(--signal))}
+.tape-lamp{opacity:.55}
+.mcptape [data-intro=true] :is(.tape-reel,.tape-stream),.mcptape [data-playing=true] :is(.tape-reel,.tape-stream){animation-play-state:running}
+.mcptape [data-playing=true] .tape-lamp{animation:lamp-signal .65s ease-in-out alternate infinite}
+.mcptape [data-intro=true] .tape-packet{animation:tape-in 780ms cubic-bezier(.2,.85,.27,1) both}
+@keyframes tape-turn{to{transform:rotate(1turn)}}
+@keyframes thread-flow{to{stroke-dashoffset:-32}}
+@keyframes lamp-signal{to{opacity:1}}
+@keyframes tape-in{from{transform:translateX(-95px);opacity:0}to{transform:translateX(var(--m-head,0px));opacity:1}}
+
+.token-track{fill:var(--stage2);stroke:var(--edge);stroke-width:1.5}
+.token-base,.token-added,.token-last{fill:var(--signal);transform-box:fill-box;transform-origin:left center}
+.token-base{opacity:.9}.token-added{opacity:.62;transform:scaleX(var(--m-add,0));transition:transform 610ms cubic-bezier(.24,.74,.24,1)}
+.token-last{opacity:.42;transform:translateX(var(--m-last-shift,0px)) scaleX(var(--m-last,0));transition:transform 610ms cubic-bezier(.24,.74,.24,1)}
+.token-threshold{fill:none;stroke:var(--signal);stroke-width:2;stroke-dasharray:4 3}
+.token-beacon{fill:var(--stage);stroke:var(--signal);stroke-width:2;transform-box:fill-box;transform-origin:center}
+.token-wave{fill:none;stroke:var(--signal);stroke-width:2;opacity:.65;stroke-dasharray:145;stroke-dashoffset:0}
+.tokenxray [data-intro=true] .token-base{animation:budget-start 800ms cubic-bezier(.2,.69,.35,1) both}
+.tokenxray [data-intro=true] .token-wave{animation:draw-line 1.1s ease-out both}
+.tokenxray [data-over=true] .token-beacon{fill:var(--signal);filter:drop-shadow(0 0 4px var(--signal));animation:threshold-ring 700ms cubic-bezier(.22,.7,.25,1) 1}
+@keyframes budget-start{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes draw-line{from{stroke-dashoffset:145}to{stroke-dashoffset:0}}
+@keyframes threshold-ring{0%{transform:scale(.8)}40%{transform:scale(1.8)}100%{transform:scale(1)}}
+.motion-meter-legend{display:flex;gap:8px;flex-wrap:wrap;font-size:.7rem;color:var(--stageSub);margin-block:-.13rem .52rem}
+.motion-meter-legend span.key{display:inline-flex;align-items:center;gap:5px}
+.motion-meter-legend b{display:inline-block;width:.7rem;height:.7rem;border:1px dashed var(--signal);border-radius:50%}
+
+.evidence rect{fill:var(--stage2);stroke:var(--edge);stroke-width:1.5}.evidence path{stroke:var(--stageSub);stroke-width:3;fill:none;stroke-linecap:round;opacity:.85}
+.evidence circle{fill:var(--edge)}
+.evidence{opacity:.59;transition:opacity 440ms ease,transform 420ms cubic-bezier(.2,.85,.27,1);transform:translateY(0)}
+[data-step="0"] .card-one,[data-step="1"] .card-two,[data-step="2"] .card-three{opacity:1;transform:translateY(-4px)}
+[data-step="0"] .card-one circle,[data-step="1"] .card-two circle,[data-step="2"] .card-three circle{fill:var(--signal)}
+.scan-light{stroke:var(--signal);stroke-width:2.7;filter:drop-shadow(0 0 4px var(--signal))}
+.scan-beam{transform:translateX(var(--m-scan,80px));transition:transform 730ms cubic-bezier(.21,.57,.32,1)}
+.slopguard [data-intro=true] .scan-beam{animation:scan-start 1.15s cubic-bezier(.3,.52,.22,1) both}
+@keyframes scan-start{from{transform:translateX(-25px);opacity:.35}to{transform:translateX(var(--m-scan,80px));opacity:1}}
+
+.gate-path,.gate-trail{fill:none;stroke-width:3;stroke-linecap:round}
+.gate-path{stroke:var(--edge);stroke-dasharray:5 8}.gate-trail{stroke:var(--signal);stroke-width:3.4;opacity:.55}
+.gate-rim{fill:var(--stage);stroke:var(--edge);stroke-width:2.2}
+.gate-lock{fill:var(--stage2);stroke:var(--signal);stroke-width:2.4;stroke-linejoin:round}
+.gate-port{fill:var(--stage2);stroke:var(--edge);stroke-width:2}
+.gate-signal{transform:translateX(var(--m-gate,60px));transition:transform 680ms cubic-bezier(.16,.7,.27,1)}
+.signal-halo{fill:none;stroke:var(--signal);stroke-width:2;opacity:.53;transform-box:fill-box;transform-origin:center}
+.gate-stop{opacity:0;transition:opacity .3s ease;stroke:var(--signal);stroke-width:2.4;stroke-linecap:round;fill:var(--stage)}
+.fence [data-blocked=true] .gate-stop{opacity:1}.fence [data-blocked=true] .gate-lock{stroke-dasharray:4 3}
+.fence [data-blocked=true] .gate-signal .m-hot{opacity:.46}
+.agentfence [data-intro=true] .gate-signal{animation:enter-gate 860ms cubic-bezier(.2,.75,.27,1) both}
+.agentfence [data-playing=true] .signal-halo{animation:gate-halo 560ms ease-in-out infinite alternate}
+@keyframes enter-gate{from{transform:translateX(0);opacity:.17}to{transform:translateX(var(--m-gate,60px));opacity:1}}
+@keyframes gate-halo{to{transform:scale(1.28);opacity:.85}}
+@media(max-width:450px){.action-board .ab-art{height:83px}.motion-meter-legend{margin-block:-.08rem .45rem}}
+@media(prefers-reduced-motion:reduce){.action-board .motion-svg *, .action-board .motion-svg{animation:none!important;transition:none!important}}
+</style><style id="deep-introduction">
+.deep-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:12px;border:1px solid var(--rule);border-radius:12px;margin-block:1.5rem 0;background:var(--paper)}
+.deep-nav a{padding:.38rem .65rem;min-height:42px;display:inline-flex;align-items:center;border:1px solid var(--rule);border-radius:8px;font-weight:730;text-decoration:none;font-size:.87rem}.deep-nav a:hover{border-color:var(--accent);color:var(--accent)}
+.deep-panel{margin-block:clamp(24px,5vw,54px);padding:clamp(16px,4vw,39px);background:var(--paper);border:1px solid var(--rule);border-radius:14px;scroll-margin-top:26px;display:grid;gap:1rem}
+.deep-panel h2{margin-block:.31rem .2rem}.deep-panel p{max-width:76ch;color:var(--sub)}
+.deep-panel .brow{color:var(--accent)}
+.deep-rows{display:grid;gap:.7rem;list-style:none;padding:0;margin:0}.deep-rows>*{padding:.82rem;border:1px solid var(--rule);background:var(--bg);min-width:0}.deep-rows h3{margin-block-end:.3rem}
+.mcptape .deep-rows,.agentfence .deep-rows{border-inline-start:3px solid var(--accent);padding-inline-start:.9rem}
+.mcptape .deep-rows li{position:relative}.mcptape .deep-rows li::before{content:"";position:absolute;inset-inline-start:-1.25rem;top:1.2rem;border:2px solid var(--paper);background:var(--accent);width:.55rem;height:.55rem;border-radius:50%}
+.tokenxray .deep-rows,.slopguard .deep-rows{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tokenxray .deep-rows li{border-block-start:5px solid var(--accent)}
+.slopguard .deep-rows li{border-inline-start:4px solid var(--accent);border-radius:4px}
+.agentfence .deep-rows{display:table;width:100%;border-collapse:collapse}.agentfence .deep-rows tr{background:var(--bg)}.agentfence .deep-rows :is(th,td){padding:.78rem;border:1px solid var(--rule);text-align:start;vertical-align:top}.agentfence .deep-rows th[scope="row"]{width:33%;color:var(--accent)}
+.deep-panel pre{padding:.85rem;background:var(--bg);border:1px solid var(--rule);border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left;color:var(--ink)}
+.deep-faq{display:grid;gap:.68rem}.deep-faq details{padding:.79rem .92rem;border:1px solid var(--rule);background:var(--bg);border-radius:9px}.deep-faq summary{cursor:pointer;font-weight:760;color:var(--ink)}.deep-faq p{margin-block-start:.54rem}
+@media(max-width:720px){.tokenxray .deep-rows,.slopguard .deep-rows{grid-template-columns:minmax(0,1fr)}.agentfence .deep-rows th[scope="row"]{width:38%}}
+</style><style>.showcase-photo{width:min(900px,calc(100% - 2.2rem));margin:clamp(1.5rem,5vw,3.8rem) auto}.showcase-photo p{letter-spacing:.04em;font-weight:800;font-size:.8rem}.showcase-photo p [lang=fa]{letter-spacing:normal}.showcase-photo img{display:block;width:100%;height:auto;border:1px solid currentColor;border-radius:.38rem}.showcase-photo figcaption{margin-top:.55rem;font-size:.94rem;opacity:.84}</style></head>
 <body class="mcptape action-lab">
 <a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="frame top-inner"><a class="brand" data-locale-link href="/projects/"><span aria-hidden="true">◈</span> <bdi>mrzroot</bdi> <span class="brand-projects"><span lang="en">All projects</span><span lang="fa">همهٔ پروژه‌ها</span></span></a><nav aria-label="Project / پروژه"><button type="button" id="lang" aria-label="Change language"><span lang="en">فارسی</span><span lang="fa">EN</span></button><button type="button" id="theme"><span lang="en">Theme</span><span lang="fa">پوسته</span></button></nav></div></header>
 <main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">MCP / OFFLINE TESTING</span><span lang="fa">آزمایش آفلاین MCP</span></p><p class="wordmark" dir="ltr">mcptape</p><h1 id="title"><span lang="en">Record once. Replay on demand.</span><span lang="fa">یک بار ضبط کن. هر بار بازپخش کن.</span></h1><p class="lead"><span lang="en">Capture MCP stdio exchanges in a cassette, replay them without a live upstream, and detect breaking tool-schema changes before release.</span><span lang="fa">گفت‌وگوی MCP روی stdio را در یک فایل کاست ضبط کن، بدون اتصال به سرویس اصلی بازپخش کن و تغییرات ناسازگار ابزارها را قبل از انتشار ببین.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/mcptape"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Node.js 18+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title" class="action-board cassette" tabindex="-1"><div class="ab-top"><span class="ab-badge"><i></i>MCP · 01</span><span class="ab-context"><span lang="en">LOCAL SIMULATION</span><span lang="fa">شبیه‌سازی محلی</span></span></div>
  <h2 id="lab-title"><span lang="en">Studio for recorded exchanges</span><span lang="fa">استودیوی تبادل ضبط‌شده</span></h2><div class="ab-cases" role="group" aria-label="Fictional scenarios / سناریوهای ساختگی"><button type="button" data-case="0" aria-pressed="true"><span lang="en">Record</span><span lang="fa">ضبط</span></button><button type="button" data-case="1" aria-pressed="false"><span lang="en">Replay</span><span lang="fa">بازپخش</span></button><button type="button" data-case="2" aria-pressed="false"><span lang="en">Schema diff</span><span lang="fa">مقایسهٔ طرح‌واره</span></button></div>
- <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><i></i><i></i><i></i></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Request</span><span lang="fa">درخواست</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Fixture</span><span lang="fa">فایل نمونه</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Outcome</span><span lang="fa">نتیجه</span></button></div>
+ <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><svg class="motion-svg tape-diagram" viewBox="0 0 640 150" focusable="false" aria-hidden="true">
+ <defs><pattern id="tape-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" class="m-grid"/></pattern></defs>
+ <rect width="640" height="150" rx="17" fill="url(#tape-grid)"/>
+ <path d="M210 60H430Q450 75 430 92H210Q190 75 210 60Z" class="tape-loop"/>
+ <path d="M208 60H432" class="tape-stream"/>
+ <g class="tape-reel reel-a"><circle cx="156" cy="76" r="43" class="reel-disc"/><circle cx="156" cy="76" r="32" class="reel-track"/><path d="M156 51V101M131 76h50m-43-18 36 36m0-36-36 36" class="reel-spoke"/><circle cx="156" cy="76" r="7" class="m-hot"/></g>
+ <g class="tape-reel reel-b"><circle cx="484" cy="76" r="43" class="reel-disc"/><circle cx="484" cy="76" r="32" class="reel-track"/><path d="M484 51V101M459 76h50m-43-18 36 36m0-36-36 36" class="reel-spoke"/><circle cx="484" cy="76" r="7" class="m-hot"/></g>
+ <g class="tape-packet"><rect x="209" y="52" width="27" height="16" rx="5" class="m-hot"/><path d="M216 60h12" class="m-dark-line"/></g>
+ <path d="M63 117h68m379 0h66M65 31h37m437 0h37" class="m-soft-line"/>
+ <circle cx="67" cy="76" r="5" class="m-hot tape-lamp"/><circle cx="573" cy="76" r="5" class="m-hot tape-lamp"/>
+ </svg></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Request</span><span lang="fa">درخواست</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Fixture</span><span lang="fa">فایل نمونه</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Outcome</span><span lang="fa">نتیجه</span></button></div>
  <div class="ab-readout" id="result" aria-live="polite" aria-atomic="true"><span class="ab-state"><span lang="en">CLIENT → TOOL</span><span lang="fa">کلاینت ← ابزار</span></span><p><span lang="en">Ask the sample catalogue for one guide.</span><span lang="fa">از فهرست نمونه یک راهنما را بخواه.</span></p></div></div>
  <div class="ab-transport" role="group" aria-label="Playback / پخش"><button type="button" class="ab-play" data-run><span lang="en">Play tape</span><span lang="fa">پخش کاست</span></button><button type="button" data-prev><span lang="en">Back</span><span lang="fa">قبل</span></button><button type="button" data-next><span lang="en">Step</span><span lang="fa">بعد</span></button><button type="button" data-reset><span lang="en">Reset</span><span lang="fa">از اول</span></button></div>
- <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Record a session</span><span lang="fa">ضبط نشست</span></h3><p><span lang="en">Captures JSON-RPC traffic in NDJSON or Content-Length framing.</span><span lang="fa">ترافیک JSON-RPC را با قالب NDJSON یا Content-Length ضبط می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Replay without the upstream</span><span lang="fa">بازپخش بدون سرویس اصلی</span></h3><p><span lang="en">Replay recorded exchanges offline. Seeded error and latency simulation are intended for resilient CI tests.</span><span lang="fa">تبادل ضبط‌شده را آفلاین بازپخش می‌کند. شبیه‌سازی تکرارپذیر خطا و تأخیر برای آزمون پایداری CI است.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Review compatibility</span><span lang="fa">بررسی سازگاری</span></h3><p><span lang="en">Removed tools, new required inputs, and changed parameter types can fail a compatibility check.</span><span lang="fa">حذف ابزار، اجباری‌شدن ورودی و تغییر نوع پارامتر می‌تواند بررسی سازگاری را ناموفق کند.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help</code></pre></div><div><p><span lang="en">The project tests a record → inspect → replay round trip for both framing formats and a breaking schema diff.</span><span lang="fa">تست‌های پروژه چرخهٔ ضبط، بررسی و بازپخش را در هر دو قالب پیام و تشخیص تغییر ناسازگار را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/mcptape/blob/HEAD/test/mcptape.test.mjs"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/mcptape/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/mcptape/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
+ <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><nav class="deep-nav" aria-label="On this page / در این صفحه"><a href="#demo"><span lang="en">Live lab</span><span lang="fa">آزمایش تعاملی</span></a><a href="#case-study"><span lang="en">Worked example</span><span lang="fa">نمونهٔ گام‌به‌گام</span></a><a href="#engine"><span lang="en">How it works</span><span lang="fa">سازوکار</span></a><a href="#quick-start"><span lang="en">Quick start</span><span lang="fa">شروع سریع</span></a><a href="#faq"><span lang="en">FAQ</span><span lang="fa">پرسش‌ها</span></a></nav><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Record a session</span><span lang="fa">ضبط نشست</span></h3><p><span lang="en">Captures JSON-RPC traffic in NDJSON or Content-Length framing.</span><span lang="fa">ترافیک JSON-RPC را با قالب NDJSON یا Content-Length ضبط می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Replay without the upstream</span><span lang="fa">بازپخش بدون سرویس اصلی</span></h3><p><span lang="en">Replay recorded exchanges offline. Seeded error and latency simulation are intended for resilient CI tests.</span><span lang="fa">تبادل ضبط‌شده را آفلاین بازپخش می‌کند. شبیه‌سازی تکرارپذیر خطا و تأخیر برای آزمون پایداری CI است.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Review compatibility</span><span lang="fa">بررسی سازگاری</span></h3><p><span lang="en">Removed tools, new required inputs, and changed parameter types can fail a compatibility check.</span><span lang="fa">حذف ابزار، اجباری‌شدن ورودی و تغییر نوع پارامتر می‌تواند بررسی سازگاری را ناموفق کند.</span></p></article></div></section><section id="case-study" class="deep-panel" aria-labelledby="case-study-h"><div><p class="brow"><span lang="en">Cassette lifecycle</span><span lang="fa">چرخهٔ عمر کاست</span></p><h2 id="case-study-h"><span lang="en">A small release rehearsal</span><span lang="fa">تمرین انتشار یک ابزار کوچک</span></h2></div><ol class="deep-rows"><li><h3><span lang="en">01 · Capture</span><span lang="fa">۰۱ · ضبط</span></h3><p><span lang="en">An imaginary team records one catalogue lookup against its own test MCP server. It prepares a small cassette with a known request and result, excluding tokens and private records.</span><span lang="fa">یک تیم خیالی، جست‌وجوی فهرست را روی سرور آزمایشی خودش ضبط می‌کند. درخواست و نتیجهٔ شناخته‌شده را بدون توکن و رکورد خصوصی در کاست کوچک نگه می‌دارد.</span></p></li><li><h3><span lang="en">02 · Replay</span><span lang="fa">۰۲ · بازپخش</span></h3><p><span lang="en">The integration test replays the same fixture before every build. This tests the client against recorded behavior without paying for or waiting on the original upstream.</span><span lang="fa">تست یکپارچه‌سازی قبل از هر ساخت همان نمونه را بازپخش می‌کند. رفتار کلاینت را بر اساس نمونهٔ ضبط‌شده و بدون هزینه یا انتظار سرویس اصلی می‌سنجد.</span></p></li><li><h3><span lang="en">03 · Compare</span><span lang="fa">۰۳ · مقایسه</span></h3><p><span lang="en">The next schema makes language required. The diff flags the change as breaking; the team keeps it optional or updates the client before release.</span><span lang="fa">در طرح‌وارهٔ بعد زبان اجباری می‌شود. مقایسه تغییر را ناسازگار می‌داند؛ تیم آن را اختیاری نگه می‌دارد یا قبل از انتشار کلاینت را به‌روز می‌کند.</span></p></li></ol></section><section id="engine" class="deep-panel" aria-labelledby="engine-h"><div><p class="brow"><span lang="en">THE ACTUAL TOOL</span><span lang="fa">ابزار واقعی</span></p><h2 id="engine-h"><span lang="en">What happens outside the browser?</span><span lang="fa">بیرون از مرورگر چه اتفاقی می‌افتد؟</span></h2></div><p><span lang="en">Record follows actual JSON-RPC messages, including newline-delimited or Content-Length framing. Replay presents the captured responses over stdio. Diff focuses on compatibility of tools/list, not all possible behaviors of a server.</span><span lang="fa">ضبط، پیام‌های واقعی JSON-RPC را در قالب خط‌به‌خط یا Content-Length پیگیری می‌کند. بازپخش پاسخ ضبط‌شده را روی stdio می‌دهد. مقایسه بر سازگاری tools/list تمرکز دارد، نه همهٔ رفتارهای ممکن سرور.</span></p></section><section id="quick-start" class="deep-panel" aria-labelledby="quick-start-h"><div><p class="brow"><span lang="en">LOCAL USE</span><span lang="fa">استفادهٔ محلی</span></p><h2 id="quick-start-h"><span lang="en">Install and try it</span><span lang="fa">نصب و اجرای اولیه</span></h2></div><p><span lang="en">Node.js 18+ · from a local clone</span><span lang="fa">Node.js 18 به بالا · از نسخهٔ محلی</span></p><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help
+mcptape inspect fixtures/example.tape.jsonl --json
+mcptape diff fixtures/v1.tape.jsonl fixtures/v2.tape.jsonl --json</code></pre><p><span lang="en">If you have not installed the executable, use node bin/mcptape.mjs in place of mcptape. Replace fixture paths with your own sanitized local samples. The CLI returns 1 for breaking schema changes, not for a successful compatible comparison.</span><span lang="fa">اگر برنامهٔ اجرایی را نصب نکردی، به‌جای mcptape از node bin/mcptape.mjs استفاده کن. مسیرها را با نمونه‌های محلی پاک‌سازی‌شدهٔ خودت عوض کن. ابزار برای تغییر ناسازگار کد ۱ می‌دهد، نه برای مقایسهٔ سازگار.</span></p></section><section id="faq" class="deep-panel" aria-labelledby="faq-h"><div><p class="brow"><span lang="en">FIELD NOTES</span><span lang="fa">نکته‌های کاربردی</span></p><h2 id="faq-h"><span lang="en">Questions and limits</span><span lang="fa">پرسش‌ها و محدودیت‌ها</span></h2></div><div class="deep-faq"><details><summary><span lang="en">Why does live behavior differ?</span><span lang="fa">چرا رفتار زنده فرق دارد؟</span></summary><p><span lang="en">Replay covers what was captured, not every server reply. Refresh the fixture intentionally when the accepted upstream behavior changes.</span><span lang="fa">بازپخش فقط موارد ضبط‌شده را پوشش می‌دهد، نه همهٔ پاسخ‌ها. اگر رفتار مورد انتظار سرویس عوض شد، کاست را آگاهانه تازه کن.</span></p></details><details><summary><span lang="en">Should I commit the tape?</span><span lang="fa">کاست را کامیت کنم؟</span></summary><p><span lang="en">Only after treating its contents like any other recording: review request and reply data, remove secrets/internal records, and keep the smallest useful fixture.</span><span lang="fa">مثل هر ضبط دیگری، اول درخواست و پاسخ را بازبینی کن، اسرار و رکورد داخلی را حذف کن و کم‌حجم‌ترین نمونهٔ مفید را نگه دار.</span></p></details><details><summary><span lang="en">Where does fault simulation help?</span><span lang="fa">شبیه‌سازی خطا کجا مفید است؟</span></summary><p><span lang="en">Use predictable error or latency samples to check whether a local client handles failures cleanly. It does not replace integration and staging checks.</span><span lang="fa">با نمونهٔ تکرارپذیر خطا یا تأخیر ببین کلاینت محلی با خطا درست کنار می‌آید یا نه. این جای تست یکپارچه‌سازی و پیش‌انتشار نیست.</span></p></details></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help</code></pre></div><div><p><span lang="en">The project tests a record → inspect → replay round trip for both framing formats and a breaking schema diff.</span><span lang="fa">تست‌های پروژه چرخهٔ ضبط، بررسی و بازپخش را در هر دو قالب پیام و تشخیص تغییر ناسازگار را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/mcptape/blob/HEAD/test/mcptape.test.mjs"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/mcptape/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/mcptape/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav><figure class="showcase-photo"><p><span lang="en">FROM THE DEMO</span><span lang="fa">از خود دمو</span></p><img src="/assets/thumbs/showcase-mcptape.webp?v=03d4e774d2" width="800" height="500" alt="" loading="lazy" decoding="async"><figcaption><span lang="en">Recorded exchange shown in the MCPTape cassette studio</span><span lang="fa">تبادل ضبط‌شده در استودیوی کاستِ ام‌سی‌پی‌تیپ</span></figcaption></figure></main>
 <footer class="frame foot"><bdi>mcptape</bdi><span><span lang="en">Open-source project · MIT</span><span lang="fa">پروژهٔ متن‌باز · MIT</span></span><a href="/assets/fonts/OFL-Vazirmatn.txt" class="foot-font"><span lang="en">Vazirmatn license</span><span lang="fa">مجوز وزیرمتن</span></a></footer>
 <script id="action-data" type="application/json">{"id":"MCP · 01","verb":["Play tape","پخش کاست"],"motif":"cassette","title":["Studio for recorded exchanges","استودیوی تبادل ضبط‌شده"],"steps":[["Request","درخواست"],["Fixture","فایل نمونه"],["Outcome","نتیجه"]],"runs":[[["Record","ضبط"],["Record a fictional exchange","ضبط یک تبادل فرضی"],[[["CLIENT → TOOL","کلاینت ← ابزار"],["Ask the sample catalogue for one guide.","از فهرست نمونه یک راهنما را بخواه."]],[["TOOL → CLIENT","ابزار ← کلاینت"],["The sample returns a single record: Project guide.","نمونه یک رکورد برمی‌گرداند: راهنمای پروژه."]],[["PAIR SAVED","جفت ثبت شد"],["A request and its matching response form one reusable fixture.","درخواست و پاسخ متناظرش یک نمونهٔ قابل استفادهٔ دوباره می‌سازند."]]]],[["Replay","بازپخش"],["Repeat the same exchange offline","تکرار تبادل بدون اتصال"],[[["REQUEST MATCH","تطبیق درخواست"],["The offline example receives the same document lookup.","نمونهٔ آفلاین همان جست‌وجوی سند را دریافت می‌کند."]],[["CASSETTE MATCH","تطبیق کاست"],["The recorded response is selected from the fixture.","پاسخ ضبط‌شده از فایل نمونه انتخاب می‌شود."]],[["NO UPSTREAM","بدون سرویس اصلی"],["The client receives the same guide without calling an upstream in this example.","در این نمونه کلاینت همان راهنما را بدون تماس با سرویس اصلی می‌گیرد."]]]],[["Schema diff","مقایسهٔ طرح‌واره"],["Compare two sample tool schemas","مقایسهٔ دو طرح‌وارهٔ نمونه"],[[["BASELINE v1","نسخهٔ پایه"],["The language input is optional in version one.","ورودی زبان در نسخهٔ یک اختیاری است."]],[["CANDIDATE v2","نسخهٔ پیشنهادی"],["The same input becomes required in version two.","همان ورودی در نسخهٔ دو اجباری می‌شود."]],[["BREAKING CHANGE","تغییر ناسازگار"],["An older client can send a valid version-one request that version two rejects.","ممکن است کلاینت قدیمی درخواست معتبری برای نسخهٔ یک بسازد که نسخهٔ دو آن را رد کند."]]]]]}</script><script>(() => {
   'use strict';
@@ -140,8 +231,10 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
   const pick=arr=>arr[root.lang==='fa'?1:0];
   let sample=0, step=0, timer=0;
   function paint(){
+    board.dataset.playing=timer?'true':'false';
     const row=data.runs[sample][2][step];
     scene.dataset.step=step; scene.dataset.sample=sample;
+    board.dispatchEvent(new CustomEvent('motion:paint',{detail:{sample,step,playing:Boolean(timer),spend:row[2]||0}}));
     scene.style.setProperty('--phase',step);
     scene.style.setProperty('--wire',(((step+1)/3)*100)+'%');
     if(row[2])scene.style.setProperty('--spend',row[2]+'%');
@@ -162,7 +255,7 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
       step++;
       if(step>=phases.length-1){step=phases.length-1;halt();}
       paint();
-    },900);
+    },1200);
     paint();
   }
   function sync(){
@@ -192,6 +285,35 @@ html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
     try{localStorage.setItem('mrz-theme',root.dataset.theme);}catch(_){}
     sync();
   });
+  /* Local illustrative diagram: transport controls and keyboard stay the source of truth. */
+  const artReduced=matchMedia('(prefers-reduced-motion: reduce)');
+  if(!artReduced.matches){
+    board.dataset.intro='true';
+    const stopIntro=()=>{board.dataset.intro='false';};
+    board.addEventListener('click',stopIntro,{once:true,capture:true});
+    setTimeout(stopIntro,1230);
+  }
+  if(document.body.classList.contains('tokenxray')){
+    const legend=document.createElement('p'), key=document.createElement('span'), dot=document.createElement('b'), label=document.createElement('span');
+    legend.className='motion-meter-legend';key.className='key';dot.setAttribute('aria-hidden','true');
+    label.innerHTML='<span lang="en">60% example marker</span><span lang="fa">نشانگر نمونهٔ ۶۰٪</span>';
+    key.append(dot,label);legend.append(key);q('.ab-art').after(legend);
+  }
+  board.addEventListener('motion:paint',ev=>{
+    const {sample,step,spend}=ev.detail;
+    scene.style.setProperty('--m-head',([0,91,192][step])+'px');
+    scene.style.setProperty('--m-scan',([75,263,454][step])+'px');
+    const isBlocked=sample===2&&document.body.classList.contains('agentfence');
+    scene.dataset.blocked=isBlocked?'true':'false';
+    scene.style.setProperty('--m-gate',(isBlocked?126:[62,246,496][step])+'px');
+    scene.dataset.over=spend>60?'true':'false';
+    const second=step===0?0:sample===0?13:28;
+    const third=step<2?0:sample===0?5:14;
+    scene.style.setProperty('--m-add',String(second*5.36/150));
+    scene.style.setProperty('--m-last',String(third*5.36/75));
+    scene.style.setProperty('--m-last-shift',(180.6+second*5.36-331)+'px');
+  });
+
   sync();paint();
 })();
 </script></body>

@@ -95,10 +95,56 @@ html[data-action-site=agentcontract] {--labbg:#f7fcf3;--labresult:#e9f4e9;--labs
 [data-action-site=routefall] .action-copy {display:block}.action-copy .action-jump {display:none}.action-copy .pills{display:none}.action-copy .lead {font-size:.9rem}.action-copy h1{font-size:clamp(1.6rem,6.2vw,2.2rem)}
 .tape {gap:.1rem}.tape i {font-size:.59rem;padding:.2rem 0}}
 @media(prefers-reduced-motion:reduce){.action-lab *, .action-lab *::before,.action-lab *::after{animation:none!important;transition:none!important}}
-</style></head>
+</style><style>.motion-stage{isolation:isolate;overflow:hidden;position:relative;border-radius:.66rem;margin:.55rem 0 .6rem;border:1px solid var(--labline);background:var(--labsheet);min-width:0;line-height:1.3}
+.motion-stage svg{display:block;width:100%;height:auto;color:var(--labaccent)}
+[data-action-site=ragxray] .motion-stage{background:repeating-linear-gradient(90deg,#73edd017 0 1px,transparent 1px 10%),linear-gradient(155deg,#0d303b,#082029)}
+.scan-shell{padding:.50rem .62rem .63rem;position:relative;min-height:4.3rem}.scan-track{height:1.12rem;display:flex;overflow:hidden;border-radius:3px;background:#19414a;position:relative}
+.scan-block{background:#2c5e67;border:1px solid #498b8d;position:relative;overflow:hidden;min-width:0}.scan-block:nth-child(2n){background:#1b4b54}.scan-block i{display:block;background:#a9f5d6;box-shadow:0 0 8px #9ef5d5;position:absolute;inset-block:20%;border-radius:3px;z-index:1}
+.scan-ruler{font-size:.62rem;margin-bottom:.27rem;display:flex;justify-content:space-between;color:#b3e6e4;gap:.5rem;white-space:normal}
+.scan-shell [data-beam]{position:absolute;top:0;bottom:0;width:2px;background:#a5ffdf;box-shadow:0 0 14px 5px #94f9da8a;transform:translateX(-12px);opacity:0;pointer-events:none;z-index:2}
+.scan-shell [data-seam]{display:inline-block;min-width:.4rem;margin-top:.33rem;color:#b4ebd1;font-size:.69rem}
+[data-action-site=routefall] .motion-stage{background:radial-gradient(ellipse at 30% 25%,#324574,#171f42 70%)}
+.route-wire{fill:none;stroke:#849ccd;stroke-dasharray:4 5;stroke-width:1.7;opacity:.55}.route-wire[data-active=true]{stroke:#c2efff;stroke-dasharray:none;opacity:1;stroke-width:2.3}
+.route-lamp{fill:#23305a;stroke:#8b9fca;stroke-width:1.4}.route-lamp[data-active=true]{fill:#c2efff;stroke:#c2efff}.route-node-label{font:700 9px Vazirmatn,sans-serif;fill:#e4eaff}.route-packet{fill:#efffff;filter:drop-shadow(0 0 6px #b9efff)}
+[data-action-site=promptbisect] .motion-stage{background:#211c30;color:#f2dcb9}.probe-pad{padding:.55rem .73rem .72rem}.probe-caption{color:#ebc28c;font-size:.65rem;display:flex;gap:.5rem;justify-content:space-between}
+.probe-window{position:relative;height:1.35rem;margin-top:.35rem;border:1px solid #8d6579;border-radius:4px;background:repeating-linear-gradient(90deg,#7a5473 0 1px,transparent 1px 6.25%);overflow:hidden}
+.probe-band{position:absolute;left:0;width:100%;top:.16rem;bottom:.16rem;border:1px solid #ffe2a9;border-radius:2px;background:#ffe1a34a}
+.probe-pin{position:absolute;left:0;top:0;bottom:0;background:#fce2aa;width:3px;opacity:0}
+[data-action-site=agentcontract] .motion-stage{background:#e2efe4}.schema-rows{padding:.45rem .65rem;font-size:.72rem}.schema-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.42rem;padding:.26rem 0;border-bottom:1px solid #afc6b9;color:#224438}.schema-row:last-child{border-bottom:0}.schema-row b{font-size:.67rem;border-radius:100px;padding:.12rem .43rem;white-space:nowrap;color:white;background:#2b624c}.schema-row[data-pass=false] b{background:#8a334c}.schema-row i{font-style:normal;font-weight:750;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.motion-stage *, .motion-stage *::before,.motion-stage *::after{animation:none!important;transition:none!important}}
+</style><style>.field-notes{margin-block:clamp(2rem,5vw,4rem);max-width:74rem}
+.field-nav{display:flex;gap:.4rem .7rem;flex-wrap:wrap;padding:.75rem 0;border-block:1px solid var(--line);margin-block-end:1rem;justify-content:flex-start;min-height:0}
+.field-nav a,.field-source{border-radius:.5rem;padding:.32rem .65rem;text-decoration:none;font-weight:750;border:1px solid var(--line);background:#fff}
+.field-chapter{scroll-margin-top:1.2rem;padding:clamp(1rem,2.8vw,2.45rem);margin-block:clamp(1rem,2vw,1.5rem);border:1px solid var(--line);border-radius:1rem;background:#fff;min-width:0}
+.field-chapter h2{font-size:clamp(1.35rem,3vw,2.2rem);margin-block-end:1rem}
+.field-chapter p{max-width:68ch}
+.field-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:1rem;align-items:start}
+.field-split p:first-child{margin-top:0}
+.field-chapter pre{margin:.35rem 0 1rem;overflow:auto;white-space:pre;padding:.85rem 1rem;color:white;background:var(--brand);border-radius:.55rem;font-size:.87rem}
+.field-flow{padding-inline-start:1.35rem;margin-block:0}
+.field-flow li{padding:.62rem .4rem;border-block-end:1px solid var(--line)}
+.field-flow li:last-child{border-bottom:none}.field-flow p{margin:.35rem 0 0}
+.field-chapter table{border-collapse:collapse;width:100%;font-size:.88rem;table-layout:fixed}
+.field-chapter td,.field-chapter th{text-align:start;vertical-align:top;overflow-wrap:anywhere;padding:.55rem .6rem;border:1px solid var(--line)}
+.field-chapter thead th{color:#fff;background:var(--brand)}
+.field-chapter tbody th{background:var(--light)}
+.field-faq details{border-block-end:1px solid var(--line);padding:.55rem}
+.field-faq summary{cursor:pointer;font-weight:800;min-height:40px}
+.field-faq details:last-child{border:0}
+[data-action-site=ragxray] .field-chapter{border-inline-start:5px solid #147365}
+[data-action-site=ragxray] #field-case pre{background:#0b353b;color:#b4ffd8}
+[data-action-site=routefall] #field-case{background:#1f2d52;color:#e8f3ff;border-radius:.65rem}
+[data-action-site=routefall] .field-nav a{border-radius:99px}
+[data-action-site=promptbisect] .field-chapter{background:#fff8f0;border-inline-start:4px double #88556d}
+[data-action-site=promptbisect] .field-flow li{margin-inline-start:1em;padding-inline-start:1em;border-inline-start:2px solid #c28c83}
+[data-action-site=agentcontract] #field-flow{border-radius:.3rem;border-block-start:5px solid #347351}
+[data-action-site=agentcontract] #field-case pre{background:#234b3c;color:#e0ffd8}
+@media(max-width:48rem){.field-split{grid-template-columns:minmax(0,1fr)}
+.field-chapter td,.field-chapter th{padding:.37rem .3rem;font-size:.8rem}}
+</style><style>.showcase-photo{width:min(900px,calc(100% - 2.2rem));margin:clamp(1.5rem,5vw,3.8rem) auto}.showcase-photo p{letter-spacing:.04em;font-weight:800;font-size:.8rem}.showcase-photo p [lang=fa]{letter-spacing:normal}.showcase-photo img{display:block;width:100%;height:auto;border:1px solid currentColor;border-radius:.38rem}.showcase-photo figcaption{margin-top:.55rem;font-size:.94rem;opacity:.84}</style></head>
 <body><a class="skip" href="#main"><span class="" data-en="Skip to main" data-fa="رفتن به محتوای اصلی" >رفتن به محتوای اصلی</span></a>
 <header class="top"><nav class="wrap" aria-label="Project navigation"><a href="/projects/"><bdi>MRZROOT</bdi> / <span class="" data-en="Projects" data-fa="پروژه‌ها" >پروژه‌ها</span></a><div><a href="https://github.com/mrzroot/agentcontract">GitHub</a><button type="button" id="lang" lang="en" aria-label="Switch to English">EN</button></div></nav></header>
-<main id="main"><section class="hero action-hero"><div class="wrap hero-grid"><section id="lab" class="action-lab" aria-labelledby="lab-title"><div class="lab-sheet"><header><span class="dotstack" aria-hidden="true"><i></i><i></i><i></i></span><span data-en="SCHEMA · REVIEW STATION" data-fa="اسکیما · ایستگاه بازبینی">اسکیما · ایستگاه بازبینی</span><b dir="ltr">04</b></header></div><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Contract review station" data-fa="پنل بررسی قرارداد" id="lab-title">پنل بررسی قرارداد</h2><p class="instruction" data-en="A fictional saveDraft tool has one published version. Choose a proposed change and check whether the previous callers still have valid inputs." data-fa="ابزار ساختگی saveDraft یک نسخهٔ منتشرشده دارد. یک تغییر پیشنهادی انتخاب کنید و اعتبار ورودی فراخوان‌های قبلی را بررسی کنید." >ابزار ساختگی saveDraft یک نسخهٔ منتشرشده دارد. یک تغییر پیشنهادی انتخاب کنید و اعتبار ورودی فراخوان‌های قبلی را بررسی کنید.</p><div class="scenario" role="group" aria-labelledby="scenario-label"><p id="scenario-label"><span data-en="Try a scenario" data-fa="یک سناریو را امتحان کنید">یک سناریو را امتحان کنید</span></p><div><button type="button" class="preset" data-preset="optional" aria-pressed="false"><span data-en="Optional tag" data-fa="برچسب اختیاری">برچسب اختیاری</span></button><button type="button" class="preset" data-preset="required" aria-pressed="false"><span data-en="Required title" data-fa="عنوان اجباری">عنوان اجباری</span></button><button type="button" class="preset" data-preset="number" aria-pressed="false"><span data-en="Change body type" data-fa="تغییر نوع متن">تغییر نوع متن</span></button></div></div><div class="contract-compare" dir="ltr" aria-hidden="true"><span>v1 / published</span><span>v2 / proposed</span><code>body: string<br>title?: string</code><code id="schema-preview"></code></div><div class="inputs"><label for="change"><span class="" data-en="Proposed change" data-fa="تغییر پیشنهادی" >تغییر پیشنهادی</span></label><select id="change"><option value="0" data-en="Add optional tag" data-fa="افزودن برچسب اختیاری">افزودن برچسب اختیاری</option><option value="1" data-en="Make title required" data-fa="الزامی‌کردن عنوان">الزامی‌کردن عنوان</option><option value="2" data-en="Change body from string to number" data-fa="تغییر متن از رشته به عدد">تغییر متن از رشته به عدد</option></select><p class="micro" dir="ltr">v1: body: string · title?: string</p></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="activity" data-state="idle" class="activity" aria-hidden="true"><i></i><span><span data-en="Runner ready" data-fa="آزمایشگاه آماده">آزمایشگاه آماده</span></span><b id="metric">00</b></div><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section><div class="action-copy">
+<main id="main"><section class="hero action-hero"><div class="wrap hero-grid"><section id="lab" class="action-lab" aria-labelledby="lab-title"><div class="lab-sheet"><header><span class="dotstack" aria-hidden="true"><i></i><i></i><i></i></span><span data-en="SCHEMA · REVIEW STATION" data-fa="اسکیما · ایستگاه بازبینی">اسکیما · ایستگاه بازبینی</span><b dir="ltr">04</b></header></div><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Contract review station" data-fa="پنل بررسی قرارداد" id="lab-title">پنل بررسی قرارداد</h2><p class="instruction" data-en="A fictional saveDraft tool has one published version. Choose a proposed change and check whether the previous callers still have valid inputs." data-fa="ابزار ساختگی saveDraft یک نسخهٔ منتشرشده دارد. یک تغییر پیشنهادی انتخاب کنید و اعتبار ورودی فراخوان‌های قبلی را بررسی کنید." >ابزار ساختگی saveDraft یک نسخهٔ منتشرشده دارد. یک تغییر پیشنهادی انتخاب کنید و اعتبار ورودی فراخوان‌های قبلی را بررسی کنید.</p><div class="scenario" role="group" aria-labelledby="scenario-label"><p id="scenario-label"><span data-en="Try a scenario" data-fa="یک سناریو را امتحان کنید">یک سناریو را امتحان کنید</span></p><div><button type="button" class="preset" data-preset="optional" aria-pressed="false"><span data-en="Optional tag" data-fa="برچسب اختیاری">برچسب اختیاری</span></button><button type="button" class="preset" data-preset="required" aria-pressed="false"><span data-en="Required title" data-fa="عنوان اجباری">عنوان اجباری</span></button><button type="button" class="preset" data-preset="number" aria-pressed="false"><span data-en="Change body type" data-fa="تغییر نوع متن">تغییر نوع متن</span></button></div></div><div class="contract-compare" dir="ltr" aria-hidden="true"><span>v1 / published</span><span>v2 / proposed</span><code>body: string<br>title?: string</code><code id="schema-preview"></code></div><div class="inputs"><label for="change"><span class="" data-en="Proposed change" data-fa="تغییر پیشنهادی" >تغییر پیشنهادی</span></label><select id="change"><option value="0" data-en="Add optional tag" data-fa="افزودن برچسب اختیاری">افزودن برچسب اختیاری</option><option value="1" data-en="Make title required" data-fa="الزامی‌کردن عنوان">الزامی‌کردن عنوان</option><option value="2" data-en="Change body from string to number" data-fa="تغییر متن از رشته به عدد">تغییر متن از رشته به عدد</option></select><p class="micro" dir="ltr">v1: body: string · title?: string</p></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="activity" data-state="idle" class="activity" aria-hidden="true"><i></i><span><span data-en="Runner ready" data-fa="آزمایشگاه آماده">آزمایشگاه آماده</span></span><b id="metric">00</b></div><div id="motion-stage" class="motion-stage" dir="ltr" aria-hidden="true"></div><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section><div class="action-copy">
 <p class="kicker"><bdi>agentcontract</bdi> / <span class="" data-en="Tool schema quality" data-fa="کیفیت اسکیمای ابزار" >کیفیت اسکیمای ابزار</span></p><h1 class="" data-en="Review the contract before clients depend on it." data-fa="قرارداد را پیش از وابستگی کلاینت‌ها بازبینی کنید." >قرارداد را پیش از وابستگی کلاینت‌ها بازبینی کنید.</h1><p class="lead" data-en="An offline tool-schema validator and change gate for OpenAI, MCP and Anthropic definitions. Catch ambiguous properties and breaking interface changes before shipping." data-fa="اعتبارسنج آفلاین اسکیما و بررسی تغییرات برای OpenAI، MCP و Anthropic. ویژگی‌های مبهم و تغییرات ناسازگار رابط را قبل از انتشار بررسی کنید." >اعتبارسنج آفلاین اسکیما و بررسی تغییرات برای OpenAI، MCP و Anthropic. ویژگی‌های مبهم و تغییرات ناسازگار رابط را قبل از انتشار بررسی کنید.</p>
 <div class="actions"><a class="button primary action-jump" href="#lab"><span class="" data-en="Try the sample" data-fa="آزمایش نمونه" >آزمایش نمونه</span> <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://mrzroot.github.io/agentcontract/"><span class="" data-en="Full project demo" data-fa="دموی اصلی پروژه" >دموی اصلی پروژه</span> <span aria-hidden="true">↗</span></a></div>
 <div class="pills" dir="ltr"><span>Node.js 18+</span><span>MIT</span><span>Antigravity</span></div></div></div></section>
@@ -107,7 +153,13 @@ html[data-action-site=agentcontract] {--labbg:#f7fcf3;--labresult:#e9f4e9;--labs
 
 <section class="wrap story" aria-labelledby="start"><div class="quick"><div><p class="label"><span class="" data-en="QUICK START" data-fa="شروع سریع" >شروع سریع</span></p><h2 class="" data-en="Try it locally" data-fa="اجرا روی سیستم خودتان" id="start">اجرا روی سیستم خودتان</h2><a href="https://github.com/mrzroot/agentcontract#readme"><span class="" data-en="Open setup and source docs" data-fa="راهنمای نصب و مستندات مخزن" >راهنمای نصب و مستندات مخزن</span></a></div>
 <pre tabindex="0" dir="ltr"><code>agentcontract check tools.json --strict --json
-agentcontract diff v1_tools.json v2_tools.json --json</code></pre></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a href="/projects/guide/agentcontract/" data-en="First Steps" data-fa="قدم اول">قدم اول</a><a data-original-link href="/agentcontract/" data-en="Original site" data-fa="سایت قبلی">سایت قبلی</a></nav></main>
+agentcontract diff v1_tools.json v2_tools.json --json</code></pre></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a href="/projects/guide/agentcontract/" data-en="First Steps" data-fa="قدم اول">قدم اول</a><a data-original-link href="/agentcontract/" data-en="Original site" data-fa="سایت قبلی">سایت قبلی</a></nav><!-- extended-content --><div class="wrap field-notes"><nav class="field-nav" aria-label="Sections"><a href="#field-case"><span data-en="Case" data-fa="نمونه">نمونه</span></a><a href="#field-flow"><span data-en="Workflow" data-fa="فرایند">فرایند</span></a><a href="#field-install"><span data-en="Install" data-fa="نصب">نصب</span></a><a href="#field-faq"><span data-en="FAQ" data-fa="پرسش‌ها">پرسش‌ها</span></a></nav><section class="field-chapter" id="field-case"><h2 data-en="Review ticket: three existing clients" data-fa="تیکت بازبینی: سه کلاینت موجود">تیکت بازبینی: سه کلاینت موجود</h2><div class="field-split"><div><p data-en="The fictional saveDraft tool used to require a string body and accept an optional title. A proposed schema must still accept valid old clients if the rollout is meant to be compatible." data-fa="ابزار ساختگی saveDraft متن رشته‌ای اجباری و عنوان اختیاری داشت. اگر انتشار باید سازگار بماند، طرح جدید باید ورودی معتبر کلاینت قدیمی را بپذیرد.">ابزار ساختگی saveDraft متن رشته‌ای اجباری و عنوان اختیاری داشت. اگر انتشار باید سازگار بماند، طرح جدید باید ورودی معتبر کلاینت قدیمی را بپذیرد.</p><p data-en="The board above checks three fictional drafts. Making title required invalidates two; making body a number invalidates all three." data-fa="تابلوی بالا سه پیش‌نویس ساختگی را می‌سنجد. عنوان اجباری دو مورد و نوع عددی متن هر سه را نامعتبر می‌کند.">تابلوی بالا سه پیش‌نویس ساختگی را می‌سنجد. عنوان اجباری دو مورد و نوع عددی متن هر سه را نامعتبر می‌کند.</p></div><pre tabindex="0" dir="ltr">v1: body: string; title?: string
+
++ tag?: string  → 3/3 accepted
+! title required → 1/3 accepted
+! body: number  → 0/3 accepted</pre></div></section><section class="field-chapter" id="field-flow"><h2 data-en="A schema review checklist" data-fa="چک‌لیست بازبینی اسکیما">چک‌لیست بازبینی اسکیما</h2><table><thead><tr><th scope="col"><span data-en="Review item" data-fa="مورد بازبینی">مورد بازبینی</span></th><th scope="col"><span data-en="Ask this" data-fa="این سؤال را بپرسید">این سؤال را بپرسید</span></th></tr></thead><tbody><tr><th scope="row"><span data-en="Description" data-fa="توضیحات">توضیحات</span></th><td><span data-en="Does every important parameter tell the caller what it means?" data-fa="آیا پارامترهای مهم به فراخوان می‌گویند چه معنایی دارند؟">آیا پارامترهای مهم به فراخوان می‌گویند چه معنایی دارند؟</span></td></tr><tr><th scope="row"><span data-en="Inputs and bounds" data-fa="ورودی و محدودیت">ورودی و محدودیت</span></th><td><span data-en="Are accepted types and known sizes explicit?" data-fa="آیا نوع و اندازهٔ مجاز روشن‌اند؟">آیا نوع و اندازهٔ مجاز روشن‌اند؟</span></td></tr><tr><th scope="row"><span data-en="Compatibility" data-fa="سازگاری">سازگاری</span></th><td><span data-en="Can today’s valid callers still call the new version unchanged?" data-fa="آیا فراخوان معتبر امروز بدون تغییر کار می‌کند؟">آیا فراخوان معتبر امروز بدون تغییر کار می‌کند؟</span></td></tr><tr><th scope="row"><span data-en="CI policy" data-fa="سیاست CI">سیاست CI</span></th><td><span data-en="Should an incompatible interface diff block this rollout?" data-fa="آیا تفاوت ناسازگار باید جلوی این انتشار را بگیرد؟">آیا تفاوت ناسازگار باید جلوی این انتشار را بگیرد؟</span></td></tr></tbody></table></section><section class="field-chapter" id="field-install"><h2 data-en="Run check and diff locally" data-fa="بازبینی و مقایسه را محلی اجرا کنید">بازبینی و مقایسه را محلی اجرا کنید</h2><pre tabindex="0" dir="ltr">npm install -g github:mrzroot/agentcontract
+agentcontract check tools.json --strict --json
+agentcontract diff v1_tools.json v2_tools.json --json</pre><p data-en="The documented CLI requires Node.js 18+. Save separate versioned schema files so the review is repeatable." data-fa="CLI مستند به Node.js 18+ نیاز دارد. دو نسخهٔ اسکیما را جدا نگه دارید تا بازبینی تکرارپذیر باشد.">CLI مستند به Node.js 18+ نیاز دارد. دو نسخهٔ اسکیما را جدا نگه دارید تا بازبینی تکرارپذیر باشد.</p><a class="field-source" href="https://github.com/mrzroot/agentcontract#readme"><span data-en="Read the source documentation ↗" data-fa="مستندات مخزن ↗">مستندات مخزن ↗</span></a></section><section class="field-chapter" id="field-limits"><h2 data-en="Contract quality is one layer" data-fa="کیفیت قرارداد فقط یک لایه است">کیفیت قرارداد فقط یک لایه است</h2><ul class="field-flow"><li><h3 data-en="Shape versus authorization" data-fa="شکل در برابر مجوز">شکل در برابر مجوز</h3><p data-en="A schema check does not decide who is allowed to call a tool; check authorization separately in the actual implementation." data-fa="بازبینی اسکیما تعیین نمی‌کند چه کسی مجاز به فراخوان است؛ مجوز را در پیاده‌سازی واقعی جداگانه بسنجید.">بازبینی اسکیما تعیین نمی‌کند چه کسی مجاز به فراخوان است؛ مجوز را در پیاده‌سازی واقعی جداگانه بسنجید.</p></li><li><h3 data-en="Contract versus semantics" data-fa="قرارداد در برابر رفتار">قرارداد در برابر رفتار</h3><p data-en="A compatible shape does not guarantee identical behavior, privacy or results. Keep runtime tests for those guarantees." data-fa="شکل سازگار رفتار، حریم خصوصی یا نتیجهٔ یکسان را تضمین نمی‌کند. برای آن‌ها آزمون زمان اجرا لازم است.">شکل سازگار رفتار، حریم خصوصی یا نتیجهٔ یکسان را تضمین نمی‌کند. برای آن‌ها آزمون زمان اجرا لازم است.</p></li></ul></section><section class="field-chapter" id="field-faq"><h2 data-en="Review questions" data-fa="پرسش‌های بازبینی">پرسش‌های بازبینی</h2><div class="field-faq"><details><summary><span data-en="Which schema families are documented?" data-fa="کدام خانواده‌های اسکیما مستند شده‌اند؟">کدام خانواده‌های اسکیما مستند شده‌اند؟</span></summary><p data-en="The README names OpenAI, MCP and Anthropic tool definitions." data-fa="README تعریف ابزار OpenAI، MCP و Anthropic را نام برده است.">README تعریف ابزار OpenAI، MCP و Anthropic را نام برده است.</p></details><details><summary><span data-en="Is a failed diff always a mistake?" data-fa="آیا شکست مقایسه همیشه اشتباه است؟">آیا شکست مقایسه همیشه اشتباه است؟</span></summary><p data-en="A breaking change may be intentional. Use the report to plan versioning and a client migration instead of hiding it." data-fa="تغییر ناسازگار ممکن است عمدی باشد. برای نسخه‌بندی و مهاجرت کلاینت از گزارش کمک بگیرید، نه برای پنهان‌کردن تغییر.">تغییر ناسازگار ممکن است عمدی باشد. برای نسخه‌بندی و مهاجرت کلاینت از گزارش کمک بگیرید، نه برای پنهان‌کردن تغییر.</p></details></div></section></div><figure class="showcase-photo"><p data-en="FROM THE DEMO" data-fa="از خود دمو">از خود دمو</p><img src="/assets/thumbs/showcase-agentcontract.webp?v=05fd3050af" width="800" height="500" alt="" loading="lazy" decoding="async"><figcaption data-en="The schema inspector highlights an incompatible fictional change" data-fa="بازرس طرح‌واره یک تغییر فرضی ناسازگار را مشخص کرده">بازرس طرح‌واره یک تغییر فرضی ناسازگار را مشخص کرده</figcaption></figure></main>
 <footer><div class="wrap"><a href="/projects/"><span class="" data-en="All projects" data-fa="همهٔ پروژه‌ها" >همهٔ پروژه‌ها</span></a><a href="https://github.com/mrzroot/agentcontract">GitHub ↗</a></div></footer>
 <script>'use strict';
 (() => {
@@ -226,5 +278,121 @@ agentcontract diff v1_tools.json v2_tools.json --json</code></pre></div></sectio
  }
  new MutationObserver(refresh).observe(fixture,{childList:true});
  refresh();
+})();
+</script><script>(() => {
+ const slug='agentcontract', d=document, stage=d.getElementById('motion-stage'), fixture=d.getElementById('fixture');
+ if(!stage||!fixture) return;
+ const by=x=>d.getElementById(x), t=(en,fa)=>d.documentElement.lang==='fa'?fa:en;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const motion=new Set();
+ function cancel(){for(const a of motion)a.cancel();motion.clear();}
+ function play(el,keyframes,opts){
+  if(reduced.matches||!el.animate)return;
+  const a=el.animate(keyframes,opts);motion.add(a);
+  a.addEventListener('finish',()=>motion.delete(a),{once:true});
+ }
+ function make(tag,cls,text){
+  const el=d.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;
+ }
+ function rag(){
+  const text='Read the local guide. Retry tokens expire. Read the retry token from the test fixture.';
+  const size=+by('length').value,overlap=+by('overlap').value;
+  const term='retry token',idx=text.lastIndexOf(term),stop=idx+term.length;
+  const shell=make('div','scan-shell'),ruler=make('div','scan-ruler'),track=make('div','scan-track'),beam=make('div');
+  ruler.append(make('span','',t('TEXT SCAN','اسکن متن')),make('span','',String(size)+' / '+String(overlap)));
+  beam.dataset.beam='';
+  const cells=[];let fit=false;
+  for(let start=0;start<text.length;start+=size-overlap){
+   const end=Math.min(text.length,start+size),len=end-start;
+   const lo=Math.max(start,idx),hi=Math.min(end,stop);
+   const cell=make('div','scan-block');cell.style.flexGrow=String(len);cell.style.flexBasis='0px';
+   if(hi>lo){
+    const mark=make('i');mark.style.left=(lo-start)/len*100+'%';mark.style.width=(hi-lo)/len*100+'%';cell.append(mark);
+    if(lo===idx&&hi===stop)fit=true;
+   }
+   cells.push(cell);
+   if(end===text.length)break;
+  }
+  track.append(...cells);
+  const label=make('b','',fit?t('PHRASE INTACT','عبارت سالم'):t('FRACTURE FOUND','شکست پیدا شد'));label.dataset.seam='';
+  shell.append(ruler,track,beam,label);stage.replaceChildren(shell);
+  shell.dataset.phrase=fit?'intact':'fracture';
+  const width=Math.max(90,shell.getBoundingClientRect().width);
+  play(beam,[{transform:'translateX(0px)',opacity:0},{transform:'translateX(10px)',opacity:1,offset:.08},{transform:'translateX('+width+'px)',opacity:1,offset:.9},{transform:'translateX('+width+'px)',opacity:0}],{duration:780,easing:'cubic-bezier(.25,.65,.35,1)'});
+  cells.forEach((x,i)=>play(x,[{opacity:.4,transform:'scaleY(.55)'},{opacity:1,transform:'scaleY(1)'}],{duration:280,delay:Math.min(i*40,450),easing:'ease-out',fill:'backwards'}));
+ }
+ const svgNS='http://www.w3.org/2000/svg';
+ function svg(tag,attrs,cls){
+  const el=d.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(cls)el.setAttribute('class',cls);return el;
+ }
+ function route(){
+  const unavailable=by('primary').value==='1',credits=2-(+by('budget').value),id=credits<(unavailable?1:2)?'cap':unavailable?'fail':'ready';
+  const pic=svg('svg',{viewBox:'0 0 320 112'});
+  const ys={ready:22,fail:56,cap:90};
+  const names={ready:t('PRIMARY','اصلی'),fail:t('FALLBACK','پشتیبان'),cap:t('BUDGET STOP','توقف بودجه')};
+  let selected;
+  for(const name of Object.keys(ys)){
+   const y=ys[name], active=id===name;
+   const exact='M20,56 H105 C130,56 134,'+y+' 162,'+y+' H230';
+   const path=svg('path',{d:exact,'data-active':active},'route-wire'); if(active)selected=path;
+   const lamp=svg('circle',{cx:230,cy:y,r:5,'data-active':active},'route-lamp');
+   const label=svg('text',{x:242,y:y+3},'route-node-label');label.textContent=names[name];
+   pic.append(path,lamp,label);
+  }
+  pic.append(svg('circle',{cx:20,cy:56,r:5,'data-active':'true'},'route-lamp'));
+  const packet=svg('circle',{cx:0,cy:0,r:4,opacity:0},'route-packet');pic.append(packet);
+  stage.replaceChildren(pic);stage.dataset.route=id;
+  const total=selected.getTotalLength(),frames=[];
+  for(let x=0;x<=24;x++){const p=selected.getPointAtLength(total*x/24);frames.push({transform:'translate('+p.x+'px,'+p.y+'px)',opacity:x===0||x===24?0:1,offset:x/24});}
+  play(packet,frames,{duration:850,easing:'ease-in-out'});
+ }
+ function bisect(){
+  const panel=make('div','probe-pad'),caption=make('div','probe-caption'),windowEl=make('div','probe-window'),band=make('div','probe-band'),pin=make('div','probe-pin');
+  const revisions=[...fixture.children].map(x=>+x.textContent.match(/\d+/)?.[0]).filter(Number.isFinite), threshold=+by('first-bad').value;
+  let lo=0,hi=16;
+  const bands=[{left:'0%',width:'100%'}], pins=[{left:'0%',opacity:0}];
+  for(const mid of revisions){
+   if(mid>=threshold)hi=mid;else lo=mid;
+   bands.push({left:(100*lo/16)+'%',width:(100*(hi-lo)/16)+'%'});
+   pins.push({left:(100*mid/16)+'%',opacity:1});
+  }
+  const final=bands[bands.length-1];Object.assign(band.style,final);
+  if(revisions.length){pin.style.left=(100*threshold/16)+'%';pin.style.opacity='1';}
+  caption.append(make('span','',t('PROBE WINDOW','پنجرهٔ آزمون')),make('span','',revisions.length?t(revisions.length+' PROBES',revisions.length+' آزمون'):t('16 REVISIONS','۱۶ نسخه')));
+  windowEl.append(band,pin);panel.append(caption,windowEl);stage.replaceChildren(panel);
+  stage.dataset.probes=String(revisions.length);
+  if(revisions.length){
+   for(const f of bands)f.easing='steps(1,end)';
+   for(const f of pins)f.easing='steps(1,end)';
+   pins.push({left:(100*threshold/16)+'%',opacity:1});
+   play(band,bands,{duration:950});play(pin,pins,{duration:950});
+  }else{play(band,[{opacity:.35},{opacity:1}],{duration:450});}
+ }
+ function contract(){
+  const change=+by('change').value, panel=make('div','schema-rows');
+  const CLIENTS=[
+   [t('Draft only','فقط متن'),{body:'Demo'}],
+   [t('Draft + title','متن و عنوان'),{body:'Demo',title:'Example'}],
+   [t('Long draft','پیش‌نویس بلند'),{body:'Long fictional example'}]
+  ];
+  let passes=0;
+  for(const [idx,[name,payload]] of CLIENTS.entries()){
+   const pass=(change===1?typeof payload.title==='string':true) && (change===2?typeof payload.body==='number':typeof payload.body==='string');
+   if(pass)passes++;
+   const row=make('div','schema-row'),badge=make('b','',pass?t('PASS','معتبر'):t('BLOCK','ناسازگار'));
+   row.dataset.pass=String(pass);row.append(make('i','',name),badge);panel.append(row);
+   play(badge,[{opacity:.15,transform:'translateX(7px) scale(.94)'},{opacity:1,transform:'translateX(0) scale(1)'}],{duration:320,delay:90*idx,easing:'ease-out',fill:'backwards'});
+  }
+  stage.replaceChildren(panel);stage.dataset.passes=String(passes);
+  play(panel,[{background:'color-mix(in srgb,var(--labaccent) 25%,transparent)'},{background:'transparent'}],{duration:530});
+ }
+ const f={ragxray:rag,routefall:route,promptbisect:bisect,agentcontract:contract}[slug];
+ const draw=()=>{cancel();f();};
+ let scheduled=false;
+ function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;draw();});}
+ new MutationObserver(schedule).observe(fixture,{childList:true});
+ new MutationObserver(schedule).observe(d.documentElement,{attributes:true,attributeFilter:['lang']});
+ reduced.addEventListener?.('change',schedule);
+ draw();
 })();
 </script></body></html>
