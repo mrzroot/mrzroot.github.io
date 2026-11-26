@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="agentcontract">
+  <defs>
+    <pattern id="g-light" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ebdfc8" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="400" fill="#faf4e6"/>
+  <rect width="640" height="400" fill="url(#g-light)"/>
+  <rect x="28" y="24" width="584" height="352" rx="18" fill="#fffdf8" stroke="#d8c7ab" stroke-width="1.5"/>
+  <circle cx="54" cy="48" r="5" fill="#b8470a" opacity="0.8"/>
+  <circle cx="72" cy="48" r="5" fill="#d8c7ab"/>
+  <text x="588" y="53" text-anchor="end" fill="#5e5042" font-family="ui-monospace,Consolas,monospace" font-size="13">TOOL CONTRACTS</text>
+  <line x1="28" y1="68" x2="612" y2="68" stroke="#d8c7ab" stroke-width="1"/>
+  
+  <rect x="74" y="108" width="220" height="162" rx="10" fill="#faf4e6" stroke="#d8c7ab"/>
+  <text x="92" y="138" fill="#b8470a" font-family="ui-monospace,monospace" font-size="13">TOOL CONTRACT SCHEMA</text>
+  <text x="92" y="166" fill="#5e5042" font-family="ui-monospace,monospace" font-size="12">additionalProps: false</text>
+  <text x="92" y="190" fill="#5e5042" font-family="ui-monospace,monospace" font-size="12">maxLength: 64 | enum</text>
+  <text x="92" y="214" fill="#059669" font-family="ui-monospace,monospace" font-size="12">DIFF GATE: 0 breaking</text>
+  <rect x="318" y="108" width="250" height="162" rx="10" fill="#faf4e6" stroke="#b8470a" stroke-width="1.5"/>
+  <text x="336" y="138" fill="#b8470a" font-family="ui-monospace,monospace" font-size="13">ADVERSARIAL FUZZER</text>
+  <text x="336" y="166" fill="#1c1610" font-family="ui-monospace,monospace" font-size="12">../../etc/passwd</text>
+  <text x="336" y="190" fill="#1c1610" font-family="ui-monospace,monospace" font-size="12">safe_U+202Eexe.txt</text>
+  <text x="336" y="214" fill="#5e5042" font-family="ui-monospace,monospace" font-size="12">required-omitted · NaN</text>
+  <text x="54" y="346" fill="#1c1610" font-family="system-ui,Segoe UI,sans-serif" font-weight="800" font-size="28">agentcontract</text>
+  <rect x="520" y="324" width="68" height="24" rx="12" fill="#b8470a" fill-opacity="0.16" stroke="#b8470a" stroke-opacity="0.45"/>
+  <text x="554" y="340" text-anchor="middle" fill="#b8470a" font-family="ui-monospace,Consolas,monospace" font-weight="700" font-size="12">v1.0.0</text>
+</svg>
