@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Capture MCP stdio exchanges in a cassette, replay them without a live upstream, and detect breaking tool-schema changes before release.">
+<meta name="theme-color" content="#131c2e">
+<meta property="og:title" content="mcptape · mrzroot">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrzroot.github.io/showcase/mcptape/">
+<link rel="canonical" href="https://mrzroot.github.io/showcase/mcptape/">
+<link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<title>mcptape · mrzroot project lab</title>
+<style>@font-face{font-family:Vazirmatn;src:url('/assets/fonts/Vazirmatn-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:4.3rem}html[data-theme=dark]{color-scheme:dark}body{margin:0;background:var(--bg);color:var(--ink);font:420 1rem/1.68 Vazirmatn,sans-serif;overflow-wrap:break-word}button,input,select,code,pre{font-family:inherit}
+body{--bg:#eaf1ff;--paper:#f8faff;--ink:#142142;--sub:#4e5d7b;--accent:#294bbb;--hot:#e1e9ff;--rule:#baceee;--shadow:#162e9c15}
+[data-theme=dark] body{--bg:#101827;--paper:#19243a;--ink:#e9efff;--sub:#b6c6e6;--accent:#afc1ff;--hot:#2a3a69;--rule:#465c87;--shadow:#0004}
+body.tokenxray{--bg:#f8efd8;--paper:#fffaf0;--ink:#2b2317;--sub:#594c35;--accent:#974214;--hot:#ffe1b1;--rule:#d9b889;--shadow:#78410017}
+[data-theme=dark] body.tokenxray{--bg:#211912;--paper:#33271e;--ink:#fff1d9;--sub:#d8c2aa;--accent:#ffb979;--hot:#573722;--rule:#7a5940}
+body.slopguard{--bg:#ebf5ef;--paper:#f7fcf8;--ink:#142a1e;--sub:#425a4e;--accent:#19613c;--hot:#d1eddc;--rule:#a4c7b0;--shadow:#0a472014}
+[data-theme=dark] body.slopguard{--bg:#141f1a;--paper:#1e3328;--ink:#edfbf2;--sub:#b9dbca;--accent:#a1eab9;--hot:#305940;--rule:#477b5c}
+body.agentfence{--bg:#f3effc;--paper:#fffaff;--ink:#261e3b;--sub:#5c516d;--accent:#6942ae;--hot:#eadcfa;--rule:#c9b6e7;--shadow:#4c228c19}
+[data-theme=dark] body.agentfence{--bg:#211a32;--paper:#2b2241;--ink:#faeeff;--sub:#d6c8e7;--accent:#d2aeff;--hot:#4e356b;--rule:#775a99}
+html[lang=en] [lang=fa],html[lang=fa] [lang=en]{display:none!important}
+a{color:inherit;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid var(--accent);outline-offset:4px}button{color:inherit;cursor:pointer;font-weight:700;font-size:.9rem}h1,h2,h3,p,pre{margin:0}h1{font-size:clamp(2.4rem,5.3vw,5.2rem);line-height:1.025;letter-spacing:-.053em}html[lang=fa] h1{letter-spacing:0;line-height:1.31;font-size:clamp(2rem,4.4vw,4.4rem)}h2{font-size:clamp(1.42rem,2.7vw,2.1rem);line-height:1.32}h3{font-size:1.03rem;line-height:1.45}
+.frame{width:min(1210px,calc(100% - 2*clamp(18px,4vw,56px)));margin-inline:auto}.skip{position:fixed;inset-inline-start:1rem;inset-block-start:-100vh;z-index:80;background:var(--paper);padding:10px}.skip:focus{inset-block-start:10px}
+.top{position:sticky;inset-block-start:0;z-index:5;background:var(--bg);border-block-end:1px solid var(--rule)}.top-inner,.top nav{display:flex;align-items:center;flex-wrap:wrap;gap:.52rem}.top-inner{min-height:64px;justify-content:space-between}.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none}.brand>span:first-child{color:var(--accent);font-size:1.43rem}.brand-projects{font-size:.85rem;color:var(--sub)}.top button,.choices button{border:1px solid var(--rule);background:var(--paper);border-radius:10px;min-height:42px;padding:.44rem .77rem}
+.hero{display:grid;align-items:center;gap:clamp(20px,5vw,67px);margin-block:clamp(25px,5vw,62px)}.story{min-width:0}.brow{font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--accent)}html[lang=fa] .brow{letter-spacing:0}.wordmark{font-weight:800;font-size:clamp(1.08rem,2.4vw,1.42rem);color:var(--accent);margin-block:.8rem .5rem;text-align:start}html[lang=fa] .wordmark{text-align:right}.lead{max-width:56ch;color:var(--sub);margin-block:1.25rem 1.45rem;font-size:clamp(1rem,1.45vw,1.14rem)}
+.actions,.facts{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}.actions a{display:inline-flex;gap:.55rem;align-items:center;min-height:44px;padding:.47rem .78rem;border-radius:9px;font-weight:780;font-size:.86rem;text-decoration:none}.primary{background:var(--accent);color:var(--paper)}.quiet{background:var(--paper);border:1px solid var(--rule)}.actions a:hover{outline:1px solid var(--accent)}
+.facts{margin-block-start:1.1rem}.facts>span{border-block-start:2px solid var(--rule);padding:.25rem .14rem .15rem;font-size:.82rem;color:var(--sub)}
+#demo{padding:clamp(18px,4vw,34px);border:1px solid var(--rule);border-radius:18px;background:var(--paper);box-shadow:0 16px 42px var(--shadow);min-width:0;margin-block:20px}.labhead h2{margin-block:.4rem}.labhead p:not(.brow){color:var(--sub);max-width:63ch}.choices{display:flex;flex-wrap:wrap;gap:.5rem;margin-block:1.2rem}.choices [aria-pressed=true]{background:var(--hot);border-color:var(--accent);color:var(--accent)}
+#result{min-height:10rem}.rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.6rem;min-width:0}.rec strong{grid-column:1/-1;direction:ltr;text-align:start;font-size:.85rem;color:var(--accent)}.rec article,.flow article,.check{padding:.88rem;border:1px solid var(--rule);border-radius:10px;background:var(--bg)}.rec p,.flow p,.check p{margin-block:.42rem;color:var(--sub);font-size:.87rem}
+.stat{font-weight:800;font-size:clamp(1.35rem,4vw,2.35rem);font-variant-numeric:tabular-nums;color:var(--accent)}.bar{display:flex;gap:2px;height:23px;border-radius:999px;background:var(--hot);overflow:hidden;margin:.7rem 0}.bar i{display:block;background:var(--accent);opacity:.9}.bar i:nth-child(2){opacity:.68}.bar i:nth-child(3){opacity:.42}.legend{display:flex;flex-wrap:wrap;list-style:none;gap:.35rem .9rem;padding:0;margin:.55rem 0;font-size:.88rem}.legend b{color:var(--accent);font-variant-numeric:tabular-nums}.find{background:var(--hot);border-inline-start:4px solid var(--accent);padding:.55rem .8rem;font-size:.91rem;margin-top:1rem;color:var(--ink)}
+.check h3{font-size:1.28rem}.check strong,.flow .tag{color:var(--accent);font-size:.83rem}.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}.flow .blocked{border-inline-start:4px solid var(--accent)}
+.proof{padding-block:clamp(20px,5vw,60px)}.proof h2{margin-block-end:1rem}.capabilities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.capabilities article{background:var(--paper);padding:1rem;border:1px solid var(--rule);min-width:0}.capabilities p,.next p{margin-block:.45rem;color:var(--sub)}.step{color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;margin-block-end:.3rem;display:block}.next{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;padding:clamp(18px,4vw,38px);border:1px solid var(--rule);background:var(--paper);border-radius:14px;align-items:center}.next pre{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid var(--rule);border-radius:8px;background:var(--bg);margin-top:.55rem;padding:.55rem;text-align:left;line-height:1.5}.foot{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-block:2.2rem 1rem;padding-block:1rem;border-block-start:1px solid var(--rule);color:var(--sub);font-size:.82rem}.foot-font{margin-inline-start:auto}
+.mcptape .hero{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)}.mcptape #demo{border-radius:8px;box-shadow:0 12px 0 -7px var(--rule),0 22px 0 -13px var(--rule);background-image:repeating-linear-gradient(0deg,transparent 0 34px,var(--shadow) 35px 36px)}.mcptape .capabilities article{border-block-start:4px solid var(--accent)}
+.tokenxray .hero{padding:clamp(18px,4vw,54px);border-block:2px solid var(--rule);background:repeating-linear-gradient(0deg,transparent 0 33px,var(--shadow) 34px 35px)}.tokenxray h1{max-width:16ch}.tokenxray #demo{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);grid-template-rows:auto 1fr;column-gap:1.25rem}.tokenxray #result{grid-column:2;grid-row:1/3;align-self:center}.tokenxray .capabilities article{border-radius:14px}.tokenxray .next{border-top:4px solid var(--accent)}
+.slopguard .hero{border-inline-start:6px solid var(--accent);padding-inline:clamp(16px,3vw,38px);background:radial-gradient(circle at 95% 30%,var(--hot),transparent 59%)}.slopguard h1{max-width:20ch}.slopguard .proof{padding-block-start:0}.slopguard .capabilities article{border-radius:6px;border-block-end:3px solid var(--accent)}.slopguard #demo{border-radius:5px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.4rem 1rem}.slopguard #demo .choices{grid-column:1}.slopguard #result{grid-row:1/3;grid-column:2;align-self:center}
+.agentfence .hero{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}.guardmap{min-height:14rem;background:var(--hot);border:1px solid var(--rule);border-radius:4.4rem 4.4rem 1.25rem 1.25rem;padding:1rem;color:var(--accent);display:grid;place-items:center;gap:.45rem}.guardmap span{font-size:.75rem;text-align:center;min-width:9rem;border-block-end:1px solid var(--rule);font-weight:800;direction:ltr;padding:.25rem}.guardicon{width:min(8rem,75%);color:var(--accent)}.guardicon svg{display:block;width:100%;height:auto}.agentfence #demo{border-inline-start:6px solid var(--accent)}.agentfence .capabilities article{border-radius:1.1rem}
+@media(max-width:780px){.mcptape .hero,.agentfence .hero,.slopguard #demo,.tokenxray #demo,.next{grid-template-columns:minmax(0,1fr)}.tokenxray #result,.slopguard #result{grid-column:1;grid-row:auto}.capabilities,.flow{grid-template-columns:minmax(0,1fr)}.guardmap{min-height:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem;border-radius:1.2rem}.guardicon{grid-column:1/-1;width:65px}.guardmap span{min-width:0}}
+@media(max-width:430px){.brand-projects{display:none}.top nav{margin-inline-start:auto}.rec{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script>(function(){var e=document.documentElement,l='fa',t='light';try{var q=new URLSearchParams(location.search),h=localStorage.getItem('mrz-lang');l=q.get('lang')||h||'fa';t=localStorage.getItem('mrz-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(a){}if(l!=='en')l='fa';e.lang=l;e.dir=l==='fa'?'rtl':'ltr';e.dataset.theme=t==='dark'?'dark':'light'})()</script>
+</head>
+<body class="mcptape">
+<a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fa">رفتن به محتوا</span></a>
+<header class="top"><div class="frame top-inner"><a class="brand" data-locale-link href="/projects/"><span aria-hidden="true">◈</span> <bdi>mrzroot</bdi> <span class="brand-projects"><span lang="en">All projects</span><span lang="fa">همهٔ پروژه‌ها</span></span></a><nav aria-label="Project / پروژه"><button type="button" id="lang" aria-label="Change language"><span lang="en">فارسی</span><span lang="fa">EN</span></button><button type="button" id="theme"><span lang="en">Theme</span><span lang="fa">پوسته</span></button></nav></div></header>
+<main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">MCP / OFFLINE TESTING</span><span lang="fa">آزمایش آفلاین MCP</span></p><p class="wordmark" dir="ltr">mcptape</p><h1 id="title"><span lang="en">Record once. Replay on demand.</span><span lang="fa">یک بار ضبط کن. هر بار بازپخش کن.</span></h1><p class="lead"><span lang="en">Capture MCP stdio exchanges in a cassette, replay them without a live upstream, and detect breaking tool-schema changes before release.</span><span lang="fa">گفت‌وگوی MCP روی stdio را در یک فایل کاست ضبط کن، بدون اتصال به سرویس اصلی بازپخش کن و تغییرات ناسازگار ابزارها را قبل از انتشار ببین.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/mcptape"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Node.js 18+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title"><header class="labhead"><p class="brow"><span lang="en">INTERACTIVE EXAMPLE</span><span lang="fa">نمونهٔ تعاملی</span></p><h2 id="lab-title"><span lang="en">Cassette console</span><span lang="fa">کنسول کاست</span></h2><p><span lang="en">This sample uses one fictional document lookup. Switch between the recorded exchange, an offline replay, and a schema comparison.</span><span lang="fa">این نمونهٔ ساختگی، یک جست‌وجوی سند را نشان می‌دهد. بین ضبط، بازپخش آفلاین و مقایسهٔ طرح‌واره جابه‌جا شو.</span></p></header><div role="group" class="choices" aria-label="نمونه‌ها / Examples"><button type="button" data-sample="0" aria-pressed="true"><span lang="en">Record</span><span lang="fa">ضبط</span></button><button type="button" data-sample="1" aria-pressed="false"><span lang="en">Replay</span><span lang="fa">بازپخش</span></button><button type="button" data-sample="2" aria-pressed="false"><span lang="en">Schema diff</span><span lang="fa">مقایسهٔ طرح‌واره</span></button></div><div id="result" aria-live="polite" aria-atomic="true"></div><noscript><p><span lang="en">The sample needs JavaScript. The project links and documentation are available below.</span><span lang="fa">نمونهٔ تعاملی به جاوااسکریپت نیاز دارد. پیوند پروژه و مستندات در ادامه در دسترس‌اند.</span></p></noscript></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Record a session</span><span lang="fa">ضبط نشست</span></h3><p><span lang="en">Captures JSON-RPC traffic in NDJSON or Content-Length framing.</span><span lang="fa">ترافیک JSON-RPC را با قالب NDJSON یا Content-Length ضبط می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Replay without the upstream</span><span lang="fa">بازپخش بدون سرویس اصلی</span></h3><p><span lang="en">Replay recorded exchanges offline. Seeded error and latency simulation are intended for resilient CI tests.</span><span lang="fa">تبادل ضبط‌شده را آفلاین بازپخش می‌کند. شبیه‌سازی تکرارپذیر خطا و تأخیر برای آزمون پایداری CI است.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Review compatibility</span><span lang="fa">بررسی سازگاری</span></h3><p><span lang="en">Removed tools, new required inputs, and changed parameter types can fail a compatibility check.</span><span lang="fa">حذف ابزار، اجباری‌شدن ورودی و تغییر نوع پارامتر می‌تواند بررسی سازگاری را ناموفق کند.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help</code></pre></div><div><p><span lang="en">The project tests a record → inspect → replay round trip for both framing formats and a breaking schema diff.</span><span lang="fa">تست‌های پروژه چرخهٔ ضبط، بررسی و بازپخش را در هر دو قالب پیام و تشخیص تغییر ناسازگار را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/mcptape/blob/HEAD/test/mcptape.test.mjs"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/mcptape/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/mcptape/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
+<footer class="frame foot"><bdi>mcptape</bdi><span><span lang="en">Open-source project · MIT</span><span lang="fa">پروژهٔ متن‌باز · MIT</span></span><a href="/assets/fonts/OFL-Vazirmatn.txt" class="foot-font"><span lang="en">Vazirmatn license</span><span lang="fa">مجوز وزیرمتن</span></a></footer>
+<script id="sample-data" type="application/json">[["REC / 01","REQUEST","درخواست","The sample asks a harmless fictional documents tool for the guide.","نمونه از ابزار فرضی اسناد، راهنما را درخواست می‌کند.","RESPONSE","پاسخ","The fixture returns one item: Project guide.","فایل نمونه یک مورد برمی‌گرداند: راهنمای پروژه."],["PLAY / 02","SOURCE","منبع","The previously recorded response is served from the cassette.","پاسخ ضبط‌شده از فایل کاست خوانده می‌شود.","UPSTREAM","سرویس اصلی","No live upstream is used in this example.","در این نمونه سرویس اصلی فراخوانی نمی‌شود."],["DIFF / 03","CHANGE","تغییر","Version 2 adds a required language input to the fictional tool.","نسخهٔ دوم، ورودی زبان را برای ابزار فرضی اجباری می‌کند.","RESULT","نتیجه","Breaking change: older clients may omit the new input.","تغییر ناسازگار است: کلاینت قدیمی شاید ورودی جدید را نفرستد."]]</script><script>(() => {
+  'use strict';
+  const root = document.documentElement;
+  const slug = document.body.className;
+  const samples = JSON.parse(document.getElementById('sample-data').textContent);
+  const options = [...document.querySelectorAll('[data-sample]')];
+  const result = document.getElementById('result');
+  const labels = (en,fa) => root.lang === 'fa' ? fa : en;
+  const el = (tag, text, name) => {
+    const node = document.createElement(tag);
+    if (text !== undefined) node.textContent = text;
+    if (name) node.className = name;
+    return node;
+  };
+  const box = (title, description) => {
+    const node = el('article');
+    node.append(el('h3',title), el('p',description));
+    return node;
+  };
+  let current = 0;
+  function render() {
+    const s = samples[current], i=root.lang==='fa'?1:0;
+    let view;
+    if (slug==='mcptape') {
+      view=el('div',undefined,'rec');
+      view.append(el('strong',s[0]),box(labels(s[1],s[2]),labels(s[3],s[4])),box(labels(s[5],s[6]),labels(s[7],s[8])));
+    } else if(slug==='tokenxray') {
+      view=el('div');
+      const bar=el('div',undefined,'bar'); bar.setAttribute('aria-hidden','true');
+      const list=el('ul',undefined,'legend');
+      const n=new Intl.NumberFormat(root.lang,{style:'percent'});
+      for(let j=0;j<s[0].length;j++){
+        const piece=el('i'); piece.style.width=s[0][j]+'%'; bar.append(piece);
+        const line=el('li');line.append(el('b',n.format(s[0][j]/100)), document.createTextNode(' · '+s[j+1][i]));list.append(line);
+      }
+      view.append(el('div',s[4][i],'stat'),bar,list,el('p',s[5][i],'find'));
+    } else if(slug==='slopguard') {
+      view=el('div',undefined,'check');
+      view.append(el('strong',s[i]),el('h3',s[2+i]),el('p',s[4+i]));
+    } else {
+      view=el('div',undefined,'flow');
+      const decision=box(labels('01 · Policy','۰۱ · سیاست'),s[2+i]);
+      decision.append(el('div',s[i],'tag'));
+      if (s[0]==='BLOCK') decision.classList.add('blocked');
+      view.append(decision,box(labels('02 · Impact','۰۲ · دامنهٔ اثر'),s[4+i]),box(labels('03 · Ledger','۰۳ · دفتر رویداد'),s[6+i]));
+    }
+    result.replaceChildren(view);
+    options.forEach((b,j)=>b.setAttribute('aria-pressed',String(j===current)));
+  }
+  const lang = document.getElementById('lang');
+  const theme = document.getElementById('theme');
+  function syncLinks(){
+    document.querySelectorAll('[data-locale-link]').forEach(a=>{
+      const target=new URL(a.getAttribute('href'),location.origin);
+      target.searchParams.set('lang',root.lang);a.href=target.pathname+target.search;
+    });
+    lang.setAttribute('aria-label',labels('Switch to Persian','تغییر زبان به انگلیسی'));
+    theme.setAttribute('aria-label',root.dataset.theme==='dark'?labels('Switch to light theme','تغییر به پوستهٔ روشن'):labels('Switch to dark theme','تغییر به پوستهٔ تیره'));
+    theme.setAttribute('aria-pressed',String(root.dataset.theme==='dark'));
+  }
+  lang.addEventListener('click',()=>{
+    root.lang=root.lang==='fa'?'en':'fa';
+    root.dir=root.lang==='fa'?'rtl':'ltr';
+    try{localStorage.setItem('mrz-lang',root.lang);const next=new URL(location.href);next.searchParams.set('lang',root.lang);history.replaceState(null,'',next)}catch(_){}
+    syncLinks();render();
+  });
+  theme.addEventListener('click',()=>{
+    root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+    try{localStorage.setItem('mrz-theme',root.dataset.theme)}catch(_){}
+    syncLinks();
+  });
+  options.forEach((button,index)=>button.addEventListener('click',()=>{current=index;render()}));
+  syncLinks();
+  render();
+})();
+</script>
+<script>(()=>{const root=document.documentElement;const sync=()=>{const l=root.lang==="fa"?"fa":"en";try{localStorage.setItem("mrz-lang",l)}catch(_){}for(const a of document.querySelectorAll('a[href^="/projects/"], a[data-original-link]')){const u=new URL(a.href);u.searchParams.set("lang",l);a.href=u.pathname+u.search+u.hash}};sync();new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:["lang"]})})()</script></body>
+</html>

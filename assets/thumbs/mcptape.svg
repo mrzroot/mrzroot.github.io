@@ -15,7 +15,7 @@
   <circle cx="54" cy="48" r="5" fill="#f2b84b" opacity="0.8"/>
   <circle cx="72" cy="48" r="5" fill="#3b2f23"/>
   <circle cx="90" cy="48" r="5" fill="#3b2f23"/>
-  <text x="588" y="53" text-anchor="end" fill="#b6a897" font-family="ui-monospace,Consolas,monospace" font-size="13" letter-spacing="1.2">MCP VCR & CHAOS</text>
+  <text x="588" y="53" text-anchor="end" fill="#b6a897" font-family="ui-monospace,Consolas,monospace" font-size="13" letter-spacing="1.2">MCP VCR &amp; CHAOS</text>
   <line x1="28" y1="68" x2="612" y2="68" stroke="#3b2f23" stroke-width="1"/>
   
   <rect x="130" y="106" width="380" height="176" rx="16" fill="#120e0a" stroke="#f2b84b" stroke-width="2"/>
