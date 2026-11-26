@@ -41,88 +41,158 @@ a{color:inherit;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}
 @media(max-width:430px){.brand-projects{display:none}.top nav{margin-inline-start:auto}.rec{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script>(function(){var e=document.documentElement,l='fa',t='light';try{var q=new URLSearchParams(location.search),h=localStorage.getItem('mrz-lang');l=q.get('lang')||h||'fa';t=localStorage.getItem('mrz-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(a){}if(l!=='en')l='fa';e.lang=l;e.dir=l==='fa'?'rtl':'ltr';e.dataset.theme=t==='dark'?'dark':'light'})()</script>
-</head>
-<body class="slopguard">
+<script>(function(){var e=document.documentElement,l='fa',t='light';try{var q=new URLSearchParams(location.search),h=localStorage.getItem('mrz-lang');l=q.get('lang')||h||'fa';t=localStorage.getItem('mrz-theme')||('light')}catch(a){}if(l!=='en')l='fa';e.lang=l;e.dir=l==='fa'?'rtl':'ltr';e.dataset.theme=t==='dark'?'dark':'light'})()</script>
+<style>/* Product-specific interactive stages, retaining the site shell and all existing URLs. */
+body.action-lab{--stage:#142034;--stage2:#243e56;--stageInk:#eff7ff;--stageSub:#bdcddd;--signal:#93def0;--edge:#45657a;--ab-shape:14px}
+body.action-lab.tokenxray{--stage:#fff3d8;--stage2:#eed9b4;--stageInk:#2f2116;--stageSub:#61503c;--signal:#864114;--edge:#b88e61;--ab-shape:5px}
+body.action-lab.slopguard{--stage:#eaf6ed;--stage2:#d1e9d6;--stageInk:#193627;--stageSub:#375b48;--signal:#12613a;--edge:#80af93;--ab-shape:9px}
+body.action-lab.agentfence{--stage:#272038;--stage2:#40365b;--stageInk:#f5edff;--stageSub:#d5c8e6;--signal:#cdb6fc;--edge:#7e6da1;--ab-shape:27px}
+html[data-theme=dark] body.action-lab.tokenxray{--stage:#322519;--stage2:#4e3927;--stageInk:#fff0d6;--stageSub:#e4c9a5;--signal:#ffc184;--edge:#8a5d39}
+html[data-theme=dark] body.action-lab.slopguard{--stage:#192d24;--stage2:#244736;--stageInk:#e7fff2;--stageSub:#bed8cb;--signal:#96e3b5;--edge:#568269}
+html[data-theme=light] body.action-lab.agentfence{--stage:#f3ecff;--stage2:#e6d8fb;--stageInk:#261e3b;--stageSub:#57486b;--signal:#64369d;--edge:#a98dc9}
+.action-lab .hero{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);align-items:center;gap:clamp(17px,5vw,67px);margin-block:clamp(25px,5vw,60px)}
+.action-lab .hero .story{grid-column:auto;grid-row:auto;max-width:none}
+.action-lab.mcptape .hero{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr)}
+.action-lab.tokenxray .hero{padding:0;border-block:0;background:none;align-items:stretch}
+.action-lab.tokenxray .hero .story{grid-column:2;grid-row:1;padding-block:1.1rem}
+.action-lab.tokenxray .hero #demo{grid-column:1;grid-row:1}
+.action-lab.slopguard .hero{padding:0;border:0;background:none;align-items:start;grid-template-columns:minmax(0,1fr)}
+.action-lab.slopguard .hero .story{border-inline-start:6px solid var(--accent);padding-inline-start:clamp(13px,4vw,34px);max-width:none}
+.action-lab.slopguard .hero .story h1{max-width:20ch}
+.action-lab.agentfence .hero{grid-template-columns:minmax(0,.81fr) minmax(0,1.19fr)}
+.action-lab .hero #demo.action-board{
+ display:block;margin:0;padding:clamp(13px,3vw,29px);background:var(--stage);color:var(--stageInk);border:1px solid var(--edge);border-radius:var(--ab-shape);min-width:0;max-width:100%;box-shadow:0 14px 32px var(--shadow)
+}
+.action-lab .hero #demo:focus{outline:none}
+.action-lab.mcptape .hero #demo{box-shadow:0 10px 0 -5px var(--stage2),0 20px 0 -11px var(--edge)}
+.action-lab.slopguard .hero #demo.action-board{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);column-gap:1.3rem;align-content:start}
+.action-lab.slopguard .action-board .ab-scene{grid-column:2;grid-row:1/6}
+.action-lab.slopguard .action-board h2,.action-lab.slopguard .action-board .ab-top,.action-lab.slopguard .action-board .ab-cases,.action-lab.slopguard .action-board .ab-transport,.action-lab.slopguard .action-board .ab-disclaimer{grid-column:1}
+.action-lab .action-board h2{font-size:clamp(1.33rem,2.55vw,2.1rem);margin-block:.65rem .75rem;letter-spacing:-.028em}
+html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
+.ab-top{display:flex;justify-content:space-between;align-items:center;gap:.4rem;font-size:.69rem;font-weight:800;letter-spacing:.08em}
+.ab-badge{display:inline-flex;align-items:center;gap:.44rem;color:var(--signal);white-space:nowrap;direction:ltr}.ab-badge i{width:.48rem;height:.48rem;border-radius:50%;background:currentColor;box-shadow:0 0 .55rem currentColor}
+.ab-context{color:var(--stageSub)}
+.ab-cases,.ab-transport{display:flex;flex-wrap:wrap;gap:.42rem;margin-block:.65rem}
+.action-board button{color:var(--stageInk);border:1px solid var(--edge);background:var(--stage);min-height:44px;border-radius:7px;padding:.38rem .58rem;font-size:.84rem;line-height:1.27}
+.action-board button:hover,.action-board button:focus-visible{border-color:var(--signal);outline-color:var(--signal)}
+.action-board [aria-pressed=true],.action-board [aria-current=step]{color:var(--signal);background:var(--stage2);border-color:var(--signal)}
+.action-board .ab-play{background:var(--signal);border-color:var(--signal);color:var(--stage);font-weight:800}
+.action-board button:disabled{opacity:.47;cursor:default}
+.ab-scene{padding:.66rem;background:var(--stage2);border:1px solid var(--edge);border-radius:calc(var(--ab-shape)*.55);position:relative;overflow:hidden;isolation:isolate}
+.ab-art{height:4.7rem;border:1px dashed var(--edge);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;margin-block-end:.58rem;overflow:hidden}
+.ab-art i{display:block;background:var(--signal);opacity:.28;transition:width .45s ease,opacity .35s ease,transform .45s ease}
+.ab-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.32rem;position:relative}
+.ab-nodes button{display:grid;text-align:start;gap:.10rem;min-width:0;white-space:normal}
+.ab-nodes b{font-size:.65rem;font-weight:800;direction:ltr;text-align:start;opacity:.7}
+#demo .ab-readout{min-height:6.3rem;padding:.58rem .3rem .08rem;line-height:1.47}
+#ab-readout p,.ab-readout p,.action-board .ab-disclaimer{font-size:.83rem;color:var(--stageSub)}
+.ab-state{display:block;color:var(--signal);font-weight:820;margin-block-end:.25rem}
+.action-board .ab-disclaimer{margin-block-start:.5rem;font-size:.73rem}
+.cassette .ab-art{gap:1.4rem;background:repeating-linear-gradient(90deg,transparent 0 17px,var(--edge) 18px 19px)}
+.cassette .ab-art i:first-child,.cassette .ab-art i:nth-child(3){width:2.45rem;height:2.45rem;background:none;border:5px dotted var(--signal);border-radius:50%;opacity:.7;transform:rotate(calc(var(--phase,0)*52deg))}
+.cassette .ab-art i:nth-child(2){width:28%;height:3px;opacity:1;border-radius:999px;clip-path:inset(0 calc(100% - var(--wire,25%)) 0 0);transition:clip-path .35s ease}
+.bars .ab-art{justify-content:flex-start;align-items:center;padding:0 .56rem;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--edge) calc(10% - 1px) 10%)}
+.bars .ab-art i:first-child{width:var(--spend,24%);height:60%;border-radius:2px;opacity:.76}
+.bars .ab-art i:nth-child(2){width:3px;height:68%;opacity:1}
+.bars .ab-art i:nth-child(3){display:none}
+.scan .ab-art{gap:.45rem;border-radius:2px;background:repeating-linear-gradient(0deg,transparent 0 12px,var(--edge) 13px 14px)}
+.scan .ab-art i{width:29%;height:1.4rem;position:relative;opacity:.22;border-radius:2px}
+.scan .ab-art i::after{content:"";position:absolute;inset:5px;border-block:1px solid var(--stageInk)}
+.scan [data-step="0"] .ab-art i:first-child,.scan [data-step="1"] .ab-art i:nth-child(2),.scan [data-step="2"] .ab-art i:last-child{opacity:.84;transform:translateY(-6px)}
+.fence .ab-art{gap:1.2rem;border-radius:24px;background:radial-gradient(ellipse,var(--edge),transparent 70%)}
+.fence .ab-art i{width:2rem;height:2rem;transform:rotate(45deg);border:1px solid var(--stageInk);border-radius:.35rem}
+.fence [data-step="0"] .ab-art i:first-child,.fence [data-step="1"] .ab-art i:nth-child(2),.fence [data-step="2"] .ab-art i:last-child{opacity:1}
+.fence [data-sample="2"] .ab-art i:nth-child(2){background:transparent;border:2px dashed var(--signal)}
+@media(max-width:820px){
+ .action-lab .hero{grid-template-columns:minmax(0,1fr)!important}
+ .action-lab.tokenxray .hero .story,.action-lab.tokenxray .hero #demo{grid-column:1;grid-row:auto}
+ .action-lab.slopguard .hero #demo.action-board{display:block}
+}
+@media(max-width:395px){
+ .action-board button{font-size:.78rem;padding:.37rem .43rem}
+ .ab-top{font-size:.63rem}
+ .ab-readout{min-height:6.9rem!important}
+ .ab-art{height:3.45rem}
+}
+@media(prefers-reduced-motion:reduce){.ab-art i{transition:none}}
+
+.ab-scrub{display:block;font-weight:750;font-size:.81rem;color:var(--stageSub);margin-block:.2rem .06rem}.action-board input[type=range]{width:100%;height:24px;accent-color:var(--signal);margin:0;cursor:ew-resize;direction:ltr}
+</style></head>
+<body class="slopguard action-lab">
 <a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="frame top-inner"><a class="brand" data-locale-link href="/projects/"><span aria-hidden="true">◈</span> <bdi>mrzroot</bdi> <span class="brand-projects"><span lang="en">All projects</span><span lang="fa">همهٔ پروژه‌ها</span></span></a><nav aria-label="Project / پروژه"><button type="button" id="lang" aria-label="Change language"><span lang="en">فارسی</span><span lang="fa">EN</span></button><button type="button" id="theme"><span lang="en">Theme</span><span lang="fa">پوسته</span></button></nav></div></header>
-<main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">QUALITY / PRE-COMMIT</span><span lang="fa">بازبینی کد پیش از کامیت</span></p><p class="wordmark" dir="ltr">slopguard</p><h1 id="title"><span lang="en">Verify the name before you trust the code.</span><span lang="fa">قبل از اعتماد به کد، نام‌ها را بررسی کن.</span></h1><p class="lead"><span lang="en">Review AI-generated imports, Python symbols, and command flags against the local environment and manifests. Start offline, before committing.</span><span lang="fa">واردکردن بسته‌ها، نام‌های پایتون و گزینه‌های خط فرمانِ ساخته‌شده با هوش مصنوعی را با محیط و فایل‌های وابستگی مقایسه کن؛ آفلاین، قبل از کامیت.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/slopguard"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Python 3.9+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Cross-check dependencies</span><span lang="fa">بررسی نام وابستگی‌ها</span></h3><p><span lang="en">Review suspect names against local manifests and the curated package corpus. A similar name is a signal, not a verdict.</span><span lang="fa">نام مشکوک را با فایل وابستگی و فهرست بسته‌ها مقایسه کن. شباهت نام سرنخ است، نه حکم قطعی.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Inspect code without running it</span><span lang="fa">بررسی کد بدون اجرا</span></h3><p><span lang="en">The Python scanner works on syntax trees and checks supported imports or symbols; the suite also checks JavaScript imports.</span><span lang="fa">پویش پایتون با درخت نحوی و بررسی نام‌ها و importهای پشتیبانی‌شده انجام می‌شود؛ تست‌ها ورودی جاوااسکریپت را هم پوشش می‌دهند.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Start with staged changes</span><span lang="fa">شروع با تغییرات آمادهٔ کامیت</span></h3><p><span lang="en">Scan newly staged lines for pre-commit review. Registry lookup is optional, not part of the offline path.</span><span lang="fa">برای بازبینی پیش از کامیت، خطوط تازهٔ آمادهٔ ثبت را بررسی کن. جست‌وجوی رجیستری اختیاری است و در مسیر آفلاین انجام نمی‌شود.</span></p></article></div></section><section id="demo" aria-labelledby="lab-title"><header class="labhead"><p class="brow"><span lang="en">INTERACTIVE EXAMPLE</span><span lang="fa">نمونهٔ تعاملی</span></p><h2 id="lab-title"><span lang="en">Three ways to inspect a finding</span><span lang="fa">سه راه برای بررسی یک هشدار</span></h2><p><span lang="en">Explore fictional findings. These examples are not executable and do not install, import, or query packages.</span><span lang="fa">هشدارهای ساختگی را بررسی کن. این نمونه‌ها اجرایی نیستند و هیچ بسته‌ای نصب، وارد یا جست‌وجو نمی‌شود.</span></p></header><div role="group" class="choices" aria-label="نمونه‌ها / Examples"><button type="button" data-sample="0" aria-pressed="true"><span lang="en">Dependency</span><span lang="fa">وابستگی</span></button><button type="button" data-sample="1" aria-pressed="false"><span lang="en">Symbol</span><span lang="fa">نام پایتون</span></button><button type="button" data-sample="2" aria-pressed="false"><span lang="en">CLI option</span><span lang="fa">گزینهٔ خط فرمان</span></button></div><div id="result" aria-live="polite" aria-atomic="true"></div><noscript><p><span lang="en">The sample needs JavaScript. The project links and documentation are available below.</span><span lang="fa">نمونهٔ تعاملی به جاوااسکریپت نیاز دارد. پیوند پروژه و مستندات در ادامه در دسترس‌اند.</span></p></noscript></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>slopguard scan --staged --strict</code></pre></div><div><p><span lang="en">Repository tests cover fake package names, unknown Python symbols, invented flags, and JavaScript imports.</span><span lang="fa">تست‌های مخزن نام بستهٔ ساختگی، نام ناشناختهٔ پایتون، گزینهٔ نامعتبر و import جاوااسکریپت را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/slopguard/blob/HEAD/tests/test_slopguard.py"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/slopguard/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/slopguard/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
+<main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">QUALITY / PRE-COMMIT</span><span lang="fa">بازبینی کد پیش از کامیت</span></p><p class="wordmark" dir="ltr">slopguard</p><h1 id="title"><span lang="en">Verify the name before you trust the code.</span><span lang="fa">قبل از اعتماد به کد، نام‌ها را بررسی کن.</span></h1><p class="lead"><span lang="en">Review AI-generated imports, Python symbols, and command flags against the local environment and manifests. Start offline, before committing.</span><span lang="fa">واردکردن بسته‌ها، نام‌های پایتون و گزینه‌های خط فرمانِ ساخته‌شده با هوش مصنوعی را با محیط و فایل‌های وابستگی مقایسه کن؛ آفلاین، قبل از کامیت.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/slopguard"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Python 3.9+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title" class="action-board scan" tabindex="-1"><div class="ab-top"><span class="ab-badge"><i></i>SCAN · 03</span><span class="ab-context"><span lang="en">LOCAL SIMULATION</span><span lang="fa">شبیه‌سازی محلی</span></span></div>
+ <h2 id="lab-title"><span lang="en">Inspect the review queue</span><span lang="fa">صف بازبینی را بررسی کن</span></h2><div class="ab-cases" role="group" aria-label="Fictional scenarios / سناریوهای ساختگی"><button type="button" data-case="0" aria-pressed="true"><span lang="en">Dependency</span><span lang="fa">وابستگی</span></button><button type="button" data-case="1" aria-pressed="false"><span lang="en">Python symbol</span><span lang="fa">نام پایتون</span></button><button type="button" data-case="2" aria-pressed="false"><span lang="en">CLI option</span><span lang="fa">گزینهٔ خط فرمان</span></button></div>
+ <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><i></i><i></i><i></i></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Observe</span><span lang="fa">مشاهده</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Cross-check</span><span lang="fa">تطبیق</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Review</span><span lang="fa">تصمیم</span></button></div>
+ <div class="ab-readout" id="result" aria-live="polite" aria-atomic="true"><span class="ab-state"><span lang="en">STAGED CHANGE</span><span lang="fa">تغییر آمادهٔ کامیت</span></span><p><span lang="en">The sample adds one dependency name.</span><span lang="fa">نمونه یک نام وابستگی اضافه می‌کند.</span></p></div></div>
+ <div class="ab-transport" role="group" aria-label="Playback / پخش"><button type="button" class="ab-play" data-run><span lang="en">Run mock review</span><span lang="fa">اجرای بازبینی نمونه</span></button><button type="button" data-prev><span lang="en">Back</span><span lang="fa">قبل</span></button><button type="button" data-next><span lang="en">Step</span><span lang="fa">بعد</span></button><button type="button" data-reset><span lang="en">Reset</span><span lang="fa">از اول</span></button></div>
+ <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Cross-check dependencies</span><span lang="fa">بررسی نام وابستگی‌ها</span></h3><p><span lang="en">Review suspect names against local manifests and the curated package corpus. A similar name is a signal, not a verdict.</span><span lang="fa">نام مشکوک را با فایل وابستگی و فهرست بسته‌ها مقایسه کن. شباهت نام سرنخ است، نه حکم قطعی.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Inspect code without running it</span><span lang="fa">بررسی کد بدون اجرا</span></h3><p><span lang="en">The Python scanner works on syntax trees and checks supported imports or symbols; the suite also checks JavaScript imports.</span><span lang="fa">پویش پایتون با درخت نحوی و بررسی نام‌ها و importهای پشتیبانی‌شده انجام می‌شود؛ تست‌ها ورودی جاوااسکریپت را هم پوشش می‌دهند.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Start with staged changes</span><span lang="fa">شروع با تغییرات آمادهٔ کامیت</span></h3><p><span lang="en">Scan newly staged lines for pre-commit review. Registry lookup is optional, not part of the offline path.</span><span lang="fa">برای بازبینی پیش از کامیت، خطوط تازهٔ آمادهٔ ثبت را بررسی کن. جست‌وجوی رجیستری اختیاری است و در مسیر آفلاین انجام نمی‌شود.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>slopguard scan --staged --strict</code></pre></div><div><p><span lang="en">Repository tests cover fake package names, unknown Python symbols, invented flags, and JavaScript imports.</span><span lang="fa">تست‌های مخزن نام بستهٔ ساختگی، نام ناشناختهٔ پایتون، گزینهٔ نامعتبر و import جاوااسکریپت را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/slopguard/blob/HEAD/tests/test_slopguard.py"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/slopguard/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/slopguard/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
 <footer class="frame foot"><bdi>slopguard</bdi><span><span lang="en">Open-source project · MIT</span><span lang="fa">پروژهٔ متن‌باز · MIT</span></span><a href="/assets/fonts/OFL-Vazirmatn.txt" class="foot-font"><span lang="en">Vazirmatn license</span><span lang="fa">مجوز وزیرمتن</span></a></footer>
-<script id="sample-data" type="application/json">[["PACKAGE","نام بسته","Fictional import is missing from the manifest.","نام بستهٔ فرضی در فایل وابستگی ثبت نشده.","Check the lockfile and the project’s own documentation before changing dependencies.","قبل از تغییر وابستگی‌ها، فایل قفل و مستندات خود پروژه را بررسی کن."],["SYMBOL","نام پایتون","The sample referent is not exposed by the independently selected local module.","نام نمونه در ماژول محلیِ انتخاب‌شده وجود ندارد.","Check the installed version’s public API. A dynamic symbol may need manual review.","رابط عمومی همان نسخهٔ نصب‌شده را بررسی کن. نام پویا ممکن است به بازبینی دستی نیاز داشته باشد."],["CLI FLAG","گزینهٔ خط فرمان","The example references an option absent from the version’s usage.","گزینهٔ نمونه در راهنمای همان نسخه وجود ندارد.","Confirm against built-in help before adopting the generated command.","قبل از استفاده از فرمان تولیدشده، گزینه را با راهنمای داخلی ابزار تطبیق بده."]]</script><script>(() => {
+<script id="action-data" type="application/json">{"id":"SCAN · 03","verb":["Run mock review","اجرای بازبینی نمونه"],"motif":"scan","title":["Inspect the review queue","صف بازبینی را بررسی کن"],"steps":[["Observe","مشاهده"],["Cross-check","تطبیق"],["Review","تصمیم"]],"runs":[[["Dependency","وابستگی"],["A fictional package missing from a manifest","نام بستهٔ فرضی در فهرست نیست"],[[["STAGED CHANGE","تغییر آمادهٔ کامیت"],["The sample adds one dependency name.","نمونه یک نام وابستگی اضافه می‌کند."]],[["MANIFEST MISMATCH","اختلاف با فایل وابستگی"],["The name has no entry in the sample lockfile.","این نام در فایل قفل نمونه ثبت نشده."]],[["REVIEW NEEDED","نیازمند بازبینی"],["Check the manifest and the project documentation before approving any dependency.","قبل از تأیید وابستگی، فایل وابستگی و مستندات پروژه را بررسی کن."]]]],[["Python symbol","نام پایتون"],["A reference absent from the local module","نامی که در ماژول محلی نیست"],[[["SYMBOL FOUND","نام پیدا شد"],["The review identifies a generated symbol reference.","در مرور کد یک ارجاع به نام تولیدشده پیدا شد."]],[["VERSION CHECK","بررسی نسخه"],["The sample version does not expose the reference.","نسخهٔ نمونه آن نام را در رابطش ندارد."]],[["MANUAL CHECK","بررسی دستی"],["Confirm the public API of the installed version. Dynamic names may need human review.","رابط عمومی نسخهٔ نصب‌شده را تأیید کن؛ نام پویا شاید بررسی انسانی لازم داشته باشد."]]]],[["CLI option","گزینهٔ خط فرمان"],["A flag absent from the bundled help","گزینه‌ای که در راهنمای ابزار نیست"],[[["OPTION FOUND","گزینه پیدا شد"],["The example identifies a generated command option, without running anything.","نمونه یک گزینهٔ تولیدشده را پیدا می‌کند، بدون اینکه چیزی اجرا شود."]],[["HELP CHECK","تطبیق راهنما"],["The option is missing from the matched version’s sample usage.","گزینه در راهنمای نمونهٔ همان نسخه وجود ندارد."]],[["DO NOT ASSUME","فرض نکن"],["Compare version-specific help before adopting generated instructions.","قبل از استفاده از دستور تولیدشده، راهنمای همان نسخه را ببین."]]]]]}</script><script>(() => {
   'use strict';
-  const root = document.documentElement;
-  const slug = document.body.className;
-  const samples = JSON.parse(document.getElementById('sample-data').textContent);
-  const options = [...document.querySelectorAll('[data-sample]')];
-  const result = document.getElementById('result');
-  const labels = (en,fa) => root.lang === 'fa' ? fa : en;
-  const el = (tag, text, name) => {
-    const node = document.createElement(tag);
-    if (text !== undefined) node.textContent = text;
-    if (name) node.className = name;
-    return node;
-  };
-  const box = (title, description) => {
-    const node = el('article');
-    node.append(el('h3',title), el('p',description));
-    return node;
-  };
-  let current = 0;
-  function render() {
-    const s = samples[current], i=root.lang==='fa'?1:0;
-    let view;
-    if (slug==='mcptape') {
-      view=el('div',undefined,'rec');
-      view.append(el('strong',s[0]),box(labels(s[1],s[2]),labels(s[3],s[4])),box(labels(s[5],s[6]),labels(s[7],s[8])));
-    } else if(slug==='tokenxray') {
-      view=el('div');
-      const bar=el('div',undefined,'bar'); bar.setAttribute('aria-hidden','true');
-      const list=el('ul',undefined,'legend');
-      const n=new Intl.NumberFormat(root.lang,{style:'percent'});
-      for(let j=0;j<s[0].length;j++){
-        const piece=el('i'); piece.style.width=s[0][j]+'%'; bar.append(piece);
-        const line=el('li');line.append(el('b',n.format(s[0][j]/100)), document.createTextNode(' · '+s[j+1][i]));list.append(line);
-      }
-      view.append(el('div',s[4][i],'stat'),bar,list,el('p',s[5][i],'find'));
-    } else if(slug==='slopguard') {
-      view=el('div',undefined,'check');
-      view.append(el('strong',s[i]),el('h3',s[2+i]),el('p',s[4+i]));
-    } else {
-      view=el('div',undefined,'flow');
-      const decision=box(labels('01 · Policy','۰۱ · سیاست'),s[2+i]);
-      decision.append(el('div',s[i],'tag'));
-      if (s[0]==='BLOCK') decision.classList.add('blocked');
-      view.append(decision,box(labels('02 · Impact','۰۲ · دامنهٔ اثر'),s[4+i]),box(labels('03 · Ledger','۰۳ · دفتر رویداد'),s[6+i]));
-    }
-    result.replaceChildren(view);
-    options.forEach((b,j)=>b.setAttribute('aria-pressed',String(j===current)));
+  const root=document.documentElement, board=document.getElementById('demo');
+  const data=JSON.parse(document.getElementById('action-data').textContent);
+  const q=s=>board.querySelector(s), all=s=>Array.from(board.querySelectorAll(s));
+  const cases=all('[data-case]'), phases=all('[data-phase]'), run=q('[data-run]'), prev=q('[data-prev]'), next=q('[data-next]'), reset=q('[data-reset]'), scene=q('.ab-scene'), result=q('.ab-readout');
+  const scrub=q('#budget-scrub');
+  const lang=document.getElementById('lang'), theme=document.getElementById('theme');
+  const pick=arr=>arr[root.lang==='fa'?1:0];
+  let sample=0, step=0, timer=0;
+  function paint(){
+    const row=data.runs[sample][2][step];
+    scene.dataset.step=step; scene.dataset.sample=sample;
+    scene.style.setProperty('--phase',step);
+    scene.style.setProperty('--wire',(((step+1)/3)*100)+'%');
+    if(row[2])scene.style.setProperty('--spend',row[2]+'%');
+    if(scrub){scrub.value=step;scrub.setAttribute('aria-valuetext',pick(row[0]));}
+    const title=result.querySelector('.ab-state'), detail=result.querySelector('p');
+    title.textContent=pick(row[0]);detail.textContent=pick(row[1]);
+    cases.forEach((btn,i)=>btn.setAttribute('aria-pressed',i===sample?'true':'false'));
+    phases.forEach((btn,i)=>btn.setAttribute('aria-current',i===step?'step':'false'));
+    prev.disabled=step===0;next.disabled=step===phases.length-1;
+    run.textContent=timer?pick(['Pause','مکث']):pick(data.verb);
   }
-  const lang = document.getElementById('lang');
-  const theme = document.getElementById('theme');
-  function syncLinks(){
-    document.querySelectorAll('[data-locale-link]').forEach(a=>{
-      const target=new URL(a.getAttribute('href'),location.origin);
-      target.searchParams.set('lang',root.lang);a.href=target.pathname+target.search;
+  function halt(){clearInterval(timer);timer=0;}
+  function setStep(n){halt();step=Math.max(0,Math.min(n,phases.length-1));paint();}
+  function play(){
+    if(timer){halt();paint();return;}
+    if(step>=phases.length-1)step=0;
+    timer=setInterval(()=>{
+      step++;
+      if(step>=phases.length-1){step=phases.length-1;halt();}
+      paint();
+    },900);
+    paint();
+  }
+  function sync(){
+    document.querySelectorAll('[data-locale-link],a[href^="/showcase/"]').forEach(a=>{
+      const u=new URL(a.getAttribute('href'),location.origin);
+      u.searchParams.set('lang',root.lang);a.href=u.pathname+u.search+u.hash;
     });
-    lang.setAttribute('aria-label',labels('Switch to Persian','تغییر زبان به انگلیسی'));
-    theme.setAttribute('aria-label',root.dataset.theme==='dark'?labels('Switch to light theme','تغییر به پوستهٔ روشن'):labels('Switch to dark theme','تغییر به پوستهٔ تیره'));
-    theme.setAttribute('aria-pressed',String(root.dataset.theme==='dark'));
+    lang.setAttribute('aria-label',pick(['Switch to Persian','تغییر زبان به انگلیسی']));
+    theme.setAttribute('aria-label',root.dataset.theme==='dark'?pick(['Switch to light theme','تغییر به پوستهٔ روشن']):pick(['Switch to dark theme','تغییر به پوستهٔ تیره']));
+    theme.setAttribute('aria-pressed',root.dataset.theme==='dark'?'true':'false');
   }
+  cases.forEach((b,i)=>b.addEventListener('click',()=>{sample=i;setStep(0);}));
+  phases.forEach((b,i)=>b.addEventListener('click',()=>setStep(i)));
+  prev.addEventListener('click',()=>setStep(step-1));
+  next.addEventListener('click',()=>setStep(step+1));
+  reset.addEventListener('click',()=>setStep(0));
+  run.addEventListener('click',play);
+  if(scrub)scrub.addEventListener('input',()=>setStep(Number(scrub.value)));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&timer){halt();paint();}});
   lang.addEventListener('click',()=>{
-    root.lang=root.lang==='fa'?'en':'fa';
-    root.dir=root.lang==='fa'?'rtl':'ltr';
-    try{localStorage.setItem('mrz-lang',root.lang);const next=new URL(location.href);next.searchParams.set('lang',root.lang);history.replaceState(null,'',next)}catch(_){}
-    syncLinks();render();
+    root.lang=root.lang==='fa'?'en':'fa';root.dir=root.lang==='fa'?'rtl':'ltr';
+    try{localStorage.setItem('mrz-lang',root.lang);const u=new URL(location.href);u.searchParams.set('lang',root.lang);history.replaceState(null,'',u);}catch(_){}
+    sync();paint();
   });
   theme.addEventListener('click',()=>{
     root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
-    try{localStorage.setItem('mrz-theme',root.dataset.theme)}catch(_){}
-    syncLinks();
+    try{localStorage.setItem('mrz-theme',root.dataset.theme);}catch(_){}
+    sync();
   });
-  options.forEach((button,index)=>button.addEventListener('click',()=>{current=index;render()}));
-  syncLinks();
-  render();
+  sync();paint();
 })();
-</script>
-<script>(()=>{const root=document.documentElement;const sync=()=>{const l=root.lang==="fa"?"fa":"en";try{localStorage.setItem("mrz-lang",l)}catch(_){}for(const a of document.querySelectorAll('a[href^="/projects/"], a[data-original-link]')){const u=new URL(a.href);u.searchParams.set("lang",l);a.href=u.pathname+u.search+u.hash}};sync();new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:["lang"]})})()</script></body>
+</script></body>
 </html>

@@ -41,88 +41,158 @@ a{color:inherit;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}
 @media(max-width:430px){.brand-projects{display:none}.top nav{margin-inline-start:auto}.rec{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script>(function(){var e=document.documentElement,l='fa',t='light';try{var q=new URLSearchParams(location.search),h=localStorage.getItem('mrz-lang');l=q.get('lang')||h||'fa';t=localStorage.getItem('mrz-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(a){}if(l!=='en')l='fa';e.lang=l;e.dir=l==='fa'?'rtl':'ltr';e.dataset.theme=t==='dark'?'dark':'light'})()</script>
-</head>
-<body class="mcptape">
+<script>(function(){var e=document.documentElement,l='fa',t='light';try{var q=new URLSearchParams(location.search),h=localStorage.getItem('mrz-lang');l=q.get('lang')||h||'fa';t=localStorage.getItem('mrz-theme')||('dark')}catch(a){}if(l!=='en')l='fa';e.lang=l;e.dir=l==='fa'?'rtl':'ltr';e.dataset.theme=t==='dark'?'dark':'light'})()</script>
+<style>/* Product-specific interactive stages, retaining the site shell and all existing URLs. */
+body.action-lab{--stage:#142034;--stage2:#243e56;--stageInk:#eff7ff;--stageSub:#bdcddd;--signal:#93def0;--edge:#45657a;--ab-shape:14px}
+body.action-lab.tokenxray{--stage:#fff3d8;--stage2:#eed9b4;--stageInk:#2f2116;--stageSub:#61503c;--signal:#864114;--edge:#b88e61;--ab-shape:5px}
+body.action-lab.slopguard{--stage:#eaf6ed;--stage2:#d1e9d6;--stageInk:#193627;--stageSub:#375b48;--signal:#12613a;--edge:#80af93;--ab-shape:9px}
+body.action-lab.agentfence{--stage:#272038;--stage2:#40365b;--stageInk:#f5edff;--stageSub:#d5c8e6;--signal:#cdb6fc;--edge:#7e6da1;--ab-shape:27px}
+html[data-theme=dark] body.action-lab.tokenxray{--stage:#322519;--stage2:#4e3927;--stageInk:#fff0d6;--stageSub:#e4c9a5;--signal:#ffc184;--edge:#8a5d39}
+html[data-theme=dark] body.action-lab.slopguard{--stage:#192d24;--stage2:#244736;--stageInk:#e7fff2;--stageSub:#bed8cb;--signal:#96e3b5;--edge:#568269}
+html[data-theme=light] body.action-lab.agentfence{--stage:#f3ecff;--stage2:#e6d8fb;--stageInk:#261e3b;--stageSub:#57486b;--signal:#64369d;--edge:#a98dc9}
+.action-lab .hero{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);align-items:center;gap:clamp(17px,5vw,67px);margin-block:clamp(25px,5vw,60px)}
+.action-lab .hero .story{grid-column:auto;grid-row:auto;max-width:none}
+.action-lab.mcptape .hero{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr)}
+.action-lab.tokenxray .hero{padding:0;border-block:0;background:none;align-items:stretch}
+.action-lab.tokenxray .hero .story{grid-column:2;grid-row:1;padding-block:1.1rem}
+.action-lab.tokenxray .hero #demo{grid-column:1;grid-row:1}
+.action-lab.slopguard .hero{padding:0;border:0;background:none;align-items:start;grid-template-columns:minmax(0,1fr)}
+.action-lab.slopguard .hero .story{border-inline-start:6px solid var(--accent);padding-inline-start:clamp(13px,4vw,34px);max-width:none}
+.action-lab.slopguard .hero .story h1{max-width:20ch}
+.action-lab.agentfence .hero{grid-template-columns:minmax(0,.81fr) minmax(0,1.19fr)}
+.action-lab .hero #demo.action-board{
+ display:block;margin:0;padding:clamp(13px,3vw,29px);background:var(--stage);color:var(--stageInk);border:1px solid var(--edge);border-radius:var(--ab-shape);min-width:0;max-width:100%;box-shadow:0 14px 32px var(--shadow)
+}
+.action-lab .hero #demo:focus{outline:none}
+.action-lab.mcptape .hero #demo{box-shadow:0 10px 0 -5px var(--stage2),0 20px 0 -11px var(--edge)}
+.action-lab.slopguard .hero #demo.action-board{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);column-gap:1.3rem;align-content:start}
+.action-lab.slopguard .action-board .ab-scene{grid-column:2;grid-row:1/6}
+.action-lab.slopguard .action-board h2,.action-lab.slopguard .action-board .ab-top,.action-lab.slopguard .action-board .ab-cases,.action-lab.slopguard .action-board .ab-transport,.action-lab.slopguard .action-board .ab-disclaimer{grid-column:1}
+.action-lab .action-board h2{font-size:clamp(1.33rem,2.55vw,2.1rem);margin-block:.65rem .75rem;letter-spacing:-.028em}
+html[lang=fa] .action-lab .action-board h2{letter-spacing:0}
+.ab-top{display:flex;justify-content:space-between;align-items:center;gap:.4rem;font-size:.69rem;font-weight:800;letter-spacing:.08em}
+.ab-badge{display:inline-flex;align-items:center;gap:.44rem;color:var(--signal);white-space:nowrap;direction:ltr}.ab-badge i{width:.48rem;height:.48rem;border-radius:50%;background:currentColor;box-shadow:0 0 .55rem currentColor}
+.ab-context{color:var(--stageSub)}
+.ab-cases,.ab-transport{display:flex;flex-wrap:wrap;gap:.42rem;margin-block:.65rem}
+.action-board button{color:var(--stageInk);border:1px solid var(--edge);background:var(--stage);min-height:44px;border-radius:7px;padding:.38rem .58rem;font-size:.84rem;line-height:1.27}
+.action-board button:hover,.action-board button:focus-visible{border-color:var(--signal);outline-color:var(--signal)}
+.action-board [aria-pressed=true],.action-board [aria-current=step]{color:var(--signal);background:var(--stage2);border-color:var(--signal)}
+.action-board .ab-play{background:var(--signal);border-color:var(--signal);color:var(--stage);font-weight:800}
+.action-board button:disabled{opacity:.47;cursor:default}
+.ab-scene{padding:.66rem;background:var(--stage2);border:1px solid var(--edge);border-radius:calc(var(--ab-shape)*.55);position:relative;overflow:hidden;isolation:isolate}
+.ab-art{height:4.7rem;border:1px dashed var(--edge);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;margin-block-end:.58rem;overflow:hidden}
+.ab-art i{display:block;background:var(--signal);opacity:.28;transition:width .45s ease,opacity .35s ease,transform .45s ease}
+.ab-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.32rem;position:relative}
+.ab-nodes button{display:grid;text-align:start;gap:.10rem;min-width:0;white-space:normal}
+.ab-nodes b{font-size:.65rem;font-weight:800;direction:ltr;text-align:start;opacity:.7}
+#demo .ab-readout{min-height:6.3rem;padding:.58rem .3rem .08rem;line-height:1.47}
+#ab-readout p,.ab-readout p,.action-board .ab-disclaimer{font-size:.83rem;color:var(--stageSub)}
+.ab-state{display:block;color:var(--signal);font-weight:820;margin-block-end:.25rem}
+.action-board .ab-disclaimer{margin-block-start:.5rem;font-size:.73rem}
+.cassette .ab-art{gap:1.4rem;background:repeating-linear-gradient(90deg,transparent 0 17px,var(--edge) 18px 19px)}
+.cassette .ab-art i:first-child,.cassette .ab-art i:nth-child(3){width:2.45rem;height:2.45rem;background:none;border:5px dotted var(--signal);border-radius:50%;opacity:.7;transform:rotate(calc(var(--phase,0)*52deg))}
+.cassette .ab-art i:nth-child(2){width:28%;height:3px;opacity:1;border-radius:999px;clip-path:inset(0 calc(100% - var(--wire,25%)) 0 0);transition:clip-path .35s ease}
+.bars .ab-art{justify-content:flex-start;align-items:center;padding:0 .56rem;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--edge) calc(10% - 1px) 10%)}
+.bars .ab-art i:first-child{width:var(--spend,24%);height:60%;border-radius:2px;opacity:.76}
+.bars .ab-art i:nth-child(2){width:3px;height:68%;opacity:1}
+.bars .ab-art i:nth-child(3){display:none}
+.scan .ab-art{gap:.45rem;border-radius:2px;background:repeating-linear-gradient(0deg,transparent 0 12px,var(--edge) 13px 14px)}
+.scan .ab-art i{width:29%;height:1.4rem;position:relative;opacity:.22;border-radius:2px}
+.scan .ab-art i::after{content:"";position:absolute;inset:5px;border-block:1px solid var(--stageInk)}
+.scan [data-step="0"] .ab-art i:first-child,.scan [data-step="1"] .ab-art i:nth-child(2),.scan [data-step="2"] .ab-art i:last-child{opacity:.84;transform:translateY(-6px)}
+.fence .ab-art{gap:1.2rem;border-radius:24px;background:radial-gradient(ellipse,var(--edge),transparent 70%)}
+.fence .ab-art i{width:2rem;height:2rem;transform:rotate(45deg);border:1px solid var(--stageInk);border-radius:.35rem}
+.fence [data-step="0"] .ab-art i:first-child,.fence [data-step="1"] .ab-art i:nth-child(2),.fence [data-step="2"] .ab-art i:last-child{opacity:1}
+.fence [data-sample="2"] .ab-art i:nth-child(2){background:transparent;border:2px dashed var(--signal)}
+@media(max-width:820px){
+ .action-lab .hero{grid-template-columns:minmax(0,1fr)!important}
+ .action-lab.tokenxray .hero .story,.action-lab.tokenxray .hero #demo{grid-column:1;grid-row:auto}
+ .action-lab.slopguard .hero #demo.action-board{display:block}
+}
+@media(max-width:395px){
+ .action-board button{font-size:.78rem;padding:.37rem .43rem}
+ .ab-top{font-size:.63rem}
+ .ab-readout{min-height:6.9rem!important}
+ .ab-art{height:3.45rem}
+}
+@media(prefers-reduced-motion:reduce){.ab-art i{transition:none}}
+
+.ab-scrub{display:block;font-weight:750;font-size:.81rem;color:var(--stageSub);margin-block:.2rem .06rem}.action-board input[type=range]{width:100%;height:24px;accent-color:var(--signal);margin:0;cursor:ew-resize;direction:ltr}
+</style></head>
+<body class="mcptape action-lab">
 <a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="frame top-inner"><a class="brand" data-locale-link href="/projects/"><span aria-hidden="true">◈</span> <bdi>mrzroot</bdi> <span class="brand-projects"><span lang="en">All projects</span><span lang="fa">همهٔ پروژه‌ها</span></span></a><nav aria-label="Project / پروژه"><button type="button" id="lang" aria-label="Change language"><span lang="en">فارسی</span><span lang="fa">EN</span></button><button type="button" id="theme"><span lang="en">Theme</span><span lang="fa">پوسته</span></button></nav></div></header>
-<main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">MCP / OFFLINE TESTING</span><span lang="fa">آزمایش آفلاین MCP</span></p><p class="wordmark" dir="ltr">mcptape</p><h1 id="title"><span lang="en">Record once. Replay on demand.</span><span lang="fa">یک بار ضبط کن. هر بار بازپخش کن.</span></h1><p class="lead"><span lang="en">Capture MCP stdio exchanges in a cassette, replay them without a live upstream, and detect breaking tool-schema changes before release.</span><span lang="fa">گفت‌وگوی MCP روی stdio را در یک فایل کاست ضبط کن، بدون اتصال به سرویس اصلی بازپخش کن و تغییرات ناسازگار ابزارها را قبل از انتشار ببین.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/mcptape"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Node.js 18+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title"><header class="labhead"><p class="brow"><span lang="en">INTERACTIVE EXAMPLE</span><span lang="fa">نمونهٔ تعاملی</span></p><h2 id="lab-title"><span lang="en">Cassette console</span><span lang="fa">کنسول کاست</span></h2><p><span lang="en">This sample uses one fictional document lookup. Switch between the recorded exchange, an offline replay, and a schema comparison.</span><span lang="fa">این نمونهٔ ساختگی، یک جست‌وجوی سند را نشان می‌دهد. بین ضبط، بازپخش آفلاین و مقایسهٔ طرح‌واره جابه‌جا شو.</span></p></header><div role="group" class="choices" aria-label="نمونه‌ها / Examples"><button type="button" data-sample="0" aria-pressed="true"><span lang="en">Record</span><span lang="fa">ضبط</span></button><button type="button" data-sample="1" aria-pressed="false"><span lang="en">Replay</span><span lang="fa">بازپخش</span></button><button type="button" data-sample="2" aria-pressed="false"><span lang="en">Schema diff</span><span lang="fa">مقایسهٔ طرح‌واره</span></button></div><div id="result" aria-live="polite" aria-atomic="true"></div><noscript><p><span lang="en">The sample needs JavaScript. The project links and documentation are available below.</span><span lang="fa">نمونهٔ تعاملی به جاوااسکریپت نیاز دارد. پیوند پروژه و مستندات در ادامه در دسترس‌اند.</span></p></noscript></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Record a session</span><span lang="fa">ضبط نشست</span></h3><p><span lang="en">Captures JSON-RPC traffic in NDJSON or Content-Length framing.</span><span lang="fa">ترافیک JSON-RPC را با قالب NDJSON یا Content-Length ضبط می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Replay without the upstream</span><span lang="fa">بازپخش بدون سرویس اصلی</span></h3><p><span lang="en">Replay recorded exchanges offline. Seeded error and latency simulation are intended for resilient CI tests.</span><span lang="fa">تبادل ضبط‌شده را آفلاین بازپخش می‌کند. شبیه‌سازی تکرارپذیر خطا و تأخیر برای آزمون پایداری CI است.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Review compatibility</span><span lang="fa">بررسی سازگاری</span></h3><p><span lang="en">Removed tools, new required inputs, and changed parameter types can fail a compatibility check.</span><span lang="fa">حذف ابزار، اجباری‌شدن ورودی و تغییر نوع پارامتر می‌تواند بررسی سازگاری را ناموفق کند.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help</code></pre></div><div><p><span lang="en">The project tests a record → inspect → replay round trip for both framing formats and a breaking schema diff.</span><span lang="fa">تست‌های پروژه چرخهٔ ضبط، بررسی و بازپخش را در هر دو قالب پیام و تشخیص تغییر ناسازگار را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/mcptape/blob/HEAD/test/mcptape.test.mjs"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/mcptape/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/mcptape/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
+<main class="frame" id="main"><section class="hero" aria-labelledby="title"><div class="story"><p class="brow"><span lang="en">MCP / OFFLINE TESTING</span><span lang="fa">آزمایش آفلاین MCP</span></p><p class="wordmark" dir="ltr">mcptape</p><h1 id="title"><span lang="en">Record once. Replay on demand.</span><span lang="fa">یک بار ضبط کن. هر بار بازپخش کن.</span></h1><p class="lead"><span lang="en">Capture MCP stdio exchanges in a cassette, replay them without a live upstream, and detect breaking tool-schema changes before release.</span><span lang="fa">گفت‌وگوی MCP روی stdio را در یک فایل کاست ضبط کن، بدون اتصال به سرویس اصلی بازپخش کن و تغییرات ناسازگار ابزارها را قبل از انتشار ببین.</span></p><div class="actions"><a class="primary" href="#demo"><span lang="en">Try the example</span><span lang="fa">نمونه را امتحان کن</span> <span aria-hidden="true">↓</span></a><a class="quiet" href="https://github.com/mrzroot/mcptape"><span lang="en">GitHub repository</span><span lang="fa">مخزن گیت‌هاب</span></a></div><div class="facts"><span dir="ltr">Node.js 18+</span><span dir="ltr">MIT</span><span dir="ltr">v1.0.0</span></div></div><section id="demo" aria-labelledby="lab-title" class="action-board cassette" tabindex="-1"><div class="ab-top"><span class="ab-badge"><i></i>MCP · 01</span><span class="ab-context"><span lang="en">LOCAL SIMULATION</span><span lang="fa">شبیه‌سازی محلی</span></span></div>
+ <h2 id="lab-title"><span lang="en">Studio for recorded exchanges</span><span lang="fa">استودیوی تبادل ضبط‌شده</span></h2><div class="ab-cases" role="group" aria-label="Fictional scenarios / سناریوهای ساختگی"><button type="button" data-case="0" aria-pressed="true"><span lang="en">Record</span><span lang="fa">ضبط</span></button><button type="button" data-case="1" aria-pressed="false"><span lang="en">Replay</span><span lang="fa">بازپخش</span></button><button type="button" data-case="2" aria-pressed="false"><span lang="en">Schema diff</span><span lang="fa">مقایسهٔ طرح‌واره</span></button></div>
+ <div class="ab-scene" data-step="0" data-sample="0"><div class="ab-art" aria-hidden="true"><i></i><i></i><i></i></div><div class="ab-nodes" role="group" aria-label="Stages / مرحله‌ها"><button type="button" data-phase="0" aria-current="step"><b aria-hidden="true">01</b><span lang="en">Request</span><span lang="fa">درخواست</span></button><button type="button" data-phase="1" aria-current="false"><b aria-hidden="true">02</b><span lang="en">Fixture</span><span lang="fa">فایل نمونه</span></button><button type="button" data-phase="2" aria-current="false"><b aria-hidden="true">03</b><span lang="en">Outcome</span><span lang="fa">نتیجه</span></button></div>
+ <div class="ab-readout" id="result" aria-live="polite" aria-atomic="true"><span class="ab-state"><span lang="en">CLIENT → TOOL</span><span lang="fa">کلاینت ← ابزار</span></span><p><span lang="en">Ask the sample catalogue for one guide.</span><span lang="fa">از فهرست نمونه یک راهنما را بخواه.</span></p></div></div>
+ <div class="ab-transport" role="group" aria-label="Playback / پخش"><button type="button" class="ab-play" data-run><span lang="en">Play tape</span><span lang="fa">پخش کاست</span></button><button type="button" data-prev><span lang="en">Back</span><span lang="fa">قبل</span></button><button type="button" data-next><span lang="en">Step</span><span lang="fa">بعد</span></button><button type="button" data-reset><span lang="en">Reset</span><span lang="fa">از اول</span></button></div>
+ <p class="ab-disclaimer"><span lang="en">Illustrative data only · no commands or network calls</span><span lang="fa">فقط دادهٔ نمایشی · بدون فرمان یا درخواست شبکه</span></p></section></section><section class="proof" aria-labelledby="proof-title" id="workflow"><h2 id="proof-title"><span lang="en">What the tool does</span><span lang="fa">این ابزار چه کار می‌کند؟</span></h2><div class="capabilities"><article><span class="step" aria-hidden="true">01</span><h3><span lang="en">Record a session</span><span lang="fa">ضبط نشست</span></h3><p><span lang="en">Captures JSON-RPC traffic in NDJSON or Content-Length framing.</span><span lang="fa">ترافیک JSON-RPC را با قالب NDJSON یا Content-Length ضبط می‌کند.</span></p></article><article><span class="step" aria-hidden="true">02</span><h3><span lang="en">Replay without the upstream</span><span lang="fa">بازپخش بدون سرویس اصلی</span></h3><p><span lang="en">Replay recorded exchanges offline. Seeded error and latency simulation are intended for resilient CI tests.</span><span lang="fa">تبادل ضبط‌شده را آفلاین بازپخش می‌کند. شبیه‌سازی تکرارپذیر خطا و تأخیر برای آزمون پایداری CI است.</span></p></article><article><span class="step" aria-hidden="true">03</span><h3><span lang="en">Review compatibility</span><span lang="fa">بررسی سازگاری</span></h3><p><span lang="en">Removed tools, new required inputs, and changed parameter types can fail a compatibility check.</span><span lang="fa">حذف ابزار، اجباری‌شدن ورودی و تغییر نوع پارامتر می‌تواند بررسی سازگاری را ناموفق کند.</span></p></article></div></section><section class="next" id="start" aria-labelledby="next-title"><div><p class="brow"><span lang="en">NEXT STEP</span><span lang="fa">قدم بعد</span></p><h2 id="next-title"><span lang="en">Use the actual CLI</span><span lang="fa">اجرای ابزار اصلی</span></h2><pre dir="ltr" tabindex="0"><code>node bin/mcptape.mjs --help</code></pre></div><div><p><span lang="en">The project tests a record → inspect → replay round trip for both framing formats and a breaking schema diff.</span><span lang="fa">تست‌های پروژه چرخهٔ ضبط، بررسی و بازپخش را در هر دو قالب پیام و تشخیص تغییر ناسازگار را می‌سنجند.</span></p><div class="actions"><a class="quiet" href="https://github.com/mrzroot/mcptape/blob/HEAD/test/mcptape.test.mjs"><span lang="en">Repository tests</span><span lang="fa">تست‌های مخزن</span></a><a class="quiet" data-locale-link href="/projects/guide/mcptape/"><span lang="en">Portfolio guide</span><span lang="fa">راهنمای نمونه‌کار</span></a></div></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a data-original-link href="/mcptape/"><span lang="en">Original site</span><span lang="fa">سایت قبلی</span></a></nav></main>
 <footer class="frame foot"><bdi>mcptape</bdi><span><span lang="en">Open-source project · MIT</span><span lang="fa">پروژهٔ متن‌باز · MIT</span></span><a href="/assets/fonts/OFL-Vazirmatn.txt" class="foot-font"><span lang="en">Vazirmatn license</span><span lang="fa">مجوز وزیرمتن</span></a></footer>
-<script id="sample-data" type="application/json">[["REC / 01","REQUEST","درخواست","The sample asks a harmless fictional documents tool for the guide.","نمونه از ابزار فرضی اسناد، راهنما را درخواست می‌کند.","RESPONSE","پاسخ","The fixture returns one item: Project guide.","فایل نمونه یک مورد برمی‌گرداند: راهنمای پروژه."],["PLAY / 02","SOURCE","منبع","The previously recorded response is served from the cassette.","پاسخ ضبط‌شده از فایل کاست خوانده می‌شود.","UPSTREAM","سرویس اصلی","No live upstream is used in this example.","در این نمونه سرویس اصلی فراخوانی نمی‌شود."],["DIFF / 03","CHANGE","تغییر","Version 2 adds a required language input to the fictional tool.","نسخهٔ دوم، ورودی زبان را برای ابزار فرضی اجباری می‌کند.","RESULT","نتیجه","Breaking change: older clients may omit the new input.","تغییر ناسازگار است: کلاینت قدیمی شاید ورودی جدید را نفرستد."]]</script><script>(() => {
+<script id="action-data" type="application/json">{"id":"MCP · 01","verb":["Play tape","پخش کاست"],"motif":"cassette","title":["Studio for recorded exchanges","استودیوی تبادل ضبط‌شده"],"steps":[["Request","درخواست"],["Fixture","فایل نمونه"],["Outcome","نتیجه"]],"runs":[[["Record","ضبط"],["Record a fictional exchange","ضبط یک تبادل فرضی"],[[["CLIENT → TOOL","کلاینت ← ابزار"],["Ask the sample catalogue for one guide.","از فهرست نمونه یک راهنما را بخواه."]],[["TOOL → CLIENT","ابزار ← کلاینت"],["The sample returns a single record: Project guide.","نمونه یک رکورد برمی‌گرداند: راهنمای پروژه."]],[["PAIR SAVED","جفت ثبت شد"],["A request and its matching response form one reusable fixture.","درخواست و پاسخ متناظرش یک نمونهٔ قابل استفادهٔ دوباره می‌سازند."]]]],[["Replay","بازپخش"],["Repeat the same exchange offline","تکرار تبادل بدون اتصال"],[[["REQUEST MATCH","تطبیق درخواست"],["The offline example receives the same document lookup.","نمونهٔ آفلاین همان جست‌وجوی سند را دریافت می‌کند."]],[["CASSETTE MATCH","تطبیق کاست"],["The recorded response is selected from the fixture.","پاسخ ضبط‌شده از فایل نمونه انتخاب می‌شود."]],[["NO UPSTREAM","بدون سرویس اصلی"],["The client receives the same guide without calling an upstream in this example.","در این نمونه کلاینت همان راهنما را بدون تماس با سرویس اصلی می‌گیرد."]]]],[["Schema diff","مقایسهٔ طرح‌واره"],["Compare two sample tool schemas","مقایسهٔ دو طرح‌وارهٔ نمونه"],[[["BASELINE v1","نسخهٔ پایه"],["The language input is optional in version one.","ورودی زبان در نسخهٔ یک اختیاری است."]],[["CANDIDATE v2","نسخهٔ پیشنهادی"],["The same input becomes required in version two.","همان ورودی در نسخهٔ دو اجباری می‌شود."]],[["BREAKING CHANGE","تغییر ناسازگار"],["An older client can send a valid version-one request that version two rejects.","ممکن است کلاینت قدیمی درخواست معتبری برای نسخهٔ یک بسازد که نسخهٔ دو آن را رد کند."]]]]]}</script><script>(() => {
   'use strict';
-  const root = document.documentElement;
-  const slug = document.body.className;
-  const samples = JSON.parse(document.getElementById('sample-data').textContent);
-  const options = [...document.querySelectorAll('[data-sample]')];
-  const result = document.getElementById('result');
-  const labels = (en,fa) => root.lang === 'fa' ? fa : en;
-  const el = (tag, text, name) => {
-    const node = document.createElement(tag);
-    if (text !== undefined) node.textContent = text;
-    if (name) node.className = name;
-    return node;
-  };
-  const box = (title, description) => {
-    const node = el('article');
-    node.append(el('h3',title), el('p',description));
-    return node;
-  };
-  let current = 0;
-  function render() {
-    const s = samples[current], i=root.lang==='fa'?1:0;
-    let view;
-    if (slug==='mcptape') {
-      view=el('div',undefined,'rec');
-      view.append(el('strong',s[0]),box(labels(s[1],s[2]),labels(s[3],s[4])),box(labels(s[5],s[6]),labels(s[7],s[8])));
-    } else if(slug==='tokenxray') {
-      view=el('div');
-      const bar=el('div',undefined,'bar'); bar.setAttribute('aria-hidden','true');
-      const list=el('ul',undefined,'legend');
-      const n=new Intl.NumberFormat(root.lang,{style:'percent'});
-      for(let j=0;j<s[0].length;j++){
-        const piece=el('i'); piece.style.width=s[0][j]+'%'; bar.append(piece);
-        const line=el('li');line.append(el('b',n.format(s[0][j]/100)), document.createTextNode(' · '+s[j+1][i]));list.append(line);
-      }
-      view.append(el('div',s[4][i],'stat'),bar,list,el('p',s[5][i],'find'));
-    } else if(slug==='slopguard') {
-      view=el('div',undefined,'check');
-      view.append(el('strong',s[i]),el('h3',s[2+i]),el('p',s[4+i]));
-    } else {
-      view=el('div',undefined,'flow');
-      const decision=box(labels('01 · Policy','۰۱ · سیاست'),s[2+i]);
-      decision.append(el('div',s[i],'tag'));
-      if (s[0]==='BLOCK') decision.classList.add('blocked');
-      view.append(decision,box(labels('02 · Impact','۰۲ · دامنهٔ اثر'),s[4+i]),box(labels('03 · Ledger','۰۳ · دفتر رویداد'),s[6+i]));
-    }
-    result.replaceChildren(view);
-    options.forEach((b,j)=>b.setAttribute('aria-pressed',String(j===current)));
+  const root=document.documentElement, board=document.getElementById('demo');
+  const data=JSON.parse(document.getElementById('action-data').textContent);
+  const q=s=>board.querySelector(s), all=s=>Array.from(board.querySelectorAll(s));
+  const cases=all('[data-case]'), phases=all('[data-phase]'), run=q('[data-run]'), prev=q('[data-prev]'), next=q('[data-next]'), reset=q('[data-reset]'), scene=q('.ab-scene'), result=q('.ab-readout');
+  const scrub=q('#budget-scrub');
+  const lang=document.getElementById('lang'), theme=document.getElementById('theme');
+  const pick=arr=>arr[root.lang==='fa'?1:0];
+  let sample=0, step=0, timer=0;
+  function paint(){
+    const row=data.runs[sample][2][step];
+    scene.dataset.step=step; scene.dataset.sample=sample;
+    scene.style.setProperty('--phase',step);
+    scene.style.setProperty('--wire',(((step+1)/3)*100)+'%');
+    if(row[2])scene.style.setProperty('--spend',row[2]+'%');
+    if(scrub){scrub.value=step;scrub.setAttribute('aria-valuetext',pick(row[0]));}
+    const title=result.querySelector('.ab-state'), detail=result.querySelector('p');
+    title.textContent=pick(row[0]);detail.textContent=pick(row[1]);
+    cases.forEach((btn,i)=>btn.setAttribute('aria-pressed',i===sample?'true':'false'));
+    phases.forEach((btn,i)=>btn.setAttribute('aria-current',i===step?'step':'false'));
+    prev.disabled=step===0;next.disabled=step===phases.length-1;
+    run.textContent=timer?pick(['Pause','مکث']):pick(data.verb);
   }
-  const lang = document.getElementById('lang');
-  const theme = document.getElementById('theme');
-  function syncLinks(){
-    document.querySelectorAll('[data-locale-link]').forEach(a=>{
-      const target=new URL(a.getAttribute('href'),location.origin);
-      target.searchParams.set('lang',root.lang);a.href=target.pathname+target.search;
+  function halt(){clearInterval(timer);timer=0;}
+  function setStep(n){halt();step=Math.max(0,Math.min(n,phases.length-1));paint();}
+  function play(){
+    if(timer){halt();paint();return;}
+    if(step>=phases.length-1)step=0;
+    timer=setInterval(()=>{
+      step++;
+      if(step>=phases.length-1){step=phases.length-1;halt();}
+      paint();
+    },900);
+    paint();
+  }
+  function sync(){
+    document.querySelectorAll('[data-locale-link],a[href^="/showcase/"]').forEach(a=>{
+      const u=new URL(a.getAttribute('href'),location.origin);
+      u.searchParams.set('lang',root.lang);a.href=u.pathname+u.search+u.hash;
     });
-    lang.setAttribute('aria-label',labels('Switch to Persian','تغییر زبان به انگلیسی'));
-    theme.setAttribute('aria-label',root.dataset.theme==='dark'?labels('Switch to light theme','تغییر به پوستهٔ روشن'):labels('Switch to dark theme','تغییر به پوستهٔ تیره'));
-    theme.setAttribute('aria-pressed',String(root.dataset.theme==='dark'));
+    lang.setAttribute('aria-label',pick(['Switch to Persian','تغییر زبان به انگلیسی']));
+    theme.setAttribute('aria-label',root.dataset.theme==='dark'?pick(['Switch to light theme','تغییر به پوستهٔ روشن']):pick(['Switch to dark theme','تغییر به پوستهٔ تیره']));
+    theme.setAttribute('aria-pressed',root.dataset.theme==='dark'?'true':'false');
   }
+  cases.forEach((b,i)=>b.addEventListener('click',()=>{sample=i;setStep(0);}));
+  phases.forEach((b,i)=>b.addEventListener('click',()=>setStep(i)));
+  prev.addEventListener('click',()=>setStep(step-1));
+  next.addEventListener('click',()=>setStep(step+1));
+  reset.addEventListener('click',()=>setStep(0));
+  run.addEventListener('click',play);
+  if(scrub)scrub.addEventListener('input',()=>setStep(Number(scrub.value)));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&timer){halt();paint();}});
   lang.addEventListener('click',()=>{
-    root.lang=root.lang==='fa'?'en':'fa';
-    root.dir=root.lang==='fa'?'rtl':'ltr';
-    try{localStorage.setItem('mrz-lang',root.lang);const next=new URL(location.href);next.searchParams.set('lang',root.lang);history.replaceState(null,'',next)}catch(_){}
-    syncLinks();render();
+    root.lang=root.lang==='fa'?'en':'fa';root.dir=root.lang==='fa'?'rtl':'ltr';
+    try{localStorage.setItem('mrz-lang',root.lang);const u=new URL(location.href);u.searchParams.set('lang',root.lang);history.replaceState(null,'',u);}catch(_){}
+    sync();paint();
   });
   theme.addEventListener('click',()=>{
     root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
-    try{localStorage.setItem('mrz-theme',root.dataset.theme)}catch(_){}
-    syncLinks();
+    try{localStorage.setItem('mrz-theme',root.dataset.theme);}catch(_){}
+    sync();
   });
-  options.forEach((button,index)=>button.addEventListener('click',()=>{current=index;render()}));
-  syncLinks();
-  render();
+  sync();paint();
 })();
-</script>
-<script>(()=>{const root=document.documentElement;const sync=()=>{const l=root.lang==="fa"?"fa":"en";try{localStorage.setItem("mrz-lang",l)}catch(_){}for(const a of document.querySelectorAll('a[href^="/projects/"], a[data-original-link]')){const u=new URL(a.href);u.searchParams.set("lang",l);a.href=u.pathname+u.search+u.hash}};sync();new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:["lang"]})})()</script></body>
+</script></body>
 </html>

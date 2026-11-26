@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A local OpenAI-compatible router with circuit breakers, a TTL cache, a budget cap and shadow evaluation."><title>routefall · Gateway resilience</title>
+<html data-action-site="routefall" lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A local OpenAI-compatible router with circuit breakers, a TTL cache, a budget cap and shadow evaluation."><title>routefall · Gateway resilience</title>
 <link rel="canonical" href="https://mrzroot.github.io/showcase/routefall/"><link rel="icon" href="/favicon.svg"><style>:root{--brand:#263155;--spark:#abd0ff;--light:#eef3ff;--ink:#202a51}@font-face{font-family:Vazirmatn;src:url('/assets/fonts/Vazirmatn-Variable.woff2') format('woff2');font-display:swap;font-weight:100 900}
 :root{font-family:Vazirmatn,sans-serif;line-height:1.65;background:var(--light);color:var(--ink);--line:color-mix(in srgb,var(--ink) 23%,transparent)}
 *,*::before,*::after{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}pre,code{font-family:Vazirmatn,sans-serif}
@@ -21,17 +21,90 @@ figure svg{display:block;width:100%;max-height:260px;height:auto;margin-inline:a
 .quick a{font-weight:780;display:inline-block;margin-top:.5rem}.quick pre{overflow:auto;white-space:pre;font-size:.89rem;background:var(--brand);color:white;margin:0;padding:.9rem;border-radius:.55rem;min-width:0}
 footer{padding-block:1rem;border-top:1px solid var(--line);font-weight:680}
 @media(max-width:48rem){.hero-grid,.workbench,.quick{grid-template-columns:minmax(0,1fr)}.hero-grid{gap:1.4rem}figure svg{max-height:143px}.cards{grid-template-columns:minmax(0,1fr)}.cards{gap:.65rem}}
-</style><script>(()=>{const q=new URLSearchParams(location.search).get("lang");let l=q;try{if(l!=="fa"&&l!=="en")l=localStorage.getItem("mrz-lang");if(l==="fa"||l==="en")localStorage.setItem("mrz-lang",l)}catch(_){}if(l==="fa"||l==="en"){document.documentElement.lang=l;document.documentElement.dir=l==="fa"?"rtl":"ltr"}})()</script></head>
+</style><script>(()=>{const q=new URLSearchParams(location.search).get("lang");let l=q;try{if(l!=="fa"&&l!=="en")l=localStorage.getItem("mrz-lang");if(l==="fa"||l==="en")localStorage.setItem("mrz-lang",l)}catch(_){}if(l==="fa"||l==="en"){document.documentElement.lang=l;document.documentElement.dir=l==="fa"?"rtl":"ltr"}})()</script><style>/* Action layout across four independently staged product experiences. */
+html[data-action-site] .action-hero {overflow:clip;padding-block:clamp(1.25rem,3vw,3rem)}
+.action-hero .hero-grid {padding-block:0;gap:1.05rem 2rem;margin-inline:auto}
+.action-copy h1 {font-size:clamp(1.8rem,3.6vw,4rem);line-height:1.16;margin-block:.2rem .3rem;letter-spacing:-.035em}
+html[lang=fa] .action-copy h1 {letter-spacing:0;line-height:1.28}
+.action-copy .lead {margin:.55rem 0 .85rem}
+.action-copy .pills {margin-top:.7rem}
+.action-lab {min-width:0;align-self:start;border-radius:1.05rem;scroll-margin-top:1rem;isolation:isolate;overflow:hidden;color:var(--labink);background:var(--labbg);border:1px solid var(--labline);box-shadow:0 18px 68px var(--labshadow)}
+.lab-sheet {background:var(--labsheet);border-block-end:1px solid var(--labline)}
+.lab-sheet header {display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.7rem;padding:.68rem .8rem;letter-spacing:.035em;font-size:.72rem;font-weight:800}
+.dotstack {display:flex;gap:4px}.dotstack i{width:6px;height:6px;display:block;border-radius:50%;background:var(--labaccent)}.dotstack i:nth-child(2){opacity:.6}.dotstack i:nth-child(3){opacity:.3}
+.action-lab .workbench {border:none;background:none;border-radius:0;padding:clamp(.75rem,1.8vw,1.35rem);gap:.85rem;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.action-lab h2 {font-size:clamp(1.2rem,1.75vw,1.72rem)}
+.action-lab .label {color:var(--labaccent);font-size:.73rem;margin-bottom:.3rem}.action-lab .instruction {font-size:.85rem;margin:.42rem 0 .7rem;max-width:64ch}
+.action-lab .result {background:var(--labresult);color:var(--labink);border:1px solid var(--labline);border-radius:.66rem;align-self:stretch;min-height:10rem}
+.action-lab .result h3 {font-size:1rem}.action-lab .result>p{font-size:.9rem;color:var(--labaccent)}
+.action-lab .result [role=listitem] {font-size:.83rem;background:var(--labsheet);border:1px solid var(--labline);animation:result-swap .24s ease-out both}
+.action-lab .result [role=listitem]:nth-child(2){animation-delay:45ms}.action-lab .result [role=listitem]:nth-child(3){animation-delay:85ms}.action-lab .result [role=listitem]:nth-child(4){animation-delay:125ms}
+@keyframes result-swap{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.action-lab .inputs {max-width:none}.action-lab .inputs :is(select,input){accent-color:var(--labaccent);color:var(--labink);border-color:var(--labline)}
+.action-lab .inputs select {background:var(--labsheet)}
+.action-lab .inputs button{background:var(--labaccent);color:var(--labbadge);width:auto}
+.scenario p {font-size:.77rem;font-weight:820;margin:.25rem 0 .3rem}.scenario>div {display:flex;gap:.35rem;flex-wrap:wrap;margin:0 0 .55rem}
+.preset {color:var(--labink);font-size:.79rem;font-weight:760;border:1px solid var(--labline);background:var(--labsheet)}
+.preset:is(:hover,[aria-pressed=true]) {color:var(--labbadge);background:var(--labaccent);border-color:var(--labaccent)}
+.activity {display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--labaccent);padding:.28rem 0;font-size:.72rem;border-block-end:1px solid var(--labline);font-weight:780}
+.activity i {background:currentColor;border-radius:50%;width:.45rem;height:.45rem;display:inline-block}.activity b {margin-inline-start:auto}
+.activity[data-state=running] i {animation:signal 700ms ease-in-out 2}.activity[data-state=running] {background:color-mix(in srgb,var(--labaccent) 11%,transparent)}
+@keyframes signal {50%{box-shadow:0 0 0 4px color-mix(in srgb,currentColor 20%,transparent)}}
+html[data-action-site=ragxray] {--labbg:#071c23;--labresult:#0d2d36;--labsheet:#10333b;--labink:#effffd;--labline:#39707a;--labaccent:#96f4d6;--labbadge:#092a28;--labshadow:#03222c69}
+[data-action-site=ragxray] .action-hero {background:radial-gradient(ellipse at 75% 8%,#153d4d,#071c23 65%)}
+[data-action-site=ragxray] .hero-grid {grid-template-columns:minmax(0,1fr) minmax(0,1.8fr);align-items:start}
+[data-action-site=ragxray] .action-copy{padding-block:1rem}
+[data-action-site=ragxray] .action-lab .result {background-image:repeating-linear-gradient(0deg,#10343d00 0 15px,#5edacd15 16px 17px)}
+[data-action-site=ragxray] .action-lab mark {background:#adf7d9;color:#14362e}
+html[data-action-site=routefall] {--labbg:#151b39;--labresult:#1d2852;--labsheet:#252f56;--labink:#e8f4ff;--labline:#6a81af;--labaccent:#b4d8ff;--labbadge:#17253e;--labshadow:#14173970}
+[data-action-site=routefall] .action-hero {background:radial-gradient(ellipse at 25% 0,#384b89,#131935 74%)}
+[data-action-site=routefall] .hero-grid{grid-template-columns:1fr;max-width:68rem}
+[data-action-site=routefall] .action-copy {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:.15rem 1.1rem;align-items:start}
+[data-action-site=routefall] .action-copy .kicker {grid-column:1/-1}
+[data-action-site=routefall] .action-copy .lead {margin:0 0 .4rem;align-self:center}
+[data-action-site=routefall] .action-copy .pills{display:none}
+[data-action-site=routefall] .action-copy .action-jump {display:none}
+[data-action-site=routefall] .workbench {grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr)}
+.route-map{display:flex;justify-content:space-between;align-items:center;gap:.25rem;padding:.5rem 0;font-size:.68rem;white-space:nowrap}.route-map b{border:1px solid var(--labline);padding:.24rem .32rem;border-radius:.3rem}.route-map i{border-top:1px dashed var(--labline);flex:1}
+.route-map[data-route=ready] b:nth-child(3),.route-map[data-route=fail] b:nth-child(5),.route-map[data-route=cap] b:nth-child(7){background:var(--labaccent);color:var(--labbadge);box-shadow:0 0 .8rem #9bc8ff67}
+html[data-action-site=promptbisect] {--labbg:#fff6e9;--labresult:#382a3e;--labsheet:#efdccc;--labink:#4a2b40;--labline:#b57773;--labaccent:#7e304e;--labbadge:#fff1e9;--labshadow:#49314334}
+[data-action-site=promptbisect] .action-hero {background:linear-gradient(130deg,#fcdfc5,#fae9df 48%,#ebd0db);color:#4a2b40}
+[data-action-site=promptbisect] .hero-grid{grid-template-columns:1fr;gap:1rem;max-width:66rem}
+[data-action-site=promptbisect] .action-copy{text-align:center}
+[data-action-site=promptbisect] .action-copy :is(h1,.lead){margin-inline:auto;color:#4a2b40}
+[data-action-site=promptbisect] .action-copy .kicker{color:#773d54}
+[data-action-site=promptbisect] .action-copy .actions{justify-content:center}
+[data-action-site=promptbisect] .action-copy .pills{display:none}
+[data-action-site=promptbisect] .action-copy .secondary{color:#66384e;border-color:#8c5672}
+[data-action-site=promptbisect] .action-copy .primary{background:#4a2b40;color:#fff1e9;border-color:#4a2b40}
+[data-action-site=promptbisect] .result :is(h3,p,.activity){color:#ffe4c4}
+[data-action-site=promptbisect] .result [role=listitem] {color:#3a2332}
+.tape{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:.15rem;margin:.4rem 0 .6rem}.tape i {font:inherit;font-size:.66rem;text-align:center;padding:.32rem 0;background:#f7e6d5;border:1px solid #d6b0a8;border-radius:.2rem;color:#6d4a58}.tape i[data-probe=true]{box-shadow:inset 0 -3px #b16b68}.tape i[data-selected=true]{background:#63354c;color:#fff2e7}
+html[data-action-site=agentcontract] {--labbg:#f7fcf3;--labresult:#e9f4e9;--labsheet:#e0eddf;--labink:#233d37;--labline:#85a597;--labaccent:#2b6852;--labbadge:#f4fcf0;--labshadow:#25413638}
+[data-action-site=agentcontract] .action-hero{background:linear-gradient(118deg,#f3f9f0,#d9eadf);color:#244238}
+[data-action-site=agentcontract] .hero-grid{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);align-items:center;gap:1.25rem 2.3rem}
+[data-action-site=agentcontract] .action-copy .kicker,[data-action-site=agentcontract] .action-copy .lead{color:#305b49}
+[data-action-site=agentcontract] .action-copy .secondary {color:#315746;border-color:#547966}
+[data-action-site=agentcontract] .action-copy .pills span{border-color:#688c7a}
+.contract-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.25rem;margin:.45rem 0 .7rem;font-size:.75rem}
+.contract-compare span{font-weight:820;text-align:center}.contract-compare code {white-space:pre-wrap;overflow-wrap:anywhere;display:block;border:1px solid var(--labline);border-radius:.3rem;padding:.4rem;background:var(--labsheet)}
+.action-lab .workbench>noscript{grid-column:1/-1}
+@media(max-width:64rem){[data-action-site=ragxray] .hero-grid,[data-action-site=agentcontract] .hero-grid{grid-template-columns:1fr}
+[data-action-site=agentcontract] .action-copy{grid-row:1}[data-action-site=ragxray] .action-copy{padding-block:0}}
+@media(max-width:42rem){.action-lab .workbench,[data-action-site=routefall] .workbench{grid-template-columns:1fr}
+[data-action-site=routefall] .action-copy {display:block}.action-copy .action-jump {display:none}.action-copy .pills{display:none}.action-copy .lead {font-size:.9rem}.action-copy h1{font-size:clamp(1.6rem,6.2vw,2.2rem)}
+.tape {gap:.1rem}.tape i {font-size:.59rem;padding:.2rem 0}}
+@media(prefers-reduced-motion:reduce){.action-lab *, .action-lab *::before,.action-lab *::after{animation:none!important;transition:none!important}}
+</style></head>
 <body><a class="skip" href="#main"><span class="" data-en="Skip to main" data-fa="رفتن به محتوای اصلی" >رفتن به محتوای اصلی</span></a>
 <header class="top"><nav class="wrap" aria-label="Project navigation"><a href="/projects/"><bdi>MRZROOT</bdi> / <span class="" data-en="Projects" data-fa="پروژه‌ها" >پروژه‌ها</span></a><div><a href="https://github.com/mrzroot/routefall">GitHub</a><button type="button" id="lang" lang="en" aria-label="Switch to English">EN</button></div></nav></header>
-<main id="main"><section class="hero"><div class="wrap hero-grid"><div>
+<main id="main"><section class="hero action-hero"><div class="wrap hero-grid"><div class="action-copy">
 <p class="kicker"><bdi>routefall</bdi> / <span class="" data-en="Gateway resilience" data-fa="پایداری درگاه" >پایداری درگاه</span></p><h1 class="" data-en="Know where the next request goes." data-fa="بدانید درخواست بعدی کجا می‌رود." >بدانید درخواست بعدی کجا می‌رود.</h1><p class="lead" data-en="A local OpenAI-compatible router with circuit breakers, a TTL cache, a budget cap and shadow evaluation." data-fa="روتر محلی سازگار با OpenAI با قطع‌کنندهٔ مدار، کش زمان‌دار، سقف هزینه و ارزیابی سایه‌ای." >روتر محلی سازگار با OpenAI با قطع‌کنندهٔ مدار، کش زمان‌دار، سقف هزینه و ارزیابی سایه‌ای.</p>
-<div class="actions"><a class="button primary" href="#lab"><span class="" data-en="Try the sample" data-fa="آزمایش نمونه" >آزمایش نمونه</span> <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://mrzroot.github.io/routefall/"><span class="" data-en="Full project demo" data-fa="دموی اصلی پروژه" >دموی اصلی پروژه</span> <span aria-hidden="true">↗</span></a></div>
-<div class="pills" dir="ltr"><span>Node.js 18+</span><span>MIT</span><span>Antigravity</span></div></div>
-<figure><svg viewBox="0 0 300 182" width="300" height="182" role="presentation" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M61 91h42m52 0h35m-60 0V49h60m-60 42v42h60" stroke-dasharray="5 4"/><rect x="18" y="72" width="43" height="38" rx="12"/><circle cx="130" cy="91" r="24"/><rect x="191" y="30" width="88" height="37" rx="9"/><rect x="191" y="72" width="88" height="37" rx="9"/><rect x="191" y="114" width="88" height="37" rx="9"/><path d="m222 93 8 8 16-20" stroke-width="4"/></svg><figcaption aria-hidden="true"><bdi>routefall</bdi> <span>01 — 03</span></figcaption></figure></div></section>
+<div class="actions"><a class="button primary action-jump" href="#lab"><span class="" data-en="Try the sample" data-fa="آزمایش نمونه" >آزمایش نمونه</span> <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://mrzroot.github.io/routefall/"><span class="" data-en="Full project demo" data-fa="دموی اصلی پروژه" >دموی اصلی پروژه</span> <span aria-hidden="true">↗</span></a></div>
+<div class="pills" dir="ltr"><span>Node.js 18+</span><span>MIT</span><span>Antigravity</span></div></div><section id="lab" class="action-lab" aria-labelledby="lab-title"><div class="lab-sheet"><header><span class="dotstack" aria-hidden="true"><i></i><i></i><i></i></span><span data-en="GATEWAY · CONTROL DESK" data-fa="درگاه · اتاق کنترل">درگاه · اتاق کنترل</span><b dir="ltr">02</b></header></div><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Routing control desk" data-fa="پنل کنترل مسیریابی" id="lab-title">پنل کنترل مسیریابی</h2><p class="instruction" data-en="Flip a fictional provider between ready and unavailable, then change the budget. Requests in this illustration never leave your browser." data-fa="وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود." >وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود.</p><div class="scenario" role="group" aria-labelledby="scenario-label"><p id="scenario-label"><span data-en="Try a scenario" data-fa="یک سناریو را امتحان کنید">یک سناریو را امتحان کنید</span></p><div><button type="button" class="preset" data-preset="ready" aria-pressed="false"><span data-en="Normal operation" data-fa="حالت عادی">حالت عادی</span></button><button type="button" class="preset" data-preset="fail" aria-pressed="false"><span data-en="Simulate outage" data-fa="شبیه‌سازی قطعی">شبیه‌سازی قطعی</span></button><button type="button" class="preset" data-preset="cap" aria-pressed="false"><span data-en="Exhaust budget" data-fa="اتمام بودجه">اتمام بودجه</span></button></div></div><div class="route-map" id="route-map" dir="ltr" aria-hidden="true"><b>IN</b><i></i><b>PRIMARY</b><i></i><b>LOCAL</b><i></i><b>BUDGET</b></div><div class="inputs"><label for="primary"><span class="" data-en="Primary provider" data-fa="ارائه‌دهندهٔ اصلی" >ارائه‌دهندهٔ اصلی</span></label><select id="primary"><option value="0" data-en="Ready" data-fa="در دسترس">در دسترس</option><option value="1" data-en="Unavailable" data-fa="خارج از دسترس">خارج از دسترس</option></select><label for="budget"><span class="" data-en="Budget remaining" data-fa="بودجهٔ باقی‌مانده" >بودجهٔ باقی‌مانده</span></label><select id="budget"><option value="0" data-en="2 credits" data-fa="۲ اعتبار">۲ اعتبار</option><option value="1" data-en="1 credit" data-fa="۱ اعتبار">۱ اعتبار</option><option value="2" data-en="0 credits" data-fa="بدون اعتبار">بدون اعتبار</option></select></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="activity" data-state="idle" class="activity" aria-hidden="true"><i></i><span><span data-en="Runner ready" data-fa="آزمایشگاه آماده">آزمایشگاه آماده</span></span><b id="metric">00</b></div><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section></div></section>
 <section class="wrap story" aria-labelledby="workflow-title"><p class="label"><span class="" data-en="WORKFLOW" data-fa="فرایند" >فرایند</span></p><h2 class="" data-en="How to use it" data-fa="مسیر استفاده" id="workflow-title">مسیر استفاده</h2>
 <div class="cards"><article><p class="index" dir="ltr">01</p><h3 class="" data-en="Validate configuration" data-fa="تنظیمات را اعتبارسنجی کنید" >تنظیمات را اعتبارسنجی کنید</h3><p class="" data-en="Check the routing configuration before starting the local gateway." data-fa="پیش از راه‌اندازی درگاه محلی، پیکربندی مسیریابی را بررسی کنید." >پیش از راه‌اندازی درگاه محلی، پیکربندی مسیریابی را بررسی کنید.</p></article><article><p class="index" dir="ltr">02</p><h3 class="" data-en="Review failover" data-fa="جابه‌جایی مسیر را ببینید" >جابه‌جایی مسیر را ببینید</h3><p class="" data-en="Understand how a temporary failure opens a circuit and sends eligible traffic to the fallback." data-fa="ببینید خطای موقت چگونه مدار را باز می‌کند و درخواست واجد شرایط را به مسیر پشتیبان می‌فرستد." >ببینید خطای موقت چگونه مدار را باز می‌کند و درخواست واجد شرایط را به مسیر پشتیبان می‌فرستد.</p></article><article><p class="index" dir="ltr">03</p><h3 class="" data-en="Watch spend and quality" data-fa="هزینه و کیفیت را بسنجید" >هزینه و کیفیت را بسنجید</h3><p class="" data-en="Budget limits and shadow summaries answer different questions: cost exposure and comparative output." data-fa="سقف بودجه و گزارش ارزیابی سایه‌ای به دو سؤال جدا پاسخ می‌دهند: هزینه و مقایسهٔ خروجی." >سقف بودجه و گزارش ارزیابی سایه‌ای به دو سؤال جدا پاسخ می‌دهند: هزینه و مقایسهٔ خروجی.</p></article></div></section>
-<section id="lab" class="wrap story" aria-labelledby="lab-title"><div class="workbench"><div><p class="label"><span class="" data-en="ILLUSTRATIVE DEMO" data-fa="دموی آموزشی" >دموی آموزشی</span></p><h2 class="" data-en="Routing control desk" data-fa="پنل کنترل مسیریابی" id="lab-title">پنل کنترل مسیریابی</h2><p class="instruction" data-en="Flip a fictional provider between ready and unavailable, then change the budget. Requests in this illustration never leave your browser." data-fa="وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود." >وضعیت یک ارائه‌دهندهٔ ساختگی و سقف بودجه را عوض کنید. هیچ درخواستی از مرورگر خارج نمی‌شود.</p><div class="inputs"><label for="primary"><span class="" data-en="Primary provider" data-fa="ارائه‌دهندهٔ اصلی" >ارائه‌دهندهٔ اصلی</span></label><select id="primary"><option value="0" data-en="Ready" data-fa="در دسترس">در دسترس</option><option value="1" data-en="Unavailable" data-fa="خارج از دسترس">خارج از دسترس</option></select><label for="budget"><span class="" data-en="Budget remaining" data-fa="بودجهٔ باقی‌مانده" >بودجهٔ باقی‌مانده</span></label><select id="budget"><option value="0" data-en="2 credits" data-fa="۲ اعتبار">۲ اعتبار</option><option value="1" data-en="1 credit" data-fa="۱ اعتبار">۱ اعتبار</option><option value="2" data-en="0 credits" data-fa="بدون اعتبار">بدون اعتبار</option></select></div></div><div class="result"><h3><span class="" data-en="What happened" data-fa="نتیجه" >نتیجه</span></h3><p id="status" aria-live="polite"></p><div id="fixture" role="list"></div></div><noscript><p><span class="" data-en="Enable JavaScript to use the example. The workflow and documentation are available without it." data-fa="برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند." >برای اجرای نمونه جاوااسکریپت را روشن کنید. راهنما و مستندات بدون آن در دسترس هستند.</span></p></noscript></div></section>
+
 <section class="wrap story" aria-labelledby="start"><div class="quick"><div><p class="label"><span class="" data-en="QUICK START" data-fa="شروع سریع" >شروع سریع</span></p><h2 class="" data-en="Try it locally" data-fa="اجرا روی سیستم خودتان" id="start">اجرا روی سیستم خودتان</h2><a href="https://github.com/mrzroot/routefall#readme"><span class="" data-en="Open setup and source docs" data-fa="راهنمای نصب و مستندات مخزن" >راهنمای نصب و مستندات مخزن</span></a></div>
 <pre tabindex="0" dir="ltr"><code>routefall check --config routefall.json
 routefall stats shadow.jsonl --json</code></pre></div></section><nav aria-label="Related links" style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem auto;width:min(92%,70rem)"><a href="/projects/guide/routefall/" data-en="First Steps" data-fa="قدم اول">قدم اول</a><a data-original-link href="/routefall/" data-en="Original site" data-fa="سایت قبلی">سایت قبلی</a></nav></main>
@@ -110,4 +183,48 @@ routefall stats shadow.jsonl --json</code></pre></div></section><nav aria-label=
   const button=$('run');if(button) button.addEventListener('click',()=>{ran=true;run();});
   showLanguage();
 })();
-</script><script>(()=>{const root=document.documentElement;const sync=()=>{const l=root.lang==="fa"?"fa":"en";try{localStorage.setItem("mrz-lang",l)}catch(_){}for(const a of document.querySelectorAll('a[href^="/projects/"], a[data-original-link]')){const u=new URL(a.href);u.searchParams.set("lang",l);a.href=u.pathname+u.search+u.hash}};sync();new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:["lang"]})})()</script></body></html>
+</script><script>(()=>{const root=document.documentElement;const sync=()=>{const l=root.lang==="fa"?"fa":"en";try{localStorage.setItem("mrz-lang",l)}catch(_){}for(const a of document.querySelectorAll('a[href^="/projects/"], a[data-original-link]')){const u=new URL(a.href);u.searchParams.set("lang",l);a.href=u.pathname+u.search+u.hash}};sync();new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:["lang"]})})()</script><script>(() => {
+ const slug='routefall', d=document, by=id=>d.getElementById(id), q=x=>d.querySelector(x), qa=x=>[...d.querySelectorAll(x)];
+ const activity=by('activity'), metric=by('metric'), controls=q('.inputs'), fixture=by('fixture');
+ let timer,moves=0;
+ function signal(){
+  moves++;
+  metric.textContent=String(moves).padStart(2,'0');
+  activity.dataset.state='running';
+  clearTimeout(timer);
+  timer=setTimeout(()=>activity.dataset.state='idle',850);
+ }
+ function value(id,v){const el=by(id);el.value=String(v);return el;}
+ function send(el){el.dispatchEvent(new Event('input',{bubbles:true}));}
+ const choices={
+  ragxray:{split:()=>{value('length',20);send(value('overlap',0));},heal:()=>{value('length',20);send(value('overlap',11));}},
+  routefall:{ready:()=>{value('primary',0);send(value('budget',0));},fail:()=>{value('primary',1);send(value('budget',1));},cap:()=>{value('primary',1);send(value('budget',2));}},
+  promptbisect:{early:()=>{send(value('first-bad',4));by('run').click();},late:()=>{send(value('first-bad',13));by('run').click();}},
+  agentcontract:{optional:()=>send(value('change',0)),required:()=>send(value('change',1)),number:()=>send(value('change',2))}
+ }[slug];
+ const presets=qa('[data-preset]');
+ for(const b of presets)b.addEventListener('click',()=>{
+  choices[b.dataset.preset]();
+  for(const p of presets)p.setAttribute('aria-pressed',String(p===b));
+ });
+ controls.addEventListener('input',()=>{presets.forEach(p=>p.setAttribute('aria-pressed','false'));signal();});
+ if(by('run'))by('run').addEventListener('click',signal);
+ function refresh(){
+  if(slug==='routefall'){
+   const unavailable=by('primary').value==='1', credits=2-(+by('budget').value);
+   by('route-map').dataset.route=credits<(unavailable?1:2)?'cap':unavailable?'fail':'ready';
+  }
+  if(slug==='promptbisect'){
+   const rev=+by('first-bad').value, probes=new Set([...fixture.children].map(x=>+x.textContent.match(/\d+/)?.[0]));
+   for(const cell of qa('[data-rev]')) {
+    cell.dataset.selected=String(+cell.dataset.rev===rev);cell.dataset.probe=String(probes.has(+cell.dataset.rev));
+   }
+  }
+  if(slug==='agentcontract'){
+   by('schema-preview').textContent=['body: string\ntitle?: string\ntag?: string','body: string\ntitle: string','body: number\ntitle?: string'][+by('change').value];
+  }
+ }
+ new MutationObserver(refresh).observe(fixture,{childList:true});
+ refresh();
+})();
+</script></body></html>
