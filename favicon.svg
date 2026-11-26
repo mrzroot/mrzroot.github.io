@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1b10"/><stop offset="1" stop-color="#130e0a"/></linearGradient><radialGradient id="h" cx=".3" cy="0" r=".9"><stop offset="0" stop-color="#ffb83d" stop-opacity=".30"/><stop offset="1" stop-color="#ffb83d" stop-opacity="0"/></radialGradient></defs><rect x=".75" y=".75" width="30.5" height="30.5" rx="8" fill="url(#g)"/><rect x=".75" y=".75" width="30.5" height="30.5" rx="8" fill="url(#h)"/><rect x=".75" y=".75" width="30.5" height="30.5" rx="8" fill="none" stroke="#ffb83d" stroke-opacity=".45" stroke-width="1.2"/><g fill="#ffb83d"><circle cx="7.00" cy="7.00" r="1.45"/><circle cx="7.00" cy="11.50" r="1.45"/><circle cx="7.00" cy="16.00" r="1.45"/><circle cx="7.00" cy="20.50" r="1.45"/><circle cx="7.00" cy="25.00" r="1.45"/><circle cx="11.50" cy="11.50" r="1.45"/><circle cx="16.00" cy="16.00" r="1.45"/><circle cx="20.50" cy="11.50" r="1.45"/><circle cx="25.00" cy="7.00" r="1.45"/><circle cx="25.00" cy="11.50" r="1.45"/><circle cx="25.00" cy="16.00" r="1.45"/><circle cx="25.00" cy="20.50" r="1.45"/><circle cx="25.00" cy="25.00" r="1.45"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+ <defs>
+  <radialGradient id="face" cx=".42" cy=".37" r=".74"><stop stop-color="#543419"/><stop offset="1" stop-color="#170e0a"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffdf9f"/><stop offset=".55" stop-color="#e9b16a"/><stop offset="1" stop-color="#b37236"/></linearGradient>
+  <path id="letters" fill-rule="evenodd" d="M8 42V23h3l6 7 6-7h3v19h-4V30l-5 6-5-6v12Zm21 0V23h9l4 2 2 4-1 4-3 2 5 7h-5l-5-7h-2v7Zm4-15v4h5l2-1v-2l-2-1Zm13-4h13v4L51 38h8v4H46v-4l8-11h-8Z"/>
+ </defs>
+ <rect x="1" y="1" width="62" height="62" rx="15" fill="url(#face)" stroke="#805431" stroke-width="2"/>
+ <use href="#letters" transform="translate(0 1.6)" fill="#955524"/>
+ <use href="#letters" fill="url(#gold)"/>
+</svg>

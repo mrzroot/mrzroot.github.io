@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="identity.css">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "whystuck", "description": "Run any command with an idle watchdog; when it hangs, whystuck says why (pager, editor, y/N prompt, password, watch mode, lock, stalled connect) and prints the non-interactive fix.", "codeRepository": "https://github.com/mrzroot/whystuck", "url": "https://mrzroot.github.io/whystuck/", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "version": "0.1.0", "author": {"@type": "Person", "name": "Mohammadreza Zare", "url": "https://github.com/mrzroot"}}</script>
-<link rel="stylesheet" href="project-rebuild.css"><link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="stylesheet" href="/assets/studio-mark.css"></head>
+<link rel="stylesheet" href="project-rebuild.css"><link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/home.css"></head>
 <body class="p-whystuck rebuild-dev dr-lab">
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="wrap">
@@ -44,10 +44,10 @@
   </div>
   <div class="stage dr-stage"><div class="dr-caption" aria-hidden="true"><i></i><span lang="en" class="l-en">Interactive process map</span><span lang="fa" class="l-fa">نقشهٔ تعاملی فرایند</span></div><div class="tangle"><span class="tangle-tag"><span class="l-en">7 kinds of stall</span><span class="l-fa" lang="fa">۷ نوع توقف</span></span><canvas id="tangle" role="img" aria-label="Seven tangled strands, one per kind of stall, that straighten out when you pull the slider"></canvas><div class="tangle-bar"><label for="pull"><span class="l-en">Pull to untangle</span><span class="l-fa" lang="fa">بکشید تا باز شود</span></label><input id="pull" type="range" min="0" max="100" value="0" aria-describedby="pull-out"><output id="pull-out" for="pull">0%</output></div></div></div>
 </div></section>
-<aside class="studio-project-entry" style="--entry-color:#ffaa6d">
-  <img src="/assets/thumbs/whystuck.webp" alt="" width="160" height="100" loading="lazy" decoding="async">
-  <div><strong><span class="l-en" lang="en">Read the silence</span><span class="l-fa" lang="fa">سکوت فرایند را بخوان</span></strong><small><span class="l-en" lang="en">Inspect the process and stdin</span><span class="l-fa" lang="fa">فرایند و ورودی را بررسی کن</span></small></div>
-  <a href="/playground/?project=whystuck"><span class="l-en" lang="en">Try the case ↗</span><span class="l-fa" lang="fa">سناریو را امتحان کن ↗</span></a>
+<aside class="exhibit-hub" data-motif="pulse" style="--exhibit-hue:20">
+  <img src="/assets/thumbs/whystuck.webp" alt="" width="192" height="120" loading="lazy">
+  <div><strong><span class="pf-en" lang="en">Read the silence</span><span class="pf-fa" lang="fa">سکوت فرایند را بخوان</span></strong><p><span class="pf-en" lang="en">Run a command with an idle watchdog. The report distinguishes a prompt, pager or editor from a process that is still working.</span><span class="pf-fa" lang="fa">دستور را با ناظر بی‌حرکتی اجرا کنید. گزارش فرقِ انتظار برای ورودی، pager یا ویرایشگر را با فرایندِ هنوز فعال نشان می‌دهد.</span></p></div>
+  <a href="/projects/guide/whystuck/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a>
 </aside>
 
 <aside class="dr-guide" aria-label="Project orientation / معرفی پروژه"><div><a class="dr-back" href="/projects/"><span lang="en" class="l-en">All projects</span><span lang="fa" class="l-fa">همهٔ پروژه‌ها</span></a><p><span lang="en" class="l-en">Run a known offline stall and trace the evidence before you stop a process.</span><span lang="fa" class="l-fa">یک توقف آزمایشیِ آفلاین را ببین و قبل از متوقف کردن فرایند، شواهد را مرور کن.</span></p></div><a class="dr-jump" href="#demo"><span lang="en" class="l-en">Open the walkthrough</span><span lang="fa" class="l-fa">باز کردن تمرین</span><span aria-hidden="true">↓</span></a></aside><section id="demo" aria-labelledby="demo-h" class="dr-active-section"><div class="wrap">
