@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="routefall">
+  <defs>
+    <pattern id="g-light" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ebdfc8" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gl-light" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#b8470a" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#faf4e6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#faf4e6"/>
+  <rect width="640" height="400" fill="url(#g-light)"/>
+  <rect width="640" height="400" fill="url(#gl-light)"/>
+  <rect x="28" y="24" width="584" height="352" rx="18" fill="#fffdf8" stroke="#d8c7ab" stroke-width="1.5"/>
+  <circle cx="54" cy="48" r="5" fill="#b8470a" opacity="0.8"/>
+  <circle cx="72" cy="48" r="5" fill="#d8c7ab"/>
+  <circle cx="90" cy="48" r="5" fill="#d8c7ab"/>
+  <text x="588" y="53" text-anchor="end" fill="#5e5042" font-family="ui-monospace,Consolas,monospace" font-size="13" letter-spacing="1.2">RESILIENT ROUTER</text>
+  <line x1="28" y1="68" x2="612" y2="68" stroke="#d8c7ab" stroke-width="1"/>
+  
+  <rect x="74" y="160" width="110" height="44" rx="10" fill="#faf4e6" stroke="#b8470a" stroke-width="2"/>
+  <text x="129" y="187" text-anchor="middle" fill="#1c1610" font-family="ui-monospace,monospace" font-size="13">/v1/chat</text>
+  <path d="M 184 182 C 240 182 240 124 300 124" fill="none" stroke="#5e5042" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M 184 182 L 300 182" fill="none" stroke="#b8470a" stroke-width="3"/>
+  <path d="M 184 182 C 240 182 240 240 300 240" fill="none" stroke="#92400e" stroke-width="2"/>
+  <rect x="304" y="104" width="256" height="38" rx="8" fill="#faf4e6" stroke="#d8c7ab"/>
+  <text x="322" y="128" fill="#5e5042" font-family="ui-monospace,monospace" font-size="12">CIRCUIT OPEN · upstream-a (429)</text>
+  <rect x="304" y="162" width="256" height="38" rx="8" fill="#faf4e6" stroke="#b8470a" stroke-width="1.8"/>
+  <text x="322" y="186" fill="#059669" font-family="ui-monospace,monospace" font-size="12">FAILOVER OK · local-ollama</text>
+  <rect x="304" y="220" width="256" height="38" rx="8" fill="#faf4e6" stroke="#d8c7ab"/>
+  <text x="322" y="244" fill="#b8470a" font-family="ui-monospace,monospace" font-size="12">SHADOW + TTL CACHE + GUARD</text>
+  <text x="54" y="346" fill="#1c1610" font-family="system-ui,Segoe UI,sans-serif" font-weight="800" font-size="28">routefall</text>
+  <rect x="520" y="324" width="68" height="24" rx="12" fill="#b8470a" fill-opacity="0.16" stroke="#b8470a" stroke-opacity="0.45"/>
+  <text x="554" y="340" text-anchor="middle" fill="#b8470a" font-family="ui-monospace,Consolas,monospace" font-weight="700" font-size="12">v1.0.0</text>
+</svg>

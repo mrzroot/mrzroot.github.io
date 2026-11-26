@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="ragxray">
+  <defs>
+    <pattern id="g-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#2a2118" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gl-dark" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#f2b84b" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#120e0a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#120e0a"/>
+  <rect width="640" height="400" fill="url(#g-dark)"/>
+  <rect width="640" height="400" fill="url(#gl-dark)"/>
+  <rect x="28" y="24" width="584" height="352" rx="18" fill="#1b1510" stroke="#3b2f23" stroke-width="1.5"/>
+  <circle cx="54" cy="48" r="5" fill="#f2b84b" opacity="0.8"/>
+  <circle cx="72" cy="48" r="5" fill="#3b2f23"/>
+  <circle cx="90" cy="48" r="5" fill="#3b2f23"/>
+  <text x="588" y="53" text-anchor="end" fill="#b6a897" font-family="ui-monospace,Consolas,monospace" font-size="13" letter-spacing="1.2">CHUNK DIAGNOSTICS</text>
+  <line x1="28" y1="68" x2="612" y2="68" stroke="#3b2f23" stroke-width="1"/>
+  
+  <rect x="74" y="106" width="180" height="162" rx="10" fill="#120e0a" stroke="#3b2f23" stroke-width="1.5"/>
+  <line x1="92" y1="136" x2="236" y2="136" stroke="#b6a897" stroke-width="2"/>
+  <line x1="74" y1="166" x2="254" y2="166" stroke="#f2b84b" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <line x1="92" y1="196" x2="220" y2="196" stroke="#b6a897" stroke-width="2"/>
+  <rect x="92" y="218" width="144" height="32" rx="4" fill="#f2b84b" fill-opacity="0.16" stroke="#f2b84b" stroke-opacity="0.5"/>
+  <path d="M 276 186 L 320 186" stroke="#f2b84b" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="334" y="106" width="234" height="72" rx="10" fill="#120e0a" stroke="#f2b84b" stroke-width="1.5"/>
+  <text x="352" y="136" fill="#f2b84b" font-family="ui-monospace,monospace" font-size="13">FRACTURE: SPLIT TABLE</text>
+  <text x="352" y="158" fill="#b6a897" font-family="ui-monospace,monospace" font-size="12">chunk #2 ✂ header-row</text>
+  <rect x="334" y="196" width="234" height="72" rx="10" fill="#120e0a" stroke="#3b2f23"/>
+  <text x="352" y="226" fill="#34d399" font-family="ui-monospace,monospace" font-size="13">BM25 vs 3-GRAM PROBE</text>
+  <text x="352" y="248" fill="#b6a897" font-family="ui-monospace,monospace" font-size="12">EN + FA نیم‌فاصله</text>
+  <text x="54" y="346" fill="#f5efe6" font-family="system-ui,Segoe UI,sans-serif" font-weight="800" font-size="28">ragxray</text>
+  <rect x="520" y="324" width="68" height="24" rx="12" fill="#f2b84b" fill-opacity="0.16" stroke="#f2b84b" stroke-opacity="0.45"/>
+  <text x="554" y="340" text-anchor="middle" fill="#f2b84b" font-family="ui-monospace,Consolas,monospace" font-weight="700" font-size="12">v1.0.0</text>
+</svg>
