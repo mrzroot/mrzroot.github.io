@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="identity.css">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "whycached", "description": "Finds which cache layer (CDN, browser, service worker, asset name) serves the stale copy of a live URL, with the fix for that layer. Python, no dependencies.", "codeRepository": "https://github.com/mrzroot/whycached", "url": "https://mrzroot.github.io/whycached/", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "version": "0.1.0", "author": {"@type": "Person", "name": "Mohammadreza Zare", "url": "https://github.com/mrzroot"}}</script>
-<link rel="stylesheet" href="project-rebuild.css"><link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous"></head>
+<link rel="stylesheet" href="project-rebuild.css"><link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="stylesheet" href="/assets/studio-mark.css"></head>
 <body class="p-whycached rebuild-dev dr-layers">
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="wrap">
@@ -44,6 +44,11 @@
   </div>
   <div class="stage dr-stage"><div class="dr-caption" aria-hidden="true"><i></i><span lang="en" class="l-en">Explore the response layers</span><span lang="fa" class="l-fa">لایه‌های پاسخ را بررسی کن</span></div><div id="onion"></div><div class="ocap" id="ocap"></div><ul class="legend" id="legend" aria-label="Cache layers"></ul><div class="oinfo" id="oinfo"></div></div>
 </div></section>
+<aside class="studio-project-entry" style="--entry-color:#77dfff">
+  <img src="/assets/thumbs/whycached.webp" alt="" width="160" height="100" loading="lazy" decoding="async">
+  <div><strong><span class="l-en" lang="en">Follow the cached response</span><span class="l-fa" lang="fa">مسیر پاسخ کش‌شده را دنبال کن</span></strong><small><span class="l-en" lang="en">Compare origin and edge response headers</span><span class="l-fa" lang="fa">هدرهای مبدأ و لبه را مقایسه کن</span></small></div>
+  <a href="/playground/?project=whycached"><span class="l-en" lang="en">Try the case ↗</span><span class="l-fa" lang="fa">سناریو را امتحان کن ↗</span></a>
+</aside>
 
 <aside class="dr-guide" aria-label="Project orientation / معرفی پروژه"><div><a class="dr-back" href="/projects/"><span lang="en" class="l-en">All projects</span><span lang="fa" class="l-fa">همهٔ پروژه‌ها</span></a><p><span lang="en" class="l-en">Open the local scenarios to compare normal and fresh responses before changing a cache.</span><span lang="fa" class="l-fa">پیش از تغییر کش، نمونه‌های محلی را باز کن و پاسخ عادی و تازه را مقایسه کن.</span></p></div><a class="dr-jump" href="#demo"><span lang="en" class="l-en">Open the walkthrough</span><span lang="fa" class="l-fa">باز کردن تمرین</span><span aria-hidden="true">↓</span></a></aside><section id="demo" aria-labelledby="demo-h" class="dr-active-section"><div class="wrap">
   <p class="label"><span class="l-en">Demo</span><span class="l-fa" lang="fa">نمایش</span></p><h2 id="demo-h"><span class="l-en">Real output from three broken deployments</span><span class="l-fa" lang="fa">خروجی واقعی از سه دیپلویِ خراب</span></h2><p class="sec-sub"><span class="l-en">Pick a scenario. whycached --demo starts a local server that behaves like a CDN serving an old copy, a PWA with a cache-first service worker, and a healthy site; the probes and the verdicts are real. This is the unedited output (docs/demo.txt). Cloudflare is the label the demo server sends, not a real Cloudflare.</span><span class="l-fa" lang="fa">یک سناریو را انتخاب کنید. ‎whycached --demo‎ یک سرور محلی راه می‌اندازد که مثل CDN با نسخهٔ قدیمی، یک PWA با service worker از نوع cache-first و یک سایت سالم رفتار می‌کند؛ پروب‌ها و حکم‌ها واقعی‌اند. این خروجی ویرایش‌نشده است (docs/demo.txt). «Cloudflare» برچسبی است که سرور نمایشی می‌فرستد، نه Cloudflare واقعی.</span></p>

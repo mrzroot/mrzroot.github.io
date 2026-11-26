@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "arjaa", "description": "arjaa checks cross-references in a Persian .docx thesis: figure and table numbers (duplicates, gaps, mentions of figures that do not exist) and citations against the reference list, with Persian digits and Jalali years. Offline, Python, reports only.", "codeRepository": "https://github.com/mrzroot/arjaa", "url": "https://mrzroot.github.io/arjaa/", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "version": "0.1.0", "author": {"@type": "Person", "name": "Mohammadreza Zare", "url": "https://github.com/mrzroot"}}</script>
 <link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="editorial.css">
-</head>
+<link rel="stylesheet" href="/assets/studio-mark.css"></head>
 <body class="p-arjaa rd rd-ledger">
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="wrap">
@@ -47,6 +47,11 @@
   </div>
   <ul class="badges" style="margin-top:1.8rem" aria-label="Facts"><li>Python 3.9+</li><li>MIT</li><li>0 deps</li><li>offline</li><li>41 tests</li></ul>
 </div></div></section>
+<aside class="studio-project-entry" style="--entry-color:#ffb68b">
+  <img src="/assets/thumbs/arjaa.webp" alt="" width="160" height="100" loading="lazy" decoding="async">
+  <div><strong><span class="l-en" lang="en">Follow a reference to its target</span><span class="l-fa" lang="fa">ارجاع را تا مقصد دنبال کن</span></strong><small><span class="l-en" lang="en">Pair the citation with actual captions</span><span class="l-fa" lang="fa">ارجاع را با کپشن‌های واقعی تطبیق بده</span></small></div>
+  <a href="/playground/?project=arjaa"><span class="l-en" lang="en">Try the case ↗</span><span class="l-fa" lang="fa">سناریو را امتحان کن ↗</span></a>
+</aside>
 <section id="audit" class="ar-sec" aria-labelledby="audit-h"><div class="wrap">
   <div class="sec-head"><p class="label"><span class="l-en">Live · the real checks</span><span class="l-fa" lang="fa">زنده · همان بررسی‌های واقعی</span></p><h2 id="audit-h"><span class="l-en">Paste an excerpt. Watch the strings tie, or snap.</span><span class="l-fa" lang="fa">گزیده‌ای بچسبانید. ببینید ریسمان‌ها بسته می‌شوند یا پاره.</span></h2></div>
   <p class="prose"><span class="l-en">This runs a JavaScript port of arjaa's caption, mention and author-year citation checks in your browser. Nothing is uploaded. One line is one paragraph; a line starting with <code>#</code> is a Heading 1, and a heading such as «<bdi dir="rtl" lang="fa">منابع</bdi>» starts the reference list. Numeric [1] citations, the Jalali/Gregorian year checks and the rest are ported too; the port gave the same findings as the Python engine on 300 randomly edited theses (A105 and A204 are left out).</span><span class="l-fa" lang="fa">این صفحه نسخهٔ جاوااسکریپتی بررسی‌های شمارهٔ عنوان، ارجاع‌های متنی و ارجاع نویسنده-سال ارجاع را در مرورگر شما اجرا می‌کند. چیزی بارگذاری نمی‌شود. هر خط یک پاراگراف است؛ خطی که با <code>#</code> شروع شود سرفصل است و سرفصلی مثل «منابع» فهرست منابع را آغاز می‌کند. ارجاع عددی [1] و بررسی سال شمسی/میلادی هم پورت شده‌اند؛ پورت روی ۳۰۰ پایان‌نامهٔ تصادفی ویرایش‌شده همان یافته‌های موتور پایتون را داد (A105 و A204 کنار گذاشته شده‌اند).</span></p>

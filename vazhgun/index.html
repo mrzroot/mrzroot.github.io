@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "vazhgun", "description": "vazhgun audits a Persian or Arabic .docx for text direction and number order: paragraphs and tables set left-to-right, page ranges, dates and caption numbers drawn in two orders, a minus sign that jumps behind its number. Offline, Python, no dependencies.", "codeRepository": "https://github.com/mrzroot/vazhgun", "url": "https://mrzroot.github.io/vazhgun/", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "version": "0.1.0", "author": {"@type": "Person", "name": "Mohammadreza Zare", "url": "https://github.com/mrzroot"}}</script>
 <link rel="preload" href="/assets/fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="editorial.css">
-</head>
+<link rel="stylesheet" href="/assets/studio-mark.css"></head>
 <body class="p-vazhgun rd rd-prism">
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
 <header class="top"><div class="wrap">
@@ -51,6 +51,11 @@
   </div>
   <ul class="badges" aria-label="Facts"><li>Python 3.9+</li><li>MIT</li><li>0 deps</li><li>offline</li><li>27 tests</li></ul>
 </div></div></section>
+<aside class="studio-project-entry" style="--entry-color:#ecc591">
+  <img src="/assets/thumbs/vazhgun.webp" alt="" width="160" height="100" loading="lazy" decoding="async">
+  <div><strong><span class="l-en" lang="en">Keep a figure number in order</span><span class="l-fa" lang="fa">ترتیب شمارهٔ شکل را نگه دار</span></strong><small><span class="l-en" lang="en">Inspect the text’s direction controls</span><span class="l-fa" lang="fa">کنترل‌های جهت متن را بررسی کن</span></small></div>
+  <a href="/playground/?project=vazhgun"><span class="l-en" lang="en">Try the case ↗</span><span class="l-fa" lang="fa">سناریو را امتحان کن ↗</span></a>
+</aside>
 <section id="lab" class="vz-lab" aria-labelledby="lab-h"><div class="wrap">
   <div class="sec-head"><p class="label"><span class="l-en">Live · the real algorithm</span><span class="l-fa" lang="fa">زنده · الگوریتم واقعی</span></p><h2 id="lab-h"><span class="l-en">Paste a line. See the order it is drawn in.</span><span class="l-fa" lang="fa">یک خط بگذارید. ترتیب دیده‌شدنش را ببینید.</span></h2></div>
   <p class="prose"><span class="l-en">This runs a JavaScript port of vazhgun's UAX #9 and its chain and minus checks in your browser, offline. It reproduced the levels and drawn order of the Python engine on 3,000 random strings. The marks the page writes are the ones <code>--fix</code> writes. It is the standard's answer: Word can differ.</span><span class="l-fa" lang="fa">این صفحه نسخهٔ جاوااسکریپت UAX #9 واژگون و بررسی‌های زنجیره و منفی را در مرورگرتان اجرا می‌کند، بدون اینترنت. روی ۳٬۰۰۰ رشتهٔ تصادفی همان سطح و ترتیب نمایش موتور پایتون را داد. نشانه‌هایی که صفحه می‌نویسد همان‌هایی است که <code>--fix</code> می‌نویسد. این پاسخ استاندارد است؛ ورد ممکن است فرق کند.</span></p>

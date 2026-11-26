@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Playground · mrzroot</title>
+  <meta name="description" content="Explore Mohammadreza Zare’s projects through short interactive case studies with original screenshots and simulated data.">
+  <link rel="canonical" href="https://mrzroot.github.io/playground/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./playground.css">
+  <script src="./cases.js" defer></script>
+  <script src="./playground.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#case-title" data-text="skip">Skip to the case</a>
+  <header class="mast">
+    <a class="wordmark" href="/" dir="ltr">mrz<span>↗</span>root</a>
+    <nav aria-label="Navigation"><a href="/projects/" data-text="catalog">Project catalog</a><button id="language" type="button" lang="fa">فارسی</button></nav>
+  </header>
+  <main class="frame">
+    <div class="intro">
+      <h1 data-text="heading">Project<br>Playground.</h1>
+      <p data-text="intro">Try a small, realistic problem from each project. Make a choice, watch the result, and open the full demo when you want to go deeper.</p>
+    </div>
+    <noscript><p>Enable JavaScript to play the cases. <a href="/projects/">Browse all project introductions.</a></p></noscript>
+    <div id="experience" hidden>
+      <section class="feature" id="case" aria-labelledby="case-title">
+        <div class="story">
+          <span class="project" id="project-name" dir="auto"></span>
+          <h2 id="case-title" tabindex="-1"></h2>
+          <p id="case-brief"></p>
+          <div id="answers" class="answers" role="group" aria-label="Actions"></div>
+          <div class="response" id="response" aria-live="polite" aria-atomic="true">
+            <strong id="response-title"></strong><p id="response-copy"></p>
+          </div>
+          <div class="case-links"><a id="open-project" data-text="open">Open project ↗</a><a id="open-source" data-text="source">Source code ↗</a><button type="button" id="reset" data-text="reset" hidden>Reset case ↺</button></div>
+        </div>
+        <div class="motion-panel">
+          <div class="monitor" aria-hidden="true">
+            <img id="case-image" alt="" width="720" height="450" decoding="async">
+            <div id="case-visual"></div>
+          </div>
+          <p id="visual-caption"></p>
+        </div>
+      </section>
+      <section class="library" aria-labelledby="library-title">
+        <div class="library-heading">
+          <h2 id="library-title" data-text="choose">Choose a project</h2>
+          <label for="search"><span data-text="search">Search projects</span><input type="search" id="search" placeholder="e.g. shellparity"></label>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Project category"></div>
+        <p id="empty" data-text="empty" hidden>No projects match this search.</p>
+        <div class="gallery" id="gallery"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="frame"><a href="/" dir="ltr">Mohammadreza Zare</a><p data-text="footer">Cases use illustrative data and run in your browser.</p></footer>
+</body>
+</html>
