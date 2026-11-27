@@ -110,3 +110,20 @@ html[data-theme=light] .pf-atlas{--atlas-back:#f8edda;--atlas-panel:#fffaef;--at
 @media(prefers-reduced-motion:reduce){.pf-atlas *,.pf-mark *,.exhibit-hub *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .exhibit-hub .exhibit-arrow{display:inline-block;width:.5em;height:.5em;margin-inline:.23em;border-top:1px solid currentColor;border-right:1px solid currentColor;position:relative;vertical-align:.15em}
 .exhibit-hub .exhibit-arrow::after{content:'';height:1px;width:.62em;background:currentColor;position:absolute;right:-.05em;top:.17em;transform:rotate(-45deg)}
+.mrz-object.particle-highlight::before{background:radial-gradient(ellipse,#ffbc696e,transparent 70%)}
+.pf-mark .mrz-object[data-impact=burst] .object-seam{border-color:var(--mrz-gold)}
+.object-controls [data-emblem=burst]{border-color:var(--metal-ink);font-weight:720}
+.atlas-board{position:relative}
+.atlas-orbit-tools[hidden]{display:none}
+.atlas-orbit-tools{position:absolute;inset:.55rem .65rem auto auto;z-index:4}
+.atlas-orbit-tools button{min-height:38px;font-size:.76rem;padding:.3rem .58rem;border:1px solid var(--atlas-line);border-radius:.35rem;background:var(--atlas-panel);color:var(--atlas-ink)}
+.atlas-orbit-tools button[aria-pressed=true]{border-color:var(--atlas-key);color:var(--atlas-key)}
+.atlas-orbit-tools button:disabled{cursor:default;opacity:.72}
+.atlas-radar{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.has-radar .map-orbit,.atlas-map.has-radar::after{display:none}
+.atlas-map.has-radar[data-layout=orbit]{background:radial-gradient(ellipse at 50% 46%,color-mix(in srgb,var(--atlas-key) 15%,var(--atlas-back)),var(--atlas-back) 77%)}
+.atlas-map.has-radar .atlas-point{left:var(--radar-x,var(--position-x));top:var(--radar-y,var(--position-y));z-index:var(--radar-z,1);max-width:min(32%,12.8rem);background:color-mix(in srgb,var(--atlas-panel) 93%,transparent);box-shadow:0 3px 0 color-mix(in srgb,var(--atlas-line) 60%,transparent),0 7px 14px #2a180f28}
+.atlas-map.has-radar .atlas-point[aria-pressed=true]{color:var(--atlas-ink);border-color:var(--atlas-key);background:color-mix(in srgb,var(--atlas-key) 30%,var(--atlas-panel));box-shadow:0 3px 0 var(--atlas-line),0 0 26px color-mix(in srgb,var(--atlas-key) 43%,transparent)}
+.atlas-map.has-radar .atlas-point-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.atlas-map.has-radar:not(.radar-ready) .atlas-points{visibility:hidden}
+@media(max-width:45rem){.atlas-map.has-radar{height:clamp(305px,89vw,440px)}.atlas-map.has-radar .atlas-point{min-width:3.9rem;padding:.28rem .4rem;gap:.23rem}}

@@ -4,6 +4,7 @@
   if(!root || !data) return;
   const map=root.querySelector('.atlas-map');
   const nav=root.querySelector('.atlas-nav');
+  const orbitToggle=root.querySelector('[data-atlas-motion]');
   const feature=root.querySelector('.atlas-feature');
   const cover=feature.querySelector('img');
   const title=feature.querySelector('.atlas-project');
@@ -15,7 +16,7 @@
   const pageSize=6;
   const coords=[[22,23],[77,22],[76,51],[76,80],[22,80],[22,51]];
   const layouts={agents:'orbit',language:'specimen',systems:'junction',showcase:'film'};
-  let group='agents', page=0, selected=0, controls=[], animation;
+  let group='agents', page=0, selected=0, controls=[], animation, radar;
 
   const element=(tag,css,text)=>{
     const item=document.createElement(tag);
@@ -41,6 +42,7 @@
     if(!entry) return;
     selected=index;
     const [x,y]=coords[index];
+    radar?.select(index,entry.hue,motion);
     map.style.setProperty('--target-x',x+'%');
     map.style.setProperty('--target-y',y+'%');
     const angle=Math.atan2(y-50,x-50)*180/Math.PI;
@@ -61,6 +63,8 @@
   }
 
   function render(motion) {
+    radar?.destroy();
+    radar=null;
     map.dataset.group=group;
     map.dataset.layout=layouts[group];
     map.replaceChildren();
@@ -97,6 +101,7 @@
     });
     list.append(...controls);
     map.append(list);
+    if(group==='agents' && orbitToggle) radar=window.mountMrzOrbit?.(map,controls,orbitToggle,reduced);
     const count=Math.max(1,Math.ceil(visible().length/pageSize));
     nav.hidden=count===1;
     nav.querySelector('.atlas-count').textContent=(page+1)+' / '+count;
