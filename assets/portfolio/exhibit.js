@@ -13,7 +13,7 @@
   const range=root.querySelector('input[type=range]');
   const choices=[...root.querySelectorAll('[data-stage]')];
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let state=0,animation;
+  let state=0,animation,drawDepth;
 
   const language=()=>{
     const value=document.documentElement.dataset.lang || document.documentElement.lang;
@@ -63,6 +63,7 @@
     state=Math.min(2,Math.max(0,next));
     const values=project.evidence[state];
     root.dataset.state=String(state);
+    drawDepth?.(state,motion);
     picture.style.setProperty('--reveal',state===1?'72%':state===2?'46%':'100%');
     if(range){
       range.value=String(state);
@@ -98,6 +99,21 @@
 
   for(const button of choices)button.addEventListener('click',()=>render(Number(button.dataset.stage),true));
   range?.addEventListener('input',()=>render(Number(range.value),true));
+  const css=document.createElement('link');
+  css.rel='stylesheet';
+  css.href='/assets/portfolio/depth.css';
+  const ready=new Promise(resolve=>{
+    css.addEventListener('load',()=>resolve(true),{once:true});
+    css.addEventListener('error',()=>resolve(false),{once:true});
+  });
+  document.head.append(css);
+  Promise.all([ready,import('/assets/portfolio/depth.js')]).then(([styled,depth])=>{
+    if(!styled)return;
+    drawDepth=depth.enhanceDepth(root,project,language);
+    drawDepth?.(state,false);
+  }).catch(()=>{
+    // The original example stays usable if the optional scene cannot load.
+  });
   if(languageButton){
     languageButton.addEventListener('click',()=>setLocale(language()==='fa'?'en':'fa'));
     setLocale(language());

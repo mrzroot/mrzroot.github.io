@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="vault.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"ganjineh","alternateName":"گنجینه","description":"A shared notebook for a team's AI coding helpers: finished sessions become short notes with secrets blacked out, kept as plain files in a git repo, and searched by the next teammate's AI. Python, standard library only.","codeRepository":"https://github.com/mrzroot/ganjineh","programmingLanguage":"Python","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Mohammadreza Zare","url":"https://github.com/mrzroot"},"url":"https://mrzroot.github.io/ganjineh/","inLanguage":["fa","en"]}</script>
 <link rel="stylesheet" href="portfolio-reframe.css">
-<link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/home.css"></head>
+<link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/home.css"><link rel="stylesheet" href="/assets/portfolio/embed.css"><script defer src="/assets/portfolio/exhibit.js"></script></head>
 <body class="p-ganjineh">
 <script>(function(){var d=document.documentElement,m='system',l=null,q=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;try{m=localStorage.getItem('mrz-theme')||'system'}catch(e){}if(m!=='light'&&m!=='dark')m='system';var th=m==='system'?(q&&q.matches?'dark':'light'):m;d.setAttribute('data-theme',th);d.setAttribute('data-theme-mode',m);d.style.colorScheme=th;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')}catch(e){}if(l!=='en')l='fa';if(l==='en'){d.lang='en';d.dir='ltr'}})();</script>
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
@@ -98,11 +98,32 @@
     <figcaption class="stage-cap"><button type="button" class="btn sm" id="vault-replay"><span class="l-en">Replay the opening</span><span class="l-fa" lang="fa">پخش دوبارهٔ باز شدن</span></button><span><span class="l-en">Decoration only: Alice's notes flow through the vault to Bob.</span><span class="l-fa" lang="fa">فقط تزئینی: یادداشت‌های آلیس از گنجینه به باب می‌رسد.</span></span></figcaption>
   </figure>
 </div></section>
-<aside class="exhibit-hub" data-motif="layers" style="--exhibit-hue:31">
-  <img src="/assets/thumbs/ganjineh.webp" alt="" width="192" height="120" loading="lazy">
-  <div><strong><span class="pf-en" lang="en">Give the next agent the decision</span><span class="pf-fa" lang="fa">تصمیم را به ایجنت بعدی منتقل کن</span></strong><p><span class="pf-en" lang="en">Keep decisions alongside code in a shared Git notebook that coding assistants can read. No hosted account is required.</span><span class="pf-fa" lang="fa">تصمیم‌ها را کنار کد در یک دفترچهٔ Git نگه دارید تا دستیارهای کدنویسی بتوانند آن را بخوانند. نیازی به حساب میزبانی نیست.</span></p></div>
-  <a href="/projects/guide/ganjineh/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a>
-</aside>
+<div class="atlas-embedded" data-motif="layers" style="--exhibit-hue:31"><section class="exhibit-studio" id="portfolio-example" data-project="ganjineh" data-motif="layers" data-state="0" aria-labelledby="portfolio-example-title">
+    <div class="exhibit-studio-head"><div><p class="exhibit-kicker"><span class="pf-en" lang="en">Illustrative sample</span><span class="pf-fa" lang="fa">دادهٔ نمونه</span></p><h2 id="portfolio-example-title"><span class="pf-en" lang="en">Open a layer</span><span class="pf-fa" lang="fa">یک لایه را باز کن</span></h2></div>
+       <a href="/projects/guide/ganjineh/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a></div>
+    <div class="exhibit-lab">
+      <div class="stage-picture" aria-hidden="true">
+        <div class="stage-sign"><i></i><i></i><i></i><strong dir="ltr">ganjineh</strong></div>
+
+        <div class="stage-track" dir="ltr"></div>
+        <div class="stage-evidence" dir="ltr"><span dir="auto">chat · yesterday</span><span dir="auto">new session · today</span></div>
+      </div>
+      <div class="stage-work">
+        <p><span class="pf-en" lang="en">Yesterday the team chose PostgreSQL over a remote dependency. Today a different assistant is about to re-open the decision.</span><span class="pf-fa" lang="fa">دیروز تیم PostgreSQL را به یک وابستگی راه‌دور ترجیح داد. امروز یک دستیار دیگر می‌خواهد همان تصمیم را دوباره بررسی کند.</span></p>
+        <div class="stage-actions" role="group" aria-label="Example controls / کنترل‌های نمونه">
+          <button type="button" data-stage="1" aria-pressed="false"><span class="pf-en" lang="en">Record a concise decision and rationale</span><span class="pf-fa" lang="fa">تصمیم و دلیلش را کوتاه ثبت کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button><button type="button" data-stage="2" aria-pressed="false"><span class="pf-en" lang="en">Paste an entire unstructured conversation</span><span class="pf-fa" lang="fa">تمام گفت‌وگو را بدون ساختار کپی کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button>
+        </div>
+        <output class="stage-result" aria-live="polite"><span class="pf-en" lang="en">Try a response to see its effect.</span><span class="pf-fa" lang="fa">یک کار را انتخاب کن و اثرش را ببین.</span></output>
+        <div class="stage-foot">
+          <button type="button" data-stage="0" aria-pressed="true"><span class="pf-en" lang="en">Reset example</span><span class="pf-fa" lang="fa">بازنشانی نمونه</span></button>
+
+        </div>
+      </div>
+    </div>
+   </section>
+    <p class="exhibit-takeaway"><span class="pf-en" lang="en">Write one decision with its rationale and date so a future session can retrieve the decision without importing the full chat.</span><span class="pf-fa" lang="fa">یک تصمیم را با دلیل و تاریخ ثبت کن تا نشست بعدی بتواند آن را بدون خواندن کل گفت‌وگو بازیابی کند.</span></p>
+    <script type="application/json" data-embed-project>{"entries":[{"id":"ganjineh","group":"agents","motif":"layers","color":"#f7c484","title":["Give the next agent the decision","تصمیم را به ایجنت بعدی منتقل کن"],"brief":["Yesterday the team chose PostgreSQL over a remote dependency. Today a different assistant is about to re-open the decision.","دیروز تیم PostgreSQL را به یک وابستگی راه‌دور ترجیح داد. امروز یک دستیار دیگر می‌خواهد همان تصمیم را دوباره بررسی کند."],"actions":[["Record a concise decision and rationale","تصمیم و دلیلش را کوتاه ثبت کن"],["Paste an entire unstructured conversation","تمام گفت‌وگو را بدون ساختار کپی کن"]],"outcomes":[["A dated decision links the choice to its constraints. The next assistant can retrieve it on demand.","یک تصمیم تاریخ‌دار انتخاب را به محدودیت‌هایش وصل می‌کند. دستیار بعدی به‌موقع آن را پیدا می‌کند."],["The decision is buried in unrelated messages and costs more context to retrieve.","تصمیم لابه‌لای پیام‌های نامرتبط گم می‌شود و زمینهٔ بیشتری مصرف می‌کند."]],"evidence":[["chat · yesterday","new session · today"],["decision · PostgreSQL","reason · local deployment"],["chat archive · long","decision · buried"]],"name":"ganjineh","kicker":["Team memory for AI agents","حافظهٔ تیمی برای ایجنت‌های هوش مصنوعی"],"intro":["Keep decisions alongside code in a shared Git notebook that coding assistants can read. No hosted account is required.","تصمیم‌ها را کنار کد در یک دفترچهٔ Git نگه دارید تا دستیارهای کدنویسی بتوانند آن را بخوانند. نیازی به حساب میزبانی نیست."],"hint":["Use a disposable Git repository and record one architectural decision. Check whether a new session can recover it from the notebook.","در یک مخزن آزمایشی Git یک تصمیم معماری ثبت کنید و ببینید نشست بعدی آن را از دفترچه پیدا می‌کند یا نه."],"site":"/ganjineh/","source":"https://github.com/mrzroot/ganjineh","layout":"shelf","hue":31,"image":"/assets/thumbs/ganjineh.webp"}],"labels":{"map":["Project Atlas","اطلس پروژه‌ها"],"mapIntro":["Four ways to explore the projects. Choose a project to see what it does and open its interactive introduction.","چهار مسیر برای گشتن میان پروژه‌ها. یکی را انتخاب کن تا ببینی چه کار می‌کند و معرفی تعاملی‌اش را باز کنی."],"agents":["AI tooling","ابزارهای هوش مصنوعی"],"language":["Language and data","زبان و داده"],"systems":["Systems","سامانه‌ها"],"showcase":["Design and demos","طراحی و دمو"],"projects":["All projects","همهٔ پروژه‌ها"],"open":["Interactive introduction","معرفی تعاملی"],"test":["Try the example","نمونه را امتحان کن"],"story":["The situation","مسئله"],"reference":["Inspect the project","بررسی پروژه"],"source":["View source on GitHub","کد منبع در گیت‌هاب"],"demo":["Open project website","باز کردن سایت پروژه"],"guide":["Suggested first step","قدم اول پیشنهادی"],"sample":["Illustrative sample","دادهٔ نمونه"],"result":["What happens","نتیجه"],"choose":["Try a response to see its effect.","یک کار را انتخاب کن و اثرش را ببین."],"still":["Initial state","حالت اولیه"],"reset":["Reset example","بازنشانی نمونه"],"more":["Explore another project","یک پروژهٔ دیگر ببین"]}}</script>
+  </div>
 
 <section id="how" class="how"><div class="wrap">
   <ol class="four">

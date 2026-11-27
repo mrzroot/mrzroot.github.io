@@ -27,17 +27,10 @@
     }));
 
     function theme() {
-      const light = document.documentElement.dataset.theme === 'light';
-      const ink = light ? '109,69,33' : '248,170,92';
-      const beam = light ? '187,102,30' : '255,178,87';
       palette = {
-        ink, beam,
-        rim: light ? '#9c693d' : '#ac7844',
-        deck: light ? '#dec096' : '#362116',
-        lower: light ? '#c09866' : '#281911',
-        upper: light ? '#f3dfbd' : '#51321b',
-        hub: light ? '#a36131' : '#e7a464',
-        hubGlow: light ? '#f0cf9c' : '#ffce8f'
+        ink:'217,180,123', beam:'255,203,117',
+        rim:'#a58155', deck:'#15303d', lower:'#091922',
+        upper:'#294c5a', hub:'#eeba70', hubGlow:'#fff1c1'
       };
       deckDirty = true;
       invalidate();
@@ -176,7 +169,7 @@
         if(active){
           const [x0,y0]=project(0,0,.22);
           path([[x0,y0],[node.baseX,node.baseY],[node.x,node.y]]);
-          ctx.strokeStyle='hsl('+hue+' 58% '+(document.documentElement.dataset.theme==='light'?'40%':'70%')+' / .78)';
+          ctx.strokeStyle='hsl('+hue+' 58% '+'74%'+' / .78)';
           ctx.lineWidth=1.35;ctx.stroke();
           if(!reduced.matches && rayAge<680){
             const progress=clamp(rayAge/640,0,1);

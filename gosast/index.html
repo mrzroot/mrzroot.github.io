@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="gosast.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Gosast","alternateName":"گسست","applicationCategory":"BrowserApplication","operatingSystem":"Chrome, Edge, Firefox","description":"A tiny, calm browser extension that turns the page you are looking at into paper you can tear, then puts it back with Esc. No network access, no account.","softwareVersion":"0.1.1","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","downloadUrl":"https://github.com/mrzroot/gosast/releases/download/v0.1.1/gosast-0.1.1-chrome.zip","codeRepository":"https://github.com/mrzroot/gosast","author":{"@type":"Person","name":"Mohammadreza Zare","url":"https://github.com/mrzroot"},"url":"https://mrzroot.github.io/gosast/","inLanguage":["fa","en"]}</script>
 <link rel="stylesheet" href="portfolio-reframe.css">
-<link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/home.css"></head>
+<link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/home.css"><link rel="stylesheet" href="/assets/portfolio/embed.css"><script defer src="/assets/portfolio/exhibit.js"></script></head>
 <body class="p-gosast">
 <script>(function(){var d=document.documentElement,m='system',l=null,q=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;try{m=localStorage.getItem('mrz-theme')||'system'}catch(e){}if(m!=='light'&&m!=='dark')m='system';var th=m==='system'?(q&&q.matches?'dark':'light'):m;d.setAttribute('data-theme',th);d.setAttribute('data-theme-mode',m);d.style.colorScheme=th;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')}catch(e){}if(l!=='en')l='fa';if(l==='en'){d.lang='en';d.dir='ltr'}})();</script>
 <a class="skip" href="#main"><span class="l-en">Skip to content</span><span class="l-fa" lang="fa">رفتن به محتوا</span></a>
@@ -61,11 +61,32 @@
     <p class="newbie"><span class="l-en">New to browser extensions? Hard words are explained <a href="#words">at the bottom</a>.</span><span class="l-fa" lang="fa">با افزونهٔ مرورگر آشنا نیستی؟ واژه‌های سخت <a href="#words">پایین صفحه</a> توضیح داده شده‌اند.</span></p>
   </div>
 </section>
-<aside class="exhibit-hub" data-motif="wipe" style="--exhibit-hue:13">
-  <img src="/assets/thumbs/gosast.webp" alt="" width="192" height="120" loading="lazy">
-  <div><strong><span class="pf-en" lang="en">Give a page a paper edge</span><span class="pf-fa" lang="fa">صفحه‌ای با لبهٔ کاغذی</span></strong><p><span class="pf-en" lang="en">A small browser toy: tear the visible page into paper strips, rearrange them, then return to the original page.</span><span class="pf-fa" lang="fa">یک سرگرمی مرورگری: نمای صفحه را به تکه‌های کاغذ تبدیل کنید، جابه‌جایشان کنید و بعد به صفحهٔ اصلی برگردید.</span></p></div>
-  <a href="/projects/guide/gosast/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a>
-</aside>
+<div class="atlas-embedded" data-motif="wipe" style="--exhibit-hue:13"><section class="exhibit-studio" id="portfolio-example" data-project="gosast" data-motif="wipe" data-state="0" aria-labelledby="portfolio-example-title">
+    <div class="exhibit-studio-head"><div><p class="exhibit-kicker"><span class="pf-en" lang="en">Illustrative sample</span><span class="pf-fa" lang="fa">دادهٔ نمونه</span></p><h2 id="portfolio-example-title"><span class="pf-en" lang="en">Reveal the preview</span><span class="pf-fa" lang="fa">پیش‌نمایش را آشکار کن</span></h2></div>
+       <a href="/projects/guide/gosast/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a></div>
+    <div class="exhibit-lab">
+      <div class="stage-picture" aria-hidden="true">
+        <div class="stage-sign"><i></i><i></i><i></i><strong dir="ltr">gosast</strong></div>
+        <img class="stage-cover" src="/assets/thumbs/gosast.webp" width="720" height="450" alt="" loading="lazy">
+        <div class="stage-track" dir="ltr"></div>
+        <div class="stage-evidence" dir="ltr"><span dir="auto">paper · intact</span></div>
+      </div>
+      <div class="stage-work">
+        <p><span class="pf-en" lang="en">The page is treated as paper. Preview where the tear should start and see how its origin changes the composition.</span><span class="pf-fa" lang="fa">صفحه را مثل کاغذ تصور کن. نقطهٔ شروع پارگی را عوض کن و شکل نهایی را ببین.</span></p>
+        <div class="stage-actions" role="group" aria-label="Example controls / کنترل‌های نمونه">
+          <button type="button" data-stage="1" aria-pressed="false"><span class="pf-en" lang="en">Tear from the margin</span><span class="pf-fa" lang="fa">از حاشیه پاره کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button><button type="button" data-stage="2" aria-pressed="false"><span class="pf-en" lang="en">Tear through the middle</span><span class="pf-fa" lang="fa">از میانه پاره کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button>
+        </div>
+        <output class="stage-result" aria-live="polite"><span class="pf-en" lang="en">Try a response to see its effect.</span><span class="pf-fa" lang="fa">یک کار را انتخاب کن و اثرش را ببین.</span></output>
+        <div class="stage-foot">
+          <button type="button" data-stage="0" aria-pressed="true"><span class="pf-en" lang="en">Reset example</span><span class="pf-fa" lang="fa">بازنشانی نمونه</span></button>
+
+        </div>
+      </div>
+    </div>
+   </section>
+    <p class="exhibit-takeaway"><span class="pf-en" lang="en">Compare the edge and center effects on the same example. Reset between experiments to restore the original composition.</span><span class="pf-fa" lang="fa">اثر پارگی از حاشیه و مرکز را روی همان نمونه مقایسه کن. بین دو تجربه، نما را به حالت اصلی برگردان.</span></p>
+    <script type="application/json" data-embed-project>{"entries":[{"id":"gosast","group":"showcase","motif":"wipe","color":"#ffb489","title":["Give a page a paper edge","صفحه‌ای با لبهٔ کاغذی"],"brief":["The page is treated as paper. Preview where the tear should start and see how its origin changes the composition.","صفحه را مثل کاغذ تصور کن. نقطهٔ شروع پارگی را عوض کن و شکل نهایی را ببین."],"actions":[["Tear from the margin","از حاشیه پاره کن"],["Tear through the middle","از میانه پاره کن"]],"outcomes":[["A narrow strip peels away while the central layout remains visible.","نوار باریکی از حاشیه جدا می‌شود و بخش مرکزی صفحه دیده می‌ماند."],["A broader edge opens through the center, revealing the backing underneath.","شکاف بزرگ‌تری از وسط باز می‌شود و لایهٔ زیر را نشان می‌دهد."]],"evidence":[["paper · intact"],["margin · 22%"],["section · 54%"]],"name":"gosast","kicker":["Browser extension, a calm toy","افزونهٔ مرورگر، یک اسباب‌بازی آرام"],"intro":["A small browser toy: tear the visible page into paper strips, rearrange them, then return to the original page.","یک سرگرمی مرورگری: نمای صفحه را به تکه‌های کاغذ تبدیل کنید، جابه‌جایشان کنید و بعد به صفحهٔ اصلی برگردید."],"hint":["Open a page you can safely experiment on, rearrange a few strips and use Esc to return to the original page.","در صفحه‌ای بی‌خطر چند نوار را جابه‌جا کنید و با Esc به نمای اصلی برگردید."],"site":"/gosast/","source":"https://github.com/mrzroot/gosast","layout":"poster","hue":13,"image":"/assets/thumbs/gosast.webp"}],"labels":{"map":["Project Atlas","اطلس پروژه‌ها"],"mapIntro":["Four ways to explore the projects. Choose a project to see what it does and open its interactive introduction.","چهار مسیر برای گشتن میان پروژه‌ها. یکی را انتخاب کن تا ببینی چه کار می‌کند و معرفی تعاملی‌اش را باز کنی."],"agents":["AI tooling","ابزارهای هوش مصنوعی"],"language":["Language and data","زبان و داده"],"systems":["Systems","سامانه‌ها"],"showcase":["Design and demos","طراحی و دمو"],"projects":["All projects","همهٔ پروژه‌ها"],"open":["Interactive introduction","معرفی تعاملی"],"test":["Try the example","نمونه را امتحان کن"],"story":["The situation","مسئله"],"reference":["Inspect the project","بررسی پروژه"],"source":["View source on GitHub","کد منبع در گیت‌هاب"],"demo":["Open project website","باز کردن سایت پروژه"],"guide":["Suggested first step","قدم اول پیشنهادی"],"sample":["Illustrative sample","دادهٔ نمونه"],"result":["What happens","نتیجه"],"choose":["Try a response to see its effect.","یک کار را انتخاب کن و اثرش را ببین."],"still":["Initial state","حالت اولیه"],"reset":["Reset example","بازنشانی نمونه"],"more":["Explore another project","یک پروژهٔ دیگر ببین"]}}</script>
+  </div>
 
 <div class="layer"><section class="sheet s-desk" id="try"><div class="wrap">
   <h2><span class="l-en">Try it right here</span><span class="l-fa" lang="fa">همین‌جا امتحانش کن</span></h2>

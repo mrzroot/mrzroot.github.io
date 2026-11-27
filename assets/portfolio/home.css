@@ -127,3 +127,27 @@ html[data-theme=light] .pf-atlas{--atlas-back:#f8edda;--atlas-panel:#fffaef;--at
 .atlas-map.has-radar .atlas-point-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .atlas-map.has-radar:not(.radar-ready) .atlas-points{visibility:hidden}
 @media(max-width:45rem){.atlas-map.has-radar{height:clamp(305px,89vw,440px)}.atlas-map.has-radar .atlas-point{min-width:3.9rem;padding:.28rem .4rem;gap:.23rem}}
+.pf-mark .mrz-object,html[data-theme=light] .pf-mark .mrz-object{
+  --metal-line:#a48156;--metal-ink:#fff0c7;color:#fff0c7;
+  background:radial-gradient(ellipse at 50% 61%,#1d5260 0%,#142c3a 39%,#101c28 71%,#0a1520);
+  box-shadow:inset 0 0 0 1px #e8be8544,0 15px 36px #11273729
+}
+.mrz-object::before{background:radial-gradient(circle,#f7cb9057 1px,transparent 1.2px) 50% 50%/16px 16px}
+.mrz-object .object-seam{border-color:#efc69371;box-shadow:0 0 0 1.5rem #e7b77715,0 0 0 3.5rem #dca25b08}
+.mrz-object .object-cradle,html[data-theme=light] .mrz-object .object-cradle{background:#08182197}
+.mrz-object .object-fallback{color:#ffe2a7;text-shadow:0 .05em #af713b,0 .095em #683d24,0 .15em .08em #050c14}
+.atlas-map.has-radar[data-layout=orbit]{
+  background:radial-gradient(ellipse at 51% 60%,#224654,#111e2b 77%);
+  box-shadow:inset 0 0 0 1px #e8be8544
+}
+.atlas-map.has-radar .atlas-point{
+  background:#172933;color:#fff2d9;border-color:#8f7557;
+  box-shadow:0 3px 0 #080f17,0 6px 15px #02080db8
+}
+.atlas-map.has-radar .atlas-point[aria-pressed=true]{
+  color:#182731;background:#f5d69d;border-color:#fff0c6;
+  box-shadow:0 3px 0 #a36835,0 0 20px #ecbc759c
+}
+.atlas-map.has-radar .atlas-point-mark{border-color:#e4b880}
+.atlas-map.has-radar .atlas-point[aria-pressed=true] .atlas-point-mark{border-color:#745335}
+.atlas-orbit-tools button,.atlas-orbit-tools button[aria-pressed=true]{background:#182e3b;color:#ffe7b5;border-color:#9e805d}

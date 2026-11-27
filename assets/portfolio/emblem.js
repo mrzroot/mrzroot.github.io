@@ -14,7 +14,7 @@
     { x: 0.82, tone: 2, shape: [[0,0],[1.03,0],[1.03,0.26],[0.37,0.26],[1.02,1.19],[1.02,1.42],[0,1.42],[0,1.16],[0.66,1.16],[0,0.24]] }
   ];
   const palettes = {
-    brass: [[224,161,75],[250,204,123],[199,131,60]],
+    brass: [[243,176,93],[255,229,162],[235,145,78]],
     copper: [[230,146,89],[249,179,129],[193,107,65]],
     alloy: [[220,199,159],[248,223,170],[179,150,112]]
   };
@@ -73,15 +73,15 @@
   }
 
   function updateColors() {
-    const light = document.documentElement.dataset.theme === 'light';
     const swatches = palettes[finishes[material]];
     colors = bins.map((_, index) => {
       const depth = Math.floor(index / 6);
       const tone = Math.floor(index % 6 / 2);
       const front = index % 2;
-      const strength = light ? .56 + depth * .035 + front * .085 : .60 + depth * .045 + front * .18;
-      const alpha = light ? (front ? .98 : .58) : (front ? .99 : .66);
-      return 'rgba(' + swatches[tone].map(value => clamp(Math.round(value * strength),0,255)).join(',') + ',' + alpha + ')';
+      const strength = .74 + depth * .049 + front * .22;
+      const alpha = front ? 1 : .74;
+      const glint = front && (depth % 3 === 1) ? 16 : 0;
+      return 'rgba(' + swatches[tone].map(value => clamp(Math.round(value * strength + glint),0,255)).join(',') + ',' + alpha + ')';
     });
   }
 
